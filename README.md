@@ -45,3 +45,7 @@
 ```
  $ npm run lint src
 ```
+### `SASS processing on the client`
+Styling with `sass` is supported in this project. To use `sass`, just put your `sass` styling in a `.scss` file.
+`Import` your `.scss` file whenever you need it. It is going to be compiled minified and bundled together with the rest of the project.
+This project also supports the use of `.css` files. `Import` your `.css` file whenever you need it. Just like .scss files, it is going to compiled minified and bundled together with the rest of the project.
