@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests homepage component tests the homepage component 1`] = `
+<div
+  className="columns"
+>
+  <Bootstrap(Row)>
+    <Col
+      className="col"
+    >
+      <Container
+        fluid={false}
+      >
+        <h1
+          className="homepage"
+        >
+          Welcome to your articles Community
+        </h1>
+        <br />
+        <Form
+          inline={false}
+        >
+          <FormControl
+            className="font-awesome"
+            placeholder="  Search for articles"
+            type="text"
+          />
+        </Form>
+      </Container>
+      <Container
+        className="home"
+        fluid={false}
+      >
+        <p>
+          <b>
+            Who is Authors Haven for?
+          </b>
+        </p>
+        <p>
+          Anyone looking to inspire and be inspired by ideas
+        </p>
+        <p>
+          Join fellow authors and enthusiasts in Authors Haven
+        </p>
+        <Button
+          active={false}
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+          variant="primary"
+        >
+          Get Started
+        </Button>
+        <SignupModal
+          closeModal={[MockFunction]}
+          handleChange={[MockFunction]}
+          handleSubmit={[MockFunction]}
+          show={false}
+        />
+      </Container>
+    </Col>
+    <Col
+      className="homepageimg"
+    >
+      <img
+        alt=""
+        height="400"
+        src="test-file-stub"
+        width="450"
+      />
+    </Col>
+  </Bootstrap(Row)>
+</div>
+`;

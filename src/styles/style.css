@@ -1,0 +1,36 @@
+.signup-modal p {
+    margin-left: 350%;
+    width: 100%;
+
+}
+
+.modal-form {
+    margin-left: 10%;
+    width: 100%;
+}
+
+.modal-form label {
+    font-weight: bold;
+    width: 80%;
+
+}
+
+.modal-form input {
+    width: 100%;
+    margin-bottom: 4%;
+    height: 3em;
+}
+
+.modal-form .btn {
+    background-color: #2977C9;
+    color: #FFFFFF;
+    width: 80.5%;
+    font-weight: bold;
+}
+
+.modal-body p {
+    font-weight: 145;
+    color: #7A8188;
+    margin-left: 45%;
+    margin-top: 5%;
+}

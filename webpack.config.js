@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotEnvPlugin = require('dotenv-webpack');
 
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
@@ -24,15 +25,35 @@ module.exports = {
       ]
     },
     {
-      test: /\.(png|jp(e*)g|svg)$/,  
-      use: [{
-        loader: 'url-loader',
-        options: {
-          limit: 8000, // Convert images < 8kb to base64 strings
-          name: 'images/[hash]-[name].[ext]'
-        } 
-      }]
-    },
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      use: [
+        'file-loader',
+        {
+          loader: 'image-webpack-loader',
+          options: {
+            mozjpeg: {
+              progressive: true,
+              quality: 65
+            },
+            // optipng.enabled: false will disable optipng
+            optipng: {
+              enabled: false,
+            },
+            pngquant: {
+              quality: '65-90',
+              speed: 4
+            },
+            gifsicle: {
+              interlaced: false,
+            },
+            // the webp option will enable WEBP
+            webp: {
+              quality: 75
+            }
+          }
+        },
+      ],
+    }
     ],
   },
   devServer: {
@@ -45,6 +66,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new DotEnvPlugin({ systemvars: true })
   ],
   resolve: {
     extensions: ['.js', '.jsx'],

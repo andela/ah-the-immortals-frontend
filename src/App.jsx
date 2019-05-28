@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import Login from './components/Login';
+import { Switch, Route, Router } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import login from './components/Login';
 import PageNotFound from './components/NotFoundComponent';
-import home from './components/home';
+import home from './views/home/HomeContainer';
 
 const history = createBrowserHistory();
 export default class App extends Component {
@@ -14,7 +17,7 @@ export default class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={home} />
-              <Route exact path="/Login" component={Login} />
+              <Route exact path="/Login" component={login} />
               <Route component={PageNotFound} />
             </Switch>
           </div>
