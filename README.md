@@ -8,12 +8,40 @@
 ##### `This project is hosted here`
 [https://ah-immortals-frontend-staging.herokuapp.com/](https://ah-immortals-frontend-staging.herokuapp.com/)
 
-## `Available Scripts`
-    In the project directory, you can run:
 
-### `npm install`
-    To Install the dependencies
+### `Local Development Setup`
+- Clone the Repository [here](https://github.com/andela/ah-the-immortals-frontend.git)
 
-### `npm run start:dev`
-    To run the app in the development mode
+```
+ $ git clone https://github.com/andela/ah-the-immortals-frontend.git
+```
 
+- Move in to the Project Directory (Develop branch)
+
+```
+ $ cd ah-the-immortals-frontend
+```
+
+- Install dependencies
+
+```
+ $ npm install
+```
+
+- Run Application (Development mode)
+
+```
+ $ npm run start:dev
+```
+
+- Run Tests
+
+```
+ $ npm run test
+```
+
+- Run Linting
+
+```
+ $ npm run lint src
+```
