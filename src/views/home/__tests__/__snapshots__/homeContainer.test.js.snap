@@ -35,9 +35,58 @@ exports[`Tests Home container Tests mounting of component 1`] = `
       }
     }
   >
-    <Connect(Home)>
+    <Connect(Home)
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
       <Home
+        facebookAuth={[Function]}
+        googleAuth={[Function]}
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
         signInAction={[Function]}
+        signindata={
+          Object {
+            "errors": Object {},
+            "user": Object {},
+          }
+        }
         signup={[Function]}
         signupdata={
           Object {
@@ -45,6 +94,7 @@ exports[`Tests Home container Tests mounting of component 1`] = `
             "user": Object {},
           }
         }
+        twitterAuth={[Function]}
       >
         <div>
           <ToastContainer
@@ -257,12 +307,15 @@ exports[`Tests Home container Tests mounting of component 1`] = `
             >
               <HomePage
                 closeModal={[Function]}
+                facebook={[Function]}
+                google={[Function]}
                 handleChange={[Function]}
                 handleSignInSubmit={[Function]}
                 handleSubmit={[Function]}
                 show={false}
                 showModal={[Function]}
                 signInShow={false}
+                twitter={[Function]}
               >
                 <div
                   className="columns"
@@ -350,9 +403,12 @@ exports[`Tests Home container Tests mounting of component 1`] = `
                                 </Button>
                                 <SignupModal
                                   closeModal={[Function]}
+                                  facebook={[Function]}
+                                  google={[Function]}
                                   handleChange={[Function]}
                                   handleSubmit={[Function]}
                                   show={false}
+                                  twitter={[Function]}
                                 >
                                   <Bootstrap(Modal)
                                     onHide={[Function]}
@@ -426,9 +482,12 @@ exports[`Tests Home container Tests mounting of component 1`] = `
                                 </SignupModal>
                                 <LogInModal
                                   closeModal={[Function]}
+                                  facebook={[Function]}
+                                  google={[Function]}
                                   handleChange={[Function]}
                                   handleSignInSubmit={[Function]}
                                   signInShow={false}
+                                  twitter={[Function]}
                                 >
                                   <Bootstrap(Modal)
                                     onHide={[Function]}

@@ -8,12 +8,18 @@ import Navbar from '../../components/home/HomeNavBar';
 import HomePage from '../../components/home/HomeInfo';
 import signUpAction from '../../redux/actions/SignUp.action';
 import signInAction from '../../redux/actions/SignIn.action';
+import { facebookAuth, googleAuth, twitterAuth } from '../../redux/actions/SocialAuth.action';
+
 
 class Home extends Component {
   static propTypes = {
     signup: PropTypes.func.isRequired,
     signupdata: PropTypes.object.isRequired,
-    signInAction: PropTypes.func.isRequired
+    signInAction: PropTypes.func.isRequired,
+    facebookAuth: PropTypes.func.isRequired,
+    googleAuth: PropTypes.func.isRequired,
+    twitterAuth: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired
   };
   state = {
     show: false,
@@ -75,7 +81,7 @@ class Home extends Component {
     const { signInAction } = this.props;
     await signInAction(this.state);
     // istanbul ignore next
-    const { signindata,history } = this.props;
+    const { signindata, history } = this.props;
     // istanbul ignore next
     if(signindata.user.email){
       this.setState({
@@ -84,9 +90,42 @@ class Home extends Component {
       history.push('/dummyposts');
     }
     
-  };
+  };  
+  handleFacebook = async (e) => {
+    e.preventDefault();
+    const { facebookAuth: facebook, history } = this.props;
+    await facebook();
+    this.setState({
+      show: false,
+      signInShow: false
+    });
+    history.push('/dummyposts');
+  }
+  handleGoogle = async (e) => {
+    e.preventDefault();
+    const { googleAuth: google, history } = this.props;
+    await google();
+    this.setState({
+      show: false,
+      signInShow: false
+    });
+    history.push('/dummyposts');
+  }
+  handleTwitter = async (e) => {
+    e.preventDefault();
+    const { twitterAuth: twitter, history } = this.props;
+    await twitter();
+    this.setState({
+      show: false,
+      signInShow: false
+    });
+    history.push('/dummyposts');
+  }
   render = () => {
     const { show, signInShow } = this.state;
+    const facebook = this.handleFacebook;
+    const google = this.handleGoogle;
+    const twitter = this.handleTwitter;
     return (
       <div>
         <ToastContainer />
@@ -100,6 +139,9 @@ class Home extends Component {
             handleSubmit={this.handleSubmit}
             handleSignInSubmit={this.handleSignInSubmit}
             signInShow={signInShow}
+            facebook={facebook}
+            google={google}
+            twitter={twitter}
           />
         </Container>
         <Footer />
@@ -113,4 +155,5 @@ const mapStateToProps = ({ signup, signin }) => {
     signindata: signin
   };
 };
-export default connect(mapStateToProps, { signup: signUpAction, signInAction })(Home);
+
+export default connect(mapStateToProps, { signup: signUpAction, signInAction, facebookAuth, twitterAuth, googleAuth })(Home);

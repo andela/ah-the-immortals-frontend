@@ -101,7 +101,7 @@
     height: 3em;
 }
 
-.right-container button {
+#sign {
     background-color: #2977C9;
     color: #FFFFFF;
     font-weight: bold;
@@ -135,32 +135,6 @@
     font-size: 2em;  
 }
 
-.reset-div {
-    margin-top: 10px;
-    margin-right: 70%;
-    font-weight: lighter;
-    font-size: 16px;
-    text-align: left;
-}
-
-.twitter {
-    background: #4099FF;
-	color: #FFFFFF;
-    padding: 0.05em 0.07em; 
-    border-radius: 50%;
-	margin: 0.2em;
-}
-
-.facebook {
-    background: #FFFFFF;
-	color: #3B5998;
-	margin: 0.2em;
-}
-
-.google {
-    color: rgb(221, 75, 57);
-    margin: 0.2em;
-}
 
 .top {
     margin-top: 20%;
@@ -196,4 +170,13 @@
 .confirm-input {
     width: 70%;
     margin-bottom: 5%;
+}
+
+.top {
+    margin-top: 20%;
+}
+
+.social {
+    background: white;
+    margin-right: 10px;
 }

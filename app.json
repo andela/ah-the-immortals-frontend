@@ -4,6 +4,12 @@
     "env": {
       "REACT_APP_BASE_URL": {
         "required": true
+      },
+      "REACT_APP_FIREBASE_KEY": {
+        "required": true
+      },
+      "REACT_APP_FIREBASE_DOMAIN": {
+        "required": true
       }
     },
     "formation": {

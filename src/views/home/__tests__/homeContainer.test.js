@@ -13,15 +13,22 @@ import Home from '../HomeContainer';
 import LogInModal from '../../../components/Login/LogInModal';
 import LogInForm from '../../../components/Login/LogInForm';
 
+
 describe('Tests Home container', () => {
   const store = configureStore([thunk])({
-    signup: { user: {}, errors: {} }
+    signup: { user: {}, errors: {} },
+    signin: {
+      user: {},
+      errors: {}
+    }
   });
   const history = createBrowserHistory();
   const wrapper = mount(
     <Router history={history}>
       <Provider store={store}>
-        <Home />
+        <Home 
+          history={history}
+        />
       </Provider>
     </Router>
   );
@@ -111,5 +118,26 @@ describe('Tests Home container', () => {
       preventDefault: jest.fn()
     });
     expect(submitBtn.length).toEqual(1);
+  });
+  it('simulates click facebook',()=>{
+    const fbBtn = wrapper.find('button[id="fb"]').first();
+    fbBtn.simulate('click',{
+      preventDefault: jest.fn()
+    });
+    expect(fbBtn.length).toEqual(1);
+  });
+  it('simulates click google',() => {
+    const googleBtn = wrapper.find('button[id="ggl"]').first();
+    googleBtn.simulate('click',{
+      preventDefault: jest.fn()
+    });
+    expect(googleBtn.length).toEqual(1);
+  });
+  it('simulates click twitter',() => {
+    const twtBtn = wrapper.find('button[id="twt"]').first();
+    twtBtn.simulate('click',{
+      preventDefault: jest.fn()
+    });
+    expect(twtBtn.length).toEqual(1);
   });
 });

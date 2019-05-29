@@ -4,6 +4,11 @@
     padding-top: 1%;
 }
 
+.modal-form label {
+    font-weight: bold;
+    width: 80%;
+}
+
 .modal-form input {
     width: 80%;
     margin-bottom: 4%;
@@ -16,6 +21,13 @@
     color: #FFFFFF;
     width: 80.5%;
     font-weight: bold;
+}
+
+.modal-body p {
+    font-weight: 145;
+    color: #7A8188;
+    margin-left: 43%;
+    margin-top: 0%;
 }
 
 .form-div {
@@ -41,6 +53,7 @@ h2 {
 }
 
 h2 span {
+    /* background: #fff; */
     padding: 0 10px;
 }
 
@@ -76,10 +89,18 @@ h2 span {
     font-weight: lighter;
 }
 
-
 label {
     width: 100%;
     margin-bottom: 4%;
     height: 3em;
     margin-bottom: 10%;
 }
+
+.social-icons {
+    font-weight: 145;
+    color: #7A8188;
+    margin-left: 15%;
+    margin-top: 0%;
+    margin-bottom: 5%;
+}
+

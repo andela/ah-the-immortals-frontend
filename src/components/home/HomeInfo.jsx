@@ -19,7 +19,10 @@ const HomePage = ({
   closeModal,
   handleChange,
   handleSubmit,
-  handleSignInSubmit
+  handleSignInSubmit,
+  facebook,
+  twitter,
+  google
 }) => {
   return (
     <div className="columns">
@@ -50,12 +53,18 @@ const HomePage = ({
               closeModal={closeModal}
               handleChange={handleChange}
               handleSubmit={handleSubmit}
+              facebook={facebook}
+              google={google}
+              twitter={twitter}
             />
             <LogInModal
               signInShow={signInShow}
               closeModal={closeModal}
               handleChange={handleChange}
               handleSignInSubmit={handleSignInSubmit}
+              facebook={facebook}
+              google={google}
+              twitter={twitter}
             />
           </Container>
         </Col>
@@ -74,7 +83,10 @@ HomePage.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleSignInSubmit: PropTypes.func.isRequired,
-  signInShow: PropTypes.bool.isRequired
+  signInShow: PropTypes.bool.isRequired,
+  facebook: PropTypes.func.isRequired,
+  google: PropTypes.func.isRequired,
+  twitter: PropTypes.func.isRequired,
 };
 
 export default HomePage;

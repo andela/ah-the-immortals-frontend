@@ -14,6 +14,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <ToastContainer />
         <Router history={history}>
           <div>
             <ToastContainer 

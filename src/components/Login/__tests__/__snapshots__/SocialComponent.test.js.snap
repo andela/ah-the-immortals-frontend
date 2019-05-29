@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SocialComponent/> renders social component 1`] = `
+<SocialComponent
+  facebook={[MockFunction]}
+  google={[MockFunction]}
+  twitter={[MockFunction]}
+>
+  <div>
+    <button
+      className="btn btn-link"
+      id="fb"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      <img
+        alt="avatar"
+        src="https://img.icons8.com/color/48/000000/facebook-circled.png"
+      />
+    </button>
+    <button
+      className="btn btn-link"
+      id="ggl"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      <img
+        alt="avatar"
+        src="https://img.icons8.com/color/48/000000/google-plus.png"
+      />
+    </button>
+    <button
+      className="btn btn-link"
+      id="twt"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      <img
+        alt="avatar"
+        src="https://img.icons8.com/color/48/000000/twitter-circled.png"
+      />
+    </button>
+  </div>
+</SocialComponent>
+`;

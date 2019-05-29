@@ -11,7 +11,10 @@ const props = {
   handleSubmit: jest.fn(),
   handleSignInShow: jest.fn(),
   signInShow: false,
-  handleSignInSubmit: jest.fn()
+  handleSignInSubmit: jest.fn(),
+  facebook: jest.fn(),
+  google: jest.fn(),
+  twitter: jest.fn()
 };
 
 describe('Tests homepage component', () => {
