@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginForm/> renders login form component 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <LogInForm
+    handleChange={[MockFunction]}
+    handleSignInSubmit={[MockFunction]}
+  >
+    <form
+      className="modal-form"
+      onSubmit={[MockFunction]}
+    >
+      <label
+        htmlFor="email"
+      >
+        <input
+          className="form-control"
+          name="email"
+          onChange={[MockFunction]}
+          placeholder="Email"
+          required={true}
+          type="email"
+        />
+      </label>
+      <label
+        htmlFor="password"
+      >
+        <input
+          className="form-control"
+          name="password"
+          onChange={[MockFunction]}
+          placeholder="Password"
+          required={true}
+          type="password"
+        />
+      </label>
+      <Button
+        active={false}
+        className="form-control btn"
+        disabled={false}
+        type="submit"
+        value="SIGN IN"
+        variant="info"
+      >
+        <button
+          className="form-control btn btn btn-info"
+          disabled={false}
+          type="submit"
+          value="SIGN IN"
+        >
+          SIGN IN
+        </button>
+      </Button>
+      <div
+        className="reset-div"
+      >
+        <Link
+          className="passreset-link"
+          to="/reset"
+        >
+          <a
+            className="passreset-link"
+            href="/reset"
+            onClick={[Function]}
+          >
+            Forgot Password?
+          </a>
+        </Link>
+      </div>
+    </form>
+  </LogInForm>
+</Router>
+`;

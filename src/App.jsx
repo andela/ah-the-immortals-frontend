@@ -3,13 +3,11 @@ import { createBrowserHistory } from 'history';
 import { Switch, Route, Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 import PageNotFound from './components/NotFoundComponent';
 import home from './views/home/HomeContainer';
-import Login from './components/Login';
 import PasswordResetForm from './views/password_reset/PasswordResetContainer';
 import passwordResetConfirm from './views/password_reset/PasswordResetConfirmContainer';
+import DummyPost from './components/DummyPosts/DummyPosts';
 
 const history = createBrowserHistory();
 export default class App extends Component {
@@ -28,9 +26,9 @@ export default class App extends Component {
             />
             <Switch>
               <Route exact path="/" component={home} />
-              <Route exact path="/Login" component={Login} />
               <Route exact path="/reset" component={PasswordResetForm} />
               <Route path="/resetconfirm/:token" component={passwordResetConfirm} /> 
+              <Route exact path="/dummyposts" component={DummyPost} />
               <Route component={PageNotFound} />
             </Switch>
           </div>
