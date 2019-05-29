@@ -1,4 +1,152 @@
-.test {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background: rgba(3, 578, 76, 4);
+.brand-text {
+    color: white;
+    font-family: Helvetica;
+}
+
+.margins {
+    margin-left: 73%;
+}
+
+.homepage {
+    color: #2977C9;
+    font-family: Helvetica;
+    font-weight: 300;
+    margin-top: 6%;
+    word-spacing: 15px;
+}
+
+.font-awesome {
+    padding: 10px;
+    font-family: 'Font Awesome 5 Free', Helvetica;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+
+.homepageimg {
+    margin-left: 8%;
+    margin-top: 3%;
+}
+
+.home {
+    text-align: left;
+    word-spacing: normal;
+    font-size: 2em;
+    margin-top: 8%;
+    margin-bottom: 20%;
+}
+
+.footer {
+    text-align: center;
+    background: white;
+    word-spacing: 6px;
+}
+
+.homenav {
+    background-color: #2977C9;
+}
+
+.left-container {
+    background-color: #2977C9;
+    color: #FFFFFF;
+    font-weight: bolder;
+    height: 100vh;
+    margin-bottom: 0px;
+}
+
+.right-container {
+    background-color: #FFFFFF;
+    color: black;
+    height: 100vh;
+    margin-bottom: 0px;
+}
+
+.title-text {
+    color: #FFFFFF;
+    font-size: 250%;
+    margin-top: 10%;
+    margin-left: 30%;
+}
+
+.mini-text {
+    font-size: 150%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.small-text {
+    font-weight: lighter;
+    text-align: center;
+}
+
+.right-container form {
+    margin-left: 15%;
+    width: 70%;
+    margin-top: 5%;
+}
+
+.right-container form label {
+    width: 100%;
+    font-weight: bold;
+    height: 50px;
+    margin-bottom: 10%;
+}
+
+.right-container input {
+    height: 3em;
+}
+
+.right-container button {
+    background-color: #2977C9;
+    color: #FFFFFF;
+    font-weight: bold;
+    height: 3em;
+}
+
+.form-title {
+    font-weight: bold;
+    font-size: 200%;
+    margin-top: 6%;
+    text-align: center;
+}
+
+.signup-btn {
+    margin-left: 30%;
+    width: 40%;
+    margin-top: 10%;
+
+}
+
+.option-text {
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 5%;
+}
+
+.round-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 3em;  
+}
+
+.reset-div {
+    margin-top: 10px;
+    margin-right: 70%;
+    font-weight: lighter;
+    font-size: 16px;
+    text-align: left;
+}
+
+.twitter {
+    color: #2977C9;
+    margin-right: 15px; 
+}
+
+.google {
+    color: rgb(221, 75, 57);
+}
+
+.top {
+    margin-top: 20%;
 }
