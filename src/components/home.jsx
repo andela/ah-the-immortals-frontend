@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
+import { Container } from 'react-bootstrap';
+import Footer from './homeFooter';
+import Navbar from './homeNavbar';
+import HomePage from './homeInfo';
 
 export class Home extends Component {
   render() {
     return (
-      <div className="test">
-        <h1>Immortals Ah Works</h1>
+      <div>
+        <Navbar />
+        <Container className="homepage">
+          <HomePage />
+        </Container>
+        <Footer />
       </div>
     );
   }
