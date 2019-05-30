@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
+import profileImage from '../../services/images/profile.png';
 
 import '../../styles/App.css';
 
@@ -12,9 +14,9 @@ const DammyNav = () => (
       <Navbar.Collapse>
         <Nav className="justify-content-end" style={{ width: '100%' }}>
           <Nav.Item>
-            <Button variant="danger" className="buttons">
-              my profile
-            </Button>
+            <Link to="/profile">
+              <Button variant="outline-light" className="buttons prifile-button">Profile</Button>
+            </Link>
           </Nav.Item>
           <Nav.Item>
             <Button

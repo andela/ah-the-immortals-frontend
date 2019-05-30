@@ -9,6 +9,7 @@ import PasswordResetForm from './views/password_reset/PasswordResetContainer';
 import passwordResetConfirm from './views/password_reset/PasswordResetConfirmContainer';
 // eslint-disable-next-line import/no-named-as-default
 import DummyPost from './components/DummyPosts/DummyPosts';
+import Profile from './views/profiles/ViewProfile';
 
 const history = createBrowserHistory();
 export default class App extends Component {
@@ -30,10 +31,12 @@ export default class App extends Component {
               <Route exact path="/reset" component={PasswordResetForm} />
               <Route path="/resetconfirm/:token" component={passwordResetConfirm} /> 
               <Route exact path="/dummyposts" component={DummyPost} />
+              <Route exact path="/Profile" component={Profile} />
               <Route component={PageNotFound} />
             </Switch>
           </div>
         </Router>
+        <ToastContainer />
       </div>
     );
   }
