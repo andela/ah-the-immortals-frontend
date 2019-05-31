@@ -1,10 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faGooglePlus } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faTwitter, faGooglePlus } from '@fortawesome/free-brands-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core'; 
 import { Button } from 'react-bootstrap';
 
-library.add(faFacebookF, faTwitter, faGooglePlus);
+library.add(faFacebook, faTwitter, faGooglePlus);
 
 const LoginForm = () => (
   <form>
@@ -33,7 +33,7 @@ const LoginForm = () => (
     </div>
     <div className="round-icon">
       <FontAwesomeIcon icon={['fab', 'twitter']} className="twitter" />
-      <FontAwesomeIcon icon={['fab', 'facebook-f']} className="twitter" />
+      <FontAwesomeIcon icon={['fab', 'facebook']} className="facebook" />
       <FontAwesomeIcon icon={['fab', 'google-plus']} className="google" />
     </div>
   </form>
