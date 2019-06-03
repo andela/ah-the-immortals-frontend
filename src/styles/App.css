@@ -1,12 +1,16 @@
 .brand-text {
     color: white;
     font-family: Helvetica;
+    margin-left: 30%;
 }
 
 .margins {
     margin-left: 73%;
 }
 
+.buttons {
+    margin-right: 20px;
+}
 .homepage {
     color: #2977C9;
     font-family: Helvetica;
@@ -22,24 +26,25 @@
     font-weight: normal;
     text-decoration: inherit;
 }
-
+.columns { 
+    min-width: 800px;
+}
+.col {
+    margin-top: 2%;
+}
 .homepageimg {
     margin-left: 8%;
-    margin-top: 3%;
+    margin-top: 4%;
+    max-width: 100%;
+    height: auto;
 }
 
 .home {
     text-align: left;
     word-spacing: normal;
     font-size: 2em;
-    margin-top: 8%;
+    margin-top: 7%;
     margin-bottom: 20%;
-}
-
-.footer {
-    text-align: center;
-    background: white;
-    word-spacing: 6px;
 }
 
 .homenav {
@@ -52,6 +57,7 @@
     font-weight: bolder;
     height: 100vh;
     margin-bottom: 0px;
+    
 }
 
 .right-container {
@@ -127,7 +133,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-size: 3em;  
+    font-size: 4em;  
 }
 
 .reset-div {
@@ -139,14 +145,28 @@
 }
 
 .twitter {
-    color: #2977C9;
-    margin-right: 15px; 
+    background: #4099FF;
+	color: #FFFFFF;
+    padding: 0.05em 0.07em; 
+    border-radius: 50%;
+	margin: 0.2em;
+}
+
+.facebook {
+    background: #FFFFFF;
+	color: #3B5998;
+	margin: 0.2em;
 }
 
 .google {
     color: rgb(221, 75, 57);
+    margin: 0.2em;
 }
 
 .top {
     margin-top: 20%;
+}
+
+.footmargin {
+    margin-left: 4%;
 }

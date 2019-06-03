@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test dummy login returns div element 1`] = `ReactWrapper {}`;

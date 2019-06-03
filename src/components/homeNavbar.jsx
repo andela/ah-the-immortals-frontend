@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export class Navigationbar extends Component {
   render() {
     return (
       <div>
         <Navbar className="homenav fixed-top">
-          <Navbar.Brand href="/"><div className="brand-text"><b>Authors Haven</b></div></Navbar.Brand>
-          <div className="margins">
-            <Nav>
-              <Nav.Link href="#"><Button variant="danger">Join now</Button></Nav.Link> 
-              <Nav.Link href="/Login"><Button variant="outline-light">Sign In</Button></Nav.Link> 
+          <Navbar.Brand><Link to="/" className="brand-text"><b>Authors Haven</b></Link></Navbar.Brand>
+          <Navbar.Collapse>
+            <Nav className="justify-content-end" style={{ width: '100%' }}>
+              <Nav.Item><Link to="#null"><Button variant="danger" className="buttons">Join now</Button></Link></Nav.Item> 
+              <Nav.Item><Link to="/Login"><Button variant="outline-light" className="buttons">Sign In</Button></Link></Nav.Item> 
             </Nav>
-          </div>
+          </Navbar.Collapse>
         </Navbar>
       </div>
     );

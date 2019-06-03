@@ -3,19 +3,18 @@ import { Container, Col, Row, Form, FormControl, Button } from 'react-bootstrap'
 import homepageimage from '../services/images/homepage.png';
 
 const HomePage = () => (
-  <div>
+  <div className="columns">
     <Row>
-      <Col>
-        <h1 className="homepage">
-              Welcome to your articles
-          <br /> 
-                Community
-        </h1>
-        <br />
-        <br />
-        <Form>
-          <FormControl type="text" placeholder="&#xF002;  Find your favourite articles" className="font-awesome" />
-        </Form>
+      <Col className="col">
+        <Container>
+          <h1 className="homepage">
+              Welcome to your articles Community
+          </h1>
+          <br />
+          <Form>
+            <FormControl type="text" placeholder="&#xF002;  Search for articles" className="font-awesome" />
+          </Form>
+        </Container>
         <Container className="home">
           <p><b>Who is Authors Haven for?</b></p>
           <p>Anyone looking to inspire and be inspired by ideas</p>
