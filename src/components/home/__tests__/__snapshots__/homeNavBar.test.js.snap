@@ -36,15 +36,19 @@ exports[`Tests navigation Bar Tests navigation Bar component 1`] = `
           </Button>
         </NavItem>
         <NavItem>
-          <Button
-            active={false}
-            className="buttons"
-            disabled={false}
-            type="button"
-            variant="outline-light"
+          <Link
+            to="/login"
           >
-            Sign In
-          </Button>
+            <Button
+              active={false}
+              className="buttons"
+              disabled={false}
+              type="button"
+              variant="outline-light"
+            >
+              Sign In
+            </Button>
+          </Link>
         </NavItem>
       </Nav>
     </NavbarCollapse>

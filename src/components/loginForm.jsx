@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faGooglePlus } from '@fortawesome/free-brands-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core'; 
@@ -25,7 +26,7 @@ const LoginForm = () => (
     </Button>
     <br />
     <div className="reset-div">
-      <a href="#null" className="passreset-link">Forgot Password?</a>
+      <Link to="/reset" className="passreset-link">Forgot Password?</Link>
     </div>
     <div>
       <hr />

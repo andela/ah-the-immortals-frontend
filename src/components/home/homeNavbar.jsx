@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import '../../styles/App.css';
@@ -10,7 +11,7 @@ const Navigationbar = ({ showModal }) => (
       <Navbar.Collapse>
         <Nav className="justify-content-end" style={{ width: '100%' }}>
           <Nav.Item><Button variant="danger" className="buttons" onClick={showModal}>Join now</Button></Nav.Item>
-          <Nav.Item><Button variant="outline-light" className="buttons">Sign In</Button></Nav.Item>
+          <Nav.Item><Link to="/login"><Button variant="outline-light" className="buttons">Sign In</Button></Link></Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

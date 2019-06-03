@@ -1,371 +1,378 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tests Home container Tests mounting of component 1`] = `
-<Provider
-  store={
+<Router
+  history={
     Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
     }
   }
 >
-  <Connect(Home)>
-    <Home
-      signup={[Function]}
-      signupdata={
-        Object {
-          "errors": Object {},
-          "user": Object {},
-        }
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
       }
-    >
-      <div>
-        <ToastContainer
-          autoClose={5000}
-          bodyClassName={null}
-          className={null}
-          closeButton={
-            <CloseButton
-              ariaLabel="close"
-            />
+    }
+  >
+    <Connect(Home)>
+      <Home
+        signup={[Function]}
+        signupdata={
+          Object {
+            "errors": Object {},
+            "user": Object {},
           }
-          closeOnClick={true}
-          draggable={true}
-          draggablePercent={80}
-          hideProgressBar={false}
-          newestOnTop={false}
-          pauseOnFocusLoss={true}
-          pauseOnHover={true}
-          position="top-right"
-          progressClassName={null}
-          progressStyle={null}
-          role="alert"
-          rtl={false}
-          style={null}
-          toastClassName={null}
-          transition={[Function]}
-        >
-          <div
-            className="Toastify"
-          />
-        </ToastContainer>
-        <Navigationbar
-          showModal={[Function]}
-        >
-          <div>
-            <Bootstrap(undefined)
-              className="homenav fixed-top"
-            >
-              <ForwardRef
-                bsPrefix="navbar"
+        }
+      >
+        <div>
+          <ToastContainer
+            autoClose={5000}
+            bodyClassName={null}
+            className={null}
+            closeButton={
+              <CloseButton
+                ariaLabel="close"
+              />
+            }
+            closeOnClick={true}
+            draggable={true}
+            draggablePercent={80}
+            hideProgressBar={false}
+            newestOnTop={false}
+            pauseOnFocusLoss={true}
+            pauseOnHover={true}
+            position="top-right"
+            progressClassName={null}
+            progressStyle={null}
+            role="alert"
+            rtl={false}
+            style={null}
+            toastClassName={null}
+            transition={[Function]}
+          >
+            <div
+              className="Toastify"
+            />
+          </ToastContainer>
+          <Navigationbar
+            showModal={[Function]}
+          >
+            <div>
+              <Bootstrap(undefined)
                 className="homenav fixed-top"
-                innerRef={null}
               >
-                <Uncontrolled(Navbar)
+                <ForwardRef
                   bsPrefix="navbar"
                   className="homenav fixed-top"
                   innerRef={null}
                 >
-                  <Navbar
+                  <Uncontrolled(Navbar)
                     bsPrefix="navbar"
                     className="homenav fixed-top"
-                    collapseOnSelect={false}
-                    expand={true}
-                    onToggle={[Function]}
-                    variant="light"
+                    innerRef={null}
                   >
-                    <nav
-                      className="homenav fixed-top navbar navbar-expand navbar-light"
+                    <Navbar
+                      bsPrefix="navbar"
+                      className="homenav fixed-top"
+                      collapseOnSelect={false}
+                      expand={true}
+                      onToggle={[Function]}
+                      variant="light"
                     >
-                      <NavbarBrand>
-                        <span
-                          className="navbar-brand"
-                        >
-                          <b
-                            className="brand"
+                      <nav
+                        className="homenav fixed-top navbar navbar-expand navbar-light"
+                      >
+                        <NavbarBrand>
+                          <span
+                            className="navbar-brand"
                           >
-                            Authors Haven
-                          </b>
-                        </span>
-                      </NavbarBrand>
-                      <NavbarCollapse>
-                        <Collapse
-                          appear={false}
-                          dimension="height"
-                          getDimensionValue={[Function]}
-                          in={false}
-                          mountOnEnter={false}
-                          timeout={300}
-                          unmountOnExit={false}
-                        >
-                          <Transition
-                            addEndListener={[Function]}
+                            <b
+                              className="brand"
+                            >
+                              Authors Haven
+                            </b>
+                          </span>
+                        </NavbarBrand>
+                        <NavbarCollapse>
+                          <Collapse
                             appear={false}
-                            aria-expanded={null}
-                            enter={true}
-                            exit={true}
+                            dimension="height"
+                            getDimensionValue={[Function]}
                             in={false}
                             mountOnEnter={false}
-                            onEnter={[Function]}
-                            onEntered={[Function]}
-                            onEntering={[Function]}
-                            onExit={[Function]}
-                            onExited={[Function]}
-                            onExiting={[Function]}
                             timeout={300}
                             unmountOnExit={false}
                           >
-                            <div
+                            <Transition
+                              addEndListener={[Function]}
+                              appear={false}
                               aria-expanded={null}
-                              className="navbar-collapse collapse"
+                              enter={true}
+                              exit={true}
+                              in={false}
+                              mountOnEnter={false}
+                              onEnter={[Function]}
+                              onEntered={[Function]}
+                              onEntering={[Function]}
+                              onExit={[Function]}
+                              onExited={[Function]}
+                              onExiting={[Function]}
+                              timeout={300}
+                              unmountOnExit={false}
                             >
-                              <Nav
-                                className="justify-content-end"
-                                fill={false}
-                                justify={false}
-                                style={
-                                  Object {
-                                    "width": "100%",
-                                  }
-                                }
+                              <div
+                                aria-expanded={null}
+                                className="navbar-collapse collapse"
                               >
-                                <ContextTransform(AbstractNav)
-                                  as="div"
-                                  className="justify-content-end navbar-nav"
-                                  onSelect={[Function]}
+                                <Nav
+                                  className="justify-content-end"
+                                  fill={false}
+                                  justify={false}
                                   style={
                                     Object {
                                       "width": "100%",
                                     }
                                   }
                                 >
-                                  <AbstractNav
+                                  <ContextTransform(AbstractNav)
                                     as="div"
                                     className="justify-content-end navbar-nav"
                                     onSelect={[Function]}
-                                    parentOnSelect={[Function]}
                                     style={
                                       Object {
                                         "width": "100%",
                                       }
                                     }
                                   >
-                                    <div
+                                    <AbstractNav
+                                      as="div"
                                       className="justify-content-end navbar-nav"
-                                      onKeyDown={[Function]}
+                                      onSelect={[Function]}
+                                      parentOnSelect={[Function]}
                                       style={
                                         Object {
                                           "width": "100%",
                                         }
                                       }
                                     >
-                                      <NavItem>
-                                        <div
-                                          className="nav-item"
-                                        >
-                                          <Button
-                                            active={false}
-                                            className="buttons"
-                                            disabled={false}
-                                            onClick={[Function]}
-                                            type="button"
-                                            variant="danger"
+                                      <div
+                                        className="justify-content-end navbar-nav"
+                                        onKeyDown={[Function]}
+                                        style={
+                                          Object {
+                                            "width": "100%",
+                                          }
+                                        }
+                                      >
+                                        <NavItem>
+                                          <div
+                                            className="nav-item"
                                           >
-                                            <button
-                                              className="buttons btn btn-danger"
+                                            <Button
+                                              active={false}
+                                              className="buttons"
                                               disabled={false}
                                               onClick={[Function]}
                                               type="button"
+                                              variant="danger"
                                             >
-                                              Join now
-                                            </button>
-                                          </Button>
-                                        </div>
-                                      </NavItem>
-                                      <NavItem>
-                                        <div
-                                          className="nav-item"
-                                        >
-                                          <Button
-                                            active={false}
-                                            className="buttons"
-                                            disabled={false}
-                                            type="button"
-                                            variant="outline-light"
+                                              <button
+                                                className="buttons btn btn-danger"
+                                                disabled={false}
+                                                onClick={[Function]}
+                                                type="button"
+                                              >
+                                                Join now
+                                              </button>
+                                            </Button>
+                                          </div>
+                                        </NavItem>
+                                        <NavItem>
+                                          <div
+                                            className="nav-item"
                                           >
-                                            <button
-                                              className="buttons btn btn-outline-light"
-                                              disabled={false}
-                                              type="button"
+                                            <Link
+                                              to="/login"
                                             >
-                                              Sign In
-                                            </button>
-                                          </Button>
-                                        </div>
-                                      </NavItem>
-                                    </div>
-                                  </AbstractNav>
-                                </ContextTransform(AbstractNav)>
-                              </Nav>
-                            </div>
-                          </Transition>
-                        </Collapse>
-                      </NavbarCollapse>
-                    </nav>
-                  </Navbar>
-                </Uncontrolled(Navbar)>
-              </ForwardRef>
-            </Bootstrap(undefined)>
-          </div>
-        </Navigationbar>
-        <Container
-          className="homepage"
-          fluid={false}
-        >
-          <div
-            className="homepage container"
+                                              <a
+                                                href="/login"
+                                                onClick={[Function]}
+                                              >
+                                                <Button
+                                                  active={false}
+                                                  className="buttons"
+                                                  disabled={false}
+                                                  type="button"
+                                                  variant="outline-light"
+                                                >
+                                                  <button
+                                                    className="buttons btn btn-outline-light"
+                                                    disabled={false}
+                                                    type="button"
+                                                  >
+                                                    Sign In
+                                                  </button>
+                                                </Button>
+                                              </a>
+                                            </Link>
+                                          </div>
+                                        </NavItem>
+                                      </div>
+                                    </AbstractNav>
+                                  </ContextTransform(AbstractNav)>
+                                </Nav>
+                              </div>
+                            </Transition>
+                          </Collapse>
+                        </NavbarCollapse>
+                      </nav>
+                    </Navbar>
+                  </Uncontrolled(Navbar)>
+                </ForwardRef>
+              </Bootstrap(undefined)>
+            </div>
+          </Navigationbar>
+          <Container
+            className="homepage"
+            fluid={false}
           >
-            <HomePage
-              closeModal={[Function]}
-              handleChange={[Function]}
-              handleSubmit={[Function]}
-              show={false}
-              showModal={[Function]}
+            <div
+              className="homepage container"
             >
-              <div
-                className="columns"
+              <HomePage
+                closeModal={[Function]}
+                handleChange={[Function]}
+                handleSubmit={[Function]}
+                show={false}
+                showModal={[Function]}
               >
-                <Bootstrap(Row)>
-                  <Row
-                    bsPrefix="row"
-                    noGutters={false}
-                  >
-                    <div
-                      className="row"
+                <div
+                  className="columns"
+                >
+                  <Bootstrap(Row)>
+                    <Row
+                      bsPrefix="row"
+                      noGutters={false}
                     >
-                      <Col
-                        className="col"
+                      <div
+                        className="row"
                       >
-                        <div
-                          className="col col"
+                        <Col
+                          className="col"
                         >
-                          <Container
-                            fluid={false}
+                          <div
+                            className="col col"
                           >
-                            <div
-                              className="container"
+                            <Container
+                              fluid={false}
                             >
-                              <h1
-                                className="homepage"
+                              <div
+                                className="container"
                               >
-                                Welcome to your articles Community
-                              </h1>
-                              <br />
-                              <Form
-                                inline={false}
-                              >
-                                <form
-                                  className=""
+                                <h1
+                                  className="homepage"
                                 >
-                                  <FormControl
-                                    className="font-awesome"
-                                    placeholder="  Search for articles"
-                                    type="text"
+                                  Welcome to your articles Community
+                                </h1>
+                                <br />
+                                <Form
+                                  inline={false}
+                                >
+                                  <form
+                                    className=""
                                   >
-                                    <input
-                                      className="font-awesome form-control"
+                                    <FormControl
+                                      className="font-awesome"
                                       placeholder="  Search for articles"
                                       type="text"
-                                    />
-                                  </FormControl>
-                                </form>
-                              </Form>
-                            </div>
-                          </Container>
-                          <Container
-                            className="home"
-                            fluid={false}
-                          >
-                            <div
-                              className="home container"
+                                    >
+                                      <input
+                                        className="font-awesome form-control"
+                                        placeholder="  Search for articles"
+                                        type="text"
+                                      />
+                                    </FormControl>
+                                  </form>
+                                </Form>
+                              </div>
+                            </Container>
+                            <Container
+                              className="home"
+                              fluid={false}
                             >
-                              <p>
-                                <b>
-                                  Who is Authors Haven for?
-                                </b>
-                              </p>
-                              <p>
-                                Anyone looking to inspire and be inspired by ideas
-                              </p>
-                              <p>
-                                Join fellow authors and enthusiasts in Authors Haven
-                              </p>
-                              <Button
-                                active={false}
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
+                              <div
+                                className="home container"
                               >
-                                <button
-                                  className="btn btn-primary"
+                                <p>
+                                  <b>
+                                    Who is Authors Haven for?
+                                  </b>
+                                </p>
+                                <p>
+                                  Anyone looking to inspire and be inspired by ideas
+                                </p>
+                                <p>
+                                  Join fellow authors and enthusiasts in Authors Haven
+                                </p>
+                                <Button
+                                  active={false}
                                   disabled={false}
                                   onClick={[Function]}
                                   type="button"
+                                  variant="primary"
                                 >
-                                  Get Started
-                                </button>
-                              </Button>
-                              <SignupModal
-                                closeModal={[Function]}
-                                handleChange={[Function]}
-                                handleSubmit={[Function]}
-                                show={false}
-                              >
-                                <Bootstrap(Modal)
-                                  onHide={[Function]}
+                                  <button
+                                    className="btn btn-primary"
+                                    disabled={false}
+                                    onClick={[Function]}
+                                    type="button"
+                                  >
+                                    Get Started
+                                  </button>
+                                </Button>
+                                <SignupModal
+                                  closeModal={[Function]}
+                                  handleChange={[Function]}
+                                  handleSubmit={[Function]}
                                   show={false}
                                 >
-                                  <Modal
-                                    animation={true}
-                                    autoFocus={true}
-                                    backdrop={true}
-                                    bsPrefix="modal"
-                                    dialogAs={
-                                      Object {
-                                        "$$typeof": Symbol(react.forward_ref),
-                                        "displayName": "ModalDialog",
-                                        "render": [Function],
-                                      }
-                                    }
-                                    enforceFocus={true}
-                                    keyboard={true}
-                                    manager={
-                                      BootstrapModalManager {
-                                        "adjustAndStore": [Function],
-                                        "containers": Array [],
-                                        "data": Array [],
-                                        "handleContainerOverflow": true,
-                                        "hideSiblingNodes": true,
-                                        "modals": Array [],
-                                        "restore": [Function],
-                                        "scrollbarSize": 0,
-                                      }
-                                    }
+                                  <Bootstrap(Modal)
                                     onHide={[Function]}
-                                    restoreFocus={true}
                                     show={false}
                                   >
                                     <Modal
+                                      animation={true}
                                       autoFocus={true}
                                       backdrop={true}
-                                      backdropTransition={[Function]}
-                                      className="modal"
-                                      containerClassName="modal-open"
+                                      bsPrefix="modal"
+                                      dialogAs={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "displayName": "ModalDialog",
+                                          "render": [Function],
+                                        }
+                                      }
                                       enforceFocus={true}
                                       keyboard={true}
                                       manager={
@@ -380,88 +387,113 @@ exports[`Tests Home container Tests mounting of component 1`] = `
                                           "scrollbarSize": 0,
                                         }
                                       }
-                                      onClick={[Function]}
-                                      onEnter={[Function]}
-                                      onEntering={[Function]}
-                                      onExited={[Function]}
                                       onHide={[Function]}
-                                      onMouseUp={[Function]}
-                                      renderBackdrop={[Function]}
                                       restoreFocus={true}
-                                      role="dialog"
                                       show={false}
-                                      style={Object {}}
-                                      transition={[Function]}
-                                    />
-                                  </Modal>
-                                </Bootstrap(Modal)>
-                              </SignupModal>
-                            </div>
-                          </Container>
-                        </div>
-                      </Col>
-                      <Col
-                        className="homepageimg"
-                      >
-                        <div
-                          className="homepageimg col"
+                                    >
+                                      <Modal
+                                        autoFocus={true}
+                                        backdrop={true}
+                                        backdropTransition={[Function]}
+                                        className="modal"
+                                        containerClassName="modal-open"
+                                        enforceFocus={true}
+                                        keyboard={true}
+                                        manager={
+                                          BootstrapModalManager {
+                                            "adjustAndStore": [Function],
+                                            "containers": Array [],
+                                            "data": Array [],
+                                            "handleContainerOverflow": true,
+                                            "hideSiblingNodes": true,
+                                            "modals": Array [],
+                                            "restore": [Function],
+                                            "scrollbarSize": 0,
+                                          }
+                                        }
+                                        onClick={[Function]}
+                                        onEnter={[Function]}
+                                        onEntering={[Function]}
+                                        onExited={[Function]}
+                                        onHide={[Function]}
+                                        onMouseUp={[Function]}
+                                        renderBackdrop={[Function]}
+                                        restoreFocus={true}
+                                        role="dialog"
+                                        show={false}
+                                        style={Object {}}
+                                        transition={[Function]}
+                                      />
+                                    </Modal>
+                                  </Bootstrap(Modal)>
+                                </SignupModal>
+                              </div>
+                            </Container>
+                          </div>
+                        </Col>
+                        <Col
+                          className="homepageimg"
                         >
-                          <img
-                            alt=""
-                            height="400"
-                            src="test-file-stub"
-                            width="450"
-                          />
-                        </div>
-                      </Col>
-                    </div>
-                  </Row>
-                </Bootstrap(Row)>
-              </div>
-            </HomePage>
-          </div>
-        </Container>
-        <Footer>
-          <footer
-            className="bg-light text-dark mt-4 fixed-bottom"
-          >
-            <div
-              className="container-fluid py-2"
+                          <div
+                            className="homepageimg col"
+                          >
+                            <img
+                              alt=""
+                              height="400"
+                              src="test-file-stub"
+                              width="450"
+                            />
+                          </div>
+                        </Col>
+                      </div>
+                    </Row>
+                  </Bootstrap(Row)>
+                </div>
+              </HomePage>
+            </div>
+          </Container>
+          <Footer>
+            <footer
+              className="bg-light text-dark mt-4 fixed-bottom"
             >
               <div
-                className="row"
+                className="container-fluid py-2"
               >
                 <div
-                  className="col-md-3 footmargin"
+                  className="row"
                 >
-                  Authors Haven
-                   
-                  <span
-                    className="small"
+                  <div
+                    className="col-md-3 footmargin"
                   >
-                    <br />
-                    <a
-                      href="#null"
+                    Authors Haven
+                     
+                    <span
+                      className="small"
                     >
-                      Terms and Conditions
-                    </a>
-                  </span>
-                </div>
-                <div
-                  className="col-md-8 text-right small align-self-end"
-                >
-                  Copyright ©
-                   
-                  2019
-                   
-                  Immortals
+                      <br />
+                      <a
+                        href="#null"
+                      >
+                        Terms and Conditions
+                      </a>
+                    </span>
+                  </div>
+                  <div
+                    className="col-md-8 text-right small align-self-end"
+                  >
+                    Copyright ©
+                     
+                    2019
+                     
+                    Immortals
+                  </div>
                 </div>
               </div>
-            </div>
-          </footer>
-        </Footer>
-      </div>
-    </Home>
-  </Connect(Home)>
-</Provider>
+            </footer>
+          </Footer>
+        </div>
+      </Home>
+    </Connect(Home)>
+  </Provider>
+</Router>
 `;
