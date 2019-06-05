@@ -11,7 +11,7 @@ const LoginInformation = () => (
       <br />
   Create an account.
     </p>
-    <Link to="#null">
+    <Link to="/signup">
       <Button variant="danger" className="signup-btn">SIGN UP</Button> 
     </Link>
   </div>  
