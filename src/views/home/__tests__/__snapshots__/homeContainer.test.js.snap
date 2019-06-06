@@ -329,7 +329,6 @@ exports[`Tests Home container Tests mounting of component 1`] = `
                                 <Bootstrap(Modal)
                                   onHide={[Function]}
                                   show={false}
-                                  size="lg"
                                 >
                                   <Modal
                                     animation={true}
@@ -360,7 +359,6 @@ exports[`Tests Home container Tests mounting of component 1`] = `
                                     onHide={[Function]}
                                     restoreFocus={true}
                                     show={false}
-                                    size="lg"
                                   >
                                     <Modal
                                       autoFocus={true}

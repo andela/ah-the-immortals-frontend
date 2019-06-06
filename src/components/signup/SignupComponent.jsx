@@ -10,32 +10,31 @@ import '../../styles/style.css';
 
 library.add(faFacebook, faTwitter, faGooglePlus);
 
-const SignupModal = ({ show, closeModal, handleSubmit, handleChange}) => {
+const SignupModal = ({ show, closeModal, handleSubmit, handleChange }) => {
   return (
     <Modal
       show={show}
       onHide={closeModal}
-      size="lg"
     >
       <Modal.Header
         closeButton
       >
-        <Modal.Title>
-          <Container className="signup-modal">
-            <p>Sign Up</p>
-          </Container>
-        </Modal.Title>
       </Modal.Header>
       <Modal.Body className="modal-body">
-        <Form
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-        />
-        <p>Or Signup with</p>
-        <div className="round-icon">
-          <FontAwesomeIcon icon={['fab', 'twitter']} className="twitter" />
-          <FontAwesomeIcon icon={['fab', 'facebook']} className="facebook" />
-          <FontAwesomeIcon icon={['fab', 'google-plus']} className="google" />
+        <div className="shadow-lg p-3 mb-5 bg-white rounded form-div">
+          <Container className="form-header">
+            <p>Sign Up</p>
+          </Container>
+          <Form
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+          />
+          <h2><span>OR</span></h2>
+          <div className="round-icon ">
+            <FontAwesomeIcon icon={['fab', 'twitter']} className="twitter" />
+            <FontAwesomeIcon icon={['fab', 'facebook']} className="facebook" />
+            <FontAwesomeIcon icon={['fab', 'google-plus']} className="google" />
+          </div>
         </div>
       </Modal.Body>
     </Modal>

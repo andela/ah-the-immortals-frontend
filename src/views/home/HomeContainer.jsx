@@ -13,18 +13,15 @@ class Home extends Component {
     signup: PropTypes.func.isRequired,
     signupdata: PropTypes.object.isRequired
   };
-
   state = {
     show: false,
   };
-
   closeModal = () => {
     this.setState({
       show: false,
     });
     toast.dismiss(1);
   };
-
   showModal = (e) => {
     e.preventDefault();
     this.setState({
@@ -32,7 +29,6 @@ class Home extends Component {
     });
     toast.dismiss(1);
   };
-
   handleChange = (e) => {
     e.preventDefault();
     this.setState({
@@ -40,7 +36,6 @@ class Home extends Component {
     });
     toast.dismiss(1);
   };
-
   handleSubmit = async (e) => {
     e.preventDefault();
     const { password, password_confirm } = this.state;
@@ -64,7 +59,6 @@ class Home extends Component {
       }
     }
   };
-
   render = () => {
     let { show } = this.state;
     return (
@@ -85,11 +79,9 @@ class Home extends Component {
     );
   }
 }
-
 const mapStateToProps = ({ signup }) => {
   return {
     signupdata: signup
   };
 };
-
 export default connect(mapStateToProps, { signup: signUpAction })(Home);
