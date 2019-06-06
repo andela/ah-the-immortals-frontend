@@ -1,0 +1,21 @@
+{
+    "name": "ah-the-immortals-frontend",
+    "scripts": {},
+    "env": {
+      "REACT_APP_BASE_URL": {
+        "required": true
+      }
+    },
+    "formation": {
+      "web": {
+        "quantity": 1
+      }
+    },
+    "addons": [],
+    "buildpacks": [
+      {
+        "url": "heroku/nodejs"
+      }
+    ],
+    "stack": "heroku-18"
+  }

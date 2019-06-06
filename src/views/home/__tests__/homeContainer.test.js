@@ -1,6 +1,8 @@
 import React from 'react';
+import { Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import toJson from 'enzyme-to-json';
@@ -13,10 +15,13 @@ describe('Tests Home container', () => {
   const store = configureStore([thunk])({
     signup: { user: {}, errors: {} }
   });
+  const history = createBrowserHistory();
   const wrapper = mount(
-    <Provider store={store}>
-      <Home />
-    </Provider>
+    <Router history={history}>
+      <Provider store={store}>
+        <Home />
+      </Provider>
+    </Router>
   );
 
   it('Tests mounting of component', () => {
