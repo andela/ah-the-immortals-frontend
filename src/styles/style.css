@@ -1,12 +1,7 @@
-.signup-modal p {
-    margin-left: 350%;
-    width: 100%;
-
-}
-
 .modal-form {
     margin-left: 10%;
     width: 100%;
+    padding-top: 1%;
 }
 
 .modal-form label {
@@ -33,4 +28,44 @@
     color: #7A8188;
     margin-left: 45%;
     margin-top: 5%;
+}
+
+.form-div {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.form-header p {
+    font-weight: bold;
+    color: black;
+    font-size: 110%;
+    margin-left: 35%;
+}
+
+h2 {
+    width: 79%;
+    text-align: center;
+    border-bottom: 1px solid #7A8188;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    font-size: 90%;
+    margin-left: 11%;
+}
+
+h2 span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+h2 span {
+    font-weight: lighter;
+    color: #7A8188;
+}
+
+.modal-backdrop.show {
+    opacity: 0.9;
+}
+
+.close:hover{
+    color: red;
 }
