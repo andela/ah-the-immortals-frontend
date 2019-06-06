@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { createBrowserHistory } from 'history';
 import { Switch, Route, Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import PageNotFound from './components/NotFoundComponent';
 import home from './views/home/HomeContainer';
 import Login from './components/Login';

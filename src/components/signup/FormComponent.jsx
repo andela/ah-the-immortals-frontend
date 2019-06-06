@@ -5,49 +5,34 @@ import '../../styles/style.css';
 const Form = ({ handleSubmit, handleChange }) => {
   return (
     <form onSubmit={handleSubmit} className="modal-form">
-      <label htmlFor="email">
-        Email
-        <br />
-        <input
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          className="form-control" />
-      </label>
-      <br />
-      <label htmlFor="username">
-        Username
-        <br />
-        <input
-          type="text"
-          required
-          onChange={handleChange}
-          name="username"
-          className="form-control" />
-      </label>
-      <br />
-      <label htmlFor="password">
-        Password
-        <br />
-        <input
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          className="form-control" />
-      </label>
-      <br />
-      <label htmlFor="password-confirm">
-        Confirm Password
-        <input
-          type="password"
-          required
-          onChange={handleChange}
-          name="password_confirm"
-          className="form-control" />
-      </label>
-      <br />
+      <input
+        type="email"
+        placeholder="Email"
+        required
+        onChange={handleChange}
+        name="email"
+        className="form-control" />
+      <input
+        type="text"
+        placeholder="Username"
+        required
+        onChange={handleChange}
+        name="username"
+        className="form-control" />
+      <input
+        type="password"
+        required
+        placeholder="Password"
+        onChange={handleChange}
+        name="password"
+        className="form-control" />
+      <input
+        type="password"
+        placeholder="Confirm Password"
+        required
+        onChange={handleChange}
+        name="password_confirm"
+        className="form-control" />
       <input
         type="submit"
         className="form-control btn" value="SIGN UP"
