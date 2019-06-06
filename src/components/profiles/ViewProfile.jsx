@@ -4,13 +4,11 @@ import { Container } from 'react-bootstrap';
 import profileImage from '../../services/images/profile.png';
 import EditProfile from '../../views/profiles/EditProfile';
 import Footer from '../home/HomeFooter';
-import Navbar from '../profileNavbar';
 
 export const ProfileView = (props) => {
   const { username, firstName, lastName, bio, image } = props;
   return (
     <div>
-      <Navbar />
       <Container className="profile">
         <div className="container-fluid">
           <div className="container">

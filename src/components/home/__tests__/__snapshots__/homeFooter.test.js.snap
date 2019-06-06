@@ -11,23 +11,28 @@ exports[`Tests home footer tests footer component 1`] = `
       className="row"
     >
       <div
-        className="col-md-3 footmargin"
+        className="col"
       >
-        Authors Haven
-         
         <span
           className="small"
         >
           <br />
-          <a
-            href="#null"
+          <Link
+            to="#null"
           >
             Terms and Conditions
-          </a>
+          </Link>
         </span>
       </div>
       <div
-        className="col-md-8 text-right small align-self-end"
+        className="col text-center"
+      >
+        <br />
+        Authors Haven
+         
+      </div>
+      <div
+        className="col text-right small align-self-end"
       >
         Copyright ©
          

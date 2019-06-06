@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests rendering of links on navigation bar when the user is logged in renders signed in links component 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <SignedInLinks>
+    <div
+      className="nav ml-auto"
+    >
+      <i
+        className="fa fa-bell notnotif text-dark mt-3"
+      />
+      <NavLink
+        aria-expanded="true"
+        className="nav-link dropdown-toggle"
+        data-target="#profileDropdown"
+        data-toggle="dropdown"
+        role="button"
+        to="#null"
+      >
+        <Link
+          aria-current={null}
+          aria-expanded="true"
+          className="nav-link dropdown-toggle"
+          data-target="#profileDropdown"
+          data-toggle="dropdown"
+          role="button"
+          to="#null"
+        >
+          <a
+            aria-current={null}
+            aria-expanded="true"
+            className="nav-link dropdown-toggle"
+            data-target="#profileDropdown"
+            data-toggle="dropdown"
+            href="/#null"
+            onClick={[Function]}
+            role="button"
+          >
+            <i
+              className="fa fa-user-circle ml-3 mr-2 mt-2"
+            />
+            <span
+              className="mr-1"
+            >
+              undefined
+            </span>
+          </a>
+        </Link>
+      </NavLink>
+      <div
+        className="dropdown-menu ml-5"
+        id="profileDropdown"
+      >
+        <div
+          className="dropdown-item"
+        >
+          <NavLink
+            className="nav-link"
+            to="/Profile"
+          >
+            <Link
+              aria-current={null}
+              className="nav-link"
+              to="/Profile"
+            >
+              <a
+                aria-current={null}
+                className="nav-link"
+                href="/Profile"
+                onClick={[Function]}
+              >
+                Profile
+              </a>
+            </Link>
+          </NavLink>
+        </div>
+        <div
+          className="dropdown-item"
+        >
+          <NavLink
+            className="nav-link"
+            to="#null"
+          >
+            <Link
+              aria-current={null}
+              className="nav-link"
+              to="#null"
+            >
+              <a
+                aria-current={null}
+                className="nav-link"
+                href="/#null"
+                onClick={[Function]}
+              >
+                Settings
+              </a>
+            </Link>
+          </NavLink>
+        </div>
+        <div
+          className="dropdown-item"
+        >
+          <NavLink
+            className="nav-link"
+            to="/"
+          >
+            <Link
+              aria-current="page"
+              className="nav-link active"
+              style={Object {}}
+              to="/"
+            >
+              <a
+                aria-current="page"
+                className="nav-link active"
+                href="/"
+                onClick={[Function]}
+                style={Object {}}
+              >
+                Logout
+              </a>
+            </Link>
+          </NavLink>
+        </div>
+      </div>
+    </div>
+  </SignedInLinks>
+</Router>
+`;

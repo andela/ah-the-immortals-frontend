@@ -1,7 +1,11 @@
 .brand-text {
-    color: white;
+    color: #2977C9;
     font-family: Helvetica;
-    margin-left: 30%;
+    margin-left: 10%;
+}
+
+.brand-text:hover {
+    color: rgb(4, 44, 133);  
 }
 
 .margins {
@@ -11,11 +15,11 @@
 .buttons {
     margin-right: 20px;
 }
+
 .homepage {
-    color: #2977C9;
+    color: rgb(246, 248, 250);
     font-family: Helvetica;
     font-weight: 300;
-    margin-top: 6%;
     word-spacing: 15px;
 }
 .font-awesome {
@@ -25,31 +29,13 @@
     font-weight: normal;
     text-decoration: inherit;
 }
-.columns { 
-    min-width: 800px;
-}
-.col {
-    margin-top: 2%;
-}
-.homepageimg {
-    margin-left: 8%;
-    margin-top: 4%;
-    max-width: 100%;
-    height: auto;
-}
 
 .home {
     text-align: left;
     word-spacing: normal;
-    font-size: 2em;
-    margin-top: 7%;
-    margin-bottom: 20%;
+    font-size: 1.5em;
+    margin-bottom: 5%;
 }
-
-.homenav {
-    background-color: #2977C9;
-}
-
 
 .title-text {
     color: #FFFFFF;
@@ -147,11 +133,8 @@
     margin-left: 4%;
 }
 
-.brand{
-    color: #FFFFFF;
-}
 .reset {
-    margin-top: 15%;
+    margin-top: 10%;
     margin-left: 20%;
 }
 
@@ -173,10 +156,6 @@
 .confirm-input {
     width: 70%;
     margin-bottom: 5%;
-}
-
-.top {
-    margin-top: 20%;
 }
 
 .social {
@@ -278,4 +257,12 @@ label {
 
 .dummy-followers{
     word-spacing: 5px;
+}
+
+.background {
+    background-image: url(https://images.pexels.com/photos/261949/pexels-photo-261949.jpeg?cs=srgb&dl=administration-articles-bank-261949.jpg&fm=jpg);    
+}
+
+.navbackground {
+    background-color: rgb(240, 240, 240)
 }

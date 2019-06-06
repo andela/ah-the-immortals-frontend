@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { Form, FormControl, Button, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import NavigationBar from '../../components/Nav';
 import resetPasswordLinkAction from '../../redux/actions/passwordReset.action';
 
 /** 
@@ -27,11 +25,10 @@ class PasswordResetForm extends Component {
   render() { 
     return (
       <div>
-        <NavigationBar />
         <Container className="reset">
           <div>
             <h1 className="resetmessage">
-        First, let&apos;s find your account
+        Let&apos;s find your account
             </h1>
           </div>
           <Form onSubmit={this.handleSubmit}>

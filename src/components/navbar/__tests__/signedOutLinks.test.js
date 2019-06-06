@@ -2,12 +2,11 @@ import React from 'react';
 import { Router } from 'react-router-dom';
 import { mount } from 'enzyme';
 import { createBrowserHistory } from 'history';
-
 import toJson from 'enzyme-to-json';
-import LoginForm from '../LogInForm';
+import SignedOutLinks from '../signedOutLinks';
 
-describe('<LoginForm/>', () => {
-  it('renders login form component', () => {
+describe('Tests rendering of signed out links', () => {
+  it('renders signed out links component', () => {
     const history = createBrowserHistory();
     const mockOnsubmit = jest.fn();
     const mockOnchange = jest.fn();
@@ -16,7 +15,7 @@ describe('<LoginForm/>', () => {
     };
     const wrapper = mount(
       <Router history={history}>
-        <LoginForm
+        <SignedOutLinks
           handleSignInSubmit={mockOnsubmit}
           handleChange={mockOnchange}
           signindata={{
@@ -24,6 +23,18 @@ describe('<LoginForm/>', () => {
             errors: {}
           }}
           signInError={false}
+          signInShow={false}
+          signupdata={{}}
+          handleSignInLink={mockOnsubmit}
+          handleSignInShow={mockOnsubmit}
+          handleSignUpLink={mockOnsubmit}
+          twitter={mockOnsubmit}
+          facebook={mockOnsubmit}
+          google={mockOnsubmit}
+          show={false}
+          showModal={mockOnsubmit}
+          errorShow={{}}
+          handleSubmit={mockOnsubmit}
           {...props}
         />
       </Router>

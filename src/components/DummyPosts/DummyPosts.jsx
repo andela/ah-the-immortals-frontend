@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Navbar from './NavBarDummy';
 
 export class DummyPost extends Component {
   render() {
     return (
       <div>
-
-        <Navbar />
         <br />
         <br />
         <div className="container">

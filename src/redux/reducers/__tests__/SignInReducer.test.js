@@ -3,11 +3,12 @@ import ACTION_CONSTANTS from '../../constants/constants';
 
 describe('test for sign in reducers', () => {
   const initialState = {
+    isAuthenticated: false,
     user: {},
     errors: {}
   };
 
-  it('test successfull log in', () => {
+  it('test successful log in', () => {
     const action = {
       type: ACTION_CONSTANTS.LOGIN_SUCCESS,
       response: {
@@ -20,6 +21,7 @@ describe('test for sign in reducers', () => {
       }
     }; 
     expect(signInReducer(initialState, action)).toEqual({
+      isAuthenticated: true,
       user: action.response.data.user,
       errors: {}
     });
@@ -38,6 +40,7 @@ describe('test for sign in reducers', () => {
       }
     };
     expect(signInReducer(initialState, action)).toEqual({
+      isAuthenticated: false,
       errors: action.error.response.data.errors,
       user: {}
     });

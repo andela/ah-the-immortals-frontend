@@ -9,8 +9,16 @@ const resetUrl = `${ROOT_URL}/users/password/reset/`;
 const socialAuthUrl = `${ROOT_URL}/users/oauth/`;
 const resetconfirmUrl = `${ROOT_URL}/users/password/reset/confirm/`;
 const token = window.localStorage.getItem('token');
-const token_decoded = process.env.NODE_ENV==='test'?{user_data: {username:'k'}}:jwtDecode(token);
-export const username = token_decoded.user_data.username;
+const token_decoded = (user) => {
+  try {
+    user = jwtDecode(token);
+    return user;
+  } catch (error) {
+    user = { user_data: { username: 'undefined' } };
+    return user;
+  }
+};
+export const username = token_decoded().user_data.username;
 const profileUrl = `${ROOT_URL}/profiles/${username}/`;
 const getProfileUrl = `${ROOT_URL}/profiles/${username}`;
 const signUpApi = (data) => axios.post(signupUrl, data);

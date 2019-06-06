@@ -32,6 +32,7 @@ const LogInModal = ({
             handleSignInSubmit={handleSignInSubmit}
             signindata={signindata}
             signInError={signInError}
+            closeModal={closeModal}
           />
           <h2><span className="bg-light">OR</span></h2>
           <div className="round-icon">

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Validators from '../../services/FormValidators';
 
-
-const LogInForm = ({ handleSignInSubmit, handleChange, signindata, signInError }) => {
+const LogInForm = ({ handleSignInSubmit, handleChange, signindata, signInError, closeModal }) => {
   const { checkInput } = Validators;
   const errors = signindata.errors;
   return (
@@ -31,7 +30,7 @@ const LogInForm = ({ handleSignInSubmit, handleChange, signindata, signInError }
           disabled
           className="form-control btn" value="SIGN IN" />
         <div className="reset-div">
-          <Link to="/reset" className="passreset-link">Forgot Password?</Link>
+          <Link to="/reset" className="passreset-link" onClick={closeModal}>Forgot Password?</Link>
         </div>
       </div>
     </form>
@@ -41,7 +40,8 @@ LogInForm.propTypes = {
   handleSignInSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   signindata: PropTypes.object.isRequired,
-  signInError: PropTypes.bool.isRequired
+  signInError: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
 };
 
 export default LogInForm;
