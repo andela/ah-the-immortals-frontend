@@ -9,61 +9,38 @@ exports[`<Form/> renders form component 1`] = `
     className="modal-form"
     onSubmit={[MockFunction]}
   >
-    <label
-      htmlFor="email"
-    >
-      Email
-      <br />
-      <input
-        className="form-control"
-        name="email"
-        onChange={[MockFunction]}
-        required={true}
-        type="email"
-      />
-    </label>
-    <br />
-    <label
-      htmlFor="username"
-    >
-      Username
-      <br />
-      <input
-        className="form-control"
-        name="username"
-        onChange={[MockFunction]}
-        required={true}
-        type="text"
-      />
-    </label>
-    <br />
-    <label
-      htmlFor="password"
-    >
-      Password
-      <br />
-      <input
-        className="form-control"
-        name="password"
-        onChange={[MockFunction]}
-        required={true}
-        type="password"
-      />
-    </label>
-    <br />
-    <label
-      htmlFor="password-confirm"
-    >
-      Confirm Password
-      <input
-        className="form-control"
-        name="password_confirm"
-        onChange={[MockFunction]}
-        required={true}
-        type="password"
-      />
-    </label>
-    <br />
+    <input
+      className="form-control"
+      name="email"
+      onChange={[MockFunction]}
+      placeholder="Email"
+      required={true}
+      type="email"
+    />
+    <input
+      className="form-control"
+      name="username"
+      onChange={[MockFunction]}
+      placeholder="Username"
+      required={true}
+      type="text"
+    />
+    <input
+      className="form-control"
+      name="password"
+      onChange={[MockFunction]}
+      placeholder="Password"
+      required={true}
+      type="password"
+    />
+    <input
+      className="form-control"
+      name="password_confirm"
+      onChange={[MockFunction]}
+      placeholder="Confirm Password"
+      required={true}
+      type="password"
+    />
     <input
       className="form-control btn"
       type="submit"

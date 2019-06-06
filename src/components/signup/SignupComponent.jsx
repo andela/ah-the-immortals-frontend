@@ -5,6 +5,7 @@ import { faFacebook, faTwitter, faGooglePlus } from '@fortawesome/free-brands-sv
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Form from './FormComponent';
 import '../../styles/style.css';
 
@@ -21,20 +22,24 @@ const SignupModal = ({ show, closeModal, handleSubmit, handleChange }) => {
       >
       </Modal.Header>
       <Modal.Body className="modal-body">
-        <div className="shadow-lg p-3 mb-5 bg-white rounded form-div">
-          <Container className="form-header">
-            <p>Sign Up</p>
-          </Container>
+        <div className="shadow-lg p-3 mb-5 bg-light rounded form-div">
+          <p>Sign Up</p>
           <Form
             handleSubmit={handleSubmit}
             handleChange={handleChange}
           />
-          <h2><span>OR</span></h2>
+          <h2><span className="bg-light">OR</span></h2>
           <div className="round-icon ">
             <FontAwesomeIcon icon={['fab', 'twitter']} className="twitter" />
             <FontAwesomeIcon icon={['fab', 'facebook']} className="facebook" />
             <FontAwesomeIcon icon={['fab', 'google-plus']} className="google" />
           </div>
+        </div>
+        <div className="link-text">
+          <p>
+            Have an account?       .
+            <Link to="/login">Sign in</Link>
+          </p>
         </div>
       </Modal.Body>
     </Modal>
