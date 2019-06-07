@@ -2,50 +2,93 @@
 
 exports[`<Form/> renders form component 1`] = `
 <Form
+  errorShow={
+    Object {
+      "password": false,
+    }
+  }
   handleChange={[MockFunction]}
   handleSubmit={[MockFunction]}
+  signupdata={
+    Object {
+      "email": "test@gmail.com",
+      "errors": Object {},
+    }
+  }
 >
   <form
     className="modal-form"
+    name="modal-form"
     onSubmit={[MockFunction]}
   >
-    <input
-      className="form-control"
-      name="email"
-      onChange={[MockFunction]}
-      placeholder="Email"
-      required={true}
-      type="email"
-    />
-    <input
-      className="form-control"
-      name="username"
-      onChange={[MockFunction]}
-      placeholder="Username"
-      required={true}
-      type="text"
-    />
-    <input
-      className="form-control"
-      name="password"
-      onChange={[MockFunction]}
-      placeholder="Password"
-      required={true}
-      type="password"
-    />
-    <input
-      className="form-control"
-      name="password_confirm"
-      onChange={[MockFunction]}
-      placeholder="Confirm Password"
-      required={true}
-      type="password"
-    />
-    <input
-      className="form-control btn"
-      type="submit"
-      value="SIGN UP"
-    />
+    <div
+      className="form-row"
+    >
+      <input
+        className="form-control "
+        name="email"
+        onChange={[MockFunction]}
+        onKeyUp={[Function]}
+        placeholder="Email"
+        type="email"
+      />
+      <div
+        className="invalid-feedback"
+      />
+    </div>
+    <div
+      className="form-row"
+    >
+      <input
+        className="form-control "
+        name="username"
+        onChange={[MockFunction]}
+        onKeyUp={[Function]}
+        placeholder="Username"
+        type="text"
+      />
+      <div
+        className="invalid-feedback"
+      />
+    </div>
+    <div
+      className="form-row"
+    >
+      <input
+        className="form-control "
+        name="password"
+        onChange={[MockFunction]}
+        onKeyUp={[Function]}
+        placeholder="Password"
+        type="password"
+      />
+      <div
+        className="invalid-feedback"
+      />
+    </div>
+    <div
+      className="form-row"
+    >
+      <input
+        className="form-control"
+        name="password_confirm"
+        onChange={[MockFunction]}
+        onKeyUp={[Function]}
+        placeholder="Confirm Password"
+        type="password"
+      />
+    </div>
+    <div
+      className="form-row"
+    >
+      <input
+        className="form-control btn"
+        disabled={true}
+        id="signupSubmit"
+        type="submit"
+        value="SIGN UP"
+      />
+    </div>
   </form>
 </Form>
 `;

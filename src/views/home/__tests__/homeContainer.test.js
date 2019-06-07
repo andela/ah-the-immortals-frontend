@@ -1,12 +1,12 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
-import { mount } from 'enzyme';
+import { Router,Link } from 'react-router-dom';
+import { mount} from 'enzyme';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import toJson from 'enzyme-to-json';
 import { CloseButton } from 'react-bootstrap';
+import moxios from 'moxios';
 import Form from '../../../components/signup/FormComponent';
 import SignupModal from '../../../components/signup/SignupComponent';
 import Home from '../HomeContainer';
@@ -17,25 +17,16 @@ import LogInForm from '../../../components/Login/LogInForm';
 describe('Tests Home container', () => {
   const store = configureStore([thunk])({
     signup: { user: {}, errors: {} },
-    signin: {
-      user: {},
-      errors: {}
-    }
+    signin: { user: {}, errors: {} }
   });
   const history = createBrowserHistory();
   const wrapper = mount(
     <Router history={history}>
       <Provider store={store}>
-        <Home 
-          history={history}
-        />
+        <Home history={history} />
       </Provider>
     </Router>
   );
-
-  it('Tests mounting of component', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
-  });
 
   it('opens modal when button is clicked', () => {
     const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
@@ -71,7 +62,6 @@ describe('Tests Home container', () => {
       preventDefault: jest.fn()
     });
 
-    
     const form = wrapper.find(Form);
     const submitBtn = form.find('input[type="submit"]');
 
@@ -79,6 +69,46 @@ describe('Tests Home container', () => {
       preventDefault: jest.fn()
     });
     expect(submitBtn.length).toEqual(1);
+  });
+
+  it('Simulates key up event', () => {
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+
+    signupBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+
+    const form = wrapper.find(Form);
+    const submitBtn = form.find('input[type="submit"]');
+
+    const inputs = {
+      emailInput: form.find('input[name="email"]'),
+      usernameInput: form.find('input[name="username"]'),
+      passwordInput: form.find('input[name="password"]'),
+      passwordConfirm:form.find('input[name="password_confirm"]')
+    };
+
+    Object.values(inputs).forEach((input) => {
+      input.simulate('keyup', {
+        keyCode: 65
+      });
+      expect(submitBtn.prop('disabled')).toEqual(true);
+    });
+  });
+
+  it('Simulates click of signIn link', () => {
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+
+    signupBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+    
+    const modal = wrapper.find(SignupModal);
+    const link = modal.find(Link);
+    link.simulate('click', {
+      preventDefault: jest.fn()
+    });
+    expect(wrapper.find(LogInModal).exists()).toEqual(true);
   });
 
   it('handles close modal', () => {

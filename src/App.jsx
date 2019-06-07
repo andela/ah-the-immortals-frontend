@@ -7,6 +7,7 @@ import PageNotFound from './components/NotFoundComponent';
 import home from './views/home/HomeContainer';
 import PasswordResetForm from './views/password_reset/PasswordResetContainer';
 import passwordResetConfirm from './views/password_reset/PasswordResetConfirmContainer';
+// eslint-disable-next-line import/no-named-as-default
 import DummyPost from './components/DummyPosts/DummyPosts';
 
 const history = createBrowserHistory();
@@ -14,7 +15,6 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <ToastContainer />
         <Router history={history}>
           <div>
             <ToastContainer 

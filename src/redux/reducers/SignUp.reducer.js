@@ -34,13 +34,9 @@ const SignupReducer = (state = initialState, action) => {
       errors: {}
     };
   case SIGNUP_FAILURE:
-    toast.error(errorChecker(action.error.response.data.errors), {
-      position: toast.POSITION.TOP_CENTER,
-      toastId: 1
-    });
     return {
       ...state,
-      errors: action.error.response,
+      errors: action.error.response.data.errors,
       user: {}
     };
   default:

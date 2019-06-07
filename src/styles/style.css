@@ -12,8 +12,6 @@
 .modal-form input {
     width: 80%;
     margin-bottom: 4%;
-    height: 3em;
-    margin-bottom: 10%;
 }
 
 .modal-form .btn {
@@ -21,6 +19,10 @@
     color: #FFFFFF;
     width: 80.5%;
     font-weight: bold;
+}
+
+.modal-body {
+    padding: 2%;
 }
 
 .modal-body p {
@@ -31,8 +33,8 @@
 }
 
 .form-div {
-    width: 70%;
-    margin-left: 15%;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .form-header p {
@@ -62,7 +64,7 @@ h2 span {
     color: #7A8188;
 }
 
-.close:hover{
+.close:hover {
     color: red;
 }
 
@@ -73,22 +75,29 @@ h2 span {
     font-size: 10px;
     text-align: left;
 }
-.modal-open .container-fluid, .modal-open  .container {
+
+.modal-open .container-fluid,
+.modal-open .container {
     -webkit-filter: blur(5px) grayscale(90%);
 }
 
-.form-div p{
+.form-div p {
     margin-left: 40%;
     font-weight: bold;
     margin-bottom: 2%;
     font-size: 110%;
 }
 
-.link-text p{
+.link-text p {
     margin-left: 30%;
     font-weight: lighter;
 }
-
+.link-text a{
+    text-decoration: none;
+}
+.link-text a:hover{
+    color:#0047b3;
+}
 label {
     width: 100%;
     margin-bottom: 4%;
@@ -104,3 +113,39 @@ label {
     margin-bottom: 5%;
 }
 
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.modal {
+    margin-top: 5%;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #b3b3b3;
+}
+
+/* WebKit, Blink, Edge */
+.form-control:-moz-placeholder {
+    color: #b3b3b3;
+}
+
+/* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder {
+    color: #b3b3b3;
+}
+
+/* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder {
+    color: #b3b3b3;
+}
+
+/* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder {
+    color: #b3b3b3;
+}
+
+.invalid-feedback{
+ margin-top: -1em;
+ margin-bottom: 1em;
+}

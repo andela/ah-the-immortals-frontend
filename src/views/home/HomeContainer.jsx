@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import Footer from '../../components/home/HomeFooter';
 import Navbar from '../../components/home/HomeNavBar';
 import HomePage from '../../components/home/HomeInfo';
 import signUpAction from '../../redux/actions/SignUp.action';
 import signInAction from '../../redux/actions/SignIn.action';
 import { facebookAuth, googleAuth, twitterAuth } from '../../redux/actions/SocialAuth.action';
-
 
 class Home extends Component {
   static propTypes = {
@@ -19,23 +18,27 @@ class Home extends Component {
     facebookAuth: PropTypes.func.isRequired,
     googleAuth: PropTypes.func.isRequired,
     twitterAuth: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    signindata: PropTypes.object.isRequired
   };
   state = {
     show: false,
-    signInShow: false
+    signInShow: false,
+    errorShow: {}
   };
   closeModal = () => {
     this.setState({
       show: false,
-      signInShow: false
+      signInShow: false,
+      errorShow: {}
     });
     toast.dismiss(1);
   };
   showModal = (e) => {
     e.preventDefault();
     this.setState({
-      show: true
+      show: true,
+      errorShow: {}
     });
     toast.dismiss(1);
   };
@@ -48,31 +51,57 @@ class Home extends Component {
   };
   handleChange = (e) => {
     e.preventDefault();
+    const { errorShow } = this.state;
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      errorShow: {
+        ...errorShow,
+        [e.target.name]: false
+      }
     });
     toast.dismiss(1);
   };
+  handleSignInLink = (e) => {
+    e.preventDefault();
+    this.setState({
+      show: false,
+      signInShow: true
+    });
+  }
   handleSubmit = async (e) => {
     e.preventDefault();
     const { password, password_confirm } = this.state;
     const { signup } = this.props;
-
     if (password != password_confirm) {
       // istanbul ignore next
-      toast.error('The passwords do not match', {
-        position: toast.POSITION.TOP_CENTER,
-        toastId: 1
+      this.setState({
+        errorShow: {
+          password: true,
+          password_confirm: true,
+          passwdError: 'The passwords do not match'
+        }
       });
     } else {
       await signup(this.state);
       // istanbul ignore next
-      const { signupdata } = this.props;
+      const { signupdata, history } = this.props;
+      // istanbul ignore next
+      this.setState({
+        errorShow: {
+          email: true,
+          username: true,
+          password: true,
+          password_confirm: true
+        }
+      });
       // istanbul ignore next
       if (signupdata.user.email) {
         this.setState({
           show: false
         });
+        localStorage.setItem('token', signupdata.user.token);
+        localStorage.setItem('username', signupdata.user.username);
+        history.push('/dummyposts');
       }
     }
   };
@@ -83,14 +112,13 @@ class Home extends Component {
     // istanbul ignore next
     const { signindata, history } = this.props;
     // istanbul ignore next
-    if(signindata.user.email){
+    if (signindata.user.email) {
       this.setState({
         signInShow: false
       });
       history.push('/dummyposts');
     }
-    
-  };  
+  };
   handleFacebook = async (e) => {
     e.preventDefault();
     const { facebookAuth: facebook, history } = this.props;
@@ -122,13 +150,13 @@ class Home extends Component {
     history.push('/dummyposts');
   }
   render = () => {
-    const { show, signInShow } = this.state;
+    const { show, signInShow, errorShow } = this.state;
     const facebook = this.handleFacebook;
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
+    const { signupdata } = this.props;
     return (
       <div>
-        <ToastContainer />
         <Navbar showModal={this.showModal} signInShow={this.handleSignInShow} />
         <Container className="homepage">
           <HomePage
@@ -142,6 +170,9 @@ class Home extends Component {
             facebook={facebook}
             google={google}
             twitter={twitter}
+            handleSignInLink={this.handleSignInLink}
+            signupdata={signupdata}
+            errorShow={errorShow}
           />
         </Container>
         <Footer />

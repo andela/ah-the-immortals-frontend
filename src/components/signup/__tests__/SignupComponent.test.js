@@ -11,10 +11,14 @@ describe('Tests signup component', () => {
     handleChange: jest.fn(),
     facebook: jest.fn(),
     google: jest.fn(),
-    twitter: jest.fn()
+    twitter: jest.fn(),
+    handleSignInLink:jest.fn(),
+    signupdata:{},
+    errorShow:{}
   };
 
   it('Tests signup modal', () => {
     const wrapper = shallow(<SignupModal {...props} />);
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
