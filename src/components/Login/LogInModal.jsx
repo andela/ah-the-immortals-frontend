@@ -1,20 +1,20 @@
 import React from 'react';
 import { Container , Modal } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faGooglePlus } from '@fortawesome/free-brands-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import PropTypes from 'prop-types';
 import '../../styles/style.css';
 import '../../styles/App.css'; 
 import LogInForm from './LogInForm';
+import SocialComponent from './SocialComponent';
 
-library.add(faFacebook, faTwitter, faGooglePlus);
 
 const LogInModal = ({
   closeModal,
   signInShow,
   handleChange,
-  handleSignInSubmit
+  handleSignInSubmit,
+  facebook,
+  twitter,
+  google
 }) => {
   return (
     <Modal show={signInShow} onHide={closeModal}>
@@ -29,9 +29,11 @@ const LogInModal = ({
           />
           <h2><span className="bg-light">OR</span></h2>
           <div className="round-icon">
-            <FontAwesomeIcon icon={['fab', 'twitter']} className="twitter" />
-            <FontAwesomeIcon icon={['fab', 'facebook']} className="facebook" />
-            <FontAwesomeIcon icon={['fab', 'google-plus']} className="google" />
+            <SocialComponent
+              facebook={facebook}
+              google={google}
+              twitter={twitter}
+            />
           </div>
         </div>
       </Modal.Body>
@@ -43,7 +45,10 @@ LogInModal.propTypes = {
   signInShow: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  handleSignInSubmit: PropTypes.func.isRequired
+  handleSignInSubmit: PropTypes.func.isRequired,
+  facebook: PropTypes.func.isRequired,
+  google: PropTypes.func.isRequired,
+  twitter: PropTypes.func.isRequired,
 };
 
 export default LogInModal;

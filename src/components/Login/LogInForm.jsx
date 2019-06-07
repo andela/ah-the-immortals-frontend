@@ -19,6 +19,7 @@ const LogInForm = ({ handleSignInSubmit, handleChange }) => (
     </div>
   </form>
 );
+
 LogInForm.propTypes = {
   handleSignInSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,

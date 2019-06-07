@@ -8,7 +8,10 @@ describe('Tests signup component', () => {
     show: false,
     closeModal: jest.fn(),
     handleSubmit: jest.fn(),
-    handleChange: jest.fn()
+    handleChange: jest.fn(),
+    facebook: jest.fn(),
+    google: jest.fn(),
+    twitter: jest.fn()
   };
 
   it('Tests signup modal', () => {

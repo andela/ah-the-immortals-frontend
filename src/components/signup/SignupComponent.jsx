@@ -1,17 +1,13 @@
 import React from 'react';
 import { Modal, Container } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faGooglePlus } from '@fortawesome/free-brands-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
-
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Form from './FormComponent';
 import '../../styles/style.css';
+import SocialComponent from '../Login/SocialComponent';
 
-library.add(faFacebook, faTwitter, faGooglePlus);
 
-const SignupModal = ({ show, closeModal, handleSubmit, handleChange }) => {
+const SignupModal = ({ show, closeModal, handleSubmit, handleChange, facebook, twitter, google }) => {
   return (
     <Modal
       show={show}
@@ -29,10 +25,12 @@ const SignupModal = ({ show, closeModal, handleSubmit, handleChange }) => {
             handleChange={handleChange}
           />
           <h2><span className="bg-light">OR</span></h2>
-          <div className="round-icon ">
-            <FontAwesomeIcon icon={['fab', 'twitter']} className="twitter" />
-            <FontAwesomeIcon icon={['fab', 'facebook']} className="facebook" />
-            <FontAwesomeIcon icon={['fab', 'google-plus']} className="google" />
+          <div className="round-icon">
+            <SocialComponent
+              facebook={facebook}
+              google={google}
+              twitter={twitter}
+            />
           </div>
         </div>
         <div className="link-text">
@@ -51,6 +49,9 @@ SignupModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+  facebook: PropTypes.func.isRequired,
+  google: PropTypes.func.isRequired,
+  twitter: PropTypes.func.isRequired,
 };
 
 export default SignupModal;

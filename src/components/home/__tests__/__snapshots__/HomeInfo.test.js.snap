@@ -53,15 +53,21 @@ exports[`Tests homepage component tests the homepage component 1`] = `
         </Button>
         <SignupModal
           closeModal={[MockFunction]}
+          facebook={[MockFunction]}
+          google={[MockFunction]}
           handleChange={[MockFunction]}
           handleSubmit={[MockFunction]}
           show={false}
+          twitter={[MockFunction]}
         />
         <LogInModal
           closeModal={[MockFunction]}
+          facebook={[MockFunction]}
+          google={[MockFunction]}
           handleChange={[MockFunction]}
           handleSignInSubmit={[MockFunction]}
           signInShow={false}
+          twitter={[MockFunction]}
         />
       </Container>
     </Col>
