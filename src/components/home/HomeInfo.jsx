@@ -1,31 +1,48 @@
 import React from 'react';
-import { Container, Col, Row, Form, FormControl, Button } from 'react-bootstrap';
+import {
+  Container,
+  Col,
+  Row,
+  Form,
+  FormControl,
+  Button
+} from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import LogInModal from '../Login/LogInModal';
 import SignupModal from '../signup/SignupComponent';
 import homepageimage from '../../services/images/homepage.png';
 
-const HomePage = ({ showModal, show, closeModal, handleChange, handleSubmit }) => {
+const HomePage = ({
+  showModal,
+  show,
+  signInShow,
+  closeModal,
+  handleChange,
+  handleSubmit,
+  handleSignInSubmit
+}) => {
   return (
     <div className="columns">
       <Row>
         <Col className="col">
           <Container>
-            <h1 className="homepage">
-              Welcome to your articles Community
-            </h1>
+            <h1 className="homepage">Welcome to your articles Community</h1>
             <br />
             <Form>
-              <FormControl type="text" placeholder="&#xF002;  Search for articles" className="font-awesome" />
+              <FormControl
+                type="text"
+                placeholder="&#xF002;  Search for articles"
+                className="font-awesome"
+              />
             </Form>
           </Container>
           <Container className="home">
-            <p><b>Who is Authors Haven for?</b></p>
+            <p>
+              <b>Who is Authors Haven for?</b>
+            </p>
             <p>Anyone looking to inspire and be inspired by ideas</p>
             <p>Join fellow authors and enthusiasts in Authors Haven</p>
-            <Button
-              variant="primary"
-              onClick={showModal}
-            >
+            <Button variant="primary" onClick={showModal}>
               Get Started
             </Button>
             <SignupModal
@@ -33,6 +50,12 @@ const HomePage = ({ showModal, show, closeModal, handleChange, handleSubmit }) =
               closeModal={closeModal}
               handleChange={handleChange}
               handleSubmit={handleSubmit}
+            />
+            <LogInModal
+              signInShow={signInShow}
+              closeModal={closeModal}
+              handleChange={handleChange}
+              handleSignInSubmit={handleSignInSubmit}
             />
           </Container>
         </Col>
@@ -50,6 +73,8 @@ HomePage.propTypes = {
   closeModal: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  handleSignInSubmit: PropTypes.func.isRequired,
+  signInShow: PropTypes.bool.isRequired
 };
 
 export default HomePage;

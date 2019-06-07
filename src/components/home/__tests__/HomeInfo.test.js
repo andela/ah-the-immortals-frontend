@@ -1,14 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import HomePage from '../homeInfo';
+import HomePage from '../HomeInfo';
 
 const props = {
   showModal: jest.fn(),
   show: false,
   closeModal: jest.fn(),
   handleChange: jest.fn(),
-  handleSubmit: jest.fn()
+  handleSubmit: jest.fn(),
+  handleSignInShow: jest.fn(),
+  signInShow: false,
+  handleSignInSubmit: jest.fn()
 };
 
 describe('Tests homepage component', () => {

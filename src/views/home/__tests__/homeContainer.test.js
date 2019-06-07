@@ -10,6 +10,8 @@ import { CloseButton } from 'react-bootstrap';
 import Form from '../../../components/signup/FormComponent';
 import SignupModal from '../../../components/signup/SignupComponent';
 import Home from '../HomeContainer';
+import LogInModal from '../../../components/Login/LogInModal';
+import LogInForm from '../../../components/Login/LogInForm';
 
 describe('Tests Home container', () => {
   const store = configureStore([thunk])({
@@ -62,6 +64,7 @@ describe('Tests Home container', () => {
       preventDefault: jest.fn()
     });
 
+    
     const form = wrapper.find(Form);
     const submitBtn = form.find('input[type="submit"]');
 
@@ -83,5 +86,30 @@ describe('Tests Home container', () => {
 
     closeBtn.simulate('click');
     expect(closeBtn.length).toEqual(1);
+  });
+
+  it('opens sign in modal when button is clicked', () => {
+    const signInBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Sign In'));
+
+    signInBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+    expect(wrapper.find(LogInModal).prop('signInShow')).toEqual(true);
+  });
+
+  it('handles sign in submit', () => {
+    const signInBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Sign In'));
+
+    signInBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+
+    const loginForm = wrapper.find(LogInForm);
+    const submitBtn = loginForm.find('button[type="submit"]');
+
+    submitBtn.simulate('submit', {
+      preventDefault: jest.fn()
+    });
+    expect(submitBtn.length).toEqual(1);
   });
 });

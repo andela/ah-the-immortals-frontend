@@ -37,6 +37,7 @@ exports[`Tests Home container Tests mounting of component 1`] = `
   >
     <Connect(Home)>
       <Home
+        signInAction={[Function]}
         signup={[Function]}
         signupdata={
           Object {
@@ -77,6 +78,7 @@ exports[`Tests Home container Tests mounting of component 1`] = `
           </ToastContainer>
           <Navigationbar
             showModal={[Function]}
+            signInShow={[Function]}
           >
             <div>
               <Bootstrap(undefined)
@@ -212,30 +214,23 @@ exports[`Tests Home container Tests mounting of component 1`] = `
                                           <div
                                             className="nav-item"
                                           >
-                                            <Link
-                                              to="/login"
+                                            <Button
+                                              active={false}
+                                              className="buttons"
+                                              disabled={false}
+                                              onClick={[Function]}
+                                              type="button"
+                                              variant="outline-light"
                                             >
-                                              <a
-                                                href="/login"
+                                              <button
+                                                className="buttons btn btn-outline-light"
+                                                disabled={false}
                                                 onClick={[Function]}
+                                                type="button"
                                               >
-                                                <Button
-                                                  active={false}
-                                                  className="buttons"
-                                                  disabled={false}
-                                                  type="button"
-                                                  variant="outline-light"
-                                                >
-                                                  <button
-                                                    className="buttons btn btn-outline-light"
-                                                    disabled={false}
-                                                    type="button"
-                                                  >
-                                                    Sign In
-                                                  </button>
-                                                </Button>
-                                              </a>
-                                            </Link>
+                                                Sign In
+                                              </button>
+                                            </Button>
                                           </div>
                                         </NavItem>
                                       </div>
@@ -263,9 +258,11 @@ exports[`Tests Home container Tests mounting of component 1`] = `
               <HomePage
                 closeModal={[Function]}
                 handleChange={[Function]}
+                handleSignInSubmit={[Function]}
                 handleSubmit={[Function]}
                 show={false}
                 showModal={[Function]}
+                signInShow={false}
               >
                 <div
                   className="columns"
@@ -427,6 +424,82 @@ exports[`Tests Home container Tests mounting of component 1`] = `
                                     </Modal>
                                   </Bootstrap(Modal)>
                                 </SignupModal>
+                                <LogInModal
+                                  closeModal={[Function]}
+                                  handleChange={[Function]}
+                                  handleSignInSubmit={[Function]}
+                                  signInShow={false}
+                                >
+                                  <Bootstrap(Modal)
+                                    onHide={[Function]}
+                                    show={false}
+                                  >
+                                    <Modal
+                                      animation={true}
+                                      autoFocus={true}
+                                      backdrop={true}
+                                      bsPrefix="modal"
+                                      dialogAs={
+                                        Object {
+                                          "$$typeof": Symbol(react.forward_ref),
+                                          "displayName": "ModalDialog",
+                                          "render": [Function],
+                                        }
+                                      }
+                                      enforceFocus={true}
+                                      keyboard={true}
+                                      manager={
+                                        BootstrapModalManager {
+                                          "adjustAndStore": [Function],
+                                          "containers": Array [],
+                                          "data": Array [],
+                                          "handleContainerOverflow": true,
+                                          "hideSiblingNodes": true,
+                                          "modals": Array [],
+                                          "restore": [Function],
+                                          "scrollbarSize": 0,
+                                        }
+                                      }
+                                      onHide={[Function]}
+                                      restoreFocus={true}
+                                      show={false}
+                                    >
+                                      <Modal
+                                        autoFocus={true}
+                                        backdrop={true}
+                                        backdropTransition={[Function]}
+                                        className="modal"
+                                        containerClassName="modal-open"
+                                        enforceFocus={true}
+                                        keyboard={true}
+                                        manager={
+                                          BootstrapModalManager {
+                                            "adjustAndStore": [Function],
+                                            "containers": Array [],
+                                            "data": Array [],
+                                            "handleContainerOverflow": true,
+                                            "hideSiblingNodes": true,
+                                            "modals": Array [],
+                                            "restore": [Function],
+                                            "scrollbarSize": 0,
+                                          }
+                                        }
+                                        onClick={[Function]}
+                                        onEnter={[Function]}
+                                        onEntering={[Function]}
+                                        onExited={[Function]}
+                                        onHide={[Function]}
+                                        onMouseUp={[Function]}
+                                        renderBackdrop={[Function]}
+                                        restoreFocus={true}
+                                        role="dialog"
+                                        show={false}
+                                        style={Object {}}
+                                        transition={[Function]}
+                                      />
+                                    </Modal>
+                                  </Bootstrap(Modal)>
+                                </LogInModal>
                               </div>
                             </Container>
                           </div>

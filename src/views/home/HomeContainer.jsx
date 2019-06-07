@@ -3,29 +3,40 @@ import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { toast, ToastContainer } from 'react-toastify';
-import Footer from '../../components/home/homeFooter';
-import Navbar from '../../components/home/homeNavbar';
-import HomePage from '../../components/home/homeInfo';
+import Footer from '../../components/home/HomeFooter';
+import Navbar from '../../components/home/HomeNavBar';
+import HomePage from '../../components/home/HomeInfo';
 import signUpAction from '../../redux/actions/SignUp.action';
+import signInAction from '../../redux/actions/SignIn.action';
 
 class Home extends Component {
   static propTypes = {
     signup: PropTypes.func.isRequired,
-    signupdata: PropTypes.object.isRequired
+    signupdata: PropTypes.object.isRequired,
+    signInAction: PropTypes.func.isRequired
   };
   state = {
     show: false,
+    signInShow: false
   };
   closeModal = () => {
     this.setState({
       show: false,
+      signInShow: false
     });
     toast.dismiss(1);
   };
   showModal = (e) => {
     e.preventDefault();
     this.setState({
-      show: true,
+      show: true
+    });
+    toast.dismiss(1);
+  };
+  handleSignInShow = (e) => {
+    e.preventDefault();
+    this.setState({
+      signInShow: true
     });
     toast.dismiss(1);
   };
@@ -42,16 +53,16 @@ class Home extends Component {
     const { signup } = this.props;
 
     if (password != password_confirm) {
-      // istanbul ignore next 
+      // istanbul ignore next
       toast.error('The passwords do not match', {
         position: toast.POSITION.TOP_CENTER,
         toastId: 1
       });
     } else {
       await signup(this.state);
-      // istanbul ignore next 
+      // istanbul ignore next
       const { signupdata } = this.props;
-      // istanbul ignore next 
+      // istanbul ignore next
       if (signupdata.user.email) {
         this.setState({
           show: false
@@ -59,12 +70,27 @@ class Home extends Component {
       }
     }
   };
+  handleSignInSubmit = async (e) => {
+    e.preventDefault();
+    const { signInAction } = this.props;
+    await signInAction(this.state);
+    // istanbul ignore next
+    const { signindata,history } = this.props;
+    // istanbul ignore next
+    if(signindata.user.email){
+      this.setState({
+        signInShow: false
+      });
+      history.push('/dummyposts');
+    }
+    
+  };
   render = () => {
-    let { show } = this.state;
+    const { show, signInShow } = this.state;
     return (
       <div>
         <ToastContainer />
-        <Navbar showModal={this.showModal} />
+        <Navbar showModal={this.showModal} signInShow={this.handleSignInShow} />
         <Container className="homepage">
           <HomePage
             showModal={this.showModal}
@@ -72,16 +98,19 @@ class Home extends Component {
             show={show}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            handleSignInSubmit={this.handleSignInSubmit}
+            signInShow={signInShow}
           />
         </Container>
         <Footer />
       </div>
     );
-  }
+  };
 }
-const mapStateToProps = ({ signup }) => {
+const mapStateToProps = ({ signup, signin }) => {
   return {
-    signupdata: signup
+    signupdata: signup,
+    signindata: signin
   };
 };
-export default connect(mapStateToProps, { signup: signUpAction })(Home);
+export default connect(mapStateToProps, { signup: signUpAction, signInAction })(Home);

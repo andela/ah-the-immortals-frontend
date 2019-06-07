@@ -53,6 +53,13 @@ h2 span {
     color: red;
 }
 
+.reset-div {
+    margin-top: 10px;
+    margin-right: 70%;
+    font-weight: lighter;
+    font-size: 10px;
+    text-align: left;
+}
 .modal-open .container-fluid, .modal-open  .container {
     -webkit-filter: blur(5px) grayscale(90%);
 }
@@ -63,7 +70,16 @@ h2 span {
     margin-bottom: 2%;
     font-size: 110%;
 }
+
 .link-text p{
     margin-left: 30%;
     font-weight: lighter;
+}
+
+
+label {
+    width: 100%;
+    margin-bottom: 4%;
+    height: 3em;
+    margin-bottom: 10%;
 }

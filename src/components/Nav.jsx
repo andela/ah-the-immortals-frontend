@@ -11,7 +11,7 @@ class NavigationBar extends Component {
           <Navbar.Collapse>
             <Nav className="justify-content-end" style={{ width: '100%' }}>
               <Nav.Item><Link to="#null"><Button variant="danger" className="buttons">Join now</Button></Link></Nav.Item> 
-              <Nav.Item><Link to="/Login"><Button variant="outline-light" className="buttons">Sign In</Button></Link></Nav.Item> 
+              <Nav.Item><Link to="#null"><Button variant="outline-light" className="buttons">Sign In</Button></Link></Nav.Item> 
             </Nav>
           </Navbar.Collapse>
         </Navbar>
