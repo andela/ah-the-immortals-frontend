@@ -99,7 +99,7 @@ exports[`Tests dummy post component tests the homepage component 1`] = `
             <p
               className="mb-1"
             >
-              Lorem Ipsum is simply deen the industry's standard dummy text ever since the 1500s, when an unk diam eget risus varius blandit.
+              Lorem Ipsum is simply deen the industrys standard dummy text ever since the 1500s, when an unk diam eget risus varius blandit.
             </p>
             <small>
               Donec id elit non mi porta.

@@ -26,67 +26,62 @@ exports[`<LoginForm/> renders login form component 1`] = `
   <LogInForm
     handleChange={[MockFunction]}
     handleSignInSubmit={[MockFunction]}
+    signInError={false}
+    signindata={
+      Object {
+        "email": "testsignin@gmail.com",
+        "errors": Object {},
+      }
+    }
   >
     <form
       className="modal-form"
+      name="modal-form"
       onSubmit={[MockFunction]}
     >
-      <label
-        htmlFor="email"
-      >
+      <div>
         <input
-          className="form-control"
+          className="form-control "
           name="email"
           onChange={[MockFunction]}
+          onKeyUp={[Function]}
           placeholder="Email"
-          required={true}
           type="email"
         />
-      </label>
-      <label
-        htmlFor="password"
-      >
         <input
-          className="form-control"
+          className="form-control "
           name="password"
           onChange={[MockFunction]}
+          onKeyUp={[Function]}
           placeholder="Password"
-          required={true}
           type="password"
         />
-      </label>
-      <Button
-        active={false}
-        className="form-control btn"
-        disabled={false}
-        type="submit"
-        value="SIGN IN"
-        variant="info"
-      >
-        <button
-          className="form-control btn btn btn-info"
-          disabled={false}
+        <div
+          className="invalid-feedback"
+        />
+        <input
+          className="form-control btn"
+          disabled={true}
+          id="signInSubmit"
           type="submit"
           value="SIGN IN"
+        />
+        <div
+          className="reset-div"
         >
-          SIGN IN
-        </button>
-      </Button>
-      <div
-        className="reset-div"
-      >
-        <Link
-          className="passreset-link"
-          to="/reset"
-        >
-          <a
+          <Link
             className="passreset-link"
-            href="/reset"
-            onClick={[Function]}
+            to="/reset"
           >
-            Forgot Password?
-          </a>
-        </Link>
+            <a
+              className="passreset-link"
+              href="/reset"
+              onClick={[Function]}
+            >
+              Forgot Password?
+            </a>
+          </Link>
+        </div>
       </div>
     </form>
   </LogInForm>

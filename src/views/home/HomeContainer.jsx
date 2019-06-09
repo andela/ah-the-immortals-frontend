@@ -24,13 +24,15 @@ class Home extends Component {
   state = {
     show: false,
     signInShow: false,
-    errorShow: {}
+    errorShow: {},
+    signInError:false
   };
   closeModal = () => {
     this.setState({
       show: false,
       signInShow: false,
-      errorShow: {}
+      errorShow: {},
+      signInError:false
     });
     toast.dismiss(1);
   };
@@ -45,7 +47,7 @@ class Home extends Component {
   handleSignInShow = (e) => {
     e.preventDefault();
     this.setState({
-      signInShow: true
+      signInShow: true,
     });
     toast.dismiss(1);
   };
@@ -57,7 +59,8 @@ class Home extends Component {
       errorShow: {
         ...errorShow,
         [e.target.name]: false
-      }
+      },
+      signInError:false
     });
     toast.dismiss(1);
   };
@@ -110,6 +113,10 @@ class Home extends Component {
     const { signInAction } = this.props;
     await signInAction(this.state);
     // istanbul ignore next
+    this.setState({
+      signInError:true
+    });
+    // istanbul ignore next
     const { signindata, history } = this.props;
     // istanbul ignore next
     if (signindata.user.email) {
@@ -119,6 +126,13 @@ class Home extends Component {
       history.push('/dummyposts');
     }
   };
+  handleSignUpLink=(e)=>{
+    e.preventDefault();
+    this.setState({
+      show:true,
+      signInShow:false,
+    });
+  } 
   handleFacebook = async (e) => {
     e.preventDefault();
     const { facebookAuth: facebook, history } = this.props;
@@ -150,7 +164,8 @@ class Home extends Component {
     history.push('/dummyposts');
   }
   render = () => {
-    const { show, signInShow, errorShow } = this.state;
+    const { show, signInShow, errorShow, signInError} = this.state;
+    const { signindata } = this.props;
     const facebook = this.handleFacebook;
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
@@ -173,6 +188,9 @@ class Home extends Component {
             handleSignInLink={this.handleSignInLink}
             signupdata={signupdata}
             errorShow={errorShow}
+            handleSignUpLink={this.handleSignUpLink}
+            signindata={signindata}
+            signInError={signInError}            
           />
         </Container>
         <Footer />

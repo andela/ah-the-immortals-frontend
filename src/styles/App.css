@@ -50,21 +50,6 @@
     background-color: #2977C9;
 }
 
-.left-container {
-    background-color: #2977C9;
-    color: #FFFFFF;
-    font-weight: bolder;
-    height: 100vh;
-    margin-bottom: 0px;
-    
-}
-
-.right-container {
-    background-color: #FFFFFF;
-    color: black;
-    height: 100vh;
-    margin-bottom: 0px;
-}
 
 .title-text {
     color: #FFFFFF;
@@ -135,6 +120,24 @@
     font-size: 2em;  
 }
 
+.twitter {
+    background: #4099FF;
+	color: #FFFFFF;
+    padding: 0.05em 0.07em; 
+    border-radius: 50%;
+	margin: 0.2em;
+}
+
+.facebook {
+    background: #FFFFFF;
+	color: #3B5998;
+	margin: 0.2em;
+}
+
+.google {
+    color: rgb(221, 75, 57);
+    margin: 0.2em;
+}
 
 .top {
     margin-top: 20%;

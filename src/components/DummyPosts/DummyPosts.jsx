@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Navbar from './NavBarDummy';
 
@@ -40,7 +41,7 @@ export class DummyPost extends Component {
                     <h5 className="mb-1">Baba yaga</h5>
                     <small>3 days ago</small>
                   </div>
-                  <p className="mb-1">Lorem Ipsum is simply deen the industry's standard dummy text ever since the 1500s, when an unk diam eget risus varius blandit.</p>
+                  <p className="mb-1">Lorem Ipsum is simply deen the industrys standard dummy text ever since the 1500s, when an unk diam eget risus varius blandit.</p>
                   <small>Donec id elit non mi porta.</small>
                 </Link>
                 <Link to="/" className="list-group-item list-group-item-action flex-column align-items-start">

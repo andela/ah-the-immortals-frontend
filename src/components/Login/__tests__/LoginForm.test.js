@@ -16,6 +16,11 @@ describe('<LoginForm/>', () => {
         <LoginForm
           handleSignInSubmit={mockOnsubmit}
           handleChange={mockOnchange}
+          signindata={{
+            email: 'testsignin@gmail.com',
+            errors: {}
+          }}
+          signInError={false}
         />
       </Router>
 

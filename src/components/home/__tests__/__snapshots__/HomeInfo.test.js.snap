@@ -69,7 +69,10 @@ exports[`Tests homepage component tests the homepage component 1`] = `
           google={[MockFunction]}
           handleChange={[MockFunction]}
           handleSignInSubmit={[MockFunction]}
+          handleSignUpLink={[MockFunction]}
+          signInError={false}
           signInShow={false}
+          signindata={Object {}}
           twitter={[MockFunction]}
         />
       </Container>

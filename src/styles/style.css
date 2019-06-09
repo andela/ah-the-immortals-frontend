@@ -35,6 +35,7 @@
 .form-div {
     width: 80%;
     margin-left: 10%;
+    background: #f7f7f7;
 }
 
 .form-header p {
@@ -55,7 +56,6 @@ h2 {
 }
 
 h2 span {
-    /* background: #fff; */
     padding: 0 10px;
 }
 
@@ -148,4 +148,21 @@ label {
 .invalid-feedback{
  margin-top: -1em;
  margin-bottom: 1em;
+}
+
+.reset-div {
+    margin-top: -2%;
+    margin-bottom: 6%;
+    font-weight: lighter;
+    font-size: 91%;
+    width: 100%;
+    text-align: left;
+}
+.red {
+    border: 1px solid red !important;
+}
+.with-errors::after {
+    content: attr(name);
+    color: red;
+    font-size: 5px;
 }

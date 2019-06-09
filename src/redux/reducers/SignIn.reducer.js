@@ -17,13 +17,9 @@ const signInReducer = (state = initialState, action) => {
       errors: {}
     };
   case LOGIN_FAILURE:
-    toast.error(action.error.response.data.errors.credentials[0],{
-      toastId:1,
-      position:toast.POSITION.TOP_CENTER
-    });
     return {
       ...state,
-      errors: action.error.response,
+      errors: action.error.response.data.errors,
       user: {}
     };
   default:
