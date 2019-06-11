@@ -19,7 +19,6 @@ const socialAuthAction = (data) => async (dispatch) => {
     const response = await socialAuthApi(data);
     dispatch(socialSuccess(response));
     localStorage.setItem('token', response.data.user.token);
-    localStorage.setItem('username', response.data.user.username);
   } catch (error) {
     dispatch(socialFailure(error));
   }

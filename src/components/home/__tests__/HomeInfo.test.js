@@ -17,7 +17,10 @@ const props = {
   twitter: jest.fn(),
   handleSignInLink:jest.fn(),
   signupdata:{},
-  errorShow:{}
+  errorShow:{},
+  handleSignUpLink: jest.fn(),
+  signindata: {},
+  signInError: false
 };
 
 describe('Tests homepage component', () => {

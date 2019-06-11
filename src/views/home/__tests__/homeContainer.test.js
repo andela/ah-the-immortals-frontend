@@ -1,17 +1,17 @@
 import React from 'react';
 import { Router,Link } from 'react-router-dom';
-import { mount} from 'enzyme';
+import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { CloseButton } from 'react-bootstrap';
-import moxios from 'moxios';
 import Form from '../../../components/signup/FormComponent';
 import SignupModal from '../../../components/signup/SignupComponent';
 import Home from '../HomeContainer';
 import LogInModal from '../../../components/Login/LogInModal';
 import LogInForm from '../../../components/Login/LogInForm';
+import { keyUp } from '../../../services';
 
 
 describe('Tests Home container', () => {
@@ -88,12 +88,7 @@ describe('Tests Home container', () => {
       passwordConfirm:form.find('input[name="password_confirm"]')
     };
 
-    Object.values(inputs).forEach((input) => {
-      input.simulate('keyup', {
-        keyCode: 65
-      });
-      expect(submitBtn.prop('disabled')).toEqual(true);
-    });
+    keyUp(inputs, submitBtn);
   });
 
   it('Simulates click of signIn link', () => {
@@ -142,12 +137,43 @@ describe('Tests Home container', () => {
     });
 
     const loginForm = wrapper.find(LogInForm);
-    const submitBtn = loginForm.find('button[type="submit"]');
+    const submitBtn = loginForm.find('input[type="submit"]');
 
     submitBtn.simulate('submit', {
       preventDefault: jest.fn()
     });
     expect(submitBtn.length).toEqual(1);
+  });
+  it('test successfull input of sign in details', () => {
+    const signInBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Sign In'));
+
+    signInBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+
+    const form = wrapper.find(LogInForm);
+    const submitButton = form.find('input[type="submit"]');
+
+    const inputs = {
+      emailInput: form.find('input[name="email"]'),
+      passwordInput: form.find('input[name="password"]')
+    };
+
+    keyUp(inputs, submitButton);
+  });
+  it('tests click of signUp link', () => {
+    const signInBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Sign In'));
+
+    signInBtn.simulate('click', {
+      preventDefault: jest.fn()
+    });
+    
+    const loginmodal = wrapper.find(LogInModal);
+    const signUpLink = loginmodal.find('.link-text p Link');
+    signUpLink.simulate('click', {
+      preventDefault: jest.fn()
+    });
+    expect(wrapper.find(SignupModal).exists()).toEqual(true);
   });
   it('simulates click facebook',()=>{
     const fbBtn = wrapper.find('button[id="fb"]').first();

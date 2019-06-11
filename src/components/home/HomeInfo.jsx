@@ -25,7 +25,10 @@ const HomePage = ({
   google,
   handleSignInLink,
   signupdata,
-  errorShow
+  errorShow,
+  handleSignUpLink,
+  signindata,
+  signInError
 }) => {
   return (
     <div className="columns">
@@ -71,6 +74,9 @@ const HomePage = ({
               facebook={facebook}
               google={google}
               twitter={twitter}
+              handleSignUpLink={handleSignUpLink}
+              signindata={signindata}
+              signInError={signInError}
             />
           </Container>
         </Col>
@@ -95,7 +101,10 @@ HomePage.propTypes = {
   twitter: PropTypes.func.isRequired,
   handleSignInLink:PropTypes.func.isRequired,
   signupdata:PropTypes.object.isRequired,
-  errorShow:PropTypes.object.isRequired
+  errorShow:PropTypes.object.isRequired,
+  handleSignUpLink: PropTypes.func.isRequired,
+  signindata: PropTypes.object.isRequired,
+  signInError: PropTypes.bool.isRequired
 };
 
 export default HomePage;

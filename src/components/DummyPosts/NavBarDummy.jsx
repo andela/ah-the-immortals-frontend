@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
-import profileImage from '../../services/images/profile.png';
-
 import '../../styles/App.css';
 
 const DammyNav = () => (
@@ -32,5 +30,4 @@ const DammyNav = () => (
     </Navbar>
   </div>
 );
-
 export default DammyNav;

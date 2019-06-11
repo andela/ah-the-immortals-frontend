@@ -38,7 +38,7 @@ describe('test for sign in reducers', () => {
       }
     };
     expect(signInReducer(initialState, action)).toEqual({
-      errors: action.error.response,
+      errors: action.error.response.data.errors,
       user: {}
     });
   });
