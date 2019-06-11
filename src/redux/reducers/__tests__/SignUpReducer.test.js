@@ -40,7 +40,7 @@ describe('Signup reducer', () => {
     };
 
     expect(SignupReducer(initalState, action)).toEqual({
-      errors: action.error.response,
+      errors: action.error.response.data.errors,
       user: {}
     });
   });

@@ -7,7 +7,11 @@ import '../../styles/style.css';
 import SocialComponent from '../Login/SocialComponent';
 
 
-const SignupModal = ({ show, closeModal, handleSubmit, handleChange, facebook, twitter, google }) => {
+const SignupModal = ({
+  show, closeModal, handleSubmit, handleChange,
+  facebook, twitter, google,
+  handleSignInLink, signupdata, errorShow
+}) => {
   return (
     <Modal
       show={show}
@@ -17,12 +21,14 @@ const SignupModal = ({ show, closeModal, handleSubmit, handleChange, facebook, t
         closeButton
       >
       </Modal.Header>
-      <Modal.Body className="modal-body">
-        <div className="shadow-lg p-3 mb-5 bg-light rounded form-div">
+      <Modal.Body>
+        <div className="shadow-lg p-3 mb-4 bg-light rounded form-div">
           <p>Sign Up</p>
           <Form
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            signupdata={signupdata}
+            errorShow={errorShow}
           />
           <h2><span className="bg-light">OR</span></h2>
           <div className="round-icon">
@@ -35,8 +41,8 @@ const SignupModal = ({ show, closeModal, handleSubmit, handleChange, facebook, t
         </div>
         <div className="link-text">
           <p>
-            Have an account?       .
-            <Link to="/login">Sign in</Link>
+            Have an account?&nbsp;
+            <Link to="/login" onClick={handleSignInLink}>Sign In</Link>
           </p>
         </div>
       </Modal.Body>
@@ -52,6 +58,9 @@ SignupModal.propTypes = {
   facebook: PropTypes.func.isRequired,
   google: PropTypes.func.isRequired,
   twitter: PropTypes.func.isRequired,
+  handleSignInLink: PropTypes.func.isRequired,
+  signupdata: PropTypes.object.isRequired,
+  errorShow: PropTypes.object.isRequired
 };
 
 export default SignupModal;

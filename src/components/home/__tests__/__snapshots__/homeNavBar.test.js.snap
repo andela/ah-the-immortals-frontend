@@ -30,9 +30,9 @@ exports[`Tests navigation Bar Tests navigation Bar component 1`] = `
             disabled={false}
             onClick={[MockFunction]}
             type="button"
-            variant="danger"
+            variant="outline-light"
           >
-            Join now
+            Sign In
           </Button>
         </NavItem>
         <NavItem>
@@ -42,9 +42,9 @@ exports[`Tests navigation Bar Tests navigation Bar component 1`] = `
             disabled={false}
             onClick={[MockFunction]}
             type="button"
-            variant="outline-light"
+            variant="danger"
           >
-            Sign In
+            Join now
           </Button>
         </NavItem>
       </Nav>

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests signup component Tests signup modal 1`] = `
+<Bootstrap(Modal)
+  onHide={[MockFunction]}
+  show={false}
+>
+  <ModalHeader
+    closeButton={true}
+    closeLabel="Close"
+  />
+  <ModalBody>
+    <div
+      className="shadow-lg p-3 mb-4 bg-light rounded form-div"
+    >
+      <p>
+        Sign Up
+      </p>
+      <Form
+        errorShow={Object {}}
+        handleChange={[MockFunction]}
+        handleSubmit={[MockFunction]}
+        signupdata={Object {}}
+      />
+      <h2>
+        <span
+          className="bg-light"
+        >
+          OR
+        </span>
+      </h2>
+      <div
+        className="round-icon"
+      >
+        <SocialComponent
+          facebook={[MockFunction]}
+          google={[MockFunction]}
+          twitter={[MockFunction]}
+        />
+      </div>
+    </div>
+    <div
+      className="link-text"
+    >
+      <p>
+        Have an account? 
+        <Link
+          onClick={[MockFunction]}
+          to="/login"
+        >
+          Sign In
+        </Link>
+      </p>
+    </div>
+  </ModalBody>
+</Bootstrap(Modal)>
+`;

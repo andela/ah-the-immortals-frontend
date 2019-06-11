@@ -11,9 +11,13 @@ describe('<Form/>', () => {
       <Form
         handleSubmit={mockOnsubmit}
         handleChange={mockOnchange}
+        signupdata={{
+          email: 'test@gmail.com',
+          errors: {}
+        }}
+        errorShow={{ password: false }}
       />
     );
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
-

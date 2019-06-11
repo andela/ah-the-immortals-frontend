@@ -22,7 +22,10 @@ const HomePage = ({
   handleSignInSubmit,
   facebook,
   twitter,
-  google
+  google,
+  handleSignInLink,
+  signupdata,
+  errorShow
 }) => {
   return (
     <div className="columns">
@@ -56,6 +59,9 @@ const HomePage = ({
               facebook={facebook}
               google={google}
               twitter={twitter}
+              signupdata={signupdata}
+              errorShow={errorShow}
+              handleSignInLink={handleSignInLink}
             />
             <LogInModal
               signInShow={signInShow}
@@ -87,6 +93,9 @@ HomePage.propTypes = {
   facebook: PropTypes.func.isRequired,
   google: PropTypes.func.isRequired,
   twitter: PropTypes.func.isRequired,
+  handleSignInLink:PropTypes.func.isRequired,
+  signupdata:PropTypes.object.isRequired,
+  errorShow:PropTypes.object.isRequired
 };
 
 export default HomePage;

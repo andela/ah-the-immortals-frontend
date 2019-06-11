@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container , Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import '../../styles/style.css';
-import '../../styles/App.css'; 
+import '../../styles/App.css';
 import LogInForm from './LogInForm';
 import SocialComponent from './SocialComponent';
 
