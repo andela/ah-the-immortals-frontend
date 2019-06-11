@@ -8,7 +8,7 @@ import NavigationBar from '../NavigationBarContainer';
 
 describe('Tests Logout Function', () => {
   let testStore = configureMockStore([thunk]);
-  let store = testStore({ signin: { isAuthenticated: true, user: { username: 'eric' } }, signup: {user: {}, errors: {}} });
+  let store = testStore({ signin: { isAuthenticated: true, user: { username: 'eric' } }, signup: { user: {}, errors: {} }, search: {} });
 
   const wrapper = mount(
     <Provider store={store}>

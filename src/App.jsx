@@ -14,6 +14,7 @@ import postsfeed from './views/Articles/Posts';
 import singlepost from './views/Article/post';
 import editarticle from './views/EditArticle/EditArticle';
 import Footer from './components/home/HomeFooter';
+import SearchPageContainer from './views/search/SearchPageContainer';
 
 
 const history = createBrowserHistory;
@@ -23,10 +24,10 @@ export default class App extends Component {
       <div>
         <Router history={history}>
           <div>
-            <NavigationBar />
+            <NavigationBar history={history} />
             <br />
             <br />
-            <ToastContainer 
+            <ToastContainer
               position="top-center"
               autoClose={5000}
               hideProgressBar
@@ -44,6 +45,7 @@ export default class App extends Component {
               <Route exact path="/post/:slug" component={singlepost} />
               <Route exact path="/posts" component={postsfeed} />
               <Route exact path="/edit/:slug" component={editarticle} />
+              <Route exact path="/search-page" component={SearchPageContainer} />
               <Route component={PageNotFound} />
             </Switch>
             <Footer />

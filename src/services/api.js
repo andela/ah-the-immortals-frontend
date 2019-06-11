@@ -24,7 +24,7 @@ const axiosHeader = {
     authorization: `Bearer ${token}`
   },
 };
-
+const articlesUrl = `${ROOT_URL}/articles`;
 export const profileApi = (data, username) => axios.patch(
   `${ROOT_URL}/profiles/${username}/`,
   data,
@@ -32,12 +32,22 @@ export const profileApi = (data, username) => axios.patch(
 );
 export const fetchProfileApi = (username) => axios.get(`${ROOT_URL}/profiles/${username}`);
 
+const SearchArticlesApi = (data) => {
+  if (data.author) {
+    return axios.get(`${articlesUrl}/?author=${data.author}`);
+  } else if (data.tag) {
+    return axios.get(`${articlesUrl}/?tags=${data.tag}`);
+  } else {
+    return axios.get(`${articlesUrl}/?title=${data.title}`);
+  }
+};
 const APIS = {
   resetPasswordLinkAPI,
   resetconfirmPasswordAPI,
   signUpApi,
   signInApi,
-  socialAuthApi
+  socialAuthApi,
+  SearchArticlesApi
 };
 
 export default APIS;
@@ -52,7 +62,6 @@ const userData = decoded(token);
 export const CurrentUser = userData ? userData.user_data.username:null;
 
 
-const articlesUrl = `${ROOT_URL}/articles`;
 export const postArticleApi = (postData) => axios.post(`${articlesUrl}/`, postData, axiosHeader);
 export const getPostsApi = () => axios.get(articlesUrl);
 export const getSingleArticle = (slug) => axios.get(`${articlesUrl}/${slug}`);
