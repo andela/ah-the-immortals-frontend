@@ -51,4 +51,15 @@ describe('test for sign in reducers', () => {
     };
     expect(signInReducer(initialState, action)).toEqual(initialState);
   });
+
+  it('test successfull logout', () => {
+    const action = {
+      type: ACTION_CONSTANTS.LOGOUT,
+    }; 
+    expect(signInReducer(initialState, action)).toEqual({
+      isAuthenticated: false,
+      user: {},
+      errors: {}
+    });
+  });
 });

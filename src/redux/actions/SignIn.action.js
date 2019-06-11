@@ -1,7 +1,10 @@
 import ACTION_CONSTANTS from '../constants/constants';
 import APIS from '../../services/api';
+import createBrowserHistory from '../../services/history';
 
-const { LOGIN_SUCCESS, LOGIN_FAILURE } = ACTION_CONSTANTS;
+const history = createBrowserHistory;
+
+const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = ACTION_CONSTANTS;
 const {signInApi}=APIS;
 
 export const loginSuccess = (response) => ({
@@ -14,7 +17,11 @@ export const loginFailure = (error) => ({
   error
 });
 
-const signInAction = (data) => async (dispatch) => {
+export const logout = () => ({
+  type: LOGOUT
+});
+
+export const signInAction = (data) => async (dispatch) => {
   try {
     const response = await signInApi(data);
     dispatch(loginSuccess(response));
@@ -24,4 +31,8 @@ const signInAction = (data) => async (dispatch) => {
   }
 };
 
-export default signInAction;
+export const logoutAction = () => (dispatch) =>{
+  dispatch(logout());
+  localStorage.clear();
+  history.push('/');
+};
