@@ -4,6 +4,7 @@ import signInReducer from './SignIn.reducer';
 import resetPasswordLinkReducer from './resetPasswordLink.reducer';
 import confirmResetPasswordReducer from './passwordConfirm.reducer';
 import SocialReducer from './SocialAuth.reducer';
+import Profile from './profile.reducer';
 
 export default combineReducers({
   resetpasswordlink: resetPasswordLinkReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   signup:SignUpReducer,
   signin:signInReducer,
   social: SocialReducer,
+  Profile,
 });

@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test edit profile container test edit profile container snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(ProfileContainer)>
+        <ProfileContainer
+          editProfile={[Function]}
+          profile={Object {}}
+        >
+          <div
+            className="container profile-form"
+          >
+            <ProfileForm
+              handleChangeProfile={[Function]}
+              handleFileUpload={[Function]}
+              handleSubmit={[Function]}
+            >
+              <div>
+                <form
+                  onSubmit={[Function]}
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="firstname"
+                    >
+                      First name
+                      <br />
+                      <input
+                        className="form-control"
+                        name="first_name"
+                        onChange={[Function]}
+                        type="text"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="lastname"
+                    >
+                      Last name
+                      <br />
+                      <input
+                        className="form-control"
+                        name="last_name"
+                        onChange={[Function]}
+                        type="text"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      htmlFor="bio"
+                    >
+                      Bio
+                      <br />
+                      <textarea
+                        className="form-control"
+                        name="bio"
+                        onChange={[Function]}
+                      />
+                    </label>
+                  </div>
+                  <div
+                    className="btn-group mr-2"
+                    role="group"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      id="save"
+                      type="submit"
+                    >
+                      Save
+                    </button>
+                  </div>
+                  <div
+                    className="btn-group"
+                    role="group"
+                  >
+                    <button
+                      className="btn btn-primary"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      Upload Photo
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </ProfileForm>
+          </div>
+        </ProfileContainer>
+      </Connect(ProfileContainer)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

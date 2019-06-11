@@ -24,15 +24,19 @@ exports[`Tests dummy navigation Bar Tests dummy navigation Bar component 1`] = `
         }
       >
         <NavItem>
-          <Button
-            active={false}
-            className="buttons"
-            disabled={false}
-            type="button"
-            variant="danger"
+          <Link
+            to="/profile"
           >
-            my profile
-          </Button>
+            <Button
+              active={false}
+              className="buttons prifile-button"
+              disabled={false}
+              type="button"
+              variant="outline-light"
+            >
+              Profile
+            </Button>
+          </Link>
         </NavItem>
         <NavItem>
           <Button

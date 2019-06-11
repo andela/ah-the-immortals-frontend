@@ -22,6 +22,10 @@ const socialAuth = firebase.auth();
 const facebook = new firebase.auth.FacebookAuthProvider();
 const google = new firebase.auth.GoogleAuthProvider();
 const twitter = new firebase.auth.TwitterAuthProvider();
+const FETCH_PROFILE = 'FETCH_PROFILE';
+const EDIT_PROFILE = 'EDIT_PROFILE';
+const FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR';
+const EDIT_PROFILE_ERROR = 'EDIT_PROFILE_ERROR';
 
 const  ACTION_CONSTANTS = {
   SIGNUP_FAILURE,
@@ -37,7 +41,11 @@ const  ACTION_CONSTANTS = {
   socialAuth,
   facebook,
   google,
-  twitter
+  twitter,
+  FETCH_PROFILE,
+  EDIT_PROFILE,
+  FETCH_PROFILE_ERROR,
+  EDIT_PROFILE_ERROR
 };
 
 export default ACTION_CONSTANTS;

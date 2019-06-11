@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotEnvPlugin = require('dotenv-webpack');
+const jwtDecode = require('jwt-decode');
 
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
