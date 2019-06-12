@@ -50,159 +50,6 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
             username=""
           >
             <div>
-              <Navigationbar>
-                <div>
-                  <Bootstrap(undefined)
-                    className="homenav fixed-top"
-                  >
-                    <ForwardRef
-                      bsPrefix="navbar"
-                      className="homenav fixed-top"
-                      innerRef={null}
-                    >
-                      <Uncontrolled(Navbar)
-                        bsPrefix="navbar"
-                        className="homenav fixed-top"
-                        innerRef={null}
-                      >
-                        <Navbar
-                          bsPrefix="navbar"
-                          className="homenav fixed-top"
-                          collapseOnSelect={false}
-                          expand={true}
-                          onToggle={[Function]}
-                          variant="light"
-                        >
-                          <nav
-                            className="homenav fixed-top navbar navbar-expand navbar-light"
-                          >
-                            <NavbarBrand>
-                              <span
-                                className="navbar-brand"
-                              >
-                                <b
-                                  className="brand"
-                                >
-                                  Authors Haven
-                                </b>
-                              </span>
-                            </NavbarBrand>
-                            <NavbarCollapse>
-                              <Collapse
-                                appear={false}
-                                dimension="height"
-                                getDimensionValue={[Function]}
-                                in={false}
-                                mountOnEnter={false}
-                                timeout={300}
-                                unmountOnExit={false}
-                              >
-                                <Transition
-                                  addEndListener={[Function]}
-                                  appear={false}
-                                  aria-expanded={null}
-                                  enter={true}
-                                  exit={true}
-                                  in={false}
-                                  mountOnEnter={false}
-                                  onEnter={[Function]}
-                                  onEntered={[Function]}
-                                  onEntering={[Function]}
-                                  onExit={[Function]}
-                                  onExited={[Function]}
-                                  onExiting={[Function]}
-                                  timeout={300}
-                                  unmountOnExit={false}
-                                >
-                                  <div
-                                    aria-expanded={null}
-                                    className="navbar-collapse collapse"
-                                  >
-                                    <Nav
-                                      className="justify-content-end"
-                                      fill={false}
-                                      justify={false}
-                                      style={
-                                        Object {
-                                          "width": "100%",
-                                        }
-                                      }
-                                    >
-                                      <ContextTransform(AbstractNav)
-                                        as="div"
-                                        className="justify-content-end navbar-nav"
-                                        onSelect={[Function]}
-                                        style={
-                                          Object {
-                                            "width": "100%",
-                                          }
-                                        }
-                                      >
-                                        <AbstractNav
-                                          as="div"
-                                          className="justify-content-end navbar-nav"
-                                          onSelect={[Function]}
-                                          parentOnSelect={[Function]}
-                                          style={
-                                            Object {
-                                              "width": "100%",
-                                            }
-                                          }
-                                        >
-                                          <div
-                                            className="justify-content-end navbar-nav"
-                                            onKeyDown={[Function]}
-                                            style={
-                                              Object {
-                                                "width": "100%",
-                                              }
-                                            }
-                                          >
-                                            <NavItem>
-                                              <div
-                                                className="nav-item"
-                                              >
-                                                <Link
-                                                  to="/login"
-                                                >
-                                                  <a
-                                                    href="/login"
-                                                    onClick={[Function]}
-                                                  >
-                                                    <Button
-                                                      active={false}
-                                                      className="buttons"
-                                                      disabled={false}
-                                                      type="button"
-                                                      variant="outline-light"
-                                                    >
-                                                      <button
-                                                        className="buttons btn btn-outline-light"
-                                                        disabled={false}
-                                                        type="button"
-                                                      >
-                                                        Sign out
-                                                      </button>
-                                                    </Button>
-                                                  </a>
-                                                </Link>
-                                              </div>
-                                            </NavItem>
-                                          </div>
-                                        </AbstractNav>
-                                      </ContextTransform(AbstractNav)>
-                                    </Nav>
-                                  </div>
-                                </Transition>
-                              </Collapse>
-                            </NavbarCollapse>
-                          </nav>
-                        </Navbar>
-                      </Uncontrolled(Navbar)>
-                    </ForwardRef>
-                  </Bootstrap(undefined)>
-                </div>
-              </Navigationbar>
               <Container
                 className="profile"
                 fluid={false}
@@ -536,23 +383,33 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                       className="row"
                     >
                       <div
-                        className="col-md-3 footmargin"
+                        className="col"
                       >
-                        Authors Haven
-                         
                         <span
                           className="small"
                         >
                           <br />
-                          <a
-                            href="#null"
+                          <Link
+                            to="#null"
                           >
-                            Terms and Conditions
-                          </a>
+                            <a
+                              href="/#null"
+                              onClick={[Function]}
+                            >
+                              Terms and Conditions
+                            </a>
+                          </Link>
                         </span>
                       </div>
                       <div
-                        className="col-md-8 text-right small align-self-end"
+                        className="col text-center"
+                      >
+                        <br />
+                        Authors Haven
+                         
+                      </div>
+                      <div
+                        className="col text-right small align-self-end"
                       >
                         Copyright ©
                          

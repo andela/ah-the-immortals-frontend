@@ -3,6 +3,7 @@ import ACTION_CONSTANTS from '../../constants/constants';
 
 describe('Signup reducer', () => {
   const initalState = {
+    isAuthenticated: false,
     user: {},
     errors: {}
   };
@@ -20,6 +21,7 @@ describe('Signup reducer', () => {
       }
     };
     expect(SignupReducer(initalState, action)).toEqual({
+      isAuthenticated: true,
       user: action.response.data.user,
       errors: {}
     });
@@ -40,6 +42,7 @@ describe('Signup reducer', () => {
     };
 
     expect(SignupReducer(initalState, action)).toEqual({
+      isAuthenticated: false,
       errors: action.error.response.data.errors,
       user: {}
     });

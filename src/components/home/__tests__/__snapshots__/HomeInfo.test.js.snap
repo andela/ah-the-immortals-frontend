@@ -11,21 +11,14 @@ exports[`Tests homepage component tests the homepage component 1`] = `
       <Container
         fluid={false}
       >
+        <br />
+        <br />
         <h1
           className="homepage"
         >
           Welcome to your articles Community
         </h1>
         <br />
-        <Form
-          inline={false}
-        >
-          <FormControl
-            className="font-awesome"
-            placeholder="  Search for articles"
-            type="text"
-          />
-        </Form>
       </Container>
       <Container
         className="home"
@@ -42,50 +35,7 @@ exports[`Tests homepage component tests the homepage component 1`] = `
         <p>
           Join fellow authors and enthusiasts in Authors Haven
         </p>
-        <Button
-          active={false}
-          disabled={false}
-          onClick={[MockFunction]}
-          type="button"
-          variant="primary"
-        >
-          Get Started
-        </Button>
-        <SignupModal
-          closeModal={[MockFunction]}
-          errorShow={Object {}}
-          facebook={[MockFunction]}
-          google={[MockFunction]}
-          handleChange={[MockFunction]}
-          handleSignInLink={[MockFunction]}
-          handleSubmit={[MockFunction]}
-          show={false}
-          signupdata={Object {}}
-          twitter={[MockFunction]}
-        />
-        <LogInModal
-          closeModal={[MockFunction]}
-          facebook={[MockFunction]}
-          google={[MockFunction]}
-          handleChange={[MockFunction]}
-          handleSignInSubmit={[MockFunction]}
-          handleSignUpLink={[MockFunction]}
-          signInError={false}
-          signInShow={false}
-          signindata={Object {}}
-          twitter={[MockFunction]}
-        />
       </Container>
-    </Col>
-    <Col
-      className="homepageimg"
-    >
-      <img
-        alt=""
-        height="400"
-        src="test-file-stub"
-        width="450"
-      />
     </Col>
   </Bootstrap(Row)>
 </div>

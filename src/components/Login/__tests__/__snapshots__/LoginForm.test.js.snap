@@ -24,6 +24,7 @@ exports[`<LoginForm/> renders login form component 1`] = `
   }
 >
   <LogInForm
+    closeModal={[MockFunction]}
     handleChange={[MockFunction]}
     handleSignInSubmit={[MockFunction]}
     signInError={false}
@@ -71,6 +72,7 @@ exports[`<LoginForm/> renders login form component 1`] = `
         >
           <Link
             className="passreset-link"
+            onClick={[MockFunction]}
             to="/reset"
           >
             <a

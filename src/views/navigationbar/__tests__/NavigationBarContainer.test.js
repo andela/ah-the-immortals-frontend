@@ -8,13 +8,13 @@ import thunk from 'redux-thunk';
 import { CloseButton } from 'react-bootstrap';
 import Form from '../../../components/signup/FormComponent';
 import SignupModal from '../../../components/signup/SignupComponent';
-import Home from '../HomeContainer';
 import LogInModal from '../../../components/Login/LogInModal';
 import LogInForm from '../../../components/Login/LogInForm';
 import { keyUp } from '../../../services';
+import NavigationBar from '../NavigationBarContainer';
 
 
-describe('Tests Home container', () => {
+describe('Tests NavigationBar Container', () => {
   const store = configureStore([thunk])({
     signup: { user: {}, errors: {} },
     signin: { user: {}, errors: {} }
@@ -23,13 +23,13 @@ describe('Tests Home container', () => {
   const wrapper = mount(
     <Router history={history}>
       <Provider store={store}>
-        <Home history={history} />
+        <NavigationBar history={history} />
       </Provider>
     </Router>
   );
 
   it('opens modal when button is clicked', () => {
-    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
 
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
@@ -38,7 +38,7 @@ describe('Tests Home container', () => {
   });
 
   it('handles input change in form', () => {
-    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
 
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
@@ -56,7 +56,7 @@ describe('Tests Home container', () => {
   });
 
   it('handles submit event', () => {
-    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
 
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
@@ -72,7 +72,7 @@ describe('Tests Home container', () => {
   });
 
   it('Simulates key up event', () => {
-    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
 
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
@@ -92,7 +92,7 @@ describe('Tests Home container', () => {
   });
 
   it('Simulates click of signIn link', () => {
-    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
 
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
@@ -107,7 +107,7 @@ describe('Tests Home container', () => {
   });
 
   it('handles close modal', () => {
-    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Join now'));
+    const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
 
     signupBtn.simulate('click', {
       preventDefault: jest.fn()

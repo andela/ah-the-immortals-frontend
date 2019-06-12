@@ -3,6 +3,7 @@ import ACTION_CONSTANTS from '../../constants/constants';
 
 describe('Social login reducer', () => {
   const initalState = {
+    isAuthenticated: false,
     user: {},
     errors: {}
   };
@@ -21,6 +22,7 @@ describe('Social login reducer', () => {
       }
     };
     expect(SocialReducer(initalState, action)).toEqual({
+      isAuthenticated: true,
       user: action.response.data.user,
       errors: {}
     });
@@ -36,6 +38,7 @@ describe('Social login reducer', () => {
     };
 
     expect(SocialReducer(initalState, action)).toEqual({
+      isAuthenticated: false,
       errors: action.error.response,
       user: {}
     });

@@ -2,7 +2,6 @@
 
 exports[`Tests dummy post component tests the homepage component 1`] = `
 <div>
-  <DammyNav />
   <br />
   <br />
   <div

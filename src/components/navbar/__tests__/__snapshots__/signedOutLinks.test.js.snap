@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests rendering of signed out links renders signed out links component 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <SignedOutLinks
+    closeModal={[MockFunction]}
+    errorShow={Object {}}
+    facebook={[MockFunction]}
+    google={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleSignInLink={[MockFunction]}
+    handleSignInShow={[MockFunction]}
+    handleSignInSubmit={[MockFunction]}
+    handleSignUpLink={[MockFunction]}
+    handleSubmit={[MockFunction]}
+    show={false}
+    showModal={[MockFunction]}
+    signInError={false}
+    signInShow={false}
+    signindata={
+      Object {
+        "email": "testsignin@gmail.com",
+        "errors": Object {},
+      }
+    }
+    signupdata={Object {}}
+    twitter={[MockFunction]}
+  >
+    <ul
+      className="nav ml-auto"
+    >
+      <NavItem>
+        <div
+          className="nav-item"
+        >
+          <Button
+            active={false}
+            className="buttons"
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+            variant="outline-primary"
+          >
+            <button
+              className="buttons btn btn-outline-primary"
+              disabled={false}
+              onClick={[MockFunction]}
+              type="button"
+            >
+              Sign In
+            </button>
+          </Button>
+          <LogInModal
+            closeModal={[MockFunction]}
+            facebook={[MockFunction]}
+            google={[MockFunction]}
+            handleChange={[MockFunction]}
+            handleSignInShow={true}
+            handleSignInSubmit={[MockFunction]}
+            handleSignUpLink={[MockFunction]}
+            signInError={false}
+            signInShow={false}
+            signindata={
+              Object {
+                "email": "testsignin@gmail.com",
+                "errors": Object {},
+              }
+            }
+            twitter={[MockFunction]}
+          >
+            <Bootstrap(Modal)
+              onHide={[MockFunction]}
+              show={false}
+            >
+              <Modal
+                animation={true}
+                autoFocus={true}
+                backdrop={true}
+                bsPrefix="modal"
+                dialogAs={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "displayName": "ModalDialog",
+                    "render": [Function],
+                  }
+                }
+                enforceFocus={true}
+                keyboard={true}
+                manager={
+                  BootstrapModalManager {
+                    "adjustAndStore": [Function],
+                    "containers": Array [],
+                    "data": Array [],
+                    "handleContainerOverflow": true,
+                    "hideSiblingNodes": true,
+                    "modals": Array [],
+                    "restore": [Function],
+                    "scrollbarSize": 0,
+                  }
+                }
+                onHide={[MockFunction]}
+                restoreFocus={true}
+                show={false}
+              >
+                <Modal
+                  autoFocus={true}
+                  backdrop={true}
+                  backdropTransition={[Function]}
+                  className="modal"
+                  containerClassName="modal-open"
+                  enforceFocus={true}
+                  keyboard={true}
+                  manager={
+                    BootstrapModalManager {
+                      "adjustAndStore": [Function],
+                      "containers": Array [],
+                      "data": Array [],
+                      "handleContainerOverflow": true,
+                      "hideSiblingNodes": true,
+                      "modals": Array [],
+                      "restore": [Function],
+                      "scrollbarSize": 0,
+                    }
+                  }
+                  onClick={[Function]}
+                  onEnter={[Function]}
+                  onEntering={[Function]}
+                  onExited={[Function]}
+                  onHide={[MockFunction]}
+                  onMouseUp={[Function]}
+                  renderBackdrop={[Function]}
+                  restoreFocus={true}
+                  role="dialog"
+                  show={false}
+                  style={Object {}}
+                  transition={[Function]}
+                />
+              </Modal>
+            </Bootstrap(Modal)>
+          </LogInModal>
+        </div>
+      </NavItem>
+      <NavItem>
+        <div
+          className="nav-item"
+        >
+          <Button
+            active={false}
+            className="buttons"
+            disabled={false}
+            onClick={[MockFunction]}
+            type="button"
+            variant="primary"
+          >
+            <button
+              className="buttons btn btn-primary"
+              disabled={false}
+              onClick={[MockFunction]}
+              type="button"
+            >
+              Get Started
+            </button>
+          </Button>
+          <SignupModal
+            closeModal={[MockFunction]}
+            errorShow={Object {}}
+            facebook={[MockFunction]}
+            google={[MockFunction]}
+            handleChange={[MockFunction]}
+            handleSignInLink={[MockFunction]}
+            handleSubmit={[MockFunction]}
+            show={false}
+            showModal={[MockFunction]}
+            signupdata={Object {}}
+            twitter={[MockFunction]}
+          >
+            <Bootstrap(Modal)
+              onHide={[MockFunction]}
+              show={false}
+            >
+              <Modal
+                animation={true}
+                autoFocus={true}
+                backdrop={true}
+                bsPrefix="modal"
+                dialogAs={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "displayName": "ModalDialog",
+                    "render": [Function],
+                  }
+                }
+                enforceFocus={true}
+                keyboard={true}
+                manager={
+                  BootstrapModalManager {
+                    "adjustAndStore": [Function],
+                    "containers": Array [],
+                    "data": Array [],
+                    "handleContainerOverflow": true,
+                    "hideSiblingNodes": true,
+                    "modals": Array [],
+                    "restore": [Function],
+                    "scrollbarSize": 0,
+                  }
+                }
+                onHide={[MockFunction]}
+                restoreFocus={true}
+                show={false}
+              >
+                <Modal
+                  autoFocus={true}
+                  backdrop={true}
+                  backdropTransition={[Function]}
+                  className="modal"
+                  containerClassName="modal-open"
+                  enforceFocus={true}
+                  keyboard={true}
+                  manager={
+                    BootstrapModalManager {
+                      "adjustAndStore": [Function],
+                      "containers": Array [],
+                      "data": Array [],
+                      "handleContainerOverflow": true,
+                      "hideSiblingNodes": true,
+                      "modals": Array [],
+                      "restore": [Function],
+                      "scrollbarSize": 0,
+                    }
+                  }
+                  onClick={[Function]}
+                  onEnter={[Function]}
+                  onEntering={[Function]}
+                  onExited={[Function]}
+                  onHide={[MockFunction]}
+                  onMouseUp={[Function]}
+                  renderBackdrop={[Function]}
+                  restoreFocus={true}
+                  role="dialog"
+                  show={false}
+                  style={Object {}}
+                  transition={[Function]}
+                />
+              </Modal>
+            </Bootstrap(Modal)>
+          </SignupModal>
+        </div>
+      </NavItem>
+    </ul>
+  </SignedOutLinks>
+</Router>
+`;

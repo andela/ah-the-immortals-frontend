@@ -1,0 +1,1114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Home
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <div>
+        <div
+          className="background"
+        >
+          <Container
+            className="homepage"
+            fluid={false}
+          >
+            <div
+              className="homepage container"
+            >
+              <HomePage>
+                <div
+                  className="columns"
+                >
+                  <Bootstrap(Row)>
+                    <Row
+                      bsPrefix="row"
+                      noGutters={false}
+                    >
+                      <div
+                        className="row"
+                      >
+                        <Col
+                          className="col"
+                        >
+                          <div
+                            className="col col"
+                          >
+                            <Container
+                              fluid={false}
+                            >
+                              <div
+                                className="container"
+                              >
+                                <br />
+                                <br />
+                                <h1
+                                  className="homepage"
+                                >
+                                  Welcome to your articles Community
+                                </h1>
+                                <br />
+                              </div>
+                            </Container>
+                            <Container
+                              className="home"
+                              fluid={false}
+                            >
+                              <div
+                                className="home container"
+                              >
+                                <p>
+                                  <b>
+                                    Who is Authors Haven for?
+                                  </b>
+                                </p>
+                                <p>
+                                  Anyone looking to inspire and be inspired by ideas
+                                </p>
+                                <p>
+                                  Join fellow authors and enthusiasts in Authors Haven
+                                </p>
+                              </div>
+                            </Container>
+                          </div>
+                        </Col>
+                      </div>
+                    </Row>
+                  </Bootstrap(Row)>
+                </div>
+              </HomePage>
+            </div>
+          </Container>
+        </div>
+        <Container
+          fluid={false}
+        >
+          <div
+            className="container"
+          >
+            <DummyArticles>
+              <div
+                className="container"
+              >
+                <br />
+                <h1>
+                  Popular on Authors Haven
+                </h1>
+                <br />
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="list-group"
+                    >
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start active"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start active"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small>
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small>
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                      <Link
+                        className="list-group-item list-group-item-action flex-column align-items-start"
+                        to="/"
+                      >
+                        <a
+                          className="list-group-item list-group-item-action flex-column align-items-start"
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="d-flex w-100 justify-content-between"
+                          >
+                            <h5
+                              className="mb-1"
+                            >
+                              List group item heading
+                            </h5>
+                            <small
+                              className="text-muted"
+                            >
+                              3 days ago
+                            </small>
+                          </div>
+                          <p
+                            className="mb-1"
+                          >
+                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                          </p>
+                          <small
+                            className="text-muted"
+                          >
+                            Donec id elit non mi porta.
+                          </small>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </DummyArticles>
+          </div>
+        </Container>
+        <Footer>
+          <footer
+            className="bg-light text-dark mt-4 fixed-bottom"
+          >
+            <div
+              className="container-fluid py-2"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col"
+                >
+                  <span
+                    className="small"
+                  >
+                    <br />
+                    <Link
+                      to="#null"
+                    >
+                      <a
+                        href="/#null"
+                        onClick={[Function]}
+                      >
+                        Terms and Conditions
+                      </a>
+                    </Link>
+                  </span>
+                </div>
+                <div
+                  className="col text-center"
+                >
+                  <br />
+                  Authors Haven
+                   
+                </div>
+                <div
+                  className="col text-right small align-self-end"
+                >
+                  Copyright ©
+                   
+                  2019
+                   
+                  Immortals
+                </div>
+              </div>
+            </div>
+          </footer>
+        </Footer>
+      </div>
+    </Home>
+  </Provider>
+</Router>
+`;

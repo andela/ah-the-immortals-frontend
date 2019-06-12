@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form, FormControl, Button, Container } from 'react-bootstrap';
 import confirmPasswordResetAction from '../../redux/actions/passwordConfirm.action';
-import NavigationBar from '../../components/Nav';
 
 /** 
  * @returns Class for password change 
@@ -31,11 +30,10 @@ class PasswordResetConfirm extends Component {
   render() {
     return (
       <div>
-        <NavigationBar />
         <Container className="reset">
           <div>
             <h1 className="resetmessage">
-      Finally, create your new password.
+      Create your new password.
             </h1>
             <p>
       Password must include at least 8 characters including at least 1 number, 1 special character, 

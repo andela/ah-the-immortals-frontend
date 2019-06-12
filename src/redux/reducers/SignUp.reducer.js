@@ -4,6 +4,7 @@ import ACTION_CONSTANTS from '../constants/constants';
 const { SIGNUP_FAILURE, SIGNUP_SUCCESS } = ACTION_CONSTANTS;
 
 const initialState = {
+  isAuthenticated: false,
   user: {},
   errors: {}
 };
@@ -30,12 +31,14 @@ const SignupReducer = (state = initialState, action) => {
     });
     return {
       ...state,
+      isAuthenticated: true,
       user: action.response.data.user,
       errors: {}
     };
   case SIGNUP_FAILURE:
     return {
       ...state,
+      isAuthenticated: false,
       errors: action.error.response.data.errors,
       user: {}
     };

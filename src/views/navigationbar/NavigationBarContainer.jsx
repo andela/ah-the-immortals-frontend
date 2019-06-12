@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Container } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import Footer from '../../components/home/HomeFooter';
-import Navbar from '../../components/home/HomeNavBar';
-import HomePage from '../../components/home/HomeInfo';
+import PropTypes from 'prop-types';
+import SignedOutLinks from '../../components/navbar/signedOutLinks';
+import SignedInLinks from '../../components/navbar/signedInLinks';
 import signUpAction from '../../redux/actions/SignUp.action';
 import signInAction from '../../redux/actions/SignIn.action';
 import { facebookAuth, googleAuth, twitterAuth } from '../../redux/actions/SocialAuth.action';
+import RenderedLinks from '../../components/navbar/renderedLinks';
 
-class Home extends Component {
+class NavigationBar extends Component {
   static propTypes = {
     signup: PropTypes.func.isRequired,
     signupdata: PropTypes.object.isRequired,
@@ -163,41 +163,41 @@ class Home extends Component {
     });
     history.push('/dummyposts');
   }
-  render = () => {
+  render() {
     const { show, signInShow, errorShow, signInError} = this.state;
     const { signindata } = this.props;
     const facebook = this.handleFacebook;
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
     const { signupdata } = this.props;
-    return (
-      <div>
-        <Navbar showModal={this.showModal} signInShow={this.handleSignInShow} />
-        <Container className="homepage">
-          <HomePage
-            showModal={this.showModal}
-            closeModal={this.closeModal}
-            show={show}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            handleSignInSubmit={this.handleSignInSubmit}
-            signInShow={signInShow}
-            facebook={facebook}
-            google={google}
-            twitter={twitter}
-            handleSignInLink={this.handleSignInLink}
-            signupdata={signupdata}
-            errorShow={errorShow}
-            handleSignUpLink={this.handleSignUpLink}
-            signindata={signindata}
-            signInError={signInError}            
-          />
-        </Container>
-        <Footer />
-      </div>
+    const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated;
+    const links = isAuthenticated ? <SignedInLinks /> : (
+      <SignedOutLinks 
+        showModal={this.showModal}
+        closeModal={this.closeModal}
+        show={show}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        handleSignInSubmit={this.handleSignInSubmit}
+        signInShow={signInShow}
+        facebook={facebook}
+        google={google}
+        twitter={twitter}
+        handleSignInLink={this.handleSignInLink}
+        signupdata={signupdata}
+        errorShow={errorShow}
+        handleSignUpLink={this.handleSignUpLink}
+        signindata={signindata}
+        signInError={signInError}
+        handleSignInShow={this.handleSignInShow}
+      />
     );
-  };
+    return (
+      <RenderedLinks links={links} />
+    );
+  }
 }
+
 const mapStateToProps = ({ signup, signin }) => {
   return {
     signupdata: signup,
@@ -205,4 +205,4 @@ const mapStateToProps = ({ signup, signin }) => {
   };
 };
 
-export default connect(mapStateToProps, { signup: signUpAction, signInAction, facebookAuth, twitterAuth, googleAuth })(Home);
+export default connect(mapStateToProps, { signup: signUpAction, signInAction, facebookAuth, twitterAuth, googleAuth })(withRouter(NavigationBar));
