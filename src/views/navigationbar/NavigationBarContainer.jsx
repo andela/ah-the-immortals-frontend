@@ -53,7 +53,6 @@ class NavigationBar extends Component {
     this.setState({
       signInShow: true,
     });
-    toast.dismiss(1);
   };
   handleChange = (e) => {
     e.preventDefault();

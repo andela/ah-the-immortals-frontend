@@ -149,7 +149,7 @@ a {
 
 .reset-buttons {
     margin-right: 30px;
-    margin-top: 30px;
+    margin-top: 5px;
     width: 40%;
 }
 
@@ -162,7 +162,7 @@ a {
     width: 70%;
 }
 
-.confirm-input {
+.form-control {
     width: 70%;
     margin-bottom: 5%;
 }
@@ -439,6 +439,12 @@ label {
     margin-left: 5%;
 }
 
+.confirmStyle {
+    border: solid red;
+    border-width: thin;
+}
 
-
-  
+.passwordStyle {
+    border: solid green;
+    border-width: thin;
+}

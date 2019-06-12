@@ -1,6 +1,5 @@
 import {mount, shallow} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import MutationObserver from 'mutation-observer';
 import {Provider} from 'react-redux';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
