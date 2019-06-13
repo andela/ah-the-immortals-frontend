@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import React from 'react';
 import renderHTML from 'react-render-html';
+import { MemoryRouter } from 'react-router-dom';
 import PostItem from '../PostItem';
 
 global.MutationObserver = MutationObserver;
@@ -12,14 +13,23 @@ document.getSelection = jest.fn();
 
 describe('pass', () => {
   let testStore = configureMockStore([thunk]);
-  let store = testStore({post:{}});
+  let store = testStore({post:{author:{}}});
   let props = {
-    post: jest.fn(),
+    post: {
+      author: {
+        username: ''
+      }
+    },
+    history: {
+      push: jest.fn()
+    }
   };
-  const wrapper = shallow(
-    <Provider store={store}>
-      <PostItem post={props} />
-    </Provider>
+  const wrapper = mount(
+    <MemoryRouter>
+      <Provider store={store}>
+        <PostItem {...props} />
+      </Provider>
+    </MemoryRouter>
   );
   it('test 1', () => {
     expect(wrapper).toMatchSnapshot();
