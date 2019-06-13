@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import Footer from './HomeFooter';
 import HomePage from './HomeInfo';
-import DummyArticles from '../homepagearticles/homePageArtclesComponent';
+import Posts from '../../views/Articles/Posts';
 
 class Home extends Component {
 
@@ -15,7 +15,7 @@ class Home extends Component {
           </Container>
         </div>
         <Container>
-          <DummyArticles />
+          <Posts />
         </Container>
         <Footer />
       </div>
