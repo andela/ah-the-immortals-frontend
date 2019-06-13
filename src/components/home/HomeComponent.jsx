@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
-import Footer from './HomeFooter';
 import HomePage from './HomeInfo';
-import DummyArticles from '../homepagearticles/homePageArtclesComponent';
+import Posts from '../../views/Articles/Posts';
+import TopRatedArticles from './TopRatedArticles';
+import PopularArticles from './PopularArticlesComponent';
 
 class Home extends Component {
 
@@ -14,10 +15,13 @@ class Home extends Component {
             <HomePage />
           </Container>
         </div>
-        <Container>
-          <DummyArticles />
-        </Container>
-        <Footer />
+        <div className="row">
+          <div className="col-md-3 mt-4"><TopRatedArticles /></div>
+          <div className="col-md-6">
+            <Posts />
+          </div>
+          <div className="col-md-3 mt-4"><PopularArticles /></div>
+        </div>
       </div>
     );
   };

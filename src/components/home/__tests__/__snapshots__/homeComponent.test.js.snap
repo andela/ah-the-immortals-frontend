@@ -132,981 +132,228 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
             </div>
           </Container>
         </div>
-        <Container
-          fluid={false}
+        <div
+          className="row"
         >
           <div
-            className="container"
+            className="col-md-3 mt-4"
           >
-            <DummyArticles>
+            <TopRatedArticles>
               <div
-                className="container"
+                className="card cardwidth position-fixed cardmargins"
               >
-                <br />
-                <h1>
-                  Popular on Authors Haven
-                </h1>
-                <br />
                 <div
-                  className="row"
+                  className="card-body"
                 >
-                  <div
-                    className="col"
+                  <h5
+                    className="card-title"
                   >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
+                    TOP RATED ARTICLES
+                  </h5>
                 </div>
-                <br />
-                <div
-                  className="row"
+                <ul
+                  className="list-group list-group-flush"
                 >
-                  <div
-                    className="col"
+                  <li
+                    className="list-group-item"
                   >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
+                    Cras justo odio
+                  </li>
+                  <li
+                    className="list-group-item"
                   >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
+                    Dapibus ac facilisis in
+                  </li>
+                  <li
+                    className="list-group-item"
                   >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <br />
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col"
+                    Vestibulum at eros
+                  </li>
+                  <li
+                    className="list-group-item"
                   >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
+                    Vestibulum at eros
+                  </li>
+                  <li
+                    className="list-group-item"
                   >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <br />
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col"
-                  >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    <div
-                      className="list-group"
-                    >
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start active"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start active"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small>
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small>
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                      <Link
-                        className="list-group-item list-group-item-action flex-column align-items-start"
-                        to="/"
-                      >
-                        <a
-                          className="list-group-item list-group-item-action flex-column align-items-start"
-                          href="/"
-                          onClick={[Function]}
-                        >
-                          <div
-                            className="d-flex w-100 justify-content-between"
-                          >
-                            <h5
-                              className="mb-1"
-                            >
-                              List group item heading
-                            </h5>
-                            <small
-                              className="text-muted"
-                            >
-                              3 days ago
-                            </small>
-                          </div>
-                          <p
-                            className="mb-1"
-                          >
-                            Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                          </p>
-                          <small
-                            className="text-muted"
-                          >
-                            Donec id elit non mi porta.
-                          </small>
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                    Vestibulum at eros
+                  </li>
+                </ul>
               </div>
-            </DummyArticles>
+            </TopRatedArticles>
           </div>
-        </Container>
-        <Footer>
-          <footer
-            className="bg-light text-dark mt-4 fixed-bottom"
+          <div
+            className="col-md-6"
           >
-            <div
-              className="container-fluid py-2"
-            >
-              <div
-                className="row"
+            <Connect(Posts)>
+              <Posts
+                getPosts={[Function]}
+                post={
+                  Object {
+                    "editpost": Array [],
+                    "loading": false,
+                    "post": Object {},
+                    "posts": Array [],
+                  }
+                }
               >
-                <div
-                  className="col"
-                >
-                  <span
-                    className="small"
+                <div>
+                  <div
+                    className="post-feed"
                   >
                     <br />
-                    <Link
-                      to="#null"
+                    <PostFeed
+                      posts={Array []}
+                    />
+                  </div>
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="col"
+                    />
+                    <div
+                      className="col"
                     >
-                      <a
-                        href="/#null"
-                        onClick={[Function]}
-                      >
-                        Terms and Conditions
-                      </a>
-                    </Link>
-                  </span>
-                </div>
-                <div
-                  className="col text-center"
-                >
+                      <div>
+                        <ul
+                          className="pagination pagination-lg"
+                        >
+                          <li
+                            className="page-item disabled"
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                            >
+                              «
+                            </a>
+                          </li>
+                          <li
+                            className="page-item active"
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                            >
+                              1
+                            </a>
+                          </li>
+                          <li
+                            className="page-item"
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                            >
+                              2
+                            </a>
+                          </li>
+                          <li
+                            className="page-item"
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                            >
+                              3
+                            </a>
+                          </li>
+                          <li
+                            className="page-item"
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                            >
+                              4
+                            </a>
+                          </li>
+                          <li
+                            className="page-item"
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                            >
+                              5
+                            </a>
+                          </li>
+                          <li
+                            className="page-item"
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                            >
+                              »
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div
+                      className="col"
+                    />
+                  </div>
                   <br />
-                  Authors Haven
-                   
+                  <br />
+                  <br />
+                  <br />
                 </div>
+              </Posts>
+            </Connect(Posts)>
+          </div>
+          <div
+            className="col-md-3 mt-4"
+          >
+            <PopularArticles>
+              <div
+                className="card cardwidth position-fixed"
+              >
                 <div
-                  className="col text-right small align-self-end"
+                  className="card-body"
                 >
-                  Copyright ©
-                   
-                  2019
-                   
-                  Immortals
+                  <h5
+                    className="card-title"
+                  >
+                    POPULAR ARTICLES
+                  </h5>
                 </div>
+                <ul
+                  className="list-group list-group-flush"
+                >
+                  <li
+                    className="list-group-item"
+                  >
+                    Cras justo odio
+                  </li>
+                  <li
+                    className="list-group-item"
+                  >
+                    Dapibus ac facilisis in
+                  </li>
+                  <li
+                    className="list-group-item"
+                  >
+                    Vestibulum at eros
+                  </li>
+                  <li
+                    className="list-group-item"
+                  >
+                    Vestibulum at eros
+                  </li>
+                  <li
+                    className="list-group-item"
+                  >
+                    Vestibulum at eros
+                  </li>
+                </ul>
               </div>
-            </div>
-          </footer>
-        </Footer>
+            </PopularArticles>
+          </div>
+        </div>
       </div>
     </Home>
   </Provider>

@@ -10,7 +10,13 @@ import Home from '../HomeComponent';
 
 
 describe('Tests PasswordResetConfirmContainer', () => {
-  const store = configureStore([thunk])({});
+  const store = configureStore([thunk])({
+    post:   {
+      posts: [],
+      post: {},
+      editpost: [],
+      loading: false}
+  });
   const history = createBrowserHistory();
   const wrapper = mount(
     <Router history={history}>

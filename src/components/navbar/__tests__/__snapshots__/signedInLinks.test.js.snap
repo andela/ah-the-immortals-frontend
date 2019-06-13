@@ -30,6 +30,25 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
     <div
       className="nav ml-auto"
     >
+      <NavLink
+        className="nav-link"
+        to="/postarticle"
+      >
+        <Link
+          aria-current={null}
+          className="nav-link"
+          to="/postarticle"
+        >
+          <a
+            aria-current={null}
+            className="nav-link"
+            href="/postarticle"
+            onClick={[Function]}
+          >
+            Post Article
+          </a>
+        </Link>
+      </NavLink>
       <i
         className="fa fa-bell notnotif text-dark mt-3"
       />
