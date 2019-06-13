@@ -23,7 +23,10 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
     }
   }
 >
-  <SignedInLinks>
+  <SignedInLinks
+    handleLogout={[Function]}
+    username=""
+  >
     <div
       className="nav ml-auto"
     >
@@ -62,9 +65,7 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
             />
             <span
               className="mr-1"
-            >
-              undefined
-            </span>
+            />
           </a>
         </Link>
       </NavLink>
@@ -123,11 +124,13 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
         >
           <NavLink
             className="nav-link"
+            onClick={[Function]}
             to="/"
           >
             <Link
               aria-current="page"
               className="nav-link active"
+              onClick={[Function]}
               style={Object {}}
               to="/"
             >

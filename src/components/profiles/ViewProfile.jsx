@@ -4,9 +4,16 @@ import { Container } from 'react-bootstrap';
 import profileImage from '../../services/images/profile.png';
 import EditProfile from '../../views/profiles/EditProfile';
 import Footer from '../home/HomeFooter';
+import isLoggedIn from '../../services/checkAuthentication';
+import createBrowserHistory from '../../services/history';
 
+const history = createBrowserHistory; 
 export const ProfileView = (props) => {
   const { username, firstName, lastName, bio, image } = props;
+  const loggedIn= isLoggedIn();
+  if(!loggedIn){
+    history.push('/');
+  }
   return (
     <div>
       <Container className="profile">

@@ -1,6 +1,6 @@
 import ACTION_CONSTANTS from '../constants/constants';
 
-const { LOGIN_SUCCESS, LOGIN_FAILURE } = ACTION_CONSTANTS;
+const { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } = ACTION_CONSTANTS;
 
 const initialState = {
   isAuthenticated: false,
@@ -23,6 +23,13 @@ const signInReducer = (state = initialState, action) => {
       isAuthenticated: false,
       errors: action.error.response.data.errors,
       user: {}
+    };
+  case LOGOUT:
+    return {
+      ...state,
+      isAuthenticated: false,
+      user: {},
+      errors: {}
     };
   default:
     return state;

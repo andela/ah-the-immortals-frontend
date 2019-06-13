@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { createBrowserHistory } from 'history';
 import { Switch, Route, Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import createBrowserHistory from './services/history';
 import PageNotFound from './components/NotFoundComponent';
 import home from './components/home/HomeComponent';
 import PasswordResetForm from './views/password_reset/PasswordResetContainer';
@@ -12,7 +12,7 @@ import DummyPost from './components/DummyPosts/DummyPosts';
 import Profile from './views/profiles/ViewProfile';
 import NavigationBar from './views/navigationbar/NavigationBarContainer';
 
-const history = createBrowserHistory();
+const history = createBrowserHistory;
 export default class App extends Component {
   render() {
     return (
