@@ -18,10 +18,6 @@ class Posts extends Component {
     const { post: { posts, loading } } = this.props;
     return (
       <div>
-        <br />
-        <br />
-        <br />
-        <br />
         <div className="post-feed">
           <br />
           {

@@ -13,6 +13,7 @@ import postfrom from './views/Articles/PostForm';
 import postsfeed from './views/Articles/Posts';
 import singlepost from './views/Article/post';
 import editarticle from './views/EditArticle/EditArticle';
+import Footer from './components/home/HomeFooter';
 
 
 const history = createBrowserHistory;
@@ -45,9 +46,9 @@ export default class App extends Component {
               <Route exact path="/edit/:slug" component={editarticle} />
               <Route component={PageNotFound} />
             </Switch>
+            <Footer />
           </div>
         </Router>
-        <ToastContainer />
       </div>
     );
   }
