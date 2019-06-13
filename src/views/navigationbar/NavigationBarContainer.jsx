@@ -107,7 +107,6 @@ class NavigationBar extends Component {
         });
         localStorage.setItem('token', signupdata.user.token);
         localStorage.setItem('username', signupdata.user.username);
-        history.push('/dummyposts');
       }
     }
   };
@@ -126,7 +125,6 @@ class NavigationBar extends Component {
       this.setState({
         signInShow: false
       });
-      history.push('/dummyposts');
     }
   };
   handleSignUpLink=(e)=>{
@@ -144,7 +142,6 @@ class NavigationBar extends Component {
       show: false,
       signInShow: false
     });
-    history.push('/dummyposts');
   }
   handleGoogle = async (e) => {
     e.preventDefault();
@@ -154,7 +151,6 @@ class NavigationBar extends Component {
       show: false,
       signInShow: false
     });
-    history.push('/dummyposts');
   }
   handleTwitter = async (e) => {
     e.preventDefault();
@@ -164,7 +160,6 @@ class NavigationBar extends Component {
       show: false,
       signInShow: false
     });
-    history.push('/dummyposts');
   }
   handleLogout = (e) => {
     e.preventDefault();

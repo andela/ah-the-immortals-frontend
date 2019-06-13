@@ -7,10 +7,13 @@ import PageNotFound from './components/NotFoundComponent';
 import home from './components/home/HomeComponent';
 import PasswordResetForm from './views/password_reset/PasswordResetContainer';
 import passwordResetConfirm from './views/password_reset/PasswordResetConfirmContainer';
-// eslint-disable-next-line import/no-named-as-default
-import DummyPost from './components/DummyPosts/DummyPosts';
 import Profile from './views/profiles/ViewProfile';
 import NavigationBar from './views/navigationbar/NavigationBarContainer';
+import postfrom from './views/Articles/PostForm';
+import postsfeed from './views/Articles/Posts';
+import singlepost from './views/Article/post';
+import editarticle from './views/EditArticle/EditArticle';
+
 
 const history = createBrowserHistory;
 export default class App extends Component {
@@ -30,12 +33,16 @@ export default class App extends Component {
               draggable
               pauseOnHover
             />
+            
             <Switch>
               <Route exact path="/" component={home} />
               <Route exact path="/reset" component={PasswordResetForm} />
               <Route path="/resetconfirm/:token" component={passwordResetConfirm} /> 
-              <Route exact path="/dummyposts" component={DummyPost} />
               <Route exact path="/Profile" component={Profile} />
+              <Route exact path="/postarticle" component={postfrom} />
+              <Route exact path="/post/:slug" component={singlepost} />
+              <Route exact path="/posts" component={postsfeed} />
+              <Route exact path="/edit/:slug" component={editarticle} />
               <Route component={PageNotFound} />
             </Switch>
           </div>

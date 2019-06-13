@@ -266,3 +266,164 @@ label {
 .navbackground {
     background-color: rgb(240, 240, 240)
 }
+.post-feed{
+    margin: 25px;
+    padding: 25px;
+    -webkit-font-smoothing: antialiased;
+    font-family: museo-sans,Helventica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    line-height: 1.7;
+}
+.post-feed > div {
+    width: 350px;
+    margin-bottom: 65px;
+    margin-left: auto;
+    margin-right: auto;
+}
+    .quotes {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        z-index: 2;
+    }
+
+    .quotes .box {
+        position: relative;
+        min-height: 320px;
+        background: #f2f2f2;
+        overflow: hidden;
+        transition: all 0.5s ease-in;
+        z-index: 2;
+        padding: 30px;
+        box-sizing: border-box;
+        box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+    }
+
+    .quotes .box::before {
+        position: absolute;
+        top: -20px;
+        left: 5px;
+        width: 100%;
+        height: 100%;
+        font-size: 120px;
+        opacity: 0.2;
+        background: transparent;
+        pointer-events: none;
+    }
+
+    .quotes .box::after {
+        position: absolute;
+        bottom: -10%;
+        right: 5%;
+        font-size: 120px;
+        opacity: 0.2;
+        background: transparent;
+        filter: invert(1);
+        pointer-events: none;
+    }
+
+    .quotes .box p {
+        margin: 0;
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+
+    .quotes .box h2 {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        bottom: 10%;
+        right: 10%;
+        font-size: 1.5rem;
+    }
+
+    .quotes .box:hover {
+        color: #080808;
+        box-shadow: 20px 50px 100px rgba(0, 0, 0, 0.5);
+    }
+
+    .quotes .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: 0;
+        transition: all 0.5s ease-in;
+        pointer-events: none;
+        width: 100%;
+        height: 200%;
+        overflow: hidden;
+    }
+
+    .quotes .box.box1:hover,
+    .quotes .box.box1:hover~.bg {
+        opacity: 1;
+        background: #e2a9e5;
+        background: -moz-linear-gradient(-45deg, #e2a9e5 15%, #2b94e5 100%);
+        background: -webkit-linear-gradient(-45deg, #e2a9e5 15%,#2b94e5 100%);
+        background: linear-gradient(135deg, #e2a9e5 15%,#2b94e5 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2a9e5', endColorstr='#2b94e5',GradientType=1 );
+    }
+
+    .quotes .box.box2:hover,
+    .quotes .box.box2:hover~.bg {
+        opacity: 1;
+        background: #632c65;
+        background: -moz-linear-gradient(-45deg, #632c65 15%, #56a5e2 100%);
+        background: -webkit-linear-gradient(-45deg, #632c65 15%,#56a5e2 100%);
+        background: linear-gradient(135deg, #632c65 15%,#56a5e2 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#632c65', endColorstr='#56a5e2',GradientType=1 );
+    }
+
+    .quotes .box.box3:hover,
+    .quotes .box.box3:hover~.bg {
+        opacity: 1;
+        background: #4b384c;
+        background: -moz-linear-gradient(-45deg, #4b384c 15%, #da5de2 100%);
+        background: -webkit-linear-gradient(-45deg, #4b384c 15%,#da5de2 100%);
+        background: linear-gradient(135deg, #4b384c 15%,#da5de2 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b384c', endColorstr='#da5de2',GradientType=1 );
+    }
+
+
+.title-header{
+    display: flow-root;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+}
+
+.author {
+    margin-top: 5px;
+    font-family: museo-sans,Helventica Neue,Helvetica,Arial,sans-serif;
+    color: #969e9f;
+    font-size: .8rem;
+    line-height: 1.875;
+}
+
+.timer{
+    text-align: right;
+    position: relative;
+    margin: 0 auto;
+}
+
+.bookmark{
+    text-align: left;
+    position: absolute;
+}
+
+.readingTime{
+    font-weight: 400!important;
+    font-style: normal!important;
+    font-size: .8rem;
+    letter-spacing: 0!important;
+    line-height: 20px!important;
+    -webkit-transform: translateY(1.8px);
+    transform: translateY(1.8px);
+}
+
+
+  
+
+
+  
