@@ -24,7 +24,7 @@
 }
 .font-awesome {
     padding: 10px;
-    font-family: 'Font Awesome 5 Free', Helvetica;
+    font-family: FontAwesome, Helvetica;
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
@@ -275,7 +275,7 @@ label {
     line-height: 1.7;
 }
 .post-feed > div {
-    width: 350px;
+    width: 500px;
     margin-bottom: 65px;
     margin-left: auto;
     margin-right: auto;
@@ -422,8 +422,14 @@ label {
     transform: translateY(1.8px);
 }
 
+.cardwidth {
+    width: 18rem;
+}
+.cardmargins {
+    margin-right: auto;
+    margin-left: 5%;
+}
 
-  
 
 
   
