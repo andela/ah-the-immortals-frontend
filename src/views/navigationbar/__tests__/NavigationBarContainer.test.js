@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router,Link } from 'react-router-dom';
+import { Router, Link, NavLink, BrowserRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
@@ -85,7 +85,7 @@ describe('Tests NavigationBar Container', () => {
       emailInput: form.find('input[name="email"]'),
       usernameInput: form.find('input[name="username"]'),
       passwordInput: form.find('input[name="password"]'),
-      passwordConfirm:form.find('input[name="password_confirm"]')
+      passwordConfirm: form.find('input[name="password_confirm"]')
     };
 
     keyUp(inputs, submitBtn);
@@ -97,7 +97,7 @@ describe('Tests NavigationBar Container', () => {
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-    
+
     const modal = wrapper.find(SignupModal);
     const link = modal.find(Link);
     link.simulate('click', {
@@ -167,7 +167,7 @@ describe('Tests NavigationBar Container', () => {
     signInBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-    
+
     const loginmodal = wrapper.find(LogInModal);
     const signUpLink = loginmodal.find('.link-text p Link');
     signUpLink.simulate('click', {
@@ -175,23 +175,23 @@ describe('Tests NavigationBar Container', () => {
     });
     expect(wrapper.find(SignupModal).exists()).toEqual(true);
   });
-  it('simulates click facebook',()=>{
+  it('simulates click facebook', () => {
     const fbBtn = wrapper.find('button[id="fb"]').first();
-    fbBtn.simulate('click',{
+    fbBtn.simulate('click', {
       preventDefault: jest.fn()
     });
     expect(fbBtn.length).toEqual(1);
   });
-  it('simulates click google',() => {
+  it('simulates click google', () => {
     const googleBtn = wrapper.find('button[id="ggl"]').first();
-    googleBtn.simulate('click',{
+    googleBtn.simulate('click', {
       preventDefault: jest.fn()
     });
     expect(googleBtn.length).toEqual(1);
   });
-  it('simulates click twitter',() => {
+  it('simulates click twitter', () => {
     const twtBtn = wrapper.find('button[id="twt"]').first();
-    twtBtn.simulate('click',{
+    twtBtn.simulate('click', {
       preventDefault: jest.fn()
     });
     expect(twtBtn.length).toEqual(1);

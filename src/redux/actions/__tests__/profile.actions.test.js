@@ -2,13 +2,14 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import { fetchProfile, editProfile } from '../profile.actions';
-import { username } from '../../../services/api';
+import tokenDecoded from '../../../services/tokenDecoder';
 
 describe('Test profile actions', () => {
 
   let testStore = configureMockStore([thunk]);
   let store = testStore({});
   const ROOT_URL = process.env.REACT_APP_BASE_URL;
+  const username = tokenDecoded();
 
   beforeEach(() => {
     store.clearActions();

@@ -6,9 +6,11 @@ import PropTypes from 'prop-types';
 import SignedOutLinks from '../../components/navbar/signedOutLinks';
 import SignedInLinks from '../../components/navbar/signedInLinks';
 import signUpAction from '../../redux/actions/SignUp.action';
-import signInAction from '../../redux/actions/SignIn.action';
+import { signInAction, logoutAction } from '../../redux/actions/SignIn.action';
+import isLoggedIn from '../../services/checkAuthentication';
 import { facebookAuth, googleAuth, twitterAuth } from '../../redux/actions/SocialAuth.action';
 import RenderedLinks from '../../components/navbar/renderedLinks';
+import tokenDecoded from '../../services/tokenDecoder';
 
 class NavigationBar extends Component {
   static propTypes = {
@@ -18,7 +20,9 @@ class NavigationBar extends Component {
     facebookAuth: PropTypes.func.isRequired,
     googleAuth: PropTypes.func.isRequired,
     twitterAuth: PropTypes.func.isRequired,
-    signindata: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
+    signindata: PropTypes.object.isRequired,
+    logoutAction: PropTypes.func.isRequired,
   };
   state = {
     show: false,
@@ -157,6 +161,11 @@ class NavigationBar extends Component {
       signInShow: false
     });
   }
+  handleLogout = (e) => {
+    e.preventDefault();
+    const { logoutAction } = this.props;
+    logoutAction();
+  };
   render() {
     const { show, signInShow, errorShow, signInError} = this.state;
     const { signindata } = this.props;
@@ -164,8 +173,8 @@ class NavigationBar extends Component {
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
     const { signupdata } = this.props;
-    const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated;
-    const links = isAuthenticated ? <SignedInLinks /> : (
+    const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated || isLoggedIn();
+    const links = isAuthenticated ? <SignedInLinks handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username || tokenDecoded()} /> : (
       <SignedOutLinks 
         showModal={this.showModal}
         closeModal={this.closeModal}
@@ -199,4 +208,4 @@ const mapStateToProps = ({ signup, signin }) => {
   };
 };
 
-export default connect(mapStateToProps, { signup: signUpAction, signInAction, facebookAuth, twitterAuth, googleAuth })(withRouter(NavigationBar));
+export default connect(mapStateToProps, { signup: signUpAction, signInAction, facebookAuth, twitterAuth, googleAuth, logoutAction })(withRouter(NavigationBar));

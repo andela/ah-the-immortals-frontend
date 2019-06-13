@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { username } from '../../services/api';
+import PropTypes from 'prop-types';
 
-
-const handleLogout = () => (
-  localStorage.clear()
-);
-
-const SignedInLinks = () => (
+const SignedInLinks = ({ handleLogout, username }) => (
   <div className="nav ml-auto">
     <i className="fa fa-bell notnotif text-dark mt-3" />
     <NavLink
@@ -39,7 +34,7 @@ const SignedInLinks = () => (
         <NavLink
           to="/"
           className="nav-link"
-          onClick={handleLogout()}
+          onClick={handleLogout}
         >
                 Logout
         </NavLink>
@@ -47,4 +42,8 @@ const SignedInLinks = () => (
     </div>
   </div>
 );
+SignedInLinks.propTypes = {
+  handleLogout: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+};
 export default SignedInLinks;

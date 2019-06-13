@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import signInAction from '../SignIn.action';
+import { signInAction, logoutAction } from '../SignIn.action';
 
 const store = configureMockStore ([thunk])({});
 
@@ -36,6 +36,11 @@ describe('test sign in actions', () => {
     });
     await store.dispatch(signInAction({}));
     expect(store.getActions()[0].type).toEqual('LOGIN_FAILURE');
+    done();
+  });
+  it('test sign out success', async (done) => {
+    await store.dispatch(logoutAction({}));
+    expect(store.getActions()[0].type).toEqual('LOGOUT');
     done();
   });
 });
