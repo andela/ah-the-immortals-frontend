@@ -37,6 +37,12 @@
     margin-bottom: 5%;
 }
 
+a {
+    color: #007bff;
+    text-decoration: none !important;
+    background-color: transparent;
+}
+
 .title-text {
     color: #FFFFFF;
     font-size: 250%;

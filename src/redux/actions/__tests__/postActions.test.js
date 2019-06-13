@@ -13,12 +13,12 @@ import {
   POST_LOADING,
   GET_POST, DELETE_POST, GET_ERRORS
 } from '../../constants/types';
-import {ROOTS_URL}  from '../../../services/api';
+import { ROOT_URL }  from '../../../services/api';
 
 describe('Test the creation of an article', () => {
   let testStore = configureMockStore([thunk]);
   let store = testStore({});
-  const url = `${ROOTS_URL}/articles`;
+  const url = `${ROOT_URL}/articles`;
   beforeEach(() => {
     moxios.install();
     store.clearActions();
@@ -32,7 +32,7 @@ describe('Test the creation of an article', () => {
     const testStore = configureMockStore([thunk]);
     const store = testStore({});
     moxios.stubRequest(
-      `${ROOTS_URL}/articles/hi-there`, {
+      `${ROOT_URL}/articles/hi-there`, {
         status: 200,
         response: {
           message: 'Article \'hi-there\' deleted'
@@ -48,7 +48,7 @@ describe('Test the creation of an article', () => {
     const testStore = configureMockStore([thunk]);
     const store = testStore({});
     moxios.stubRequest(
-      `${ROOTS_URL}/articles/hi`, {
+      `${ROOT_URL}/articles/hi`, {
         status: 400,
         response: {
           message: 'Article \'hi\' deleted'

@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 
 const SignedInLinks = ({ handleLogout, username }) => (
   <div className="nav ml-auto">
+    <NavLink to="/postarticle" className="nav-link">
+        Post Article
+    </NavLink>
     <i className="fa fa-bell notnotif text-dark mt-3" />
     <NavLink
       to="#null"

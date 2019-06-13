@@ -1,10 +1,9 @@
-import {mount, shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import MutationObserver from 'mutation-observer';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import React from 'react';
-import renderHTML from 'react-render-html';
 import { MemoryRouter } from 'react-router-dom';
 import PostItem from '../PostItem';
 

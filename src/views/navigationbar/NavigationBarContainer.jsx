@@ -20,7 +20,6 @@ class NavigationBar extends Component {
     facebookAuth: PropTypes.func.isRequired,
     googleAuth: PropTypes.func.isRequired,
     twitterAuth: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired,
     signindata: PropTypes.object.isRequired,
     logoutAction: PropTypes.func.isRequired,
   };
@@ -90,7 +89,7 @@ class NavigationBar extends Component {
     } else {
       await signup(this.state);
       // istanbul ignore next
-      const { signupdata, history } = this.props;
+      const { signupdata } = this.props;
       // istanbul ignore next
       this.setState({
         errorShow: {
@@ -119,7 +118,7 @@ class NavigationBar extends Component {
       signInError:true
     });
     // istanbul ignore next
-    const { signindata, history } = this.props;
+    const { signindata } = this.props;
     // istanbul ignore next
     if (signindata.user.email) {
       this.setState({
@@ -136,7 +135,7 @@ class NavigationBar extends Component {
   } 
   handleFacebook = async (e) => {
     e.preventDefault();
-    const { facebookAuth: facebook, history } = this.props;
+    const { facebookAuth: facebook } = this.props;
     await facebook();
     this.setState({
       show: false,
@@ -145,7 +144,7 @@ class NavigationBar extends Component {
   }
   handleGoogle = async (e) => {
     e.preventDefault();
-    const { googleAuth: google, history } = this.props;
+    const { googleAuth: google } = this.props;
     await google();
     this.setState({
       show: false,
@@ -154,7 +153,7 @@ class NavigationBar extends Component {
   }
   handleTwitter = async (e) => {
     e.preventDefault();
-    const { twitterAuth: twitter, history } = this.props;
+    const { twitterAuth: twitter } = this.props;
     await twitter();
     this.setState({
       show: false,
