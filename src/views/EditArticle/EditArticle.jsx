@@ -52,7 +52,7 @@ class EditArticle extends Component {
     const { editPost } = this.props;
     editPost(slug, article);
 
-    history.push('/posts');
+    history.push('/postarticle');
 
   }
 

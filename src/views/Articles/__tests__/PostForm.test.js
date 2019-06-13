@@ -25,6 +25,17 @@ describe('pass', () => {
       </Provider>
     </Router>
   );
+  const renderComponent = properties => mount(
+    React.createElement(
+      props => (
+        <Provider store={store}>
+          <Router history={history}>
+            <PostForm {...props} />
+          </Router>
+
+        </Provider>
+      ),
+      properties));
   it('test 1', () => {
     expect(wrapper).toMatchSnapshot();
   });
@@ -46,4 +57,12 @@ describe('pass', () => {
     });
     expect(props.addPost).toHaveBeenCalled();
   });
+  it('should set some props', () => {
+    const renderedComponent = renderComponent(props);
+    renderedComponent.setProps({ errors:{
+
+    }});
+  });
+
+  expect(true).toBe(true);
 });

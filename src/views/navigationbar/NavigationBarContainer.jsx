@@ -20,7 +20,6 @@ class NavigationBar extends Component {
     facebookAuth: PropTypes.func.isRequired,
     googleAuth: PropTypes.func.isRequired,
     twitterAuth: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired,
     signindata: PropTypes.object.isRequired,
     logoutAction: PropTypes.func.isRequired,
   };

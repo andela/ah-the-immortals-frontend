@@ -30,8 +30,6 @@ export class PostForm extends Component {
     }
   }
 
-
-
   onSubmit = async (e) => {
     this.setState({ isLoading: true });
     e.preventDefault();
@@ -51,11 +49,8 @@ export class PostForm extends Component {
     });
   };
 
-
   render() {
     const { errors, title, isLoading, description, body } = this.state;
-
-
     let Image = Quill.import('formats/image');
     Image.className = 'img-fluid';
     Quill.register(Image, true);

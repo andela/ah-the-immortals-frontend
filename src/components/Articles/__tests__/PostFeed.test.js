@@ -11,4 +11,8 @@ describe('pass post feed', () => {
   it('test post feed ', () => {
     expect(wrapper).toMatchSnapshot();
   });
+  it('test map function', () => {
+    wrapper.find('PostFeed').find('PostItem').map(node => node.text());
+    expect(wrapper).not.toBe(null);
+  });
 });
