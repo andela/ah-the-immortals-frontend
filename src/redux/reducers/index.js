@@ -8,6 +8,8 @@ import Profile from './profile.reducer';
 import postReducer from './PostReducer';
 import errorReducer from './errorReducers';
 import SearchReducer from './Search.reducer';
+import followReducer from './userFollow.reducer';
+import followingReducer from './userFollowing.reducer';
 
 export default combineReducers({
   resetpasswordlink: resetPasswordLinkReducer,
@@ -18,5 +20,7 @@ export default combineReducers({
   Profile,
   post: postReducer,
   errors: errorReducer,
-  search: SearchReducer
+  search: SearchReducer,
+  followers: followReducer,
+  following: followingReducer,
 });

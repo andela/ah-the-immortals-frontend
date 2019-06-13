@@ -15,6 +15,7 @@ import singlepost from './views/Article/post';
 import editarticle from './views/EditArticle/EditArticle';
 import Footer from './components/home/HomeFooter';
 import SearchPageContainer from './views/search/SearchPageContainer';
+import ViewUserProfile from './views/profiles/OtheUserContainer';
 
 
 const history = createBrowserHistory;
@@ -46,6 +47,7 @@ export default class App extends Component {
               <Route exact path="/posts" component={postsfeed} />
               <Route exact path="/edit/:slug" component={editarticle} />
               <Route exact path="/search-page" component={SearchPageContainer} />
+              <Route exact path="/profile/:otherUser" component={ViewUserProfile} />
               <Route component={PageNotFound} />
             </Switch>
             <Footer />
