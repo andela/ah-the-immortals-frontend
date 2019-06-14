@@ -119,13 +119,37 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                             />
                           </div>
                         </div>
-                        <h4>
-                          @
-                          username [ ]
-                        </h4>
-                        <p>
-                          This is my biography
-                        </p>
+                        <div
+                          className="profile-bio"
+                        >
+                          <div
+                            className="row"
+                          >
+                            <div
+                              className="col-xs-3"
+                            >
+                              <h5>
+                                 
+                              </h5>
+                            </div>
+                            <div
+                              className="col-sm-4"
+                            >
+                              <h5
+                                className="profile-username"
+                              >
+                                <span
+                                  className="small"
+                                >
+                                  @
+                                </span>
+                              </h5>
+                            </div>
+                            <p>
+                              This is my biography
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <ul
@@ -310,7 +334,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                         </div>
                       </div>
                       <div
-                        className="tab-pane fade"
+                        className="tab-pane fade edit-profile"
                         id="profile"
                       >
                         <Connect(ProfileContainer)>
@@ -336,7 +360,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                                       <label
                                         htmlFor="firstname"
                                       >
-                                        First name
+                                        First Name
                                         <br />
                                         <input
                                           className="form-control"
@@ -352,7 +376,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                                       <label
                                         htmlFor="lastname"
                                       >
-                                        Last name
+                                        Last Name
                                         <br />
                                         <input
                                           className="form-control"

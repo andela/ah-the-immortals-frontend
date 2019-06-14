@@ -34,5 +34,4 @@ export const signInAction = (data) => async (dispatch) => {
 export const logoutAction = () => (dispatch) =>{
   dispatch(logout());
   localStorage.clear();
-  history.push('/');
 };

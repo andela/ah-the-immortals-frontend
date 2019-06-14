@@ -223,6 +223,16 @@ a {
     height: 100%;
     border-radius: 50%;
   }
+.edit-profile {
+    margin-left: -1%;
+}
+.profile-bio {
+    margin-left: -2%;
+}
+
+.profile-username {
+    color: slategrey;
+}
 .avatar-btn {
     width: inherit;
     height: inherit;
