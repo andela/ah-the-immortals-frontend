@@ -22,19 +22,21 @@ class NavigationBar extends Component {
     twitterAuth: PropTypes.func.isRequired,
     signindata: PropTypes.object.isRequired,
     logoutAction: PropTypes.func.isRequired,
+    result: PropTypes.object.isRequired,
+    history:PropTypes.object.isRequired
   };
   state = {
     show: false,
     signInShow: false,
     errorShow: {},
-    signInError:false
+    signInError: false
   };
   closeModal = () => {
     this.setState({
       show: false,
       signInShow: false,
       errorShow: {},
-      signInError:false
+      signInError: false
     });
     toast.dismiss(1);
   };
@@ -62,7 +64,7 @@ class NavigationBar extends Component {
         ...errorShow,
         [e.target.name]: false
       },
-      signInError:false
+      signInError: false
     });
     toast.dismiss(1);
   };
@@ -115,7 +117,7 @@ class NavigationBar extends Component {
     await signInAction(this.state);
     // istanbul ignore next
     this.setState({
-      signInError:true
+      signInError: true
     });
     // istanbul ignore next
     const { signindata } = this.props;
@@ -126,13 +128,13 @@ class NavigationBar extends Component {
       });
     }
   };
-  handleSignUpLink=(e)=>{
+  handleSignUpLink = (e) => {
     e.preventDefault();
     this.setState({
-      show:true,
-      signInShow:false,
+      show: true,
+      signInShow: false,
     });
-  } 
+  }
   handleFacebook = async (e) => {
     e.preventDefault();
     const { facebookAuth: facebook } = this.props;
@@ -166,15 +168,14 @@ class NavigationBar extends Component {
     logoutAction();
   };
   render() {
-    const { show, signInShow, errorShow, signInError} = this.state;
-    const { signindata } = this.props;
+    const { show, signInShow, errorShow, signInError } = this.state;
+    const { signindata, signupdata, history, result } = this.props;
     const facebook = this.handleFacebook;
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
-    const { signupdata } = this.props;
     const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated || isLoggedIn();
     const links = isAuthenticated ? <SignedInLinks handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username || tokenDecoded()} /> : (
-      <SignedOutLinks 
+      <SignedOutLinks
         showModal={this.showModal}
         closeModal={this.closeModal}
         show={show}
@@ -195,15 +196,16 @@ class NavigationBar extends Component {
       />
     );
     return (
-      <RenderedLinks links={links} />
+      <RenderedLinks links={links} history={history} result={result} />
     );
   }
 }
 
-const mapStateToProps = ({ signup, signin }) => {
+const mapStateToProps = ({ signup, signin, search }) => {
   return {
     signupdata: signup,
-    signindata: signin
+    signindata: signin,
+    result: search
   };
 };
 

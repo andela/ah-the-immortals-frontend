@@ -1,0 +1,119 @@
+.search-bar {
+  margin-left: 50%;
+  width: 50em;
+  margin-top: -12px;
+  -webkit-appearance: none;
+}
+
+.search-bar input[type="search"] {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.search-bar input {
+  border-radius: 15px;
+  border-width: 1px;
+  box-shadow: none;
+}
+
+.search-bar input:focus {
+  border-color: #d1d7dd;
+}
+
+.search-page {
+  font-family: 'Medium-content-sans-serif'
+}
+
+.search-page .search-bar input {
+  border-top: none;
+  border-radius: 0px;
+  border-color: black;
+  border-left: none;
+  border-right: none;
+}
+
+.search-page .search-bar {
+  margin-left: 10%;
+  margin-top: 2%;
+}
+
+.search-body {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.search-body .card {
+  width: 60%;
+  margin-left: 10%;
+  cursor: pointer;
+  margin-bottom: 4%;
+  border-left: none;
+  border-right: none;
+}
+.search-body .card-header{
+  background-color: white;
+  border-bottom: none;
+  font-weight: bold;
+  font-size: 150%;
+}
+.filter-section {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: 10%;
+}
+
+.filter-section .filter-content {
+  margin-right: 4%;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+}
+
+.filter-content button {
+  outline: none;
+  box-shadow: none !important;
+  border: none;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.filter-content button:focus {
+  color: black;
+}
+
+.filter-error {
+  margin-left: 10%;
+  font-size: 250%;
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 5%;
+}
+
+.description {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.dark button {
+  color: black;
+}
+.avatar{
+  height: 50px;
+  width: 50px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #e6e6e6;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.user-info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.user-info p{
+  margin-left: 0.5%;
+  font-size: small;
+  font-weight: normal;
+  margin-top: 1%;
+}

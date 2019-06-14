@@ -17,7 +17,8 @@ import NavigationBar from '../NavigationBarContainer';
 describe('Tests NavigationBar Container', () => {
   const store = configureStore([thunk])({
     signup: { user: {}, errors: {} },
-    signin: { user: {}, errors: {} }
+    signin: { user: {}, errors: {} },
+    search:{}
   });
   const history = createBrowserHistory();
   const wrapper = mount(

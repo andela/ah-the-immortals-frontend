@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
+import Search from '../../views/search/SearchBarContainer';
 
-const RenderedLinks = ({ links }) => (
+const RenderedLinks = ({ links, history,result }) => (
   <Nav className="navbar navbar-expand-lg navbar-light fixed-top navbackground">
     <NavLink className="navbar-brand" to="/"><b className="brand-text">Authors Haven</b></NavLink>
     <button
@@ -20,9 +21,7 @@ const RenderedLinks = ({ links }) => (
     <div className="row collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="nav ml-auto">
         <li className="nav-item">
-          <form className="form-inline">
-            <input className="form-control mr-sm-4 font-awesome" type="search" placeholder="&#xF002;  Search for articles" aria-label="Search" />
-          </form>
+          <Search history={history} result={result} />
         </li>
         <li className="nav-item col">{links}</li>
       </ul>
@@ -32,6 +31,8 @@ const RenderedLinks = ({ links }) => (
 
 RenderedLinks.propTypes = {
   links: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  result:PropTypes.object.isRequired
 };
 
 export default RenderedLinks;

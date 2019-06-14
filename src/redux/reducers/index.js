@@ -7,14 +7,16 @@ import SocialReducer from './SocialAuth.reducer';
 import Profile from './profile.reducer';
 import postReducer from './PostReducer';
 import errorReducer from './errorReducers';
+import SearchReducer from './Search.reducer';
 
 export default combineReducers({
   resetpasswordlink: resetPasswordLinkReducer,
   confirmresetpassword: confirmResetPasswordReducer,
-  signup:SignUpReducer,
-  signin:signInReducer,
+  signup: SignUpReducer,
+  signin: signInReducer,
   social: SocialReducer,
   Profile,
   post: postReducer,
   errors: errorReducer,
+  search: SearchReducer
 });
