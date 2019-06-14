@@ -13,7 +13,7 @@ class SearchPageContainer extends Component {
   state = {
     filter: {},
     activeOption: {
-      default:true
+      default: true
     }
   };
   handleFilter = (e) => {
@@ -26,7 +26,7 @@ class SearchPageContainer extends Component {
       },
       activeOption: {
         [e.target.name]: true,
-        default:false
+        default: false
       }
     });
     search({
@@ -34,6 +34,11 @@ class SearchPageContainer extends Component {
       value
     });
   };
+  handleClick = (slug) => {
+    const {history}=this.props;
+    history.push(`/post/${slug}`);
+    document.getElementById('search-bar').value=null;
+  }
   render = () => {
     const { history, result } = this.props;
     const { filter, activeOption } = this.state;
@@ -43,6 +48,7 @@ class SearchPageContainer extends Component {
         history={history}
         filter={filter}
         activeOption={activeOption}
+        handleClick={this.handleClick}
         handleFilter={this.handleFilter} />
     );
   };

@@ -65,9 +65,6 @@ describe('Tests for title filter', () => {
     expect(searchInput.exists()).toEqual(true);
   });
   it('Simulates keyDown event with search value', () => {
-    document.body.innerHTML=`
-    <input id='search-bar'/>
-    `;
     searchInput.simulate('change', {
       preventDefault: jest.fn(),
       target: {

@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Search from '../../views/search/SearchBarContainer';
 import ResultPage from './ResultPageComponent';
 import '../../styles/Search.css';
 
-const SearchPage = ({ history, result, handleFilter, filter, activeOption }) => {
+const SearchPage = ({ history, result, handleFilter, filter, activeOption, handleClick }) => {
   return (
     <div className="search-page">
-      <Search
-        history={history}
-        filter={filter} />
       <div className="container filter-section">
         <div className={`filter-content ${activeOption.title || activeOption.default ? 'dark' : ''}`}>
           <button
@@ -37,7 +33,7 @@ const SearchPage = ({ history, result, handleFilter, filter, activeOption }) => 
         </div>
       </div>
       <div className="container-fluid search-body">
-        <ResultPage result={result.result} />
+        <ResultPage result={result.result} handleClick={handleClick} />
       </div>
     </div>
   );
@@ -47,6 +43,7 @@ SearchPage.propTypes = {
   result: PropTypes.object.isRequired,
   handleFilter: PropTypes.func.isRequired,
   filter: PropTypes.object.isRequired,
-  activeOption: PropTypes.object.isRequired
+  activeOption: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 export default SearchPage;

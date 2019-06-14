@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import renderHTML from 'react-render-html';
 import '../../styles/Search.css';
 
-const ResultPage = ({ result }) => (result.results ? (
+const ResultPage = ({ result,handleClick }) => (result.results ? (
   result.results.articles.map((article, index) => (
     <div
       className="card"
@@ -12,19 +13,31 @@ const ResultPage = ({ result }) => (result.results ? (
         <p>{article.author.username}</p>
       </div>
       <div
-        className="card-header"
+        className="card-header title-info"
+        onClick={()=>handleClick(article.slug)} 
+        tabIndex="0"
+        role="button"
+        onKeyPress={handleClick}
         key={`${index + 1}-head`}>
         {article.title}
       </div>
       <div
         className="card-body description"
+        onClick={()=>handleClick(article.slug)} 
+        tabIndex="0"
+        role="button"
+        onKeyPress={handleClick}
         key={`${index + 2}-description`}>
         {article.description}
       </div>
       <div
-        className="card-body"
+        className="card-body article-body"
+        onClick={()=>handleClick(article.slug)} 
+        tabIndex="0"
+        role="button"
+        onKeyPress={handleClick}
         key={`${index + 3}-body`}>
-        {article.body}
+        {renderHTML(article.body)}
       </div>
     </div>
   ))
@@ -35,6 +48,7 @@ const ResultPage = ({ result }) => (result.results ? (
   </div>
 ));
 ResultPage.propTypes = {
-  result: PropTypes.object.isRequired
+  result: PropTypes.object.isRequired,
+  handleClick:PropTypes.func.isRequired
 };
 export default ResultPage;

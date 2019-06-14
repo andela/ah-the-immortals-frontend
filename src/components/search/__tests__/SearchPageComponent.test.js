@@ -10,7 +10,8 @@ describe('Tests for search page', () => {
     },
     handleFilter: jest.fn(),
     filter: {},
-    activeOption: {}
+    activeOption: {},
+    handleClick:jest.fn()
   };
   const wrapper = shallow(
     <SearchPage {...props} />

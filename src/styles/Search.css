@@ -52,12 +52,14 @@
   border-left: none;
   border-right: none;
 }
-.search-body .card-header{
+
+.search-body .card-header {
   background-color: white;
   border-bottom: none;
   font-weight: bold;
   font-size: 150%;
 }
+
 .filter-section {
   margin-top: 2%;
   display: flex;
@@ -97,7 +99,8 @@
 .dark button {
   color: black;
 }
-.avatar{
+
+.avatar {
   height: 50px;
   width: 50px;
   border-style: solid;
@@ -106,14 +109,22 @@
   vertical-align: middle;
   border-radius: 50%;
 }
-.user-info{
+
+.user-info {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 }
-.user-info p{
+
+.user-info p {
   margin-left: 0.5%;
   font-size: small;
   font-weight: normal;
   margin-top: 1%;
+}
+
+.card-body,
+.card-header {
+  outline: none;
+  box-shadow: none !important;
 }
