@@ -31,17 +31,17 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
       className="nav ml-auto"
     >
       <NavLink
-        className="nav-link"
+        className="nav-link mt-1 mr-2"
         to="/postarticle"
       >
         <Link
           aria-current={null}
-          className="nav-link"
+          className="nav-link mt-1 mr-2"
           to="/postarticle"
         >
           <a
             aria-current={null}
-            className="nav-link"
+            className="nav-link mt-1 mr-2"
             href="/postarticle"
             onClick={[Function]}
           >
