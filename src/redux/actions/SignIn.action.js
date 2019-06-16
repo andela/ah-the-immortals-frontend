@@ -1,6 +1,7 @@
 import ACTION_CONSTANTS from '../constants/constants';
 import APIS from '../../services/api';
 import createBrowserHistory from '../../services/history';
+import tokenDecoded from '../../services/tokenDecoder';
 
 const history = createBrowserHistory;
 
@@ -23,9 +24,9 @@ export const logout = () => ({
 
 export const signInAction = (data) => async (dispatch) => {
   try {
-    const response = await signInApi(data);
+    const response = data ? await signInApi(data) : await tokenDecoded();
     dispatch(loginSuccess(response));
-    localStorage.setItem('token', response.data.user.token);
+    data && localStorage.setItem('token', response.data.user.token);
   } catch (error) {
     dispatch(loginFailure(error));
   }
@@ -36,3 +37,4 @@ export const logoutAction = () => (dispatch) =>{
   localStorage.clear();
   history.push('/');
 };
+

@@ -5,7 +5,7 @@ const tokenDecoded = () => {
   let user = undefined;
   try {
     user = jwtDecode(token).user_data.username;
-    return user;
+    return { data: { user: jwtDecode(token).user_data }};
   } catch (error) {
     user = '';
     return user;

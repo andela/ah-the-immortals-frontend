@@ -11,7 +11,8 @@ class ProfileContainer extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { editProfile: Profile } = this.props;
-    Profile(this.state);
+    const { profile: { username } } = this.props;
+    Profile(this.state, username);
   }
 
   handleChangeProfile = (e) => {
@@ -34,8 +35,9 @@ class ProfileContainer extends Component {
         this.setState({
           image: result.info.secure_url
         });
+        const { profile: { username } } = this.props;
         const { editProfile: Profile } = this.props;
-        Profile(this.state);
+        Profile(this.state, username);
       }
     });
   }

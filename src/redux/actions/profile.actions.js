@@ -1,6 +1,5 @@
 import ACTION_CONSTANST from '../constants/constants';
 import { profileApi, fetchProfileApi } from '../../services/api';
-import tokenDecoded from '../../services/tokenDecoder';
 
 const { FETCH_PROFILE_ERROR, FETCH_PROFILE, EDIT_PROFILE, EDIT_PROFILE_ERROR } = ACTION_CONSTANST;
 
@@ -14,9 +13,9 @@ const fetchErrors = (error) => ({
   errors: error
 });
 
-const fetchProfile = () => async (dispatch) => {
+const fetchProfile = (username) => async (dispatch) => {
   try {
-    const data = await fetchProfileApi(tokenDecoded());
+    const data = await fetchProfileApi(username);
     dispatch(fetchSuccess(data.data.profile));
   } catch (error) {
     dispatch(fetchErrors(error.response.data.errors));
@@ -28,10 +27,10 @@ const editErrors = (error) => ({
   errors: error
 });
 
-const editProfile = (data) => async (dispatch) => {
+const editProfile = (data, username) => async (dispatch) => {
   try {
-    await profileApi(data, tokenDecoded());
-    const response = await fetchProfileApi(tokenDecoded());
+    await profileApi(data, username);
+    const response = await fetchProfileApi(username);
     dispatch(fetchSuccess(response.data.profile));
   } catch (error) {
     dispatch(editErrors(error.response.data.errors));

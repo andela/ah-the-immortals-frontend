@@ -7,10 +7,8 @@ import SignedOutLinks from '../../components/navbar/signedOutLinks';
 import SignedInLinks from '../../components/navbar/signedInLinks';
 import signUpAction from '../../redux/actions/SignUp.action';
 import { signInAction, logoutAction } from '../../redux/actions/SignIn.action';
-import isLoggedIn from '../../services/checkAuthentication';
 import { facebookAuth, googleAuth, twitterAuth } from '../../redux/actions/SocialAuth.action';
 import RenderedLinks from '../../components/navbar/renderedLinks';
-import tokenDecoded from '../../services/tokenDecoder';
 
 class NavigationBar extends Component {
   static propTypes = {
@@ -29,6 +27,12 @@ class NavigationBar extends Component {
     errorShow: {},
     signInError:false
   };
+
+  componentDidMount() {
+    window.localStorage.getItem('token') ?
+      this.props.signInAction() : this.props.history.push('/');
+  }
+
   closeModal = () => {
     this.setState({
       show: false,
@@ -172,8 +176,8 @@ class NavigationBar extends Component {
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
     const { signupdata } = this.props;
-    const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated || isLoggedIn();
-    const links = isAuthenticated ? <SignedInLinks handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username || tokenDecoded()} /> : (
+    const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated;
+    const links = isAuthenticated ? <SignedInLinks handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username} /> : (
       <SignedOutLinks 
         showModal={this.showModal}
         closeModal={this.closeModal}

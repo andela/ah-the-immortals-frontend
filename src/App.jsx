@@ -39,7 +39,7 @@ export default class App extends Component {
               <Route exact path="/" component={home} />
               <Route exact path="/reset" component={PasswordResetForm} />
               <Route path="/resetconfirm/:token" component={passwordResetConfirm} /> 
-              <Route exact path="/Profile" component={Profile} />
+              <Route exact path="/Profile/:username" component={Profile} />
               <Route exact path="/postarticle" component={postfrom} />
               <Route exact path="/post/:slug" component={singlepost} />
               <Route exact path="/posts" component={postsfeed} />

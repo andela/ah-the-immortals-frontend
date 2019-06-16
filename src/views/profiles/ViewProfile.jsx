@@ -5,11 +5,11 @@ import ProfileView from '../../components/profiles/ViewProfile';
 import { fetchProfile, editProfile } from '../../redux/actions/profile.actions';
 
 class ViewProfile extends Component {
-  state = {};
-
   componentDidMount() {
-    const { fetchProfile: Profile } = this.props;
-    Profile(this.state);
+    const { fetchProfile } = this.props;
+    const { match } = this.props;
+    const username = match.params.username;
+    fetchProfile(username);
   }
 
   render() {
