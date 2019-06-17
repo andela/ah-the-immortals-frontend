@@ -18,7 +18,7 @@ const RenderedLinks = ({ links, history,result }) => (
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="row collapse navbar-collapse" id="navbarSupportedContent">
+    <div className="row collapse navbar-collapse mt-2" id="navbarSupportedContent">
       <ul className="nav ml-auto">
         <li className="nav-item">
           <Search history={history} result={result} />

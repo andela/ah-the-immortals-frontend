@@ -35,11 +35,11 @@ export default class App extends Component {
               draggable
               pauseOnHover
             />
-            
+
             <Switch>
               <Route exact path="/" component={home} />
               <Route exact path="/reset" component={PasswordResetForm} />
-              <Route path="/resetconfirm/:token" component={passwordResetConfirm} /> 
+              <Route path="/resetconfirm/:token" component={passwordResetConfirm} />
               <Route exact path="/Profile" component={Profile} />
               <Route exact path="/postarticle" component={postfrom} />
               <Route exact path="/post/:slug" component={singlepost} />
