@@ -222,3 +222,6 @@ label {
     border-width: thin;
     border-color:#e6e6e6;
 }
+.tag-btn{
+    margin-right: 0.5em;
+}
