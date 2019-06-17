@@ -65,4 +65,52 @@ describe('Profile reducer', () => {
     };
     expect(Profile({}, action)).toEqual({});
   });
+
+  it('test successful follow user', () => {
+    const payload = {
+      'profile': {
+        'username': 'eric',
+        'first_name': 'Abraham',
+        'last_name': 'Kamau',
+        'bio': 'this is a test for fetch',
+        'following': true
+      }
+    };
+    expect(Profile({}, { type: ACTION_CONSTANTS.FOLLOW_SUCCESS }).payload).toEqual();
+  });
+
+  it('test successful unfollow user', () => {
+    const payload = {
+      'profile': {
+        'username': 'eric',
+        'first_name': 'Abraham',
+        'last_name': 'Kamau',
+        'bio': 'this is a test for fetch',
+        'following': false
+      }
+    };
+    expect(Profile({}, { type: ACTION_CONSTANTS.UNFOLLOW_SUCCESS }).payload).toEqual();
+  });
+
+  it('test unsuccessful follow', () => {
+    const action = {
+      type: ACTION_CONSTANTS.FOLLOW_FAILURE,
+      profile: {
+        following: false,
+      },
+      errors: {}
+    };
+    expect(Profile({}, action)).toEqual({});
+  });
+
+  it('test unsuccessful unfollow', () => {
+    const action = {
+      type: ACTION_CONSTANTS.UNFOLLOW_FAILURE,
+      profile: {
+        following: false,
+      },
+      errors: {}
+    };
+    expect(Profile({}, action)).toEqual({});
+  });
 });

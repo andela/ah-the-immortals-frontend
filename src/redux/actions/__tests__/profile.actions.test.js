@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import { fetchProfile, editProfile } from '../profile.actions';
+import { fetchProfile, editProfile, getProfile } from '../profile.actions';
 import tokenDecoded from '../../../services/tokenDecoder';
 
 describe('Test profile actions', () => {
@@ -10,6 +10,7 @@ describe('Test profile actions', () => {
   let store = testStore({});
   const ROOT_URL = process.env.REACT_APP_BASE_URL;
   const username = tokenDecoded();
+  const otherUser = 'john';
 
   beforeEach(() => {
     store.clearActions();
@@ -91,6 +92,34 @@ describe('Test profile actions', () => {
 
     await store.dispatch(editProfile());
     expect(store.getActions()[0].type).toEqual('EDIT_PROFILE_ERROR');
+    done();
+  });
+
+  it('test successful fetch other user profile actions', async (done) => {
+    moxios.stubRequest(
+      `${ROOT_URL}/profiles/${otherUser}`, {
+        status: 200,
+        response: {
+          profile
+        }
+      });
+
+    await store.dispatch(getProfile(otherUser));
+    expect(store.getActions()[0].type).toEqual('FETCH_PROFILE');
+    done();
+  });
+
+  it('test unsuccessful fetch other user profile actions', async (done) => {
+    moxios.stubRequest(
+      `${ROOT_URL}/profiles/${otherUser}`, {
+        status: 404,
+        response: {
+          'user': ['User does not exist']
+        }
+      });
+
+    await store.dispatch(getProfile(otherUser));
+    expect(store.getActions()[0].type).toEqual('FETCH_PROFILE_ERROR');
     done();
   });
 });

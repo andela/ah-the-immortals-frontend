@@ -1,21 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import profileImage from '../../services/images/profile.png';
-import EditProfile from '../../views/profiles/EditProfile';
 import Footer from '../home/HomeFooter';
-import isLoggedIn from '../../services/checkAuthentication';
-import createBrowserHistory from '../../services/history';
-import FollowersContainer from '../../views/profiles/FollowersContainer';
-import FollowingContainer from '../../views/profiles/FollowingContainer';
 
-const history = createBrowserHistory; 
-const ProfileView = (props) => {
-  const { username, firstName, lastName, bio, image, following, followers } = props;
-  const loggedIn= isLoggedIn();
-  if(!loggedIn){
-    history.push('/');
-  }
+const UserProfileView = (props) => {
+  const { username, firstName, lastName, bio, image, following, handleFollow } = props;
   return (
     <div>
       <Container className="profile">
@@ -34,6 +25,13 @@ const ProfileView = (props) => {
                 }
               </h4>
               <p>{bio || 'This is my biography'}</p>
+              <div>
+                <Link to={`/userprofile/${username}`}>
+                  <Button className="btn primary" type="button" onClick={handleFollow}>
+                    {following}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
           <ul className="nav nav-tabs">
@@ -41,25 +39,6 @@ const ProfileView = (props) => {
               <a className="nav-link active" data-toggle="tab" href="#home">
                 <b> 3 </b>
                 Articles
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" data-toggle="tab" href="#profile">Edit Profile</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" data-toggle="tab" href="#followers">
-                <b> 
-                  {`${followers} `} 
-                </b>
-                Followers
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" data-toggle="tab" href="#following">
-                <b> 
-                  {`${following} `} 
-                </b>
-                Following
               </a>
             </li>
           </ul>
@@ -98,15 +77,6 @@ const ProfileView = (props) => {
                 </div>
               </div>
             </div>
-            <div className="tab-pane fade" id="profile">
-              <EditProfile />
-            </div>
-            <div className="tab-pane fade" id="following">
-              <FollowingContainer />
-            </div>
-            <div className="tab-pane fade" id="followers">
-              <FollowersContainer />
-            </div>
           </div>
         </div>
       </Container>
@@ -116,25 +86,24 @@ const ProfileView = (props) => {
 };
 
 
-ProfileView.propTypes = {
+UserProfileView.propTypes = {
   username: PropTypes.string,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   image: PropTypes.string,
   bio: PropTypes.string,
-  followers: PropTypes.number,
-  following: PropTypes.number
+  following: PropTypes.string,
+  handleFollow: PropTypes.func.isRequired
 };
 
-ProfileView.defaultProps = {
+UserProfileView.defaultProps = {
   username: '',
   firstName: '',
   lastName: '',
   image: '',
   bio: '',
-  following: 0,
-  followers: 0
+  following: '',
 };
 
-export default ProfileView;
+export default UserProfileView;
 

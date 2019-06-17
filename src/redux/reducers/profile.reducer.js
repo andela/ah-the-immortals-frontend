@@ -1,10 +1,15 @@
 import { toast } from 'react-toastify';
-import ACTION_CONSTANST from '../constants/constants';
+import ACTION_CONSTANT from '../constants/constants';
 
-const { FETCH_PROFILE, EDIT_PROFILE, FETCH_PROFILE_ERROR, EDIT_PROFILE_ERROR } = ACTION_CONSTANST;
+const { FETCH_PROFILE, EDIT_PROFILE, FETCH_PROFILE_ERROR, 
+  EDIT_PROFILE_ERROR, FOLLOW_SUCCESS, FOLLOW_FAILURE,
+  UNFOLLOW_SUCCESS, UNFOLLOW_FAILURE
+} = ACTION_CONSTANT;
 
 const initialState = {
-  profile: {},
+  profile: {
+    following: false,
+  },
   errors: {}
 };
 
@@ -16,6 +21,28 @@ const Profile = (state = initialState, action) => {
       profile: action.payload,
       errors: {}
     };
+
+  case FOLLOW_SUCCESS:
+    return {
+      ...state, 
+      profile: {
+        ...state.profile,
+        following: true,
+      }
+    };
+
+  case UNFOLLOW_SUCCESS:
+    return {
+      ...state, profile: {
+        ...state.profile,
+        following: false
+      }
+    };
+  case UNFOLLOW_FAILURE:
+    return state;
+
+  case FOLLOW_FAILURE:
+    return state;
 
   case FETCH_PROFILE_ERROR:
     toast.error((action.errors.user[0]), {

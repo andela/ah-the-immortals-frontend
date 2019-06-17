@@ -1,6 +1,5 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import tokenDecoded from './tokenDecoder';
 
 
 
@@ -17,11 +16,12 @@ const signInApi = (data) => axios.post(signInUrl, data);
 const resetPasswordLinkAPI = (data) => axios.post(resetUrl, data);
 const resetconfirmPasswordAPI = (data) => axios.post(resetconfirmUrl + data.token, data);
 const socialAuthApi = (data) => axios.post(socialAuthUrl, data);
+const userProfileUrl = `${ROOT_URL}/profiles`;
 
 const axiosHeader = {
   headers: {
     'content-type': 'application/json',
-    authorization: `Bearer ${token}`
+    Authorization: `Bearer ${token}`
   },
 };
 const articlesUrl = `${ROOT_URL}/articles`;
@@ -31,6 +31,11 @@ export const profileApi = (data, username) => axios.patch(
   axiosHeader
 );
 export const fetchProfileApi = (username) => axios.get(`${ROOT_URL}/profiles/${username}`);
+const followersApi = (username) => axios.get(`${ROOT_URL}/profiles/${username}/followers/`, axiosHeader);
+const followingApi = (username) => axios.get(`${ROOT_URL}/profiles/${username}/follow/`, axiosHeader);
+export const otherProfileApi = (otherUser) => axios.get(`${userProfileUrl}/${otherUser}`, axiosHeader);
+const followApi = (otherUser) => axios.post(`${userProfileUrl}/${otherUser}/follow/`,{}, axiosHeader);
+const unfollowApi = (otherUser) => axios.delete(`${userProfileUrl}/${otherUser}/follow/`, axiosHeader);
 
 const SearchArticlesApi = (data) => {
   if (data.author) {
@@ -47,7 +52,11 @@ const APIS = {
   signUpApi,
   signInApi,
   socialAuthApi,
-  SearchArticlesApi
+  SearchArticlesApi,
+  followersApi,
+  followingApi,
+  followApi,
+  unfollowApi,
 };
 
 export default APIS;

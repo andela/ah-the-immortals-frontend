@@ -38,13 +38,53 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
     >
       <Connect(ViewProfile)>
         <ViewProfile
+          data={
+            Object {
+              "count": 0,
+              "data": Array [
+                Object {
+                  "bio": "",
+                  "created_at": "2019-05-30 11:52:18",
+                  "first_name": "",
+                  "following": true,
+                  "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                  "last_name": "",
+                  "updated_at": "2019-06-13 17:59:21",
+                  "username": "slim",
+                },
+              ],
+              "errors": Object {},
+            }
+          }
           editProfile={[Function]}
           fetchProfile={[Function]}
           profile={Object {}}
+          userFollowersAction={[Function]}
+          userFollowingAction={[Function]}
+          users={
+            Object {
+              "error": Object {},
+              "userCount": 0,
+              "users": Array [
+                Object {
+                  "bio": "",
+                  "created_at": "2019-05-30 11:52:18",
+                  "first_name": "",
+                  "following": true,
+                  "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                  "last_name": "",
+                  "updated_at": "2019-06-13 17:59:21",
+                  "username": "slim",
+                },
+              ],
+            }
+          }
         >
           <ProfileView
             bio=""
             firstName=""
+            followers={0}
+            following={0}
             image=""
             lastName=""
             username=""
@@ -74,7 +114,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                           >
                             <img
                               alt="Avatar"
-                              className="avatar"
+                              className="prof-avatar"
                               src="test-file-stub"
                             />
                           </div>
@@ -125,7 +165,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                           href="#followers"
                         >
                           <b>
-                             122 
+                            0 
                           </b>
                           Followers
                         </a>
@@ -139,7 +179,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                           href="#following"
                         >
                           <b>
-                             200 
+                            0 
                           </b>
                           Following
                         </a>
@@ -367,6 +407,158 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                             </div>
                           </ProfileContainer>
                         </Connect(ProfileContainer)>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="following"
+                      >
+                        <Connect(FollowingContainer)>
+                          <FollowingContainer
+                            data={
+                              Object {
+                                "count": 0,
+                                "data": Array [
+                                  Object {
+                                    "bio": "",
+                                    "created_at": "2019-05-30 11:52:18",
+                                    "first_name": "",
+                                    "following": true,
+                                    "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                                    "last_name": "",
+                                    "updated_at": "2019-06-13 17:59:21",
+                                    "username": "slim",
+                                  },
+                                ],
+                                "errors": Object {},
+                              }
+                            }
+                            userFollowingAction={[Function]}
+                          >
+                            <div>
+                              <Following
+                                bio=""
+                                created_at="2019-05-30 11:52:18"
+                                first_name=""
+                                following={true}
+                                img_url="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
+                                key="slim"
+                                last_name=""
+                                updated_at="2019-06-13 17:59:21"
+                                username="slim"
+                              >
+                                <div>
+                                  <div
+                                    className="user-card"
+                                  >
+                                    <div
+                                      className="follow-card list-card"
+                                    >
+                                      <img
+                                        alt="Profile pic"
+                                        className="user-avatar float-left"
+                                        src="test-file-stub"
+                                      />
+                                      <div
+                                        className="user-data"
+                                      >
+                                        <h6>
+                                          <Link
+                                            to="/profile/slim"
+                                          >
+                                            <a
+                                              href="/profile/slim"
+                                              onClick={[Function]}
+                                            >
+                                              slim
+                                            </a>
+                                          </Link>
+                                        </h6>
+                                        <p />
+                                      </div>
+                                    </div>
+                                    <hr />
+                                  </div>
+                                </div>
+                              </Following>
+                            </div>
+                          </FollowingContainer>
+                        </Connect(FollowingContainer)>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="followers"
+                      >
+                        <Connect(FollowersContainer)>
+                          <FollowersContainer
+                            userFollowersAction={[Function]}
+                            users={
+                              Object {
+                                "error": Object {},
+                                "userCount": 0,
+                                "users": Array [
+                                  Object {
+                                    "bio": "",
+                                    "created_at": "2019-05-30 11:52:18",
+                                    "first_name": "",
+                                    "following": true,
+                                    "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                                    "last_name": "",
+                                    "updated_at": "2019-06-13 17:59:21",
+                                    "username": "slim",
+                                  },
+                                ],
+                              }
+                            }
+                          >
+                            <div>
+                              <Followers
+                                bio=""
+                                created_at="2019-05-30 11:52:18"
+                                first_name=""
+                                following={true}
+                                img_url="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
+                                key="slim"
+                                last_name=""
+                                updated_at="2019-06-13 17:59:21"
+                                username="slim"
+                              >
+                                <div>
+                                  <div
+                                    className="user-card"
+                                  >
+                                    <div
+                                      className="follow-card list-card"
+                                    >
+                                      <img
+                                        alt="Profile pic"
+                                        className="user-avatar float-left"
+                                        src="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
+                                      />
+                                      <div
+                                        className="user-data"
+                                      >
+                                        <h6>
+                                          <Link
+                                            to="/profile/slim"
+                                          >
+                                            <a
+                                              href="/profile/slim"
+                                              onClick={[Function]}
+                                            >
+                                              slim
+                                            </a>
+                                          </Link>
+                                        </h6>
+                                        <p />
+                                      </div>
+                                    </div>
+                                    <hr />
+                                  </div>
+                                </div>
+                              </Followers>
+                            </div>
+                          </FollowersContainer>
+                        </Connect(FollowersContainer)>
                       </div>
                     </div>
                   </div>

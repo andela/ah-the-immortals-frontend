@@ -5,15 +5,14 @@ import { toast } from 'react-toastify';
 import ProfileForm from '../../components/profiles/EditProfile';
 import { editProfile } from '../../redux/actions/profile.actions';
 
+
 class ProfileContainer extends Component {
   state = {};
-
   handleSubmit = (e) => {
     e.preventDefault();
     const { editProfile: Profile } = this.props;
     Profile(this.state);
   }
-
   handleChangeProfile = (e) => {
     e.preventDefault();
     this.setState({
@@ -21,7 +20,6 @@ class ProfileContainer extends Component {
     });
     toast.dismiss(1);
   }
-
   handleFileUpload = (e) => {
     e.preventDefault();
     const widget = window.cloudinary.openUploadWidget({
@@ -39,7 +37,6 @@ class ProfileContainer extends Component {
       }
     });
   }
-
   render = () => {
     const { profile } = this.props;
     return (
