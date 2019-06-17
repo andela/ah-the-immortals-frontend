@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests RepliesContainer tests mounting of container 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Connect(Replies)
+      createChildCommentAction={[MockFunction]}
+      id={3}
+      slug="string"
+    >
+      <Replies
+        createChildCommentAction={[Function]}
+        data={
+          Object {
+            "comments": Array [],
+          }
+        }
+        id={3}
+        slug="string"
+      >
+        <CreateReply
+          replySubmit={[Function]}
+          replyWrite={[Function]}
+          value=""
+        >
+          <Form
+            inline={false}
+            onSubmit={[Function]}
+          >
+            <form
+              className=""
+              onSubmit={[Function]}
+            >
+              <Bootstrap(Row)>
+                <Row
+                  bsPrefix="row"
+                  noGutters={false}
+                >
+                  <div
+                    className="row"
+                  >
+                    <Col>
+                      <div
+                        className="col"
+                      >
+                        <FormControl
+                          className="input-width"
+                          name="body"
+                          onChange={[Function]}
+                          placeholder="Leave a reply"
+                          required={true}
+                          value=""
+                        >
+                          <input
+                            className="input-width form-control"
+                            name="body"
+                            onChange={[Function]}
+                            placeholder="Leave a reply"
+                            required={true}
+                            value=""
+                          />
+                        </FormControl>
+                      </div>
+                    </Col>
+                    <Col
+                      lg="2"
+                      xs={true}
+                    >
+                      <div
+                        className="col-lg-2 col"
+                      >
+                        <Button
+                          active={false}
+                          disabled={false}
+                          type="submit"
+                          variant="primary"
+                        >
+                          <button
+                            className="btn btn-primary"
+                            disabled={false}
+                            type="submit"
+                          >
+                            Send
+                          </button>
+                        </Button>
+                      </div>
+                    </Col>
+                  </div>
+                </Row>
+              </Bootstrap(Row)>
+            </form>
+          </Form>
+        </CreateReply>
+      </Replies>
+    </Connect(Replies)>
+  </Provider>
+</Router>
+`;
