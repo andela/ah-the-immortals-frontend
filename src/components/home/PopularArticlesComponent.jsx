@@ -1,17 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PopularArticles = () => (
-  <div className="card cardwidth position-fixed">
-    <div className="card-body">
-      <h5 className="card-title">POPULAR ARTICLES</h5>
+  <div className="quotes position-fixed cardwidth">
+    <div className="box box1">
+      <h5>POPULAR ARTICLES</h5>
+      <hr />
+      <Link to="#null">Cras justo odio</Link>
+      <hr />
+      <Link to="#null">Dapibus ac facilisis in</Link>
+      <hr />
+      <Link to="#null">Vestibulum at eros</Link>
+      <hr />
+      <Link to="#null">Vestibulum at eros</Link>
     </div>
-    <ul className="list-group list-group-flush">
-      <li className="list-group-item">Cras justo odio</li>
-      <li className="list-group-item">Dapibus ac facilisis in</li>
-      <li className="list-group-item">Vestibulum at eros</li>
-      <li className="list-group-item">Vestibulum at eros</li>
-      <li className="list-group-item">Vestibulum at eros</li>
-    </ul>
   </div>
 );
 

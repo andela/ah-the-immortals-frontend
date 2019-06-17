@@ -140,46 +140,59 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
           >
             <TopRatedArticles>
               <div
-                className="card cardwidth position-fixed cardmargins"
+                className="quotes position-fixed cardwidth cardmargins"
               >
                 <div
-                  className="card-body"
+                  className="box box1"
                 >
-                  <h5
-                    className="card-title"
-                  >
+                  <h5>
                     TOP RATED ARTICLES
                   </h5>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Cras justo odio
+                    </a>
+                  </Link>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Dapibus ac facilisis in
+                    </a>
+                  </Link>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Vestibulum at eros
+                    </a>
+                  </Link>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Vestibulum at eros
+                    </a>
+                  </Link>
                 </div>
-                <ul
-                  className="list-group list-group-flush"
-                >
-                  <li
-                    className="list-group-item"
-                  >
-                    Cras justo odio
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Dapibus ac facilisis in
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Vestibulum at eros
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Vestibulum at eros
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Vestibulum at eros
-                  </li>
-                </ul>
               </div>
             </TopRatedArticles>
           </div>
@@ -310,46 +323,59 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
           >
             <PopularArticles>
               <div
-                className="card cardwidth position-fixed"
+                className="quotes position-fixed cardwidth"
               >
                 <div
-                  className="card-body"
+                  className="box box1"
                 >
-                  <h5
-                    className="card-title"
-                  >
+                  <h5>
                     POPULAR ARTICLES
                   </h5>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Cras justo odio
+                    </a>
+                  </Link>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Dapibus ac facilisis in
+                    </a>
+                  </Link>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Vestibulum at eros
+                    </a>
+                  </Link>
+                  <hr />
+                  <Link
+                    to="#null"
+                  >
+                    <a
+                      href="/#null"
+                      onClick={[Function]}
+                    >
+                      Vestibulum at eros
+                    </a>
+                  </Link>
                 </div>
-                <ul
-                  className="list-group list-group-flush"
-                >
-                  <li
-                    className="list-group-item"
-                  >
-                    Cras justo odio
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Dapibus ac facilisis in
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Vestibulum at eros
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Vestibulum at eros
-                  </li>
-                  <li
-                    className="list-group-item"
-                  >
-                    Vestibulum at eros
-                  </li>
-                </ul>
               </div>
             </PopularArticles>
           </div>
