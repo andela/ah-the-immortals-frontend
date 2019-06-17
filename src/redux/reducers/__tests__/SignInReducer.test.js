@@ -21,6 +21,7 @@ describe('test for sign in reducers', () => {
       }
     }; 
     expect(signInReducer(initialState, action)).toEqual({
+      currentUser:'testusername',
       isAuthenticated: true,
       user: action.response.data.user,
       errors: {}
@@ -57,9 +58,21 @@ describe('test for sign in reducers', () => {
       type: ACTION_CONSTANTS.LOGOUT,
     }; 
     expect(signInReducer(initialState, action)).toEqual({
+      currentUser:null,
       isAuthenticated: false,
       user: {},
       errors: {}
+    });
+  });
+  it('Tests for app mount', () => {
+    const result = signInReducer(initialState, {
+      type: 'APP_MOUNT'
+    });
+    expect(result).toEqual({
+      isAuthenticated: false,
+      user: {},
+      errors: {},
+      currentUser: null
     });
   });
 });

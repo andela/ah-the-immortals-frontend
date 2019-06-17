@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import 'react-toastify/dist/ReactToastify.css';
 import createBrowserHistory from './services/history';
 import PageNotFound from './components/NotFoundComponent';
@@ -16,10 +18,17 @@ import editarticle from './views/EditArticle/EditArticle';
 import Footer from './components/home/HomeFooter';
 import SearchPageContainer from './views/search/SearchPageContainer';
 import ViewUserProfile from './views/profiles/OtheUserContainer';
-
+import appAction from './redux/actions/app.action';
 
 const history = createBrowserHistory;
-export default class App extends Component {
+class App extends Component {
+  static propTypes = {
+    action:PropTypes.func.isRequired
+  };
+  componentDidMount() {
+    const { action } = this.props;
+    action();
+  }
   render() {
     return (
       <div>
@@ -57,3 +66,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect(null, { action: appAction })(App);

@@ -7,12 +7,16 @@ import {
   EDIT_POST
 
 } from '../constants/types';
+import ACTION_CONSTANTS from '../constants/constants';
+
+const {LIKE_SUCCESS,LIKE_FAILURE} =ACTION_CONSTANTS;
 
 const initialState = {
   posts: [],
   post: {},
   editpost: [],
-  loading: false
+  loading: false,
+  likeError:{}
 };
 
 export default function (state = initialState, action) {
@@ -51,6 +55,16 @@ export default function (state = initialState, action) {
       ...state,
       posts: action.payload,
       loading: false
+    };
+  case LIKE_SUCCESS:
+    return{
+      ...state,
+      post:action.payload
+    };
+  case LIKE_FAILURE:
+    return{
+      ...state,
+      likeError:action.payload
     };
   default:
     return state;

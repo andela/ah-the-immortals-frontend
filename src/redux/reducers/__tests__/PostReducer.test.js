@@ -1,14 +1,19 @@
 import postReducer from '../PostReducer';
 import {
   ADD_POST,
-  GET_POSTS,
-  GET_POST,
-  POST_LOADING,
   DELETE_POST, EDIT_POST
 
 } from '../../constants/types';
+import ACTION_CONSTANTS from '../../constants/constants';
 
-
+const { LIKE_SUCCESS, LIKE_FAILURE } = ACTION_CONSTANTS;
+const initialState = {
+  posts: [],
+  post: {},
+  editpost: [],
+  loading: false,
+  likeError:{}
+};
 
 describe('article crud post tests', () => {
   it('returns original state', () => {
@@ -41,5 +46,29 @@ describe('article crud post tests', () => {
     expect(postReducer({}, {type: EDIT_POST, payload: ''})).toEqual({
       'editpost': ''
     });
+  });
+  it('Triggers like success', () => {
+    const result = postReducer({}, {
+      type: LIKE_SUCCESS,
+      payload: {}
+    });
+    expect(result).toEqual({
+      post: {}
+    });
+  });
+  it('Triggers like failure', () => {
+    const result = postReducer({}, {
+      type: LIKE_FAILURE,
+      payload: {}
+    });
+    expect(result).toEqual({
+      likeError: {}
+    });
+  });
+  it('Checks for default inital state',()=>{
+    const result = postReducer(undefined,{
+      type:'UNEXISTING_ACTION'
+    });
+    expect(result).toEqual(initialState);
   });
 });

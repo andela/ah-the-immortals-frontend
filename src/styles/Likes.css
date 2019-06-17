@@ -1,0 +1,45 @@
+.like {
+  width: 8em;
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  border-width: thin;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #909090;
+  padding-bottom: 2%;
+}
+
+.like-icon {
+  cursor: pointer;
+}
+
+.left-icon {
+  margin-left: 0.5em;
+}
+
+.right-icon {
+  margin-left: 2em;
+}
+
+.likes-count {
+  color: #909090;
+  margin-left: 0.5em;
+}
+
+.blue-color {
+  color: #007BFF;
+}
+
+.option-title {
+  font-weight: normal;
+  font-size: 80%;
+}
+
+.login-prompt {
+  color: #007BFF;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none !important;
+}
