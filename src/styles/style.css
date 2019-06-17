@@ -172,3 +172,45 @@ label {
 .fa-trash {
     color: Tomato;
   }
+
+.errorMessage{
+    text-align: center;
+    display: block;
+    position: relative;
+    width:80%;
+    margin:1% auto;
+}
+.four04{
+    font-size: 1500%;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 15%;
+}
+.the-page{
+    text-align:center;
+    display:block;
+    position:relative;
+    letter-spacing: 12%;
+    font-size: 550%;
+    line-height: 90%;
+}
+.notFound{
+    text-align:center;
+    display:block;
+    position: relative;
+    font-size: 200%;
+}
+
+.back-btn{
+    position: relative;
+    display: inline-block;
+    width: 358px;
+    padding: 5px;
+    z-index: 5;
+    font-size: 25px;
+    font-weight: bolder;
+    margin:0 auto;
+    color: #f7f7f7;
+    text-decoration: none;
+    margin-right: 10px
+}

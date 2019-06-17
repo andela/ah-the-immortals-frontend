@@ -22,7 +22,6 @@ const resetPasswordLinkAction = (data) => async (dispatch) => {
     toastfunc(response.data);
   } catch (error) {
     dispatch(emailError(error));
-    toastfunc(error);
   }
 };
 

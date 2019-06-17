@@ -4,25 +4,41 @@ import PropTypes from 'prop-types';
 import { Form, FormControl, Button, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import resetPasswordLinkAction from '../../redux/actions/passwordReset.action';
+import { errorHandler } from '../../services/toastReusable';
 
 /** 
  * @returns Class for password change 
  */
+
 class PasswordResetForm extends Component {
-  state = {};
+  state = { email: '', resetError: false};
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      resetError: false
     }
     );
   };
   handleSubmit = (e) => {
-    // eslint-disable-next-line no-shadow
     const { resetPasswordLinkAction } = this.props;
     e.preventDefault();
+    this.setState({
+      resetError: true
+    });
     resetPasswordLinkAction(this.state);
-  }
-  render() { 
+  };
+
+
+  /** 
+   * @renders form for password change
+   * */
+
+  render() {
+    const { email } = this.state;
+    const { resetError } = this.state;
+    const validEmail = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    const { errors } = this.props;
+    const error = errorHandler(errors);
     return (
       <div>
         <Container className="reset">
@@ -32,10 +48,11 @@ class PasswordResetForm extends Component {
             </h1>
           </div>
           <Form onSubmit={this.handleSubmit}>
-            <FormControl name="email" type="email" placeholder="Please enter your email" onChange={this.handleChange} className="confirm-input" required />
+            <FormControl name="email" type="email" placeholder="Please enter your email" onChange={this.handleChange} className={`form-control ${error && resetError ? 'is-invalid' : ''}`} required />
+            <div className="invalid-feedback">{error && resetError  ? error : null}</div>
             <div className="reset-buttons">
               <Link to="/"><Button variant="outline-danger" className="reset-buttons">Cancel</Button></Link>
-              <Button variant="primary" type="submit" className="reset-buttons">Find account</Button>
+              <Button variant="primary" type="submit" className="reset-buttons" disabled={!validEmail}>Find account</Button>
             </div>
           </Form>
         </Container>
@@ -46,6 +63,7 @@ class PasswordResetForm extends Component {
 }
 PasswordResetForm.propTypes = {
   resetPasswordLinkAction: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
 };
 const mapStateToProps = ({resetpasswordlink}) => ({
   errors: resetpasswordlink.errors,

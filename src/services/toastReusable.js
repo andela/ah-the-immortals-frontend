@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-const errorHandler = (res) => {
+export const errorHandler = (res) => {
   let result = undefined;
   try{
     const error = ['password', 'token', 'email'];
@@ -8,7 +8,7 @@ const errorHandler = (res) => {
       if (res.response.data.errors[e]) result = res.response.data.errors[e][0];
     });
   }catch(e) {
-    result = 'Unknown error occurred';
+    result = '';
   }
   return result;
 };
