@@ -51,9 +51,6 @@ class Search extends Component {
     if (e.keyCode === 13 && e.target.value) {
       search({...searchData,value});
       history.push('/search-page');
-      if( document.getElementById('search-bar')){
-        document.getElementById('search-bar').value = value;
-      }
     } else if (e.keyCode === 13) {
       history.push('/search-page');
     }
