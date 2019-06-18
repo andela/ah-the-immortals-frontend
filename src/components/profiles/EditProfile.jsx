@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const ProfileForm = ({ handleSubmit, handleChangeProfile, handleFileUpload }) => (
+const ProfileForm = ({ handleSubmit, handleChangeProfile, handleFileUpload}) => (
   <div>  
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label htmlFor="firstname">
-          First name
+          First Name
           <br />
           <input type="text" className="form-control" name="first_name" onChange={handleChangeProfile} />
         </label>
       </div>
       <div className="form-group">
         <label htmlFor="lastname">
-          Last name
+          Last Name
           <br />
           <input type="text" className="form-control" name="last_name" onChange={handleChangeProfile} />
         </label>

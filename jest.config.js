@@ -2,7 +2,7 @@ module.exports = {
   clearMocks: true,
   collectCoverageFrom: ['src/**/*.{js,jsx,mjs}', '!src/redux/store.js', '!src/index.js'],
   coverageDirectory: 'coverage',
-  setupFiles: ['<rootDir>/setupFiles.js'],
+  setupFiles: ['<rootDir>/setupFiles.js','<rootDir>/__mocks__/browserMock.js'],
   moduleFileExtensions: ['js', 'json', 'jsx'],
   testEnvironment: 'jsdom',
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],

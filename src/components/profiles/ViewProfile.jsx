@@ -27,13 +27,28 @@ const ProfileView = (props) => {
                   <img src={image || profileImage} alt="Avatar" className="prof-avatar" />
                 </div>
               </div>
-              <h4>
-                @
-                {
-                  `${username || 'username'} [${firstName} ${lastName}]`
-                }
-              </h4>
-              <p>{bio || 'This is my biography'}</p>
+              <div className="profile-bio">
+                <div className="row">
+                  <div className="col-xs-3">
+                    <h5>
+                      {
+                        `${firstName} ${lastName}`
+                      }
+                    </h5>
+                  </div>
+                  <div className="col-sm-4">
+                    <h5 className="profile-username">
+                      <span className="small">
+                        @
+                        {
+                          `${username}`
+                        }
+                      </span>
+                    </h5>
+                  </div>
+                  <p>{bio || 'This is my biography'}</p>
+                </div>
+              </div>
             </div>
           </div>
           <ul className="nav nav-tabs">
@@ -98,7 +113,7 @@ const ProfileView = (props) => {
                 </div>
               </div>
             </div>
-            <div className="tab-pane fade" id="profile">
+            <div className="tab-pane fade edit-profile" id="profile">
               <EditProfile />
             </div>
             <div className="tab-pane fade" id="following">

@@ -59,7 +59,7 @@ exports[`Test edit profile container test edit profile container snapshot 1`] = 
                     <label
                       htmlFor="firstname"
                     >
-                      First name
+                      First Name
                       <br />
                       <input
                         className="form-control"
@@ -75,7 +75,7 @@ exports[`Test edit profile container test edit profile container snapshot 1`] = 
                     <label
                       htmlFor="lastname"
                     >
-                      Last name
+                      Last Name
                       <br />
                       <input
                         className="form-control"
