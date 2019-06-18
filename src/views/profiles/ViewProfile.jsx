@@ -8,13 +8,11 @@ import { userFollowingAction, userFollowersAction } from '../../redux/actions/us
 class ViewProfile extends Component {
   state = {};
   componentDidMount() {
-    const { fetchProfile: Profile, userFollowingAction: userFollowing, userFollowersAction: userFollowers } = this.props;
-    Profile(this.state);
-    userFollowers();
-    userFollowing();
+    const { fetchProfile: Profile } = this.props;
+    Profile();
   }
   render() {
-    const { profile: { username, bio, img_url, first_name, last_name }, data: { userCount }, users: { count } } = this.props;
+    const { profile: { username, bio, img_url, first_name, last_name, articles }, data: { userCount }, users: { count }, match } = this.props;
     return (
       <ProfileView
         username={username}
@@ -24,6 +22,8 @@ class ViewProfile extends Component {
         lastName={last_name}
         following={userCount}
         followers={count}
+        articles={articles}
+        match={match}
       />
     );
   }
@@ -32,14 +32,14 @@ class ViewProfile extends Component {
 ViewProfile.propTypes = {
   fetchProfile: PropTypes.func.isRequired,
   profile: PropTypes.shape({}),
-  userFollowingAction: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
-  userFollowersAction: PropTypes.func.isRequired,
-  users: PropTypes.object.isRequired
+  users: PropTypes.object.isRequired,
+  match: PropTypes.shape({})
 };
 
 ViewProfile.defaultProps = {
-  profile: {}
+  profile: {},
+  match: {}
 };
 
 const mapStateToProps = state => ({

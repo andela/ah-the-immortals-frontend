@@ -7,11 +7,11 @@ import { userFollowingAction } from '../../redux/actions/userFollow.action';
 
 class FollowingContainer extends Component {
   componentDidMount() {
-    const { userFollowingAction: followingAction } = this.props;
-    followingAction();
+    const { userFollowingAction: followingAction, match: { params: { profile } } } = this.props;
+    followingAction(profile);
   }
   render() {
-    const { data: { data } } = this.props;  
+    const { data: { data } } = this.props;
     return (
       <div>
         {
@@ -29,7 +29,12 @@ class FollowingContainer extends Component {
 
 FollowingContainer.propTypes = {
   userFollowingAction: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  match: PropTypes.shape({})
+};
+
+FollowingContainer.defaultProps = {
+  match: {}
 };
 
 const mapStateToProps = state => ({

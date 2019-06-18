@@ -36,7 +36,18 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
         }
       }
     >
-      <Connect(ViewProfile)>
+      <Connect(ViewProfile)
+        match={
+          Object {
+            "isExact": true,
+            "params": Object {
+              "profile": Object {},
+            },
+            "path": "",
+            "url": "",
+          }
+        }
+      >
         <ViewProfile
           data={
             Object {
@@ -58,6 +69,16 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
           }
           editProfile={[Function]}
           fetchProfile={[Function]}
+          match={
+            Object {
+              "isExact": true,
+              "params": Object {
+                "profile": Object {},
+              },
+              "path": "",
+              "url": "",
+            }
+          }
           profile={Object {}}
           userFollowersAction={[Function]}
           userFollowingAction={[Function]}
@@ -81,12 +102,23 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
           }
         >
           <ProfileView
+            articles={Array []}
             bio=""
             firstName=""
             followers={0}
             following={0}
             image=""
             lastName=""
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {
+                  "profile": Object {},
+                },
+                "path": "",
+                "url": "",
+              }
+            }
             username=""
           >
             <div>
@@ -107,47 +139,55 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                         className="card profile-card"
                       >
                         <div
-                          className="centered"
+                          className="row"
                         >
                           <div
-                            className="float-left profile-avatar"
+                            className="col-xs-3"
                           >
-                            <img
-                              alt="Avatar"
-                              className="prof-avatar"
-                              src="test-file-stub"
-                            />
+                            <div
+                              className="float-left profile-avatar"
+                            >
+                              <img
+                                alt="Avatar"
+                                className="prof-avatar"
+                                src="test-file-stub"
+                              />
+                            </div>
                           </div>
-                        </div>
-                        <div
-                          className="profile-bio"
-                        >
                           <div
-                            className="row"
+                            className="col-sm-6"
                           >
                             <div
-                              className="col-xs-3"
+                              className="profile-bio"
                             >
-                              <h5>
-                                 
-                              </h5>
-                            </div>
-                            <div
-                              className="col-sm-4"
-                            >
-                              <h5
-                                className="profile-username"
+                              <div
+                                className="row"
                               >
-                                <span
-                                  className="small"
+                                <div
+                                  className="col-xs-3"
                                 >
-                                  @
-                                </span>
-                              </h5>
+                                  <h5>
+                                    <b>
+                                       
+                                    </b>
+                                  </h5>
+                                </div>
+                                <div
+                                  className="col-sm-4"
+                                >
+                                  <h5
+                                    className="profile-username"
+                                  >
+                                    <span
+                                      className="small"
+                                    >
+                                      @
+                                    </span>
+                                  </h5>
+                                </div>
+                                <p />
+                              </div>
                             </div>
-                            <p>
-                              This is my biography
-                            </p>
                           </div>
                         </div>
                       </div>
@@ -164,7 +204,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                           href="#home"
                         >
                           <b>
-                             3 
+                            0 
                           </b>
                           Articles
                         </a>
@@ -217,121 +257,37 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                         className="tab-pane fade active show"
                         id="home"
                       >
-                        <div
-                          className="row"
-                        >
-                          <div
-                            className="col"
+                        <Connect(ProfileArticles)>
+                          <ProfileArticles
+                            fetchProfile={[Function]}
+                            profile={Object {}}
                           >
                             <div
-                              className="card"
+                              className="container-fluid profile-articles-container"
                             >
-                              <img
-                                alt="article"
-                                className="card-img-top"
-                                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                              />
                               <div
-                                className="card-body"
+                                className="row"
                               >
-                                <h4
-                                  className="card-title"
-                                >
-                                  <a
-                                    href="#card"
-                                  >
-                                    Article title
-                                  </a>
-                                </h4>
-                                <p
-                                  className="card-text"
-                                >
-                                  Once Leonidas realizes he will be surrounded, he sends away the Greek allies to alert the cities to the south. Being too few to hold the pass, the Spartans instead attack the Persian front, where Xerxes is nearby.
-                                </p>
-                                <a
-                                  className="btn btn-primary"
-                                  href="#view"
-                                >
-                                  View
-                                </a>
+                                <br />
+                                <Spinner>
+                                  <div>
+                                    <img
+                                      alt="Loading..."
+                                      src="test-file-stub"
+                                      style={
+                                        Object {
+                                          "display": "block",
+                                          "margin": "auto",
+                                          "width": "200px",
+                                        }
+                                      }
+                                    />
+                                  </div>
+                                </Spinner>
                               </div>
                             </div>
-                          </div>
-                          <div
-                            className="col"
-                          >
-                            <div
-                              className="card"
-                            >
-                              <img
-                                alt="article"
-                                className="card-img-top"
-                                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                              />
-                              <div
-                                className="card-body"
-                              >
-                                <h4
-                                  className="card-title"
-                                >
-                                  <a
-                                    href="#card"
-                                  >
-                                    Article title
-                                  </a>
-                                </h4>
-                                <p
-                                  className="card-text"
-                                >
-                                  Once Leonidas realizes he will be surrounded, he sends away the Greek allies to alert the cities to the south. Being too few to hold the pass, the Spartans instead attack the Persian front, where Xerxes is nearby.
-                                </p>
-                                <a
-                                  className="btn btn-primary"
-                                  href="#view"
-                                >
-                                  View
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            className="col"
-                          >
-                            <div
-                              className="card"
-                            >
-                              <img
-                                alt="article"
-                                className="card-img-top"
-                                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                              />
-                              <div
-                                className="card-body"
-                              >
-                                <h4
-                                  className="card-title"
-                                >
-                                  <a
-                                    href="#card"
-                                  >
-                                    Article title
-                                  </a>
-                                </h4>
-                                <p
-                                  className="card-text"
-                                >
-                                  Once Leonidas realizes he will be surrounded, he sends away the Greek allies to alert the cities to the south. Being too few to hold the pass, the Spartans instead attack the Persian front, where Xerxes is nearby.
-                                </p>
-                                <a
-                                  className="btn btn-primary"
-                                  href="#view"
-                                >
-                                  View
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                          </ProfileArticles>
+                        </Connect(ProfileArticles)>
                       </div>
                       <div
                         className="tab-pane fade edit-profile"
@@ -436,7 +392,18 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                         className="tab-pane fade"
                         id="following"
                       >
-                        <Connect(FollowingContainer)>
+                        <Connect(FollowingContainer)
+                          match={
+                            Object {
+                              "isExact": true,
+                              "params": Object {
+                                "profile": Object {},
+                              },
+                              "path": "",
+                              "url": "",
+                            }
+                          }
+                        >
                           <FollowingContainer
                             data={
                               Object {
@@ -454,6 +421,16 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                                   },
                                 ],
                                 "errors": Object {},
+                              }
+                            }
+                            match={
+                              Object {
+                                "isExact": true,
+                                "params": Object {
+                                  "profile": Object {},
+                                },
+                                "path": "",
+                                "url": "",
                               }
                             }
                             userFollowingAction={[Function]}
@@ -480,7 +457,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                                       <img
                                         alt="Profile pic"
                                         className="user-avatar float-left"
-                                        src="test-file-stub"
+                                        src="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
                                       />
                                       <div
                                         className="user-data"
@@ -512,8 +489,29 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                         className="tab-pane fade"
                         id="followers"
                       >
-                        <Connect(FollowersContainer)>
+                        <Connect(FollowersContainer)
+                          match={
+                            Object {
+                              "isExact": true,
+                              "params": Object {
+                                "profile": Object {},
+                              },
+                              "path": "",
+                              "url": "",
+                            }
+                          }
+                        >
                           <FollowersContainer
+                            match={
+                              Object {
+                                "isExact": true,
+                                "params": Object {
+                                  "profile": Object {},
+                                },
+                                "path": "",
+                                "url": "",
+                              }
+                            }
                             userFollowersAction={[Function]}
                             users={
                               Object {

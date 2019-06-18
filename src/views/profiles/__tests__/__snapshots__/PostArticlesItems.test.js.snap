@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test getting articles for a profile Match profile articles 1`] = `ReactWrapper {}`;

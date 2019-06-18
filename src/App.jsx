@@ -41,13 +41,13 @@ export default class App extends Component {
               <Route exact path="/" component={home} />
               <Route exact path="/reset" component={PasswordResetForm} />
               <Route path="/resetconfirm/:token" component={passwordResetConfirm} />
-              <Route exact path="/Profile" component={Profile} />
+              <Route exact path="/myProfile/:profile" component={Profile} />
               <Route exact path="/postarticle" component={postfrom} />
               <Route exact path="/post/:slug" component={singlepost} />
               <Route exact path="/posts" component={postsfeed} />
               <Route exact path="/edit/:slug" component={editarticle} />
               <Route exact path="/search-page" component={SearchPageContainer} />
-              <Route exact path="/profile/:otherUser" component={ViewUserProfile} />
+              <Route exact path="/profile/:profile" component={ViewUserProfile} />
               <Route component={PageNotFound} />
             </Switch>
             <Footer />

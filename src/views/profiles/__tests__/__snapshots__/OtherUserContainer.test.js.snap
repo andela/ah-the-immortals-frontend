@@ -49,6 +49,24 @@ exports[`Test view user profile container test view user profile container snaps
         }
       >
         <ViewUserProfile
+          data={
+            Object {
+              "count": 0,
+              "data": Array [
+                Object {
+                  "bio": "",
+                  "created_at": "2019-05-30 11:52:18",
+                  "first_name": "",
+                  "following": true,
+                  "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                  "last_name": "",
+                  "updated_at": "2019-06-13 17:59:21",
+                  "username": "slim",
+                },
+              ],
+              "errors": Object {},
+            }
+          }
           followAction={[Function]}
           getProfile={[Function]}
           match={
@@ -63,14 +81,45 @@ exports[`Test view user profile container test view user profile container snaps
           }
           profile={Object {}}
           unfollowAction={[Function]}
+          users={
+            Object {
+              "error": Object {},
+              "userCount": 0,
+              "users": Array [
+                Object {
+                  "bio": "",
+                  "created_at": "2019-05-30 11:52:18",
+                  "first_name": "",
+                  "following": true,
+                  "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                  "last_name": "",
+                  "updated_at": "2019-06-13 17:59:21",
+                  "username": "slim",
+                },
+              ],
+            }
+          }
         >
           <UserProfileView
+            articles={Array []}
             bio=""
             firstName=""
+            followers={0}
             following="Follow"
+            followings={0}
             handleFollow={[Function]}
             image=""
             lastName=""
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {
+                  "profile": Object {},
+                },
+                "path": "",
+                "url": "",
+              }
+            }
             username=""
           >
             <div>
@@ -91,52 +140,86 @@ exports[`Test view user profile container test view user profile container snaps
                         className="card profile-card"
                       >
                         <div
-                          className="centered"
+                          className="row"
                         >
                           <div
-                            className="float-left profile-avatar"
+                            className="col-xs-3"
                           >
-                            <img
-                              alt="Avatar"
-                              className="prof-avatar"
-                              src="test-file-stub"
-                            />
-                          </div>
-                        </div>
-                        <h4>
-                          @
-                          username [ ]
-                        </h4>
-                        <p>
-                          This is my biography
-                        </p>
-                        <div>
-                          <Link
-                            to="/userprofile/"
-                          >
-                            <a
-                              href="/userprofile/"
-                              onClick={[Function]}
+                            <div
+                              className="float-left profile-avatar"
                             >
-                              <Button
-                                active={false}
-                                className="btn primary"
-                                disabled={false}
-                                onClick={[Function]}
-                                type="button"
-                                variant="primary"
+                              <img
+                                alt="Avatar"
+                                className="prof-avatar"
+                                src="test-file-stub"
+                              />
+                            </div>
+                          </div>
+                          <div
+                            className="col-sm-6"
+                          >
+                            <div
+                              className="profile-bio"
+                            >
+                              <div
+                                className="row"
                               >
-                                <button
-                                  className="btn primary btn btn-primary"
-                                  disabled={false}
-                                  onClick={[Function]}
-                                  type="button"
+                                <div
+                                  className="col-xs-3"
                                 >
-                                  Follow
-                                </button>
-                              </Button>
-                            </a>
-                          </Link>
+                                  <h5>
+                                    <b>
+                                       
+                                    </b>
+                                  </h5>
+                                </div>
+                                <div
+                                  className="col-sm-4"
+                                >
+                                  <h5
+                                    className="profile-username"
+                                  >
+                                    <span
+                                      className="small"
+                                    >
+                                      @
+                                    </span>
+                                  </h5>
+                                </div>
+                                <p>
+                                  This is my biography
+                                </p>
+                                <div>
+                                  <Link
+                                    to="/profile/"
+                                  >
+                                    <a
+                                      href="/profile/"
+                                      onClick={[Function]}
+                                    >
+                                      <Button
+                                        active={false}
+                                        className="btn primary"
+                                        disabled={false}
+                                        onClick={[Function]}
+                                        type="button"
+                                        variant="primary"
+                                      >
+                                        <button
+                                          className="btn primary btn btn-primary"
+                                          disabled={false}
+                                          onClick={[Function]}
+                                          type="button"
+                                        >
+                                          Follow
+                                        </button>
+                                      </Button>
+                                    </a>
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -152,9 +235,37 @@ exports[`Test view user profile container test view user profile container snaps
                           href="#home"
                         >
                           <b>
-                             3 
+                            0 
                           </b>
                           Articles
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link"
+                          data-toggle="tab"
+                          href="#followers"
+                        >
+                          <b>
+                            0 
+                          </b>
+                          Followers
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link"
+                          data-toggle="tab"
+                          href="#following"
+                        >
+                          <b>
+                            0 
+                          </b>
+                          Following
                         </a>
                       </li>
                     </ul>
@@ -166,121 +277,231 @@ exports[`Test view user profile container test view user profile container snaps
                         className="tab-pane fade active show"
                         id="home"
                       >
-                        <div
-                          className="row"
+                        <Connect(ProfileArticles)>
+                          <ProfileArticles
+                            fetchProfile={[Function]}
+                            profile={Object {}}
+                          >
+                            <div
+                              className="container-fluid profile-articles-container"
+                            >
+                              <div
+                                className="row"
+                              >
+                                <br />
+                                <Spinner>
+                                  <div>
+                                    <img
+                                      alt="Loading..."
+                                      src="test-file-stub"
+                                      style={
+                                        Object {
+                                          "display": "block",
+                                          "margin": "auto",
+                                          "width": "200px",
+                                        }
+                                      }
+                                    />
+                                  </div>
+                                </Spinner>
+                              </div>
+                            </div>
+                          </ProfileArticles>
+                        </Connect(ProfileArticles)>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="following"
+                      >
+                        <Connect(FollowingContainer)
+                          match={
+                            Object {
+                              "isExact": true,
+                              "params": Object {
+                                "profile": Object {},
+                              },
+                              "path": "",
+                              "url": "",
+                            }
+                          }
                         >
-                          <div
-                            className="col"
+                          <FollowingContainer
+                            data={
+                              Object {
+                                "count": 0,
+                                "data": Array [
+                                  Object {
+                                    "bio": "",
+                                    "created_at": "2019-05-30 11:52:18",
+                                    "first_name": "",
+                                    "following": true,
+                                    "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                                    "last_name": "",
+                                    "updated_at": "2019-06-13 17:59:21",
+                                    "username": "slim",
+                                  },
+                                ],
+                                "errors": Object {},
+                              }
+                            }
+                            match={
+                              Object {
+                                "isExact": true,
+                                "params": Object {
+                                  "profile": Object {},
+                                },
+                                "path": "",
+                                "url": "",
+                              }
+                            }
+                            userFollowingAction={[Function]}
                           >
-                            <div
-                              className="card"
-                            >
-                              <img
-                                alt="article"
-                                className="card-img-top"
-                                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                              />
-                              <div
-                                className="card-body"
+                            <div>
+                              <Following
+                                bio=""
+                                created_at="2019-05-30 11:52:18"
+                                first_name=""
+                                following={true}
+                                img_url="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
+                                key="slim"
+                                last_name=""
+                                updated_at="2019-06-13 17:59:21"
+                                username="slim"
                               >
-                                <h4
-                                  className="card-title"
-                                >
-                                  <a
-                                    href="#card"
+                                <div>
+                                  <div
+                                    className="user-card"
                                   >
-                                    Article title
-                                  </a>
-                                </h4>
-                                <p
-                                  className="card-text"
-                                >
-                                  Once Leonidas realizes he will be surrounded, he sends away the Greek allies to alert the cities to the south. Being too few to hold the pass, the Spartans instead attack the Persian front, where Xerxes is nearby.
-                                </p>
-                                <a
-                                  className="btn btn-primary"
-                                  href="#view"
-                                >
-                                  View
-                                </a>
-                              </div>
+                                    <div
+                                      className="follow-card list-card"
+                                    >
+                                      <img
+                                        alt="Profile pic"
+                                        className="user-avatar float-left"
+                                        src="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
+                                      />
+                                      <div
+                                        className="user-data"
+                                      >
+                                        <h6>
+                                          <Link
+                                            to="/profile/slim"
+                                          >
+                                            <a
+                                              href="/profile/slim"
+                                              onClick={[Function]}
+                                            >
+                                              slim
+                                            </a>
+                                          </Link>
+                                        </h6>
+                                        <p />
+                                      </div>
+                                    </div>
+                                    <hr />
+                                  </div>
+                                </div>
+                              </Following>
                             </div>
-                          </div>
-                          <div
-                            className="col"
+                          </FollowingContainer>
+                        </Connect(FollowingContainer)>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="followers"
+                      >
+                        <Connect(FollowersContainer)
+                          match={
+                            Object {
+                              "isExact": true,
+                              "params": Object {
+                                "profile": Object {},
+                              },
+                              "path": "",
+                              "url": "",
+                            }
+                          }
+                        >
+                          <FollowersContainer
+                            match={
+                              Object {
+                                "isExact": true,
+                                "params": Object {
+                                  "profile": Object {},
+                                },
+                                "path": "",
+                                "url": "",
+                              }
+                            }
+                            userFollowersAction={[Function]}
+                            users={
+                              Object {
+                                "error": Object {},
+                                "userCount": 0,
+                                "users": Array [
+                                  Object {
+                                    "bio": "",
+                                    "created_at": "2019-05-30 11:52:18",
+                                    "first_name": "",
+                                    "following": true,
+                                    "img_url": "https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g",
+                                    "last_name": "",
+                                    "updated_at": "2019-06-13 17:59:21",
+                                    "username": "slim",
+                                  },
+                                ],
+                              }
+                            }
                           >
-                            <div
-                              className="card"
-                            >
-                              <img
-                                alt="article"
-                                className="card-img-top"
-                                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                              />
-                              <div
-                                className="card-body"
+                            <div>
+                              <Followers
+                                bio=""
+                                created_at="2019-05-30 11:52:18"
+                                first_name=""
+                                following={true}
+                                img_url="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
+                                key="slim"
+                                last_name=""
+                                updated_at="2019-06-13 17:59:21"
+                                username="slim"
                               >
-                                <h4
-                                  className="card-title"
-                                >
-                                  <a
-                                    href="#card"
+                                <div>
+                                  <div
+                                    className="user-card"
                                   >
-                                    Article title
-                                  </a>
-                                </h4>
-                                <p
-                                  className="card-text"
-                                >
-                                  Once Leonidas realizes he will be surrounded, he sends away the Greek allies to alert the cities to the south. Being too few to hold the pass, the Spartans instead attack the Persian front, where Xerxes is nearby.
-                                </p>
-                                <a
-                                  className="btn btn-primary"
-                                  href="#view"
-                                >
-                                  View
-                                </a>
-                              </div>
+                                    <div
+                                      className="follow-card list-card"
+                                    >
+                                      <img
+                                        alt="Profile pic"
+                                        className="user-avatar float-left"
+                                        src="https://res.cloudinary.com/grean/image/upload/v1560448760/57028948_10161507756365548_4757796820107657216_o_dtnz3g"
+                                      />
+                                      <div
+                                        className="user-data"
+                                      >
+                                        <h6>
+                                          <Link
+                                            to="/profile/slim"
+                                          >
+                                            <a
+                                              href="/profile/slim"
+                                              onClick={[Function]}
+                                            >
+                                              slim
+                                            </a>
+                                          </Link>
+                                        </h6>
+                                        <p />
+                                      </div>
+                                    </div>
+                                    <hr />
+                                  </div>
+                                </div>
+                              </Followers>
                             </div>
-                          </div>
-                          <div
-                            className="col"
-                          >
-                            <div
-                              className="card"
-                            >
-                              <img
-                                alt="article"
-                                className="card-img-top"
-                                src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-                              />
-                              <div
-                                className="card-body"
-                              >
-                                <h4
-                                  className="card-title"
-                                >
-                                  <a
-                                    href="#card"
-                                  >
-                                    Article title
-                                  </a>
-                                </h4>
-                                <p
-                                  className="card-text"
-                                >
-                                  Once Leonidas realizes he will be surrounded, he sends away the Greek allies to alert the cities to the south. Being too few to hold the pass, the Spartans instead attack the Persian front, where Xerxes is nearby.
-                                </p>
-                                <a
-                                  className="btn btn-primary"
-                                  href="#view"
-                                >
-                                  View
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                          </FollowersContainer>
+                        </Connect(FollowersContainer)>
                       </div>
                     </div>
                   </div>

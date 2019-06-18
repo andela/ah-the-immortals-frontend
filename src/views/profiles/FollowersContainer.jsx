@@ -7,8 +7,8 @@ import { userFollowersAction } from '../../redux/actions/userFollow.action';
 
 class FollowersContainer extends Component {
   componentDidMount() {
-    const { userFollowersAction: followersAction } = this.props;
-    followersAction();
+    const { userFollowersAction: followersAction, match: {params: {profile}} } = this.props;
+    followersAction(profile);
   }
   render() {
     const { users: { users } } = this.props;
@@ -29,7 +29,12 @@ class FollowersContainer extends Component {
 
 FollowersContainer.propTypes = {
   userFollowersAction: PropTypes.func.isRequired,
-  users: PropTypes.object.isRequired
+  users: PropTypes.object.isRequired,
+  match: PropTypes.shape({})
+};
+
+FollowersContainer.defaultProps = {
+  match: {}
 };
 
 const mapStateToProps = state => ({
