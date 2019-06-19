@@ -660,3 +660,73 @@ div.dv-star-rating{
     margin-top: -4%;
     position: absolute;
     }
+.notification{
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 8px;
+    right: -1px;
+    padding: 2px 4px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+  }
+.text-dark {
+    color: #007bff !important;
+}
+.menu-item {
+    color: #2977C9;
+    display: block;
+    font-size: 90%;
+    padding-left: 10px;
+    white-space: normal;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 400px;
+    overflow-x: hidden;
+    max-width: 327px;
+    width: 327px;
+}
+
+.hidden {
+    display: none;
+}
+
+.scrollable-menu li {
+    border-bottom: 1px solid #2977C9;
+}
+
+.notify{
+    padding: 0px !important;
+}
+.clear-note {
+    float: right;
+    margin-right: 5px;
+    background-color: transparent;
+    outline: none !important;
+    border: none;
+    color: #2977C9;
+}
+.notes {
+    padding-left: 8px;
+    color: #2977C9;
+    font-weight: bold;
+}
+.button-bell {
+    border: none;
+    background-color: transparent;
+    outline: none !important;
+}
+.empty-note {
+    color: #2977C9;
+    display: block;
+    font-size: 100%;
+    padding-left: 25%;
+    white-space: normal;
+}

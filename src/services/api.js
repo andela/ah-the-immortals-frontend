@@ -44,6 +44,9 @@ const followingApi = (username, headers) => axios.get(`${ROOT_URL}/profiles/${us
 export const otherProfileApi = (otherUser, headers) => axios.get(`${userProfileUrl}/${otherUser}`, headers);
 const followApi = (otherUser, headers) => axios.post(`${userProfileUrl}/${otherUser}/follow/`,{}, headers);
 const unfollowApi = (otherUser, headers) => axios.delete(`${userProfileUrl}/${otherUser}/follow/`, headers);
+const notificationsApi = () => axios.get(`${ROOT_URL}/notifications/`, axiosHeader);
+const unreadApi = () => axios.get(`${ROOT_URL}/notifications/unread/`, axiosHeader);
+const deleteApi = () => axios.delete(`${ROOT_URL}/notifications/`, axiosHeader);
 
 const SearchArticlesApi = (data) => {
   if (data.author) {
@@ -76,6 +79,9 @@ const APIS = {
   articlesUrl,
   deleteCommentApi,
   editCommentApi,
+  notificationsApi,
+  unreadApi,
+  deleteApi,
 };
 
 export default APIS;

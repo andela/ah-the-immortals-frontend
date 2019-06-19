@@ -24,24 +24,105 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
   }
 >
   <SignedInLinks
+    handleClear={[Function]}
+    handleClick={[Function]}
     handleLogout={[Function]}
+    notifications={
+      Array [
+        Object {
+          "description": "barclay.koin posted an article \\"TESTING FOR GOT\\" on 19-June-2019 11:45",
+          "id": 13,
+          "timestamp": "2019-06-19 11:45:49",
+          "unread": false,
+          "verb": "article_created",
+        },
+      ]
+    }
+    unread={2}
     username=""
   >
     <div
       className="nav ml-auto"
     >
+      <div
+        className="bell"
+      >
+        <p
+          className="notification"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            className="button-bell"
+            data-target="#notificationsmenu"
+            data-toggle="dropdown"
+            id="note-bell"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fa fa-bell notnotif text-dark mt-3"
+            />
+          </button>
+          <span
+            className="badge"
+          >
+            2
+          </span>
+        </p>
+        <div
+          className="dropdown-menu  dropdown-menu-sm-left scrollable-menu"
+          id="notificationsmenu"
+        >
+          <p
+            className="notes"
+          >
+            Notifications
+            <button
+              className="clear-note"
+              id="clear-btn"
+              onClick={[Function]}
+              type="button"
+            >
+              Clear All
+            </button>
+          </p>
+          <div
+            className="dropdown-divider"
+          />
+          <ul
+            className="text-left notify"
+            key="13"
+          >
+            <li
+              className="dropdown-item menu-item"
+            >
+              <Link
+                to="/post/article_created"
+              >
+                <a
+                  href="/post/article_created"
+                  onClick={[Function]}
+                >
+                  barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45
+                </a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <NavLink
-        className="nav-link mt-1 mr-2"
+        className="nav-link mt-1 mr-1"
         to="/postarticle"
       >
         <Link
           aria-current={null}
-          className="nav-link mt-1 mr-2"
+          className="nav-link mt-1 mr-1"
           to="/postarticle"
         >
           <a
             aria-current={null}
-            className="nav-link mt-1 mr-2"
+            className="nav-link mt-1 mr-1"
             href="/postarticle"
             onClick={[Function]}
           >
@@ -49,16 +130,13 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
           </a>
         </Link>
       </NavLink>
-      <i
-        className="fa fa-bell notnotif text-dark mt-3"
-      />
       <NavLink
         aria-expanded="true"
         className="nav-link dropdown-toggle"
         data-target="#profileDropdown"
         data-toggle="dropdown"
         role="button"
-        to="#null"
+        to=""
       >
         <Link
           aria-current={null}
@@ -67,7 +145,7 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
           data-target="#profileDropdown"
           data-toggle="dropdown"
           role="button"
-          to="#null"
+          to=""
         >
           <a
             aria-current={null}
@@ -75,7 +153,7 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
             className="nav-link dropdown-toggle"
             data-target="#profileDropdown"
             data-toggle="dropdown"
-            href="/#null"
+            href="/"
             onClick={[Function]}
             role="button"
           >
@@ -120,18 +198,20 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
         >
           <NavLink
             className="nav-link"
-            to="#null"
+            to="/"
           >
             <Link
-              aria-current={null}
-              className="nav-link"
-              to="#null"
+              aria-current="page"
+              className="nav-link active"
+              style={Object {}}
+              to="/"
             >
               <a
-                aria-current={null}
-                className="nav-link"
-                href="/#null"
+                aria-current="page"
+                className="nav-link active"
+                href="/"
                 onClick={[Function]}
+                style={Object {}}
               >
                 Settings
               </a>

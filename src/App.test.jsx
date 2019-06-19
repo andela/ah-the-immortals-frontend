@@ -52,7 +52,8 @@ const store = configureStore([thunk])({
     pagination: {},
     editpost: [],
     loading: false
-  }
+  },
+  notify:{}
 });
 describe('PASSES', () => {
   it('renders without crashing', () => {

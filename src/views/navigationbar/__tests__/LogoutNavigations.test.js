@@ -18,7 +18,27 @@ describe('Tests Logout Function', () => {
       errors: {}
     },
     search: {},
-    prompt:{show:true}
+    prompt:{show:true},
+    notify: {
+      notifications: [
+        {
+          'id': 13,
+          'unread': false,
+          'verb': 'article_created',
+          'timestamp': '2019-06-19 11:45:49',
+          'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+        }
+      ],
+      unreadNotifications: [
+        {
+          'id': 13,
+          'unread': true,
+          'verb': 'article_created',
+          'timestamp': '2019-06-19 11:45:49',
+          'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+        }
+      ]
+    }
   },
   );
 
