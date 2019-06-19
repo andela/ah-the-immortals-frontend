@@ -8,3 +8,8 @@ export const GET_POST = 'GET_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const GET_PAGES = 'GET_PAGES';
 export const GET_PAGES_NEXT = 'GET_PAGES_NEXT ';
+export const RATE_ARTICLE = 'RATE_ARTICLE';
+export const RATE_ERRORS = 'RATE_ERRORS';
+
+
+

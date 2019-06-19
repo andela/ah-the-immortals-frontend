@@ -36,6 +36,9 @@ const store = configureStore([thunk])({
             image_url: 'No image uploaded',
             created_at: '2019-06-20T08:01:07.659929Z',
             updated_at: '2019-06-20T08:03:39.411965Z',
+            ratings: {
+              average_ratings: 3
+            },
             author: {
               username: 'Big-Hiro',
               bio: '',

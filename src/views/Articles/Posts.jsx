@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import StarRatings from 'react-star-ratings';
 import Spinner from '../Article/Spinner';
 import { getPages, getNextPages } from '../../redux/actions/postActions';
 import articlesUrl from '../../services/api';
@@ -65,6 +66,14 @@ class Posts extends Component {
                             {article.readtime}
                           </span>
                         </div>
+                      </div>
+                      <div className="ratingstar">
+                        <StarRatings
+                          starRatedColor="#ffa534"
+                          rating={article.ratings.average_ratings/5 || 0}
+                          starDimension="25px"
+                          numberOfStars={1}
+                        />
                       </div>
                       <div className="author">
                         {article.author.username}

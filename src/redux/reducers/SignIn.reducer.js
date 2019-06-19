@@ -6,12 +6,12 @@ const initialState = {
   isAuthenticated: false,
   user: {},
   errors: {},
-  currentUser: null
+  currentUser: ''
 };
 const signInReducer = (state = initialState, action) => {
   const token = window.localStorage.getItem('token');
   const userData = decoded(token);
-  const CurrentUser = userData ? userData.user_data.username : null;
+  const CurrentUser = userData ? userData.user_data.username : '';
   switch (action.type) {
   case LOGIN_SUCCESS:
     return {
@@ -24,7 +24,7 @@ const signInReducer = (state = initialState, action) => {
       action.error.response.data.errors, user: {}
     };
   case LOGOUT:
-    return { ...state, isAuthenticated: false, user: {}, currentUser: null, errors: {} };
+    return { ...state, isAuthenticated: false, user: {}, currentUser: '', errors: {} };
   case 'APP_MOUNT':
     return { ...state, currentUser: CurrentUser };
   default:

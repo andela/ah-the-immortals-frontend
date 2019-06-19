@@ -6,7 +6,8 @@ import {
   DELETE_POST,
   EDIT_POST,
   GET_PAGES,
-  GET_PAGES_NEXT 
+  GET_PAGES_NEXT,
+  RATE_ARTICLE
 
 } from '../constants/types';
 import ACTION_CONSTANTS from '../constants/constants';
@@ -81,6 +82,11 @@ export default function (state = initialState, action) {
       ...state,
       pages: action.payload,
       loading: false
+    };
+  case RATE_ARTICLE:
+    return{
+      ...state,
+      post:action.payload
     };
   default:
     return state;

@@ -625,4 +625,38 @@ label {
     margin: 0 20px;
     fill:#000000;
 }
+div.dv-star-rating{
+    display: inline-flex !important;
+    transform: rotate(180deg)
+}
+.dv-star-rating-star{
+    transform: rotate(180deg);
+}
+.rate:first-child{
+    margin-top: -14px;
+    font-size: 130%;
 
+}
+
+.rating{
+    display: inline;
+}
+
+.rater {
+    height: 40px;
+    display:inline-block;
+}
+
+.ratingstar{
+    text-align: right;
+    margin-left: 83%;
+    margin-top: -10%;
+    position: absolute;
+    }
+
+.fivestar{
+    text-align: right;
+    margin-left: 94%;
+    margin-top: -4%;
+    position: absolute;
+    }
