@@ -4,7 +4,9 @@ import {
   GET_POST,
   POST_LOADING,
   DELETE_POST,
-  EDIT_POST
+  EDIT_POST,
+  GET_PAGES,
+  GET_PAGES_NEXT 
 
 } from '../constants/types';
 import ACTION_CONSTANTS from '../constants/constants';
@@ -14,6 +16,8 @@ const {LIKE_SUCCESS,LIKE_FAILURE} =ACTION_CONSTANTS;
 const initialState = {
   posts: [],
   post: {},
+  pages:[],
+  pagination:{},
   editpost: [],
   loading: false,
   likeError:{}
@@ -64,7 +68,19 @@ export default function (state = initialState, action) {
   case LIKE_FAILURE:
     return{
       ...state,
-      likeError:action.payload
+      likeError:action.payload 
+    };
+  case GET_PAGES:
+    return {
+      ...state,
+      pages: action.payload,
+      loading: false
+    };
+  case GET_PAGES_NEXT:
+    return {
+      ...state,
+      pages: action.payload,
+      loading: false
     };
   default:
     return state;

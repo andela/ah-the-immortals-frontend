@@ -4,14 +4,14 @@ import moxios from 'moxios';
 import {
   addPost,
   getPosts,
-  getPost, deletePost, editPost
+  getPost, deletePost, editPost,getNextPages,getPages
 } from '../postActions';
 import {
   ADD_POST, EDIT_POST,
   CLEAR_ERRORS,
   GET_POSTS,
   POST_LOADING,
-  GET_POST, DELETE_POST, GET_ERRORS
+  GET_POST, DELETE_POST, GET_ERRORS,GET_PAGES,GET_PAGES_NEXT
 } from '../../constants/types';
 import { ROOT_URL }  from '../../../services/api';
 
@@ -110,6 +110,54 @@ describe('Test the creation of an article', () => {
       response: {}
     });
     await store.dispatch(getPosts());
+    expect(store.getActions()[1].payload).toBeFalsy();
+    done();
+  });
+  it('gets pages and dispatches actions appropriately', async (done) => {
+    moxios.stubRequest(url, {
+      status: 500,
+      response: {}
+    });
+    await store.dispatch(getPages(url));
+    expect(store.getActions()[1].payload).toBeFalsy();
+    done();
+  });
+  it('gets pages and dispatches actions appropriately', async (done) => {
+    moxios.stubRequest(url, {
+      status: 200,
+      response: {
+        data: {
+          results: {
+            articles: []
+          }
+        }
+      }
+    });
+    await store.dispatch(getPages(url));
+    expect(store.getActions()[1].type).toEqual(GET_PAGES);
+    done();
+  });
+  it('gets pages,pagination data and dispatches actions appropriately', async (done) => {
+    moxios.stubRequest(url, {
+      status: 200,
+      response: {
+        data: {
+          results: {
+            articles: []
+          }
+        }
+      }
+    });
+    await store.dispatch(getNextPages(url));
+    expect(store.getActions()[1].type).toEqual(GET_PAGES_NEXT);
+    done();
+  });
+  it('gets pages ,pagination data and dispatches actions appropriately', async (done) => {
+    moxios.stubRequest(url, {
+      status: 500,
+      response: {}
+    });
+    await store.dispatch(getNextPages(url));
     expect(store.getActions()[1].payload).toBeFalsy();
     done();
   });

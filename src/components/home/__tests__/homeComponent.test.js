@@ -14,6 +14,8 @@ describe('Tests PasswordResetConfirmContainer', () => {
     post:   {
       posts: [],
       post: {},
+      pages:[],
+      pagination:{},
       editpost: [],
       loading: false}
   });

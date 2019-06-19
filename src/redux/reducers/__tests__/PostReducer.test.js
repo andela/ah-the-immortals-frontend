@@ -1,7 +1,10 @@
 import postReducer from '../PostReducer';
 import {
   ADD_POST,
-  DELETE_POST, EDIT_POST
+  GET_POSTS,
+  GET_POST,
+  POST_LOADING,
+  DELETE_POST, EDIT_POST,GET_PAGES,GET_PAGES_NEXT
 
 } from '../../constants/types';
 import ACTION_CONSTANTS from '../../constants/constants';
@@ -10,6 +13,8 @@ const { LIKE_SUCCESS, LIKE_FAILURE } = ACTION_CONSTANTS;
 const initialState = {
   posts: [],
   post: {},
+  pages:[],
+  pagination:{},
   editpost: [],
   loading: false,
   likeError:{}
@@ -30,6 +35,16 @@ describe('article crud post tests', () => {
   it('returns get posts loading', () => {
     expect(postReducer({}, {type: 'GET_POSTS', payload: []})).toEqual({
       posts: [], loading: false
+    });
+  });
+  it('returns get pages loading', () => {
+    expect(postReducer({}, {type: 'GET_PAGES', payload: []})).toEqual({
+      pages: [], loading: false
+    });
+  });
+  it('returns get pages and  pagination loading', () => {
+    expect(postReducer({}, {type: GET_PAGES_NEXT, payload: []})).toEqual({
+      pages: [], loading: false
     });
   });
   it('returns add post', () => {

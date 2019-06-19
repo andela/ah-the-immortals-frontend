@@ -201,11 +201,14 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
           >
             <Connect(Posts)>
               <Posts
-                getPosts={[Function]}
+                getNextPages={[Function]}
+                getPages={[Function]}
                 post={
                   Object {
                     "editpost": Array [],
                     "loading": false,
+                    "pages": Array [],
+                    "pagination": Object {},
                     "post": Object {},
                     "posts": Array [],
                   }
@@ -216,100 +219,43 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
                     className="post-feed"
                   >
                     <br />
-                    <PostFeed
-                      posts={Array []}
-                    />
                   </div>
-                  <div
-                    className="row"
+                  <Connect(PaginationContainer)
+                    currentPage={1}
+                    handleClick={[Function]}
+                    handleLink={[Function]}
+                    pageNumbers={Array []}
                   >
-                    <div
-                      className="col"
-                    />
-                    <div
-                      className="col"
+                    <PaginationContainer
+                      currentPage={1}
+                      getPages={[Function]}
+                      handleClick={[Function]}
+                      handleLink={[Function]}
+                      pageNumbers={Array []}
+                      post={
+                        Object {
+                          "editpost": Array [],
+                          "loading": false,
+                          "pages": Array [],
+                          "pagination": Object {},
+                          "post": Object {},
+                          "posts": Array [],
+                        }
+                      }
                     >
-                      <div>
-                        <ul
-                          className="pagination pagination-lg"
+                      <div
+                        className="pagination pagination-lg shadow p-3 mb-5 bg-white rounded"
+                      >
+                        <nav
+                          aria-label="Page navigation"
                         >
-                          <li
-                            className="page-item disabled"
-                          >
-                            <a
-                              className="page-link"
-                              href="#"
-                            >
-                              «
-                            </a>
-                          </li>
-                          <li
-                            className="page-item active"
-                          >
-                            <a
-                              className="page-link"
-                              href="#"
-                            >
-                              1
-                            </a>
-                          </li>
-                          <li
-                            className="page-item"
-                          >
-                            <a
-                              className="page-link"
-                              href="#"
-                            >
-                              2
-                            </a>
-                          </li>
-                          <li
-                            className="page-item"
-                          >
-                            <a
-                              className="page-link"
-                              href="#"
-                            >
-                              3
-                            </a>
-                          </li>
-                          <li
-                            className="page-item"
-                          >
-                            <a
-                              className="page-link"
-                              href="#"
-                            >
-                              4
-                            </a>
-                          </li>
-                          <li
-                            className="page-item"
-                          >
-                            <a
-                              className="page-link"
-                              href="#"
-                            >
-                              5
-                            </a>
-                          </li>
-                          <li
-                            className="page-item"
-                          >
-                            <a
-                              className="page-link"
-                              href="#"
-                            >
-                              »
-                            </a>
-                          </li>
-                        </ul>
+                          <ul
+                            className="pagination"
+                          />
+                        </nav>
                       </div>
-                    </div>
-                    <div
-                      className="col"
-                    />
-                  </div>
+                    </PaginationContainer>
+                  </Connect(PaginationContainer)>
                   <br />
                   <br />
                   <br />
