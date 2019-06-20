@@ -19,25 +19,12 @@ module.exports = {
       }
     },
     {
-      test: /\.scss$/,
+      test: /\.(css|scss)$/,
       use: [
-        {
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            includePaths: ['absolute/path/a', 'absolute/path/b'],
-          },
-        },
-      ],
-    },
-    {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
+        'style-loader', // creates style nodes from JS strings
+        'css-loader', // translates CSS into CommonJS
+        'sass-loader' // compiles Sass to CSS, using Node Sass by default
+      ]
     },
     {
       test: /\.(gif|png|jpe?g|svg)$/i,

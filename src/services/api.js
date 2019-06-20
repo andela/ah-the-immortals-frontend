@@ -10,7 +10,6 @@ const signInUrl = `${ROOT_URL}/users/login/`;
 const resetUrl = `${ROOT_URL}/users/password/reset/`;
 const socialAuthUrl = `${ROOT_URL}/users/oauth/`;
 const resetconfirmUrl = `${ROOT_URL}/users/password/reset/confirm/`;
-const commentUrl = `${ROOT_URL}/articles`;
 const token = window.localStorage.getItem('token');
 const authorization = token? { Authorization: `Bearer ${token}`}: {};
 const axiosHeader = {
@@ -25,11 +24,6 @@ const resetPasswordLinkAPI = (data) => axios.post(resetUrl, data);
 const resetconfirmPasswordAPI = (data) => axios.post(resetconfirmUrl + data.token, data);
 const socialAuthApi = (data) => axios.post(socialAuthUrl, data);
 const userProfileUrl = `${ROOT_URL}/profiles`;
-const createCommentsApi = (data, slug) => axios.post(`${commentUrl}/${slug}/comments/`, data, axiosHeader);
-const createChildCommentApi = (data, slug, id) => axios.post(`${commentUrl}/${slug}/comments/${id}/`, data, axiosHeader);
-const getCommentsApi = (slug) => axios.get(`${commentUrl}/${slug}/comments/`, axiosHeader);
-const getOneCommentApi = (slug, id) => axios.get(`${commentUrl}/${slug}/comments/${id}/`, axiosHeader);
-
 const articlesUrl = `${ROOT_URL}/articles`;
 export const profileApi = (data, username, headers) => axios.patch(
   `${ROOT_URL}/profiles/${username}/`,
@@ -66,11 +60,7 @@ const APIS = {
   followingApi,
   followApi,
   unfollowApi,
-  likeApi,
-  createCommentsApi,
-  getCommentsApi,
-  createChildCommentApi,
-  getOneCommentApi,
+  likeApi
 };
 
 export default APIS;

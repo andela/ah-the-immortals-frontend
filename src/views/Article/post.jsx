@@ -10,8 +10,6 @@ import appAction  from '../../redux/actions/app.action';
 import '../../styles/style.css';
 import '../../styles/Likes.css';
 import Likes from '../Likes/LikesContainer';
-import Comments from '../comments/CommentsContainer';
-
 
 class Post extends Component {
   componentDidMount() {
@@ -26,9 +24,6 @@ class Post extends Component {
 
   render() {
     const { post: { post, loading }, currentUser } = this.props;
-    const { match } = this.props;
-    const { params } = match;
-    const { slug } = params;
     if (post === null || loading || Object.keys(post).length === 0) {
       <Spinner />;
     }
@@ -129,8 +124,52 @@ class Post extends Component {
                   </div>
                   <br />
                   <br />
-                  <hr />
-                  <Comments slug={slug} />
+                  <div className="text-muted">
+                    <div className="container">
+                      <div className="row">
+                        <div className="col-sm-12">
+                          <h3>Comments</h3>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-sm-1">
+                          <div className="thumbnail">
+                            <img className="rounded-circle" alt="Cinque Terre" width="50" height="50" src="https://img.icons8.com/material/50/000000/user-male-circle.png" />
+                          </div>
+                        </div>
+
+                        <div className="col-sm-5">
+                          <div className="panel panel-default">
+                            <div className="panel-heading">
+                              <strong>{post[item].author.username}</strong>
+                              {' '}
+                              <span className="text-muted">commented 5 days ago</span>
+                            </div>
+                            <div className="panel-body">
+                              This is a comment
+                              {post[item].comments}
+                            </div>
+                          </div>
+                          <div>
+                            <div className="col-sm-1">
+                              <div className="thumbnail">
+                                <img className="rounded-circle" alt="Cinque Terre" width="50" height="50" src="https://img.icons8.com/material/50/000000/user-male-circle.png" />
+                              </div>
+                            </div>
+                            <div className="panel-heading">
+                              <strong>{post[item].author.username}</strong>
+                              {' '}
+                              <span className="text-muted">commented 2 days ago</span>
+                            </div>
+                            <div className="panel-body">
+                              This is reply comment
+                              {post[item].comments}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div className="col-sm-2 sidenav text-left" />
               </div>
