@@ -11,7 +11,7 @@ import '../../styles/style.css';
 import '../../styles/Likes.css';
 import Likes from '../Likes/LikesContainer';
 import Comments from '../comments/CommentsContainer';
-
+import ShareModal from '../../components/share_modal/ShareArticleComponent';
 
 class Post extends Component {
   componentDidMount() {
@@ -58,7 +58,14 @@ class Post extends Component {
                     </div>
                   </div>
                   <br />
-                  <h1>{post[item].title}</h1>
+                  <div className="row">
+                    <div className="col text-left">
+                      <h1>{post[item].title}</h1>
+                    </div>
+                    <div className="col-sm-2 text-right">
+                      <ShareModal article={post[item]} />
+                    </div>
+                  </div>
                   <hr />
                   <br />
                   <h5 className="text-muted ">{post[item].description}</h5>
