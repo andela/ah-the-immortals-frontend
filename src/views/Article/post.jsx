@@ -6,16 +6,18 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import Spinner from './Spinner';
 import { getPost, deletePost } from '../../redux/actions/postActions';
-import { CurrentUser } from '../../services/api';
+import appAction  from '../../redux/actions/app.action';
 import '../../styles/style.css';
-
+import '../../styles/Likes.css';
+import Likes from '../Likes/LikesContainer';
 
 class Post extends Component {
   componentDidMount() {
-    const { match, singlePost } = this.props;
+    const { match, singlePost, action } = this.props;
     const { params } = match;
     const { slug } = params;
     singlePost(slug);
+    action();
   }
   onDeleteClick = (slug) => {
     const { history, delPost } = this.props;
@@ -26,11 +28,10 @@ class Post extends Component {
   }
 
   render() {
-    const { post: { post, loading } } = this.props;
+    const { post: { post, loading }, currentUser } = this.props;
     if (post === null || loading || Object.keys(post).length === 0) {
       <Spinner />;
     }
-
     return (
       <div>
         <br />
@@ -72,7 +73,7 @@ class Post extends Component {
                   </div>
                   <br />
                   <br />
-                  <div className="row text-left text-muted">
+                  <div className="row text-left text-muted meta-data">
                     <div className="col">
                       <i className="fas fa-star-half-alt fa-1x" aria-hidden="true"> Ratings</i>
                     </div>
@@ -82,12 +83,9 @@ class Post extends Component {
                     </div>
                     <br />
                     <div className="col ">
-                      <i className="fas fa-thumbs-up fa-1x" aria-hidden="true"> Likes</i>
+                      <Likes article={post[item]} />
                     </div>
                     <br />
-                    <div className="col">
-                      <i className="fas fa-thumbs-down fa-1x" aria-hidden="true"> DisLikes</i>
-                    </div>
                   </div>
                   <br />
                   <br />
@@ -109,7 +107,7 @@ class Post extends Component {
                       </Moment>
                     </div>
                     <div className="col ">
-                      {CurrentUser === post[item].author.username ? (
+                      {currentUser === post[item].author.username ? (
                         <Link to={`/edit/${post[item].slug}`}>
                           <i className="fas fa-edit fa-1x" aria-hidden="true"> Edit</i>
                         </Link>
@@ -118,7 +116,7 @@ class Post extends Component {
                     </div>
                     <div className="col">
                       <Link to="#null">
-                        {CurrentUser === post[item].author.username ? <i className="fa fa-trash fa-1x" onClick={() => this.onDeleteClick(post[item].slug)} aria-hidden="true"> Delete</i>
+                        {currentUser === post[item].author.username ? <i className="fa fa-trash fa-1x" onClick={() => this.onDeleteClick(post[item].slug)} aria-hidden="true"> Delete</i>
                           : null}
                       </Link>
                     </div>
@@ -168,8 +166,6 @@ class Post extends Component {
                             </div>
                           </div>
                         </div>
-
-
                       </div>
                     </div>
                   </div>
@@ -193,11 +189,14 @@ Post.propTypes = {
   post: PropTypes.object.isRequired,
   delPost: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  action:PropTypes.func.isRequired,
+  currentUser:PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
-  post: state.post
+  post: state.post,
+  currentUser: state.signin.currentUser,
 });
 
-export default connect(mapStateToProps, { singlePost: getPost, delPost: deletePost })(Post);
+export default connect(mapStateToProps, { singlePost: getPost, delPost: deletePost, action: appAction })(Post);

@@ -11,19 +11,19 @@ const resetUrl = `${ROOT_URL}/users/password/reset/`;
 const socialAuthUrl = `${ROOT_URL}/users/oauth/`;
 const resetconfirmUrl = `${ROOT_URL}/users/password/reset/confirm/`;
 const token = window.localStorage.getItem('token');
+const authorization = token? { Authorization: `Bearer ${token}`}: {};
+const axiosHeader = {
+  headers: {
+    'content-type': 'application/json',
+    ...authorization
+  },
+};
 const signUpApi = (data) => axios.post(signupUrl, data);
 const signInApi = (data) => axios.post(signInUrl, data);
 const resetPasswordLinkAPI = (data) => axios.post(resetUrl, data);
 const resetconfirmPasswordAPI = (data) => axios.post(resetconfirmUrl + data.token, data);
 const socialAuthApi = (data) => axios.post(socialAuthUrl, data);
 const userProfileUrl = `${ROOT_URL}/profiles`;
-
-const axiosHeader = {
-  headers: {
-    'content-type': 'application/json',
-    Authorization: `Bearer ${token}`
-  },
-};
 const articlesUrl = `${ROOT_URL}/articles`;
 export const profileApi = (data, username, headers) => axios.patch(
   `${ROOT_URL}/profiles/${username}/`,
@@ -46,6 +46,9 @@ const SearchArticlesApi = (data) => {
     return axios.get(`${articlesUrl}/?title=${data.title}`);
   }
 };
+const likeApi = (slug, type, option = undefined) => option == undefined ?
+  axios.post(`${articlesUrl}/${slug}/${type}/`, {}, axiosHeader) :
+  axios.delete(`${articlesUrl}/${slug}/${type}/`, axiosHeader);
 const APIS = {
   resetPasswordLinkAPI,
   resetconfirmPasswordAPI,
@@ -57,24 +60,26 @@ const APIS = {
   followingApi,
   followApi,
   unfollowApi,
+  likeApi
 };
 
 export default APIS;
-const decoded = (token) => {
+export const decoded = (authToken) => {
   try {
-    return jwtDecode(token);
+    return jwtDecode(authToken);
   } catch (e) {
     return null;
   }
 };
 const userData = decoded(token);
-export const CurrentUser = userData ? userData.user_data.username:null;
+export const CurrentUser = userData ? userData.user_data.username : null;
 
 
 export const postArticleApi = (postData) => axios.post(`${articlesUrl}/`, postData, axiosHeader);
 export const getPostsApi = () => axios.get(articlesUrl);
-export const getSingleArticle = (slug) => axios.get(`${articlesUrl}/${slug}`);
+export const getSingleArticle = (slug) => axios.get(`${articlesUrl}/${slug}`, axiosHeader);
+
 export const deleteArticleApi = (slug) => {
   return axios.delete(`${articlesUrl}/${slug}`, axiosHeader);
 };
-export const  editArticle = (slug, postData) => axios.patch(`${articlesUrl}/${slug}/`, postData, axiosHeader);
+export const editArticle = (slug, postData) => axios.patch(`${articlesUrl}/${slug}/`, postData, axiosHeader);

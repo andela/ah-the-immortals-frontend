@@ -10,6 +10,7 @@ import errorReducer from './errorReducers';
 import SearchReducer from './Search.reducer';
 import followReducer from './userFollow.reducer';
 import followingReducer from './userFollowing.reducer';
+import PromptReducer from './Prompt.reducer';
 
 export default combineReducers({
   resetpasswordlink: resetPasswordLinkReducer,
@@ -23,4 +24,5 @@ export default combineReducers({
   search: SearchReducer,
   followers: followReducer,
   following: followingReducer,
+  prompt:PromptReducer 
 });

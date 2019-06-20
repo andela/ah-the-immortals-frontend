@@ -53,9 +53,9 @@ export const getPosts = () => dispatch => {
 };
 
 
-export const getPost = (slug) => dispatch => {
+export const getPost = (slug,token=null) => dispatch => {
   dispatch(setPostLoading());
-  return getSingleArticle(slug)
+  return getSingleArticle(slug,token)
     .then(res =>
       dispatch({
         type: GET_POST,

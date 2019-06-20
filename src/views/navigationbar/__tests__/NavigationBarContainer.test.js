@@ -18,13 +18,18 @@ describe('Tests NavigationBar Container', () => {
   const store = configureStore([thunk])({
     signup: { user: {}, errors: {} },
     signin: { user: {}, errors: {} },
-    search:{}
+    search:{},
+    prompt:{show:true}
   });
   const history = createBrowserHistory();
+  const props={
+    history,
+    singlePost:jest.fn()
+  };
   const wrapper = mount(
     <Router history={history}>
       <Provider store={store}>
-        <NavigationBar history={history} />
+        <NavigationBar {...props} />
       </Provider>
     </Router>
   );

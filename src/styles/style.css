@@ -214,3 +214,11 @@ label {
     text-decoration: none;
     margin-right: 10px
 }
+.meta-data{
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-width: thin;
+    border-color:#e6e6e6;
+}

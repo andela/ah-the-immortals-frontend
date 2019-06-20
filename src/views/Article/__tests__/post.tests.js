@@ -9,8 +9,12 @@ import Post from '../post';
 
 describe('Test the article post', () =>{
   let testStore = configureMockStore([thunk]);
-  let store = testStore({post:{post:{
-  }}});
+  let store = testStore({
+    post:{post:{}},
+    signin:{
+      currentUser:'testuser'
+    }
+  });
   const history = createBrowserHistory();
   const wrapper = mount(
     <Router history={history}>
