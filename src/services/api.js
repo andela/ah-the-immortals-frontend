@@ -25,17 +25,17 @@ const axiosHeader = {
   },
 };
 const articlesUrl = `${ROOT_URL}/articles`;
-export const profileApi = (data, username) => axios.patch(
+export const profileApi = (data, username, headers) => axios.patch(
   `${ROOT_URL}/profiles/${username}/`,
   data,
-  axiosHeader
+  headers
 );
 export const fetchProfileApi = (username) => axios.get(`${ROOT_URL}/profiles/${username}`);
-const followersApi = (username) => axios.get(`${ROOT_URL}/profiles/${username}/followers/`, axiosHeader);
-const followingApi = (username) => axios.get(`${ROOT_URL}/profiles/${username}/follow/`, axiosHeader);
-export const otherProfileApi = (otherUser) => axios.get(`${userProfileUrl}/${otherUser}`, axiosHeader);
-const followApi = (otherUser) => axios.post(`${userProfileUrl}/${otherUser}/follow/`,{}, axiosHeader);
-const unfollowApi = (otherUser) => axios.delete(`${userProfileUrl}/${otherUser}/follow/`, axiosHeader);
+const followersApi = (username, headers) => axios.get(`${ROOT_URL}/profiles/${username}/followers/`, headers);
+const followingApi = (username, headers) => axios.get(`${ROOT_URL}/profiles/${username}/follow/`, headers);
+export const otherProfileApi = (otherUser, headers) => axios.get(`${userProfileUrl}/${otherUser}`, headers);
+const followApi = (otherUser, headers) => axios.post(`${userProfileUrl}/${otherUser}/follow/`,{}, headers);
+const unfollowApi = (otherUser, headers) => axios.delete(`${userProfileUrl}/${otherUser}/follow/`, headers);
 
 const SearchArticlesApi = (data) => {
   if (data.author) {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const SignedInLinks = ({ handleLogout, username }) => (
   <div className="nav ml-auto">
     <NavLink to="/postarticle" className="nav-link mt-1 mr-2">
-        Post Article
+      Post Article
     </NavLink>
     <i className="fa fa-bell notnotif text-dark mt-3" />
     <NavLink
@@ -21,8 +21,8 @@ const SignedInLinks = ({ handleLogout, username }) => (
     </NavLink>
     <div className="dropdown-menu ml-5" id="profileDropdown">
       <div className="dropdown-item">
-        <NavLink to="/Profile" className="nav-link">
-                Profile
+        <NavLink to={`/myProfile/${username}`} className="nav-link">
+          Profile
         </NavLink>
       </div>
       <div className="dropdown-item">
@@ -30,7 +30,7 @@ const SignedInLinks = ({ handleLogout, username }) => (
           to="#null"
           className="nav-link"
         >
-                Settings
+          Settings
         </NavLink>
       </div>
       <div className="dropdown-item">
@@ -39,7 +39,7 @@ const SignedInLinks = ({ handleLogout, username }) => (
           className="nav-link"
           onClick={handleLogout}
         >
-                Logout
+          Logout
         </NavLink>
       </div>
     </div>

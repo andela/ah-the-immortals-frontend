@@ -52,18 +52,32 @@ export const unfollowFailure = (error) => ({
   error
 });
 
-export const userFollowersAction = () => async (dispatch) => {
+export const userFollowersAction = (profile) => async (dispatch) => {
   try {
-    const response = await followersApi(tokenDecoded());
+    const token = window.localStorage.getItem('token');
+    const axiosHeader = {
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const response = await followersApi(profile, axiosHeader);
     dispatch(followerSuccess(response));
   } catch (error) {
     dispatch(followerFailure(error));
   }
 };
 
-export const userFollowingAction = () => async (dispatch) => {
+export const userFollowingAction = (profile) => async (dispatch) => {
   try {
-    const response = await followingApi(tokenDecoded());
+    const token = window.localStorage.getItem('token');
+    const axiosHeader = {
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const response = await followingApi(profile, axiosHeader);
     dispatch(followingSuccess(response));
   } catch (error) {
     dispatch(followingFailure(error));
@@ -72,8 +86,15 @@ export const userFollowingAction = () => async (dispatch) => {
 
 export const followAction = (otherUser) => async (dispatch) => {
   try {
-    const response = await followApi(otherUser);
-    dispatch(followSuccess(response)); 
+    const token = window.localStorage.getItem('token');
+    const axiosHeader = {
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const response = await followApi(otherUser, axiosHeader);
+    dispatch(followSuccess(response));
   } catch (error) {
     dispatch(followFailure(error));
   }
@@ -81,8 +102,15 @@ export const followAction = (otherUser) => async (dispatch) => {
 
 export const unfollowAction = (otherUser) => async (dispatch) => {
   try {
-    const response = await unfollowApi(otherUser);
-    dispatch(unfollowSuccess(response)); 
+    const token = window.localStorage.getItem('token');
+    const axiosHeader = {
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const response = await unfollowApi(otherUser, axiosHeader);
+    dispatch(unfollowSuccess(response));
   } catch (error) {
     dispatch(unfollowFailure(error));
   }

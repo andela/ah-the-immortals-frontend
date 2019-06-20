@@ -7,7 +7,7 @@ const Following = (follower) => {
     <div>
       <div className="user-card">
         <div className="follow-card list-card">
-          <img className="user-avatar float-left" src={follower.image || profileImage} alt="Profile pic" />
+          <img className="user-avatar float-left" src={follower.img_url || profileImage} alt="Profile pic" />
           <div className="user-data">
             <h6><Link to={`/profile/${follower.username}`}>{follower.username}</Link></h6>
             <p>{follower.bio}</p>

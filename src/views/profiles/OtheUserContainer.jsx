@@ -8,17 +8,17 @@ import { followAction, unfollowAction } from '../../redux/actions/userFollow.act
 class ViewUserProfile extends Component {
   state = {};
   componentDidMount() {
-    const { getProfile: fetchProfile, match: {params: { otherUser }} } = this.props;
-    fetchProfile(otherUser); 
+    const { getProfile: fetchProfile, match: { params: { profile } } } = this.props;
+    fetchProfile(profile);
   }
   handleFollow = (e) => {
     e.preventDefault();
-    const { followAction: follow, unfollowAction: unfollow, profile: {following}, match: {params: { otherUser }} } = this.props;
-    const click = (otherUser) => following?unfollow(otherUser):follow(otherUser);
-    click(otherUser);
+    const { followAction: follow, unfollowAction: unfollow, profile: { following }, match: { params: { profile } } } = this.props;
+    const click = (profile) => following ? unfollow(profile) : follow(profile);
+    click(profile);
   }
   render() {
-    const { profile: { username, bio, img_url, first_name, last_name, following } } = this.props;
+    const { profile: { username, bio, img_url, first_name, last_name, following, articles }, data: { userCount }, users: { count }, match } = this.props;
     return (
       <UserProfileView
         username={username}
@@ -26,9 +26,13 @@ class ViewUserProfile extends Component {
         bio={bio}
         firstName={first_name}
         lastName={last_name}
-        following={following ? 'Unfollow': 'Follow'}
+        following={following ? 'Unfollow' : 'Follow'}
         isFollowing={following}
         handleFollow={this.handleFollow}
+        articles={articles}
+        match={match}
+        followings={userCount}
+        followers={count}
       />
     );
   }
@@ -39,6 +43,8 @@ ViewUserProfile.propTypes = {
   getProfile: PropTypes.func.isRequired,
   followAction: PropTypes.func.isRequired,
   unfollowAction: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+  users: PropTypes.object.isRequired,
   match: PropTypes.shape({})
 };
 
@@ -48,7 +54,9 @@ ViewUserProfile.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  profile: state.Profile.profile
+  profile: state.Profile.profile,
+  data: state.following,
+  users: state.followers
 });
 
 export default connect(mapStateToProps, { getProfile, followAction, unfollowAction })(ViewUserProfile);

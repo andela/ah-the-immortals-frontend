@@ -97,17 +97,17 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
         >
           <NavLink
             className="nav-link"
-            to="/Profile"
+            to="/myProfile/"
           >
             <Link
               aria-current={null}
               className="nav-link"
-              to="/Profile"
+              to="/myProfile/"
             >
               <a
                 aria-current={null}
                 className="nav-link"
-                href="/Profile"
+                href="/myProfile/"
                 onClick={[Function]}
               >
                 Profile

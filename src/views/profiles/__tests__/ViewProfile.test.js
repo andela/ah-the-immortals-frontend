@@ -50,7 +50,7 @@ describe('Test view profile container', () => {
   const wrapper = mount(
     <Provider store={store}>
       <BrowserRouter>
-        <ViewProfile />
+        <ViewProfile match={{params: {profile: {}}, isExact: true, path: '', url: ''}} />
       </BrowserRouter>
     </Provider>
   );

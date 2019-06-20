@@ -30,8 +30,15 @@ const editErrors = (error) => ({
 
 const editProfile = (data) => async (dispatch) => {
   try {
-    await profileApi(data, tokenDecoded());
-    const response = await fetchProfileApi(tokenDecoded());
+    const token = window.localStorage.getItem('token');
+    const axiosHeader = {
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    };
+    await profileApi(data, tokenDecoded(), axiosHeader);
+    const response = await fetchProfileApi(tokenDecoded(), axiosHeader);
     dispatch(fetchSuccess(response.data.profile));
   } catch (error) {
     dispatch(editErrors(error.response.data.errors));
@@ -40,7 +47,14 @@ const editProfile = (data) => async (dispatch) => {
 
 const getProfile = (otherUser) => async (dispatch) => {
   try {
-    const data = await otherProfileApi(otherUser);
+    const token = window.localStorage.getItem('token');
+    const axiosHeader = {
+      headers: {
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    };
+    const data = await otherProfileApi(otherUser, axiosHeader);
     dispatch(fetchSuccess(data.data.profile));
   } catch (error) {
     dispatch(fetchErrors(error.response.data.errors));
