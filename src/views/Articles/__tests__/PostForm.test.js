@@ -17,6 +17,10 @@ describe('pass', () => {
   let props = {
     addPost: jest.fn(),
   };
+  const tag = {
+    id: 'dude',
+    text: 'dude',
+  };
   const history = createBrowserHistory();
   const wrapper = mount(
     <Router history={history}>
@@ -39,7 +43,27 @@ describe('pass', () => {
   it('test 1', () => {
     expect(wrapper).toMatchSnapshot();
   });
-
+  it('should call handleDrag', () => {
+    const dragtag = shallow(<PostForm {...props} />);
+    const instance = dragtag.instance();
+    const drag = jest.spyOn(instance, 'handleDrag');
+    instance.handleDrag(tag);
+    expect(drag).toBeCalledWith({ id: 'dude', text: 'dude' });
+  });
+  it('should call handleAddition', () => {
+    const addtag = shallow(<PostForm {...props} />);
+    const instance = addtag.instance();
+    const add = jest.spyOn(instance, 'handleAddition');
+    instance.handleAddition(tag);
+    expect(add).toBeCalledWith({ id: 'dude', text: 'dude' });
+  });
+  it('should call handleDelete', () => {
+    const deltag = shallow(<PostForm {...props} />);
+    const instance = deltag.instance();
+    const del = jest.spyOn(instance, 'handleDelete');
+    instance.handleDelete(0);
+    expect(del).toBeCalledWith(0);
+  });
   it('simulates change event', () => {
     const titleName = wrapper.find('#Title-name');
     titleName.simulate('change', {
@@ -59,9 +83,11 @@ describe('pass', () => {
   });
   it('should set some props', () => {
     const renderedComponent = renderComponent(props);
-    renderedComponent.setProps({ errors:{
+    renderedComponent.setProps({
+      errors: {
 
-    }});
+      }
+    });
   });
 
   expect(true).toBe(true);

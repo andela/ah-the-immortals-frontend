@@ -19,12 +19,7 @@ class Post extends Component {
     singlePost(slug);
     action();
   }
-  onDeleteClick = (slug) => {
-    const { history, delPost } = this.props;
-    if (window.confirm('Delete This article?')) {
-      delPost(slug);
-      history.push('/postarticle');
-    }
+  onDeleteClick = (slug) => {const { history, delPost } = this.props;if (window.confirm('Delete This article?')) {delPost(slug);history.push('/postarticle');}
   }
 
   render() {
@@ -68,7 +63,13 @@ class Post extends Component {
                   <div className="row text-muted">
 
                     <div className="col">
-                      <i className="fas fa-tags fa-1x" aria-hidden="true">Tags</i>
+                      <i className="fas fa-tags fa-1x" aria-hidden="true">      
+                        {post[item].tagList.map(singletag => (
+                          <button key={`${i + 1}`} type="button" className="btn btn-outline-info tag-btn">
+                            {singletag}
+                          </button>
+                        ))}
+                      </i>
                     </div>
                   </div>
                   <br />

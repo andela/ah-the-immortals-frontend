@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
+import { WithContext as ReactTags } from 'react-tag-input';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import 'react-quill/dist/quill.snow.css';
 import { connect } from 'react-redux';
 import Spinner from '../Article/Spinner';
 import { addPost } from '../../redux/actions/postActions';
-
+import '../../styles/Tags.css';
 
 
 export class PostForm extends Component {
@@ -16,12 +17,16 @@ export class PostForm extends Component {
       title: '',
       body: '',
       description: '',
+      tags: [],
       isLoading: false,
       errors: {}
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleAddition = this.handleAddition.bind(this);
+    this.handleDrag = this.handleDrag.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -34,23 +39,37 @@ export class PostForm extends Component {
     this.setState({ isLoading: true });
     e.preventDefault();
     const { history } = this.props;
-    const article = { ...this.state };
+    const allTags = this.state.tags;
+    const Tags = allTags.map((singleTag)=> { return singleTag.text;});
+    const article = { ...this.state, tags: Tags, };
     const { addPost } = this.props;
     await addPost(article, (slug) => history.push(`/post/${slug}`), () => this.setState({ isLoading: false }));
   };
-
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleBodyChange = event => {
-    this.setState({
-      body: event
-    });
-  };
+  handleBodyChange = event => {this.setState({body: event});};
+  handleDelete(i) {const { tags } = this.state;
+    this.setState({tags: tags.filter((tag, index) => index !== i),});
+  }
+
+  handleAddition(tag) {
+    this.setState(state => ({ tags: [...state.tags, tag] }));
+  }
+
+  handleDrag(tag, currPos, newPos) {
+    const tags = [...this.state.tags];
+    const newTags = tags.slice();
+
+    newTags.splice(currPos, 1);
+    newTags.splice(newPos, 0, tag);
+
+    this.setState({ tags: newTags });
+  }
 
   render() {
-    const { errors, title, isLoading, description, body } = this.state;
+    const { errors, title, isLoading, description, body,tags } = this.state;
     let Image = Quill.import('formats/image');
     Image.className = 'img-fluid';
     Quill.register(Image, true);
@@ -119,11 +138,11 @@ export class PostForm extends Component {
                           </div>
                           <div className="form-group">
                             <label htmlFor="Tags-name" className="col-form-label">+ Add Tags</label>
-                            <input
-                              type="text"
-                              placeholder="Help the right people see your post "
-                              className="form-control"
-                              id="Tags-name"
+                            <ReactTags
+                              tags={tags}
+                              handleDelete={this.handleDelete}
+                              handleAddition={this.handleAddition}
+                              handleDrag={this.handleDrag}
                             />
                           </div>
                           <div className="modal-footer">
