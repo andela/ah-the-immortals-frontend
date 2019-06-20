@@ -16,21 +16,19 @@ import NavigationBar from '../NavigationBarContainer';
 
 describe('Tests NavigationBar Container', () => {
   const store = configureStore([thunk])({
-    signup: { user: {}, errors: {} },
-    signin: { user: {}, errors: {}, isAuthenticated: false },
-    search:{},
-    prompt:{show:true},
+    signup: { user: {}, errors: {} }, signin: { user: {}, errors: {}, isAuthenticated: false }, search:{}, prompt:{show:true},
     notify: {
       unreadNotifications: [],
       notifications: [
         {
-          'id': 13,
-          'unread': false,
-          'verb': 'article_created',
-          'timestamp': '2019-06-19 11:45:49',
+          'id': 13, 'unread': false, 'verb': 'article_created', 'timestamp': '2019-06-19 11:45:49',
           'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
         }
       ]
+    },
+    notification: {
+      in_app_notifications: '',
+      email_notifications: ''
     }
   });
   const history = createBrowserHistory();
@@ -197,36 +195,28 @@ describe('Tests NavigationBar Container', () => {
 });
 describe('it tests notifications', () => {
   const store = configureStore([thunk])({
-    signup: { user: {}, errors: {} },
-    signin: { user: {}, errors: {}, isAuthenticated: true },
-    search:{},
-    prompt:{show:true},
+    signup: { user: {}, errors: {} }, signin: { user: {}, errors: {}, isAuthenticated: true }, search:{}, prompt:{show:true},
     notify: {
       notifications: [{
-        'id': 13,
-        'unread': false,
-        'verb': 'article_created',
-        'timestamp': '2019-06-19 11:45:49',
+        'id': 13, 'unread': false, 'verb': 'article_created', 'timestamp': '2019-06-19 11:45:49',
         'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
       }],
       unreadNotifications:[]
+    },
+    notification: {
+      in_app_notifications: '',
+      email_notifications: ''
     }
   });
   const history = createBrowserHistory();
   const noteProps={
     history,
     notifications: [{
-      'id': 13,
-      'unread': false,
-      'verb': 'article_created',
-      'timestamp': '2019-06-19 11:45:49',
+      'id': 13, 'unread': false, 'verb': 'article_created', 'timestamp': '2019-06-19 11:45:49',
       'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
     }],
     unreadNotifications: [{
-      'id': 10,
-      'unread': false,
-      'verb': 'article_created',
-      'timestamp': '2019-06-19 11:45:49',
+      'id': 10, 'unread': false, 'verb': 'article_created', 'timestamp': '2019-06-19 11:45:49',
       'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
     }],
     singlePost:jest.fn()

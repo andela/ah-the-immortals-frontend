@@ -12,7 +12,7 @@ import followReducer from './userFollow.reducer';
 import followingReducer from './userFollowing.reducer';
 import PromptReducer from './Prompt.reducer';
 import CommentsReducer from './Comments.reducer';
-import notifyReducer from './notifications.reducer';
+import {notifyReducer, NotificatonsReducer} from './notifications.reducer';
 
 export default combineReducers({
   resetpasswordlink: resetPasswordLinkReducer,
@@ -29,4 +29,5 @@ export default combineReducers({
   prompt:PromptReducer, 
   comments: CommentsReducer,
   notify: notifyReducer,
+  notification: NotificatonsReducer
 });
