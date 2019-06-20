@@ -21,8 +21,7 @@ class Post extends Component {
     singlePost(slug);
     action();
   }
-  onDeleteClick = (slug) => {const { history, delPost } = this.props;if (window.confirm('Delete This article?')) {delPost(slug);history.push('/postarticle');}
-  }
+  onDeleteClick = (slug) => {const { history, delPost } = this.props;if (window.confirm('Delete This article?')) {delPost(slug);history.push('/postarticle');}}
 
   render() {
     const { post: { post, loading }, currentUser } = this.props;
@@ -32,6 +31,8 @@ class Post extends Component {
     if (post === null || loading || Object.keys(post).length === 0) {
       <Spinner />;
     }
+    
+
     return (
       <div>
         <br />
@@ -46,7 +47,7 @@ class Post extends Component {
                 <div className="col-sm-8 text-left">
                   <div className="row">
                     <div className="col text-left">
-                      <img src="https://img.icons8.com/material/50/000000/user-male-circle.png" className="rounded-circle" alt="Cinque Terre" width="50" height="50" />
+                      <img src={post[item].author.image} className="rounded-circle" alt="Cinque Terre" width="50" height="50" />
                       {' '}
                       {post[item].author.username}
                     </div>
@@ -96,12 +97,7 @@ class Post extends Component {
                   <br />
                   <br />
                   <div className=" text-muted">
-                    <i className="fas fa-star" />
-                    <i className="far fa-star" />
-                    <i className="far fa-star" />
-                    <i className="far fa-star" />
                     <i className="far far fa-star fa-1x" aria-hidden="true"> Rate</i>
-
                   </div>
                   <br />
                   <br />

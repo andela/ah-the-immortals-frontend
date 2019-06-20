@@ -8,10 +8,12 @@ import {
   GET_POSTS,
   GET_POST,
   DELETE_POST,
-  EDIT_POST
+  EDIT_POST,
+  GET_PAGES,
+  GET_PAGES_NEXT
 
 } from '../constants/types';
-import { postArticleApi, getPostsApi, getSingleArticle, deleteArticleApi, editArticle } from '../../services/api';
+import { postArticleApi, getPostsApi, getSingleArticle, deleteArticleApi, editArticle, getPagesApi, getNextPageApi } from '../../services/api';
 
 export const postArticleActionCreator = (res) => ({
   type: ADD_POST,
@@ -104,6 +106,41 @@ export const editPost = (slug, postData) => dispatch => {
     );
 };
 
+export const getPages = (url) => dispatch => {
+  dispatch(setPostLoading());
+  return getPagesApi(url)
+    .then(res =>
+      dispatch({
+        type: GET_PAGES,
+        payload: res.data,
+      })
+
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_PAGES,
+        payload: null
+      })
+    );
+};
+
+export const getNextPages = url => dispatch => {
+  dispatch(setPostLoading());
+  return getNextPageApi(url)
+    .then(res =>
+      dispatch({
+        type: GET_PAGES_NEXT,
+        payload: res.data
+      })
+
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_PAGES_NEXT,
+        payload: null
+      })
+    );
+};
 
 export const clearErrors = () => {
   return {

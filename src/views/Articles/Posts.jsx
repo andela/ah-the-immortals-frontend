@@ -1,73 +1,114 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 import Spinner from '../Article/Spinner';
-import PostFeed from '../../components/Articles/PostFeed';
-import { getPosts } from '../../redux/actions/postActions';
+import { getPages, getNextPages } from '../../redux/actions/postActions';
+import articlesUrl from '../../services/api';
 import '../../styles/App.css';
+import '../../styles/pagination.css';
+import PaginationContainer from '../Pagination/PaginationContainer';
 
 
 
 class Posts extends Component {
+  state = {
+    ArticlesPerPage: 10,
+    currentPage: 1,
+  };
+
   componentDidMount() {
-    const { getPosts } = this.props;
-    getPosts();
+    const { getPages } = this.props;
+    const url = articlesUrl.articlesUrl;
+    getPages(url);
   }
+  handleClick = e => {
+    const { getNextPages } = this.props;
+    getNextPages(`${articlesUrl.articlesUrl}?page=${Number(e.target.id)}`);
+    this.setState({
+      currentPage: Number(e.target.id),
+    });
+  };
+
+  handleLink = e => { const { getNextPages } = this.props;
+    this.setState({ currentPage: Number(e.target.id.substring(e.target.id.lastIndexOf('=') + 1)) });
+    getNextPages(e.target.id);
+  };
 
   render() {
-    const { post: { posts, loading } } = this.props;
+
+    const { post: { loading } } = this.props;
+    const { post: { pages } } = this.props;
+    const { results } = pages;
+    const { articles } = { ...results };
+    const { ArticlesPerPage, currentPage } = this.state;
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(pages.articlesCount / ArticlesPerPage); i++) {pageNumbers.push(i);}
     return (
       <div>
         <div className="post-feed">
           <br />
           {
-            (!posts || loading)? <Spinner />: <PostFeed posts={posts} />
-          }
+            (!pages || loading) ? <Spinner /> : (
+              articles ? articles.map(article => (
+                <div className="quotes" key={article.slug}>
+                  <div className="box box1">
+                    <div className="">
+                      <div className="title-header">
+                        {article.title}
+                        <div className="timer">
+                          <div className="bookmark">
+                            <i className="far fa-bookmark" />
+                          </div>
+                          <span className="readingTime">
+                            {article.readtime}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="author">
+                        {article.author.username}
+                      </div>
+                      <div className="description">
+                        {article.description}
+                        <Link to={`/post/${article.slug}`}>
+                          .... Read More
+                        </Link>
+                      </div>
+                      <div className="date-read-time">
+                        <time>
+                          <Moment format="DD-MMM-YYYY">
+                            {article.created_at}
+                          </Moment>
+                        </time>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )) : null
+            )}
         </div>
-        <div className="row">
-          <div className="col" />
-          <div className="col">
-            <div>
-              <ul className="pagination pagination-lg">
-                <li className="page-item disabled">
-                  <a className="page-link" href="#">&laquo;</a>
-                </li>
-                <li className="page-item active">
-                  <a className="page-link" href="#">1</a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">2</a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">3</a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">4</a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">5</a>
-                </li>
-                <li className="page-item">
-                  <a className="page-link" href="#">&raquo;</a>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-          <div className="col" />
-        </div>
+        <PaginationContainer
+          handleLink={this.handleLink}
+          handleClick={this.handleClick}
+          pageNumbers={pageNumbers}
+          next={pages.next}
+          previous={pages.previous}
+          currentPage={currentPage}
+        />
         <br />
         <br />
         <br />
         <br />
       </div>
-     
+
     );
   }
 }
 
 Posts.propTypes = {
-  getPosts: PropTypes.func.isRequired,
+  getPages: PropTypes.func.isRequired,
+  getNextPages:PropTypes.func.isRequired,
   post: PropTypes.object.isRequired
 };
 
@@ -76,4 +117,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { getPosts })(Posts);
+export default connect(mapStateToProps, { getNextPages, getPages })(Posts);

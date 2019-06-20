@@ -71,6 +71,7 @@ const APIS = {
   getCommentsApi,
   createChildCommentApi,
   getOneCommentApi,
+  articlesUrl
 };
 
 export default APIS;
@@ -89,6 +90,8 @@ export const postArticleApi = (postData) => axios.post(`${articlesUrl}/`, postDa
 export const getPostsApi = () => axios.get(articlesUrl);
 export const getSingleArticle = (slug) => axios.get(`${articlesUrl}/${slug}`, axiosHeader);
 
+export const getPagesApi = (url) => axios.get(articlesUrl);
+export const getNextPageApi = (url) => axios.get(url);
 export const deleteArticleApi = (slug) => {
   return axios.delete(`${articlesUrl}/${slug}`, axiosHeader);
 };

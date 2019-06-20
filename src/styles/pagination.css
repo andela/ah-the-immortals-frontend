@@ -1,0 +1,13 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.page-link {
+  cursor: pointer;
+}
+
+.active-page {
+  color: white !important;
+  background-color: blue !important;
+}
