@@ -9,11 +9,16 @@ const styleDeterminer = (like, isAuthenticated) => (like == true && isAuthentica
   color: '#909090',
   render: ''
 };
+const likeDeterminer=(like,dislike,isAuthenticated)=>(like || dislike) && isAuthenticated?({
+  underline:'like-signed'
+}):({
+  underline:''
+});
 const LikesDislikes = ({ handleClick, article, isAuthenticated }) => {
   const { like_info } = article;
   const { like, dislike, likeCount, dislikeCount } = like_info;
   return (
-    <div className="like">
+    <div className={`like ${likeDeterminer(like,dislike,isAuthenticated).underline}`}>
       <div>
         <i
           id="like"
@@ -30,7 +35,7 @@ const LikesDislikes = ({ handleClick, article, isAuthenticated }) => {
       <div>
         <i
           id="dislike"
-          className="fas fa-thumbs-down fa-1x like-icon right-icon"
+          className="fas fa-thumbs-up fa-rotate-180 fa-1x like-icon right-icon"
           aria-hidden="true"
           style={{color:`${styleDeterminer(dislike,isAuthenticated).color}`}}
           onClick={() => handleClick(article.slug, 'dislike')}

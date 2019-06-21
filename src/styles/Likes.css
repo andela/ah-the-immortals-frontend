@@ -1,5 +1,5 @@
 .like {
-  width: 8em;
+  width: 7em;
   display: flex;
   flex-direction: row;
   border-style: solid;
@@ -9,6 +9,9 @@
   border-right: none;
   border-color: #909090;
   padding-bottom: 2%;
+}
+.like-signed {
+  border-color: #007BFF;
 }
 
 .like-icon {
