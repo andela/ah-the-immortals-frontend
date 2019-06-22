@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
+import isLoggedIn from '../../services/checkAuthentication';
 import ViewComments from '../../components/comments/CommentsComponent';
 import CreateComment from '../../components/comments/CreateCommentComponent';
 import { createCommentAction, getCommentsAction } from '../../redux/actions/Comments.action';
 
 class Comments extends Component {
   state = {
-    body: ''
+    body: '', 
+    loading: false,
   };
   componentWillMount(){
     const { getCommentsAction, slug } = this.props;
@@ -18,20 +21,28 @@ class Comments extends Component {
   };
   onSubmit = (e) => {
     e.preventDefault();
+    this.setState({loading: true});
+    const isAuthenticated = isLoggedIn();
     const { createCommentAction, slug } = this.props;
-    createCommentAction(this.state, slug, () => this.setState({
-      body: ''
-    }));
+    { isAuthenticated ? (createCommentAction(this.state, slug, () => this.setState({
+      body: '',
+      loading: false
+    }))): (  
+      this.setState({loading: false}),    
+      toast.error('Please log in to comment!')
+    );
+    }
   };
   render() {
-    const { slug } = this.props;
+    const { slug, currentUser } = this.props;
+    const { loading } = this.state;
     const { data } = this.props;
     const comments = data.comments;
     const { body } = this.state;
     return (
       <div>
-        <CreateComment onChange={this.onChange} value={body} onSubmit={this.onSubmit} slug={slug} />
-        {  comments ? (
+        <CreateComment onChange={this.onChange} value={body} onSubmit={this.onSubmit} slug={slug} isLoading={loading} />
+        {  comments  && (
           <div className="comment-tabs">
             <ul className="nav nav-tabs" role="tablist">
               <li className="nav-item active">
@@ -50,10 +61,10 @@ class Comments extends Component {
               </li>
               <li className="nav-item" />
             </ul>
-            <ViewComments comments={comments} slug={slug} />
+            <ViewComments comments={comments} slug={slug} user={currentUser} handleDelete={this.handleDelete} />
             {' '}
           </div>
-        ): null }
+        ) }
       </div> 
     );
   }
@@ -63,10 +74,12 @@ Comments.propTypes = {
   getCommentsAction: PropTypes.func.isRequired,
   createCommentAction: PropTypes.func.isRequired,
   slug: PropTypes.string.isRequired,
+  currentUser: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({comments}) => ({
+const mapStateToProps = ({comments, signin }) => ({
   data: comments.data,
+  currentUser: signin.currentUser
 });
 
 export default connect(mapStateToProps, { getCommentsAction, createCommentAction })(Comments);

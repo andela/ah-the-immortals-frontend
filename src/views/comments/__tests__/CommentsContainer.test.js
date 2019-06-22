@@ -10,6 +10,9 @@ import Comments from '../CommentsContainer';
 
 describe('Tests CommentsContainer', () => {
   const store = configureStore([thunk])({
+    signin: {
+      currentUser: 'issa'
+    },
     comments: { 
       data: {comments: [{
         'id': 87,

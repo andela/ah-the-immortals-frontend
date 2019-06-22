@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, FormControl, Form, Row, Col, Spinner } from 'react-bootstrap';
 
-const CreateReply = ({ replyWrite, replySubmit, value, isLoading }) => (
-  <Form onSubmit={replySubmit}>
+const EditComment = ({ editWrite, editSubmit, value, isLoading, placeholder }) => (
+  <Form onSubmit={editSubmit}>
     <Row>
       <Col>
-        <FormControl name="body" className="input-width" placeholder="Leave a reply" onChange={replyWrite} value={value} required />
+        <FormControl name="body" className="input-width" placeholder={placeholder} onChange={editWrite} value={value} required />
       </Col>
       <Col xs lg="2">
         { isLoading ? (
@@ -20,19 +20,20 @@ const CreateReply = ({ replyWrite, replySubmit, value, isLoading }) => (
               aria-hidden="true"
             />
             {' '}
-           SENDING...
+           EDITING...
           </Button>
-        ) : <Button type="submit">SEND</Button> }
+        ) : <Button type="submit">EDIT</Button> }
       </Col>
     </Row>
   </Form>
 );
 
-CreateReply.propTypes = {
-  replyWrite: PropTypes.func.isRequired,
-  replySubmit: PropTypes.func.isRequired,
+EditComment.propTypes = {
+  editWrite: PropTypes.func.isRequired,
+  editSubmit: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool.isRequired
+  isLoading: PropTypes.bool.isRequired,
+  placeholder: PropTypes.string.isRequired
 };
 
-export default CreateReply;
+export default EditComment;

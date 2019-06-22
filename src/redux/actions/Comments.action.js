@@ -7,8 +7,8 @@ import ACTION_CONSTANTS from '../constants/constants';
  *action for either success >>createCommentSuccess() or
  *failure >>createCommentFailure()
  */
-const { getCommentsApi, createCommentsApi, createChildCommentApi, getOneCommentApi } = APIS;
-const { READ_COMMENTS, READ_COMMENTS_FAILURE, CREATE_COMMENT, CREATE_REPLY, CREATE_COMMENT_FAILURE } = ACTION_CONSTANTS;
+const { deleteCommentApi, editCommentApi, getCommentsApi, createCommentsApi, createChildCommentApi, getOneCommentApi } = APIS;
+const { EDIT_COMMENT, EDIT_COMMENT_FAILURE, DELETE_COMMENT, DELETE_COMMENT_FAILURE, READ_COMMENTS, READ_COMMENTS_FAILURE, CREATE_COMMENT, CREATE_REPLY, CREATE_COMMENT_FAILURE } = ACTION_CONSTANTS;
 
 const getCommentsAction = (slug) => async (dispatch) => {
   try{
@@ -16,6 +16,27 @@ const getCommentsAction = (slug) => async (dispatch) => {
     dispatch(getCommentSuccess(response.data));
   } catch (error) {
     dispatch(getCommentFailure(error.response));
+  }
+};
+
+const editCommentAction = (data, slug, id, callBack) => async (dispatch) => {
+  try{
+    const response = await editCommentApi(data, slug, id);
+    dispatch(editCommentSuccess(response.data));
+    callBack();
+    dispatch(getCommentsAction(slug));
+  } catch (error) {
+    dispatch(editCommentFailure(error.response));
+  }
+};
+
+const deleteCommentAction = (slug, id) => async (dispatch) => {
+  try{
+    const response = await deleteCommentApi(slug, id);
+    dispatch(deleteCommentSuccess(response.data));
+    dispatch(getCommentsAction(slug));
+  } catch (error) {
+    dispatch(deleteCommentFailure(error.response));
   }
 };
 
@@ -50,6 +71,38 @@ const createChildCommentAction = (data, slug, id, callBack) => async (dispatch) 
     dispatch(createCommentFailure(error));
   }
 };
+
+/*
+ *Defines the action types for successful comment edit
+ */
+const editCommentSuccess = (response) => ({
+  type: EDIT_COMMENT,
+  payload: response,
+});
+
+/*
+ *Defines the action types for unsuccessful comment edit
+ */
+const editCommentFailure = (error) => ({
+  type: EDIT_COMMENT_FAILURE,
+  payload: error,
+});
+
+/*
+ *Defines the action types for successful comment deletion
+ */
+const deleteCommentSuccess = (response) => ({
+  type: DELETE_COMMENT,
+  payload: response,
+});
+
+/*
+ *Defines the action types for unsuccessful comment deletion
+ */
+const deleteCommentFailure = (error) => ({
+  type: DELETE_COMMENT_FAILURE, 
+  payload: error,
+});
 
 /*
  *Defines the action types for successful comment creation
@@ -91,4 +144,4 @@ const getCommentFailure = (error) => ({
   payload: error,
 });
 
-export { createCommentAction, createChildCommentAction, getCommentsAction, getOneCommentAction };
+export { createCommentAction, createChildCommentAction, getCommentsAction, getOneCommentAction, editCommentAction, deleteCommentAction };

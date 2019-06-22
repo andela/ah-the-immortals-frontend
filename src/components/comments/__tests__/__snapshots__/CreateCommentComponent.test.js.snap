@@ -24,6 +24,7 @@ exports[`Tests CreateCommentsComponent tests mounting of component 1`] = `
   }
 >
   <CreateComment
+    isLoading={false}
     onChange={[MockFunction]}
     onSubmit={[MockFunction]}
     value=""
