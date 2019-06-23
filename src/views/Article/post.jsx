@@ -76,9 +76,10 @@ class Post extends Component {
                   <div className="row text-muted">
 
                     <div className="col">
-                      <i className="fas fa-tags fa-1x" aria-hidden="true">      
-                        {post[item].tagList.map(singletag => (
-                          <button key={`${i + 1}`} type="button" className="btn btn-outline-info tag-btn">
+                      <i className="fas fa-tags fa-1x" aria-hidden="true">
+                        {'  '}      
+                        {post[item].tagList.map((singletag,index) => (
+                          <button key={`${index + 1}`} type="button" className="btn btn-outline-info btn-sm tag-btn">
                             {singletag}
                           </button>
                         ))}

@@ -14,7 +14,7 @@ class PaginationContainer extends Component {
     } = this.props;
     const {post:{pages}}=this.props;
     return (
-      <div className="pagination pagination-lg shadow p-3 mb-5 bg-white rounded">
+      <div className="pagination pagination-lg shadow p-3  bg-white rounded">
         <nav aria-label="Page navigation">
           <ul className="pagination">
             {pages.previous ? (

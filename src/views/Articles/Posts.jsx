@@ -7,7 +7,7 @@ import Spinner from '../Article/Spinner';
 import { getPages, getNextPages } from '../../redux/actions/postActions';
 import articlesUrl from '../../services/api';
 import '../../styles/App.css';
-import '../../styles/pagination.css';
+import '../../styles/pagination.scss';
 import PaginationContainer from '../Pagination/PaginationContainer';
 
 
@@ -89,12 +89,13 @@ class Posts extends Component {
             )}
         </div>
         <PaginationContainer
+          allowUnique={false}
           handleLink={this.handleLink}
           handleClick={this.handleClick}
           pageNumbers={pageNumbers}
           next={pages.next}
           previous={pages.previous}
-          currentPage={currentPage}
+          currentPage={currentPage} 
         />
         <br />
         <br />

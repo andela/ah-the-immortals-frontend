@@ -136,7 +136,7 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
           className="row"
         >
           <div
-            className="col-md-3 mt-4"
+            className="col"
           >
             <TopRatedArticles>
               <div
@@ -197,7 +197,7 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
             </TopRatedArticles>
           </div>
           <div
-            className="col-md-6"
+            className="col"
           >
             <Connect(Posts)>
               <Posts
@@ -221,12 +221,14 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
                     <br />
                   </div>
                   <Connect(PaginationContainer)
+                    allowUnique={false}
                     currentPage={1}
                     handleClick={[Function]}
                     handleLink={[Function]}
                     pageNumbers={Array []}
                   >
                     <PaginationContainer
+                      allowUnique={false}
                       currentPage={1}
                       getPages={[Function]}
                       handleClick={[Function]}
@@ -244,7 +246,7 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
                       }
                     >
                       <div
-                        className="pagination pagination-lg shadow p-3 mb-5 bg-white rounded"
+                        className="pagination pagination-lg shadow p-3  bg-white rounded"
                       >
                         <nav
                           aria-label="Page navigation"
@@ -265,7 +267,7 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
             </Connect(Posts)>
           </div>
           <div
-            className="col-md-3 mt-4"
+            className="col mt-2"
           >
             <PopularArticles>
               <div
