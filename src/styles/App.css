@@ -506,6 +506,11 @@ label {
     line-height: 1.875;
 }
 
+.far {
+    font-weight: 400;
+    font-size: 25px;
+}
+
 .timer{
     text-align: right;
     position: relative;
@@ -574,3 +579,49 @@ label {
     padding-left: 0;
     padding-right: 0;
 }
+.share-modal-popup{
+    margin-top: 25%;
+}
+
+.share-modal-popup-title{
+    -webkit-font-smoothing: antialiased;
+}
+
+.share-modal-buttons{
+    margin-right: 8px;
+}
+.main-svg{
+    display: flex;
+    margin: 0 20%;
+}
+
+.svg{
+    --iron-icon-height: 60px;
+    --iron-icon-width: 60px;
+    margin: 1px 0;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 1px 2px;
+    outline: none;
+    text-align: inherit;
+    font-family: inherit;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.icon-svg{
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+}
+
+.twitter-style {
+    margin: 0 10px;
+}
+
+.mail-style{
+    margin: 0 20px;
+    fill:#000000;
+}
+

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for the mail button component Test the mounting of the facebook button 1`] = `ReactWrapper {}`;

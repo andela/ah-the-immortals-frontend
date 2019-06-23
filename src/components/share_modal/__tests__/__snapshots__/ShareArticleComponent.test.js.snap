@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the successful mounting of the share article component Test successful mount 1`] = `ReactWrapper {}`;
