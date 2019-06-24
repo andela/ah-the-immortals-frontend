@@ -43,14 +43,16 @@ describe('Test view profile container', () => {
         ],
         error: {},
         userCount: 0
+      },
+      bookmarks: {
+        bookmarks: [ ]
       }
     });
-
-  
+  const bookmarks = {};
   const wrapper = mount(
     <Provider store={store}>
       <BrowserRouter>
-        <ViewProfile match={{params: {profile: {}}, isExact: true, path: '', url: ''}} />
+        <ViewProfile match={{params: {profile: {}}, isExact: true, path: '', url: ''}} bookmarks={bookmarks}  />
       </BrowserRouter>
     </Provider>
   );

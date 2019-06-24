@@ -571,7 +571,7 @@ label {
 }
 
 .profile-quotes {
-    max-width: 23.1rem;
+    width: 33%;
     padding: 1%;
 }
 
@@ -822,4 +822,9 @@ div.dv-star-rating{
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  .list_bookmarks{
+      text-align: center;
+      font-size: 150%;
   }

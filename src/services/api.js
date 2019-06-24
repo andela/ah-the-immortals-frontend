@@ -111,3 +111,4 @@ export const starClick = (slug, data) => axios.post(`${ROOT_URL}/articles/${slug
 
 export const optInOutApi = (data, headers) => axios.patch(`${ROOT_URL}/notifications/subscription/`, data, headers);
 export const fetchNotifStatus = (headers) => axios.get(`${ROOT_URL}/notifications/subscription/`, headers);
+export const listBookmarksApi = () => axios.get(`${ROOT_URL}/article/bookmarks/`, axiosHeader);
