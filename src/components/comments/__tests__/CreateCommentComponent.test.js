@@ -10,7 +10,8 @@ describe('Tests CreateCommentsComponent', () => {
   const props = {
     onChange: jest.fn(),
     onSubmit: jest.fn(),
-    value: ''
+    value: '',
+    isLoading: false
   };
   const wrapper = mount(
     <Router history={history}>

@@ -2,7 +2,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import { ROOT_URL } from '../../../services/api';
-import { createCommentAction, createChildCommentAction, getCommentsAction, getOneCommentAction } from '../Comments.action';
+import { createCommentAction, createChildCommentAction, getCommentsAction, getOneCommentAction, editCommentAction, deleteCommentAction } from '../Comments.action';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -124,6 +124,54 @@ describe('Tests comments actions', () => {
     );
     await store.dispatch(getCommentsAction(slug, jest.fn()));
     expect(store.getActions()[0].type).toEqual('READ_COMMENTS_FAILURE');
+    done();
+  });
+
+  it('tests successful edit of comments', async (done) => {
+    moxios.stubRequest(
+      replyUrl, {
+        status: 200,
+        response: {}
+      }
+    );
+    await store.dispatch(editCommentAction(data, slug, id, jest.fn()));
+    expect(store.getActions()[0].type).toEqual('EDIT_COMMENT');
+    done();
+  });
+
+  it('tests failure of edit of comments', async (done) => {
+    moxios.stubRequest(
+      replyUrl, {
+        status: 400,
+        error: {}
+      }
+    );
+    await store.dispatch(editCommentAction(data, slug, id, jest.fn()));
+    expect(store.getActions()[0].type).toEqual('EDIT_COMMENT_FAILURE');
+    done();
+  });
+
+  it('tests successful delete of comments', async (done) => {
+    moxios.stubRequest(
+      replyUrl, {
+        status: 200,
+        response: {}
+      }
+    );
+    await store.dispatch(deleteCommentAction(slug, id));
+    expect(store.getActions()[0].type).toEqual('DELETE_COMMENT');
+    done();
+  });
+
+  it('tests failure of delete of comments', async (done) => {
+    moxios.stubRequest(
+      replyUrl, {
+        status: 400,
+        error: {}
+      }
+    );
+    await store.dispatch(deleteCommentAction(slug, id));
+    expect(store.getActions()[0].type).toEqual('DELETE_COMMENT_FAILURE');
     done();
   });
 });

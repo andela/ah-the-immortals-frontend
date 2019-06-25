@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests RepliesContainer tests mounting of container 1`] = `
+exports[`Tests EditCommentContainer tests mounting of container 1`] = `
 <Router
   history={
     Object {
@@ -35,25 +35,28 @@ exports[`Tests RepliesContainer tests mounting of container 1`] = `
       }
     }
   >
-    <Connect(Replies)
-      createChildCommentAction={[MockFunction]}
+    <Connect(Edit)
+      editCommentAction={[MockFunction]}
       id={3}
+      placeholder="issa"
       slug="string"
     >
-      <Replies
-        createChildCommentAction={[Function]}
+      <Edit
         data={
           Object {
             "comments": Array [],
           }
         }
+        editCommentAction={[Function]}
         id={3}
+        placeholder="issa"
         slug="string"
       >
-        <CreateReply
+        <EditComment
+          editSubmit={[Function]}
+          editWrite={[Function]}
           isLoading={false}
-          replySubmit={[Function]}
-          replyWrite={[Function]}
+          placeholder="issa"
           value=""
         >
           <Form
@@ -80,7 +83,7 @@ exports[`Tests RepliesContainer tests mounting of container 1`] = `
                           className="input-width"
                           name="body"
                           onChange={[Function]}
-                          placeholder="Leave a reply"
+                          placeholder="issa"
                           required={true}
                           value=""
                         >
@@ -88,7 +91,7 @@ exports[`Tests RepliesContainer tests mounting of container 1`] = `
                             className="input-width form-control"
                             name="body"
                             onChange={[Function]}
-                            placeholder="Leave a reply"
+                            placeholder="issa"
                             required={true}
                             value=""
                           />
@@ -113,7 +116,7 @@ exports[`Tests RepliesContainer tests mounting of container 1`] = `
                             disabled={false}
                             type="submit"
                           >
-                            SEND
+                            EDIT
                           </button>
                         </Button>
                       </div>
@@ -123,9 +126,9 @@ exports[`Tests RepliesContainer tests mounting of container 1`] = `
               </Bootstrap(Row)>
             </form>
           </Form>
-        </CreateReply>
-      </Replies>
-    </Connect(Replies)>
+        </EditComment>
+      </Edit>
+    </Connect(Edit)>
   </Provider>
 </Router>
 `;

@@ -104,6 +104,78 @@ describe('Comments reducer', () => {
     });
   });
 
+  it('tests successful edit of comment', () => {
+    const action = {
+      type: ACTION_CONSTANTS.EDIT_COMMENT,
+      response: {}
+    };
+    expect(CommentsReducer(initialState, action)).toEqual({
+      data: {
+        comments: [
+          {
+            replies: []
+          }
+        ]
+      },
+      error: {},
+      isLoading: false
+    });
+  });
+
+  it('tests failure of edit of comment', () => {
+    const action = {
+      type: ACTION_CONSTANTS.EDIT_COMMENT_FAILURE,
+      error: {}
+    };
+    expect(CommentsReducer(initialState, action)).toEqual({
+      error: action.payload,
+      data: {
+        comments: [
+          {
+            replies: []
+          }
+        ]
+      },
+      isLoading: false
+    });
+  });
+
+  it('tests successful deletion of comment', () => {
+    const action = {
+      type: ACTION_CONSTANTS.DELETE_COMMENT,
+      response: {}
+    };
+    expect(CommentsReducer(initialState, action)).toEqual({
+      data: {
+        comments: [
+          {
+            replies: []
+          }
+        ]
+      },
+      error: {},
+      isLoading: false
+    });
+  });
+
+  it('tests failure of deletion of comment', () => {
+    const action = {
+      type: ACTION_CONSTANTS.DELETE_COMMENT_FAILURE,
+      error: {}
+    };
+    expect(CommentsReducer(initialState, action)).toEqual({
+      data: {
+        comments: [
+          {
+            replies: []
+          }
+        ]
+      },
+      error: action.payload,
+      isLoading: false
+    });
+  });
+
   it('tests invalid action type', () => {
     const action = {
       type: 'invalid'

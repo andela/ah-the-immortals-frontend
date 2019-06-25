@@ -1,6 +1,6 @@
 import ACTION_CONSTANTS from '../constants/constants';
 
-const { CREATE_COMMENT_FAILURE, CREATE_REPLY, CREATE_COMMENT, READ_COMMENTS, READ_COMMENTS_FAILURE } = ACTION_CONSTANTS;
+const { EDIT_COMMENT_FAILURE, DELETE_COMMENT, DELETE_COMMENT_FAILURE, EDIT_COMMENT, CREATE_COMMENT_FAILURE, CREATE_REPLY, CREATE_COMMENT, READ_COMMENTS, READ_COMMENTS_FAILURE } = ACTION_CONSTANTS;
 
 const initialState = {
   data: {
@@ -41,7 +41,42 @@ const CommentsReducer = (state = initialState, action) => {
       error: {},
       isLoading: false
     };
-  
+  case EDIT_COMMENT:
+    return {
+      ...state,
+      data: {
+        comments: [ ...state.data.comments ]
+      },
+      error: {},
+      isLoading: false
+    };
+  case EDIT_COMMENT_FAILURE:
+    return {
+      ...state,
+      data: {
+        comments: [ ...state.data.comments ]
+      },
+      error: action.payload,
+      isLoading: false
+    };
+  case DELETE_COMMENT:
+    return {
+      ...state,
+      data: {
+        comments: [ ...state.data.comments ]
+      },
+      error: {},
+      isLoading: false
+    };
+  case DELETE_COMMENT_FAILURE:
+    return {
+      ...state,
+      data: {
+        comments: [ ...state.data.comments ]
+      },
+      error: action.payload,
+      isLoading: false
+    };
   case CREATE_COMMENT_FAILURE:
     return {
       ...state,
