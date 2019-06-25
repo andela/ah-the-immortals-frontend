@@ -13,9 +13,9 @@ class MailButtonComponent extends Component {
     return (
       <div className="svg">
         <button className="btn btn-link" id="twt" type="button" onClick={() => window.open(shareUrl, '_blank')}>
-          <img src="https://img.icons8.com/doodle/64/000000/mail-with-wings.png" alt="avatar" />
+          <img src="https://img.icons8.com/color/64/000000/gmail.png" />
         </button>
-        <div className="mail-style">Mail</div>
+        <div className="mail-style">Gmail</div>
       </div>
     );
   }
