@@ -3,19 +3,20 @@ import { Router } from 'react-router-dom';
 import toJson from 'enzyme-to-json';
 import { mount } from 'enzyme';
 import { createBrowserHistory } from 'history';
-import CreateReply from '../CreateReplyComponent';
+import EditComment from '../EditCommentComponent';
 
 describe('Tests CommentsReplyComponent', () => {
   const history = createBrowserHistory();
   const props = {
-    replyWrite: jest.fn(),
-    replySubmit: jest.fn(),
+    editWrite: jest.fn(),
+    editSubmit: jest.fn(),
     value: '',
-    isLoading: false
+    isLoading: false,
+    placeholder: 'issa'
   };
   const wrapper = mount(
     <Router history={history}>
-      <CreateReply {...props} />
+      <EditComment {...props} />
     </Router>
   );
   it('tests mounting of component', () => {

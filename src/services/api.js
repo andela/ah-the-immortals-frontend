@@ -29,6 +29,8 @@ const createCommentsApi = (data, slug) => axios.post(`${commentUrl}/${slug}/comm
 const createChildCommentApi = (data, slug, id) => axios.post(`${commentUrl}/${slug}/comments/${id}/`, data, axiosHeader);
 const getCommentsApi = (slug) => axios.get(`${commentUrl}/${slug}/comments/`, axiosHeader);
 const getOneCommentApi = (slug, id) => axios.get(`${commentUrl}/${slug}/comments/${id}/`, axiosHeader);
+const deleteCommentApi = (slug, id ) => axios.delete(`${commentUrl}/${slug}/comments/${id}/`, axiosHeader);
+const editCommentApi = (data, slug, id ) => axios.put(`${commentUrl}/${slug}/comments/${id}/`, data, axiosHeader);
 
 const articlesUrl = `${ROOT_URL}/articles`;
 export const profileApi = (data, username, headers) => axios.patch(
@@ -71,7 +73,9 @@ const APIS = {
   getCommentsApi,
   createChildCommentApi,
   getOneCommentApi,
-  articlesUrl
+  articlesUrl,
+  deleteCommentApi,
+  editCommentApi,
 };
 
 export default APIS;

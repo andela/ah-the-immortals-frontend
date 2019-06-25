@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests DeleteCommentContainer tests mounting of container 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Connect(DeleteComment)
+      deleteCommentAction={[MockFunction]}
+      id={3}
+      slug="string"
+    >
+      <DeleteComment
+        data={
+          Object {
+            "comments": Array [],
+          }
+        }
+        deleteCommentAction={[Function]}
+        id={3}
+        slug="string"
+      >
+        <Button
+          active={false}
+          className="card-link btn-comment"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+          variant="danger"
+        >
+          <button
+            className="card-link btn-comment btn btn-danger"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="fas fa-trash-alt"
+            />
+          </button>
+        </Button>
+      </DeleteComment>
+    </Connect(DeleteComment)>
+  </Provider>
+</Router>
+`;

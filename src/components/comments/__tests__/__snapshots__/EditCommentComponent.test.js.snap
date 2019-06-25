@@ -23,10 +23,11 @@ exports[`Tests CommentsReplyComponent tests mounting of component 1`] = `
     }
   }
 >
-  <CreateReply
+  <EditComment
+    editSubmit={[MockFunction]}
+    editWrite={[MockFunction]}
     isLoading={false}
-    replySubmit={[MockFunction]}
-    replyWrite={[MockFunction]}
+    placeholder="issa"
     value=""
   >
     <Form
@@ -53,7 +54,7 @@ exports[`Tests CommentsReplyComponent tests mounting of component 1`] = `
                     className="input-width"
                     name="body"
                     onChange={[MockFunction]}
-                    placeholder="Leave a reply"
+                    placeholder="issa"
                     required={true}
                     value=""
                   >
@@ -61,7 +62,7 @@ exports[`Tests CommentsReplyComponent tests mounting of component 1`] = `
                       className="input-width form-control"
                       name="body"
                       onChange={[MockFunction]}
-                      placeholder="Leave a reply"
+                      placeholder="issa"
                       required={true}
                       value=""
                     />
@@ -86,7 +87,7 @@ exports[`Tests CommentsReplyComponent tests mounting of component 1`] = `
                       disabled={false}
                       type="submit"
                     >
-                      SEND
+                      EDIT
                     </button>
                   </Button>
                 </div>
@@ -96,6 +97,6 @@ exports[`Tests CommentsReplyComponent tests mounting of component 1`] = `
         </Bootstrap(Row)>
       </form>
     </Form>
-  </CreateReply>
+  </EditComment>
 </Router>
 `;

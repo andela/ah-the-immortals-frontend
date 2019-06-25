@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { Button } from 'react-bootstrap';
+import { Button, Row, Col } from 'react-bootstrap';
 import Replies from '../../views/comments/RepliesContainer';
+import DeleteComment from '../../views/comments/DeleteCommentContainer';
+import Edit from '../../views/comments/EditCommentContainer';
 
-const ViewComments = ({ comments, slug }) => (
+const ViewComments = ({ comments, slug, user }) => (
   comments.map((comment, index) => (
     <div className="tab-content" key={`${index + 1}`}>           
       <div className="media-body ml-3">
@@ -38,6 +40,15 @@ const ViewComments = ({ comments, slug }) => (
               {' '}
                 replies
             </Button>
+            {user === comment.author.username ? (
+              <span>
+                <Button className="ml-5 card-link btn-comment" data-toggle="collapse" data-target={`#editComment-${comment.id}`}><i className="fas fa-edit" /></Button>
+                <DeleteComment slug={slug} id={comment.id} />
+              </span>
+            ): null }
+            <div className="collapse mt-3" id={`editComment-${comment.id}`}>
+              <Edit id={comment.id} slug={slug} placeholder={comment.body} />
+            </div>
             <div className="collapse mt-3" id={`createreply-${comment.id}`}>
               <Replies id={comment.id} slug={slug} />
             </div>
@@ -63,6 +74,16 @@ const ViewComments = ({ comments, slug }) => (
                       </div>
                     </div>
                     <p className="card-text">{reply.body}</p>
+                  </div>
+                  <hr />
+                  {user === reply.author.username ? (
+                    <span>
+                      <Button className="card-link btn-comment" data-toggle="collapse" data-target={`#editReply-${reply.id}`}><i className="fas fa-edit" /></Button>
+                      <DeleteComment slug={slug} id={reply.id} />
+                    </span>
+                  ): null }
+                  <div className="collapse mt-3" id={`editReply-${reply.id}`}>
+                    <Edit id={reply.id} slug={slug} placeholder={reply.body} />
                   </div>
                 </div>
               </div>       
