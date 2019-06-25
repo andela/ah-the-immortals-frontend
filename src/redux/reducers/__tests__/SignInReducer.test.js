@@ -58,7 +58,7 @@ describe('test for sign in reducers', () => {
       type: ACTION_CONSTANTS.LOGOUT,
     }; 
     expect(signInReducer(initialState, action)).toEqual({
-      currentUser:null,
+      currentUser:'',
       isAuthenticated: false,
       user: {},
       errors: {}
@@ -72,7 +72,7 @@ describe('test for sign in reducers', () => {
       isAuthenticated: false,
       user: {},
       errors: {},
-      currentUser: null
+      currentUser: ''
     });
   });
 });

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import renderHTML from 'react-render-html';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
+import StarRatings from 'react-star-ratings';
 import Spinner from './Spinner';
 import { getPost, deletePost } from '../../redux/actions/postActions';
 import appAction  from '../../redux/actions/app.action';
@@ -12,6 +13,9 @@ import '../../styles/Likes.css';
 import Likes from '../Likes/LikesContainer';
 import Comments from '../comments/CommentsContainer';
 import ShareModal from '../../components/share_modal/ShareArticleComponent';
+import { starClickAction } from '../../redux/actions/rateArtcicles';
+import ArticleRating from '../../components/RateArticles/RateArtcles';
+
 
 class Post extends Component {
   componentDidMount() {
@@ -24,7 +28,8 @@ class Post extends Component {
   onDeleteClick = (slug) => {const { history, delPost } = this.props;if (window.confirm('Delete This article?')) {delPost(slug);history.push('/postarticle');}}
 
   render() {
-    const { post: { post, loading }, currentUser } = this.props;
+    // const average = /5;
+    const { post: { post, loading }, currentUser, starClick } = this.props;
     const { match } = this.props;
     const { params } = match;
     const { slug } = params;
@@ -62,6 +67,14 @@ class Post extends Component {
                     <div className="col text-left">
                       <h1>{post[item].title}</h1>
                     </div>
+                    <div className="fivestar"> 
+                      <StarRatings
+                        starRatedColor="#ffa534"
+                        rating={post[item].ratings.average_ratings/5 || 0}
+                        starDimension="35px"
+                        numberOfStars={1}
+                      />
+                    </div>
                     <div className="col-sm-2 text-right">
                       <ShareModal article={post[item]} />
                     </div>
@@ -74,12 +87,10 @@ class Post extends Component {
                   <br />
                   <br />
                   <div className="row text-muted">
-
                     <div className="col">
-                      <i className="fas fa-tags fa-1x" aria-hidden="true">
-                        {'  '}      
-                        {post[item].tagList.map((singletag,index) => (
-                          <button key={`${index + 1}`} type="button" className="btn btn-outline-info btn-sm tag-btn">
+                      <i className="fas fa-tags fa-1x" aria-hidden="true">      
+                        {post[item].tagList.map((singletag, j)=> (
+                          <button key={`${j + 1}`} type="button" className="btn btn-outline-info tag-btn">
                             {singletag}
                           </button>
                         ))}
@@ -89,8 +100,8 @@ class Post extends Component {
                   <br />
                   <br />
                   <div className="row text-left text-muted meta-data">
-                    <div className="col">
-                      <i className="fas fa-star-half-alt fa-1x" aria-hidden="true"> Ratings</i>
+                    <div className="col rate">
+                      <ArticleRating currentUser={currentUser} starClick={starClick} article={post[item]} />
                     </div>
                     <br />
                     <div className="col">
@@ -104,9 +115,7 @@ class Post extends Component {
                   </div>
                   <br />
                   <br />
-                  <div className=" text-muted">
-                    <i className="far far fa-star fa-1x" aria-hidden="true"> Rate</i>
-                  </div>
+                  <div className=" text-muted" />
                   <br />
                   <br />
                   <div className="row">
@@ -122,12 +131,12 @@ class Post extends Component {
                           <i className="fas fa-edit fa-1x" aria-hidden="true"> Edit</i>
                         </Link>
                       )
-                        : null}
+                        : ''}
                     </div>
                     <div className="col">
                       <Link to="#null">
                         {currentUser === post[item].author.username ? <i className="fa fa-trash fa-1x" onClick={() => this.onDeleteClick(post[item].slug)} aria-hidden="true"> Delete</i>
-                          : null}
+                          : ''}
                       </Link>
                     </div>
                   </div>
@@ -157,6 +166,7 @@ Post.propTypes = {
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   action:PropTypes.func.isRequired,
+  starClick: PropTypes.func.isRequired,
   currentUser:PropTypes.string.isRequired
 };
 
@@ -165,4 +175,4 @@ const mapStateToProps = state => ({
   currentUser: state.signin.currentUser,
 });
 
-export default connect(mapStateToProps, { singlePost: getPost, delPost: deletePost, action: appAction })(Post);
+export default connect(mapStateToProps, { singlePost: getPost, delPost: deletePost, action: appAction, starClick: starClickAction })(Post);

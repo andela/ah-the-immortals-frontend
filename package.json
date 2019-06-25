@@ -101,6 +101,8 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-tag-input": "^6.4.0",
+    "react-star-rating-component": "^1.4.1",
+    "react-star-ratings": "^2.3.0",
     "react-toastify": "^5.2.1",
     "react-toasts": "^3.0.3",
     "react-transition-group": "^1.2.1",
