@@ -17,13 +17,34 @@ import NavigationBar from '../NavigationBarContainer';
 describe('Tests NavigationBar Container', () => {
   const store = configureStore([thunk])({
     signup: { user: {}, errors: {} },
-    signin: { user: {}, errors: {} },
+    signin: { user: {}, errors: {}, isAuthenticated: false },
     search:{},
-    prompt:{show:true}
+    prompt:{show:true},
+    notify: {
+      unreadNotifications: [],
+      notifications: [
+        {
+          'id': 13,
+          'unread': false,
+          'verb': 'article_created',
+          'timestamp': '2019-06-19 11:45:49',
+          'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+        }
+      ]
+    }
   });
   const history = createBrowserHistory();
   const props={
     history,
+    notifications: [
+      {
+        'id': 13,
+        'unread': false,
+        'verb': 'article_created',
+        'timestamp': '2019-06-19 11:45:49',
+        'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+      }
+    ],
     singlePost:jest.fn()
   };
   const wrapper = mount(
@@ -33,19 +54,15 @@ describe('Tests NavigationBar Container', () => {
       </Provider>
     </Router>
   );
-
   it('opens modal when button is clicked', () => {
     const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
-
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
     });
     expect(wrapper.find(SignupModal).prop('show')).toEqual(true);
   });
-
   it('handles input change in form', () => {
     const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
-
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
     });
@@ -60,50 +77,38 @@ describe('Tests NavigationBar Container', () => {
     });
     expect(input.length).toEqual(1);
   });
-
   it('handles submit event', () => {
     const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
-
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-
     const form = wrapper.find(Form);
     const submitBtn = form.find('input[type="submit"]');
-
     submitBtn.simulate('submit', {
       preventDefault: jest.fn()
     });
     expect(submitBtn.length).toEqual(1);
   });
-
   it('Simulates key up event', () => {
     const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
-
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-
     const form = wrapper.find(Form);
     const submitBtn = form.find('input[type="submit"]');
-
     const inputs = {
       emailInput: form.find('input[name="email"]'),
       usernameInput: form.find('input[name="username"]'),
       passwordInput: form.find('input[name="password"]'),
       passwordConfirm: form.find('input[name="password_confirm"]')
     };
-
     keyUp(inputs, submitBtn);
   });
-
   it('Simulates click of signIn link', () => {
     const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
-
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-
     const modal = wrapper.find(SignupModal);
     const link = modal.find(Link);
     link.simulate('click', {
@@ -114,21 +119,16 @@ describe('Tests NavigationBar Container', () => {
 
   it('handles close modal', () => {
     const signupBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Get Started'));
-
     signupBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-
     const modal = wrapper.find(SignupModal);
     const closeBtn = modal.find(CloseButton);
-
     closeBtn.simulate('click');
     expect(closeBtn.length).toEqual(1);
   });
-
   it('opens sign in modal when button is clicked', () => {
     const signInBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Sign In'));
-
     signInBtn.simulate('click', {
       preventDefault: jest.fn()
     });
@@ -137,14 +137,11 @@ describe('Tests NavigationBar Container', () => {
 
   it('handles sign in submit', () => {
     const signInBtn = wrapper.findWhere(n => n.type() === 'button' && n.contains('Sign In'));
-
     signInBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-
     const loginForm = wrapper.find(LogInForm);
     const submitBtn = loginForm.find('input[type="submit"]');
-
     submitBtn.simulate('submit', {
       preventDefault: jest.fn()
     });
@@ -156,15 +153,12 @@ describe('Tests NavigationBar Container', () => {
     signInBtn.simulate('click', {
       preventDefault: jest.fn()
     });
-
     const form = wrapper.find(LogInForm);
     const submitButton = form.find('input[type="submit"]');
-
     const inputs = {
       emailInput: form.find('input[name="email"]'),
       passwordInput: form.find('input[name="password"]')
     };
-
     keyUp(inputs, submitButton);
   });
   it('tests click of signUp link', () => {
@@ -197,9 +191,61 @@ describe('Tests NavigationBar Container', () => {
   });
   it('simulates click twitter', () => {
     const twtBtn = wrapper.find('button[id="twt"]').first();
-    twtBtn.simulate('click', {
-      preventDefault: jest.fn()
-    });
+    twtBtn.simulate('click', { preventDefault: jest.fn()});
     expect(twtBtn.length).toEqual(1);
+  });
+});
+describe('it tests notifications', () => {
+  const store = configureStore([thunk])({
+    signup: { user: {}, errors: {} },
+    signin: { user: {}, errors: {}, isAuthenticated: true },
+    search:{},
+    prompt:{show:true},
+    notify: {
+      notifications: [{
+        'id': 13,
+        'unread': false,
+        'verb': 'article_created',
+        'timestamp': '2019-06-19 11:45:49',
+        'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+      }],
+      unreadNotifications:[]
+    }
+  });
+  const history = createBrowserHistory();
+  const noteProps={
+    history,
+    notifications: [{
+      'id': 13,
+      'unread': false,
+      'verb': 'article_created',
+      'timestamp': '2019-06-19 11:45:49',
+      'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+    }],
+    unreadNotifications: [{
+      'id': 10,
+      'unread': false,
+      'verb': 'article_created',
+      'timestamp': '2019-06-19 11:45:49',
+      'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+    }],
+    singlePost:jest.fn()
+  };
+  const noteWrapper = mount(
+    <Router history={history}>
+      <Provider store={store}>
+        <NavigationBar {...noteProps} />
+      </Provider>
+    </Router>
+  );
+  it('simulates show notifications', () => {
+    const noteBtn = noteWrapper.find('button[id="note-bell"]');
+    noteBtn.simulate('click', { preventDefault: jest.fn()});
+    expect(noteBtn.length).toEqual(1);
+  });
+  it('simulates clear notifications', () => {
+    const clearBtn = noteWrapper.find('button[id="clear-btn"]');
+    clearBtn.simulate('click', { preventDefault: jest.fn()});
+    expect(clearBtn.length).toEqual(1);
   });
 });

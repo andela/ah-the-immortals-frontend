@@ -1,20 +1,56 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import '../../styles/App.css';
 
-const SignedInLinks = ({ handleLogout, username }) => (
+const SignedInLinks = ({handleLogout, username, handleClick, notifications, unread, handleClear}) => (
   <div className="nav ml-auto">
-    <NavLink to="/postarticle" className="nav-link mt-1 mr-2">
+    <div
+      className="bell"
+    >
+      <p className="notification">
+        <button
+          type="button"
+          onClick={handleClick}
+          id="note-bell"
+          data-toggle="dropdown"
+          className="button-bell"
+          aria-haspopup="true"
+          aria-expanded="false"
+          data-target="#notificationsmenu"
+        >
+          <i className="fa fa-bell notnotif text-dark mt-3" />
+        </button>
+        <span className={unread ? 'badge' : 'hidden'}>{unread}</span>
+      </p>
+      <div className="dropdown-menu  dropdown-menu-sm-left scrollable-menu" id="notificationsmenu">
+        <p className="notes">
+          Notifications
+          <button type="button" id="clear-btn" className="clear-note" onClick={handleClear}>Clear All</button>
+        </p>
+
+        <div className="dropdown-divider" />
+        {notifications.length > 0 ? notifications.map(notification => (
+          <ul className="text-left notify" key={notification.id}>
+            <li className="dropdown-item menu-item">
+              <Link to={`/post/${notification.verb}`}>
+                {notification.description }
+              </Link>
+            </li>
+          </ul>
+        )): <p className="empty-note">You have no notifications</p>}
+      </div>
+    </div>
+    <NavLink to="/postarticle" className="nav-link mt-1 mr-1">
       Post Article
     </NavLink>
-    <i className="fa fa-bell notnotif text-dark mt-3" />
     <NavLink
-      to="#null"
       className="nav-link dropdown-toggle"
       role="button"
       data-toggle="dropdown"
       data-target="#profileDropdown"
       aria-expanded="true"
+      to=""
     >
       <i className="fa fa-user-circle ml-3 mr-2 mt-2" />
       <span className="mr-1">{username}</span>
@@ -27,7 +63,7 @@ const SignedInLinks = ({ handleLogout, username }) => (
       </div>
       <div className="dropdown-item">
         <NavLink
-          to="#null"
+          to="/"
           className="nav-link"
         >
           Settings
@@ -48,5 +84,9 @@ const SignedInLinks = ({ handleLogout, username }) => (
 SignedInLinks.propTypes = {
   handleLogout: PropTypes.func.isRequired,
   username: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  notifications: PropTypes.array.isRequired,
+  unread: PropTypes.number.isRequired,
+  handleClear: PropTypes.func.isRequired,
 };
 export default SignedInLinks;

@@ -8,12 +8,42 @@ import SignedInLinks from '../signedInLinks';
 describe('Tests rendering of links on navigation bar when the user is logged in', () => {
   const history = createBrowserHistory();
   const mockHandleLogout = jest.fn;
+  const mockHandleClick = jest.fn;
+  const mockHandleClear = jest.fn;
   const username = '';
+  const notifications = [
+    {
+      'id': 13,
+      'unread': false,
+      'verb': 'article_created',
+      'timestamp': '2019-06-19 11:45:49',
+      'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+    }];
+  const unreadNotifications = [
+    {
+      'id': 10,
+      'unread': false,
+      'verb': 'article_created',
+      'timestamp': '2019-06-19 11:45:49',
+      'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+    },
+    {
+      'id': 9,
+      'unread': false,
+      'verb': 'article_created',
+      'timestamp': '2019-06-19 11:45:49',
+      'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
+    }
+  ];
   const wrapper = mount(
     <Router history={history}>
       <SignedInLinks 
         handleLogout={mockHandleLogout}
         username={username}
+        handleClick={mockHandleClick}
+        notifications={notifications}
+        unread={unreadNotifications.length}
+        handleClear={mockHandleClear}
       />
     </Router>
 

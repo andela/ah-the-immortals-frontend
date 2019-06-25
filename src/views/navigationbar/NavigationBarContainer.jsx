@@ -12,6 +12,7 @@ import { facebookAuth, googleAuth, twitterAuth } from '../../redux/actions/Socia
 import RenderedLinks from '../../components/navbar/renderedLinks';
 import tokenDecoded from '../../services/tokenDecoder';
 import promptAction from '../../redux/actions/Prompt.action';
+import { fetchNotification, fetchUnread, clearNotify } from '../../redux/actions/notifications.action';
 
 class NavigationBar extends Component {
   static propTypes = {
@@ -25,7 +26,12 @@ class NavigationBar extends Component {
     logoutAction: PropTypes.func.isRequired,
     result: PropTypes.object.isRequired,
     history:PropTypes.object.isRequired,
-    promptShow:PropTypes.func.isRequired
+    promptShow:PropTypes.func.isRequired,
+    fetchNotification: PropTypes.func.isRequired,
+    notifications: PropTypes.object.isRequired,
+    fetchUnread: PropTypes.func.isRequired,
+    unreadNotifications: PropTypes.object.isRequired,
+    clearNotify: PropTypes.func.isRequired,
   };
   state = {
     show: false,
@@ -170,57 +176,65 @@ class NavigationBar extends Component {
       show: false,
       signInShow: false
     });
-  }
+  };
   handleLogout = (e) => {
     e.preventDefault();
     const { logoutAction } = this.props;
     logoutAction();
   };
+  showNotifications = (e) => {
+    e.preventDefault();
+    const { fetchNotification: getNotify } = this.props;
+    getNotify();
+  };
+  componentDidMount() {
+    const { fetchUnread: getUnread } = this.props;
+    getUnread();
+  }
+  handleDel = (e) => {
+    e.preventDefault();
+    const { clearNotify: clearNotes } = this.props;
+    clearNotes();
+  };
   render() {
     const { show, signInShow, errorShow, signInError } = this.state;
-    const { signindata, signupdata, history, result } = this.props;
+    const { signindata, signupdata, history, result, unreadNotifications: { unreadNotifications }, notifications: { notifications } } = this.props;
     const facebook = this.handleFacebook;
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
     const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated || isLoggedIn();
-    const links = isAuthenticated ?
-      <SignedInLinks handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username || tokenDecoded()} /> : (
-        <SignedOutLinks
-          showModal={this.showModal}
-          closeModal={this.closeModal}
-          show={show}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          handleSignInSubmit={this.handleSignInSubmit}
-          signInShow={signInShow}
-          facebook={facebook}
-          google={google}
-          twitter={twitter}
-          handleSignInLink={this.handleSignInLink}
-          signupdata={signupdata}
-          errorShow={errorShow}
-          handleSignUpLink={this.handleSignUpLink}
-          signindata={signindata}
-          signInError={signInError}
-          handleSignInShow={this.handleSignInShow}
-        />
-      );
+    const links = isAuthenticated ? <SignedInLinks handleClear={this.handleDel} unread={unreadNotifications.length} notifications={notifications} handleClick={this.showNotifications} handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username || tokenDecoded()} /> : (
+      <SignedOutLinks
+        showModal={this.showModal}
+        closeModal={this.closeModal}
+        show={show}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        handleSignInSubmit={this.handleSignInSubmit}
+        signInShow={signInShow}
+        facebook={facebook}
+        google={google}
+        twitter={twitter}
+        handleSignInLink={this.handleSignInLink}
+        signupdata={signupdata}
+        errorShow={errorShow}
+        handleSignUpLink={this.handleSignUpLink}
+        signindata={signindata}
+        signInError={signInError}
+        handleSignInShow={this.handleSignInShow}
+      />
+    );
     return (
       <RenderedLinks links={links} history={history} result={result} />
     );
   }
 }
-
-const mapStateToProps = ({ signup, signin, search, prompt }) => {
+const mapStateToProps = ({ signup, signin, search, prompt, notify }) => {
   return {
-    signupdata: signup,
-    signindata: signin,
-    result: search,
-    prompt
+    signupdata: signup, signindata: signin,
+    result: search, prompt, notifications: notify, unreadNotifications: notify,
   };
 };
-
-export default connect(mapStateToProps, {
-  signup: signUpAction, signInAction:logInAction, facebookAuth, twitterAuth,
-  googleAuth, logoutAction, promptShow: promptAction
+export default connect(mapStateToProps, {signup: signUpAction, signInAction:logInAction, facebookAuth, twitterAuth,
+  googleAuth, logoutAction, promptShow: promptAction, fetchNotification, fetchUnread, clearNotify
 })(withRouter(NavigationBar));
