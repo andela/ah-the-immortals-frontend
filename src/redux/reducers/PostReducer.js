@@ -7,7 +7,10 @@ import {
   EDIT_POST,
   GET_PAGES,
   GET_PAGES_NEXT,
-  RATE_ARTICLE
+  RATE_ARTICLE,
+  REPORT_POST,
+  GET_REPORTS,
+  DELETE_REPORT
 
 } from '../constants/types';
 import ACTION_CONSTANTS from '../constants/constants';
@@ -22,7 +25,11 @@ const initialState = {
   pagination: {},
   editpost: [],
   loading: false,
-  likeError: {}
+  likeError:{},
+  Report:[],
+  AllReports:{
+    'escalated articles':[]
+  },
 };
 const checkHighlights = (post, highlights, action) => {
   if (post.article.highlights) {
@@ -31,6 +38,7 @@ const checkHighlights = (post, highlights, action) => {
     });
   }
   return highlights;
+ 
 };
 export default function (state = initialState, action) {
   let { post } = state;
@@ -177,6 +185,23 @@ export default function (state = initialState, action) {
           }
         },
       }
+    };
+  case REPORT_POST:
+    return {
+      ...state,
+      Report: action.payload,
+      loading: false
+    };
+  case GET_REPORTS:
+    return {
+      ...state,
+      AllReports: action.payload,
+      loading: false
+    };
+  case DELETE_REPORT:
+    return {
+      ...state,
+      posts: state.posts.filter(post => post.slug !== action.payload)
     };
   default:
     return state;

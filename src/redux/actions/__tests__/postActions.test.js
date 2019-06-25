@@ -4,16 +4,17 @@ import moxios from 'moxios';
 import {
   addPost,
   getPosts,
-  getPost, deletePost, editPost,getNextPages,getPages
+  getPost, deletePost, editPost,getNextPages,getPages,deleteReport,getReports,reportArticle
 } from '../postActions';
 import {
   ADD_POST, EDIT_POST,
   CLEAR_ERRORS,
   GET_POSTS,
   POST_LOADING,
-  GET_POST, DELETE_POST, GET_ERRORS,GET_PAGES,GET_PAGES_NEXT
+  GET_POST, DELETE_POST, GET_ERRORS,GET_PAGES,GET_PAGES_NEXT,
+  DELETE_REPORT,GET_REPORTS,REPORT_POST
 } from '../../constants/types';
-import { ROOT_URL }  from '../../../services/api';
+import { ROOT_URL  }  from '../../../services/api';
 
 describe('Test the creation of an article', () => {
   let testStore = configureMockStore([thunk]);
@@ -59,7 +60,77 @@ describe('Test the creation of an article', () => {
     expect(store.getActions()[0].type).toEqual(GET_ERRORS);
     done();
   });
+  it('Admin deletes an article', async (done) => {
+    const testStore = configureMockStore([thunk]);
+    const store = testStore({});
+    moxios.stubRequest(
+      `${ROOT_URL}/article/no-more/escalate/`, {
+        status: 200,
+        response: {
+          message: 'Article \'no-more\' deleted'
+        }
+      }
+    );
+    await store.dispatch(deleteReport('no-more'));
+    expect(store.getActions()[0].type).toEqual(DELETE_REPORT);
+    done();
+  });
 
+  it('Admin deletes an article and dispatches error action on failure', async (done) => {
+    const testStore = configureMockStore([thunk]);
+    const store = testStore({});
+    moxios.stubRequest(
+      `${ROOT_URL}/article/no-more/escalate/`, {
+        status: 400,
+        response: {
+          message: 'Article \'no-more\' deleted'
+        }
+      }
+    );
+    await store.dispatch(deleteReport('no-more'));
+    expect(store.getActions()[0].type).toEqual(GET_ERRORS);
+    done();
+  });
+  it('gets reports and dispatches actions appropriately', async (done) => {
+    moxios.stubRequest(`${ROOT_URL}/article/escalate/`, {
+      status: 200,
+      response: {
+        data: {
+          results: {
+            articles: []
+          }
+        }
+      }
+    });
+    await store.dispatch(getReports());
+    expect(store.getActions()[1].type).toEqual(GET_REPORTS);
+    done();
+  });
+
+  
+  it('reportArticle', async (done) => {
+    moxios.stubRequest(`${ROOT_URL}/article/no-more/escalate/`, {
+      status: 200,
+      response: {
+        data: {}
+      }
+    });
+    await store.dispatch(reportArticle('no-more', {}));
+    expect(store.getActions()[1].type).toEqual(REPORT_POST);
+    done();
+  });
+  it('Report failure', async (done) => {
+    moxios.stubRequest(`${ROOT_URL}/article/no-more/escalate/`, {
+      status: 500,
+      response: {
+        data: {}
+      }
+    });
+    await store.dispatch(reportArticle('no-more', {}));
+    expect(store.getActions()[1].type).toEqual(REPORT_POST);
+    expect(store.getActions()[1].payload).toEqual(null);
+    done();
+  });
   it('posts an article', async (done) => {
     moxios.stubRequest(`${url}/`, {
       status: 200,

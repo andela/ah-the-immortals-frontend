@@ -12,6 +12,7 @@ const socialAuthUrl = `${ROOT_URL}/users/oauth/`;
 const resetconfirmUrl = `${ROOT_URL}/users/password/reset/confirm/`;
 const commentUrl = `${ROOT_URL}/articles`;
 const likeCommentUrl = `${ROOT_URL}/articles/comments`;
+const reportUrl = `${ROOT_URL}/article`;
 const token = window.localStorage.getItem('token');
 const authorization = token ? { Authorization: `Bearer ${token}` } : {};
 const axiosHeader = {
@@ -122,3 +123,8 @@ export const starClick = (slug, data) => axios.post(`${ROOT_URL}/articles/${slug
 export const optInOutApi = (data, headers) => axios.patch(`${ROOT_URL}/notifications/subscription/`, data, headers);
 export const fetchNotifStatus = (headers) => axios.get(`${ROOT_URL}/notifications/subscription/`, headers);
 export const listBookmarksApi = () => axios.get(`${ROOT_URL}/article/bookmarks/`, axiosHeader);
+export const reportArticleApi = (slug, postData) => axios.post(`${reportUrl}/${slug}/escalate/`, postData, axiosHeader);
+export const getreportsApi = () => axios.get(`${reportUrl}/escalate/`,axiosHeader);
+export const deleteReportApi = (slug) => {
+  return axios.delete(`${reportUrl}/${slug}/escalate/`, axiosHeader);
+};

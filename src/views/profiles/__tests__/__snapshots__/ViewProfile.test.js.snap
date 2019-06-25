@@ -187,6 +187,9 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                                     </span>
                                   </h5>
                                 </div>
+                                <div
+                                  className="col text-right"
+                                />
                                 <p />
                               </div>
                             </div>

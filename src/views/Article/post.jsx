@@ -184,9 +184,10 @@ class Post extends Component {
                   <br />
                   <div className="row text-muted">
                     <div className="col">
-                      <i className="fas fa-tags fa-1x" aria-hidden="true">
-                        {post[item].tagList.map((singletag, j) => (
-                          <button key={`${j + 1}`} type="button" className="btn btn-outline-info tag-btn">
+                      <i className="fas fa-tags fa-1x" aria-hidden="true"> 
+                        {' '}     
+                        {post[item].tagList.map((singletag, j)=> (
+                          <button key={`${j + 1}`} type="button" className="btn-sm btn-outline-info tag-btn">
                             {singletag}
                           </button>
                         ))}
@@ -235,6 +236,20 @@ class Post extends Component {
                           : ''}
                       </Link>
                     </div>
+                  </div>
+                  <br />
+                  <br />
+                  <div className="text-left">
+                    {currentUser === post[item].author.username ? (
+                      null
+                    )
+                      : currentUser ?(
+                        <Link to={`/report/${post[item].slug}`}>
+                          <i className=" fas fa-flag fa-1x" aria-hidden="true"> Report</i>
+                        </Link>
+                      ):null
+                    }
+                      
                   </div>
                   <br />
                   <br />

@@ -35,9 +35,7 @@ export class EditArticle extends Component {
     
   }
   componentWillReceiveProps(newProps) {
-    if (newProps.errors) {
-      this.setState({ errors: newProps.errors });
-    }
+    if (newProps.errors) {this.setState({ errors: newProps.errors });}
     let posts = [];posts.push(newProps.post.post);const postss = posts[0];const newposts = postss;
     Object.keys(newposts).map((item, i) => (
       this.setState({

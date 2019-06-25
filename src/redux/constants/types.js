@@ -10,6 +10,6 @@ export const GET_PAGES = 'GET_PAGES';
 export const GET_PAGES_NEXT = 'GET_PAGES_NEXT ';
 export const RATE_ARTICLE = 'RATE_ARTICLE';
 export const RATE_ERRORS = 'RATE_ERRORS';
-
-
-
+export const REPORT_POST = 'REPORT_POST';
+export const GET_REPORTS='GET_REPORTS';
+export const DELETE_REPORT = 'DELETE_REPORT';

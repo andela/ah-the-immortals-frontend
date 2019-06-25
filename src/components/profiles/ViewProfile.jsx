@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import profileImage from '../../services/images/profile.png';
 import EditProfile from '../../views/profiles/EditProfile';
@@ -52,6 +53,15 @@ const ProfileView = (props) => {
                             }
                           </span>
                         </h5>
+                      </div>
+                      <div className="col text-right">
+                        {username=== 'Flex' ?
+                          (
+                            <Link to="/reports">
+                              <button type="button" className="btn-success">View All Reports</button>
+                            </Link>
+                          )
+                          :null}
                       </div>
                       <p>{bio}</p>
                     </div>
