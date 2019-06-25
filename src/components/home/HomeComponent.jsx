@@ -16,11 +16,11 @@ class Home extends Component {
           </Container>
         </div>
         <div className="row">
-          <div className="col-md-3 mt-4"><TopRatedArticles /></div>
-          <div className="col-md-6">
+          <div className="col"><TopRatedArticles /></div>
+          <div className="col">
             <Posts />
           </div>
-          <div className="col-md-3 mt-4"><PopularArticles /></div>
+          <div className="col mt-2"><PopularArticles /></div>
         </div>
       </div>
     );
