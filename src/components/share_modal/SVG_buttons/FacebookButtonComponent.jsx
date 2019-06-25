@@ -13,11 +13,11 @@ class FacebookButtonComponent extends Component {
     const currentUrl  = `${url}/post/${slug}`;
     const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
     return (
-      <div>
+      <div className="svg">
         <button className="btn btn-link" id="fb" type="button" onClick={() => window.open(shareUrl, '_blank')}>
           <img src="https://img.icons8.com/color/64/000000/facebook-circled.png" alt="avatar" />
         </button>
-        <div>Facebook</div>
+        <div className="facebook-style">Facebook</div>
       </div>
     );
   }
