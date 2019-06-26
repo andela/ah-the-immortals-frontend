@@ -2,7 +2,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
 import { ROOT_URL } from '../../../services/api';
-import { createCommentAction, createChildCommentAction, getCommentsAction, getOneCommentAction, editCommentAction, deleteCommentAction } from '../Comments.action';
+import { createCommentAction, createChildCommentAction, getCommentsAction, editCommentAction, deleteCommentAction } from '../Comments.action';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -41,18 +41,6 @@ describe('Tests comments actions', () => {
     done();
   });
 
-  it('tests successful fetching of a comment', async (done) => {
-    moxios.stubRequest(
-      replyUrl, {
-        status: 200,
-        response: {}
-      }
-    );
-    await store.dispatch(getOneCommentAction(slug, id, jest.fn()));
-    expect(store.getActions()[0].type).toEqual('CREATE_COMMENT');
-    done();
-  });
-
   it('tests successful creation of a reply', async (done) => {
     moxios.stubRequest(
       replyUrl, {
@@ -62,18 +50,6 @@ describe('Tests comments actions', () => {
     );
     await store.dispatch(createChildCommentAction(data, slug, id, jest.fn()));
     expect(store.getActions()[0].type).toEqual('CREATE_REPLY');
-    done();
-  });
-
-  it('tests failure of fetching single comment', async (done) => {
-    moxios.stubRequest(
-      replyUrl, {
-        status: 400,
-        error: {}
-      }
-    );
-    await store.dispatch(getOneCommentAction(slug, id, jest.fn()));
-    expect(store.getActions()[0].type).toEqual('CREATE_COMMENT_FAILURE');
     done();
   });
 

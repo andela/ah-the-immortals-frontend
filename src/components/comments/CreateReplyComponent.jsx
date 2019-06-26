@@ -6,7 +6,14 @@ const CreateReply = ({ replyWrite, replySubmit, value, isLoading }) => (
   <Form onSubmit={replySubmit}>
     <Row>
       <Col>
-        <FormControl name="body" className="input-width" placeholder="Leave a reply" onChange={replyWrite} value={value} required />
+        <FormControl 
+          name="body" 
+          className="input-width" 
+          placeholder="Leave a reply" 
+          onChange={replyWrite} 
+          value={value} 
+          required 
+        />
       </Col>
       <Col xs lg="2">
         { isLoading ? (

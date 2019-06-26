@@ -17,13 +17,14 @@ class Replies extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.setState({loading: true});
-    const { createChildCommentAction, slug, id } = this.props;
-    const isAuthenticated = isLoggedIn();
-    { isAuthenticated ? (createChildCommentAction(this.state, slug, id, () => this.setState({
+    const { createChildCommentAction, slug, id, isAuthenticated } = this.props;
+    const isAuthenticate = isAuthenticated || isLoggedIn();
+    { isAuthenticate ? (createChildCommentAction(this.state, slug, id, () => this.setState({
       body: '',
       loading: false
-    }))): toast.error('Please log in to reply!');}
-    this.setState({loading: false});
+    }))): (toast.error('Please log in to reply!'),
+    this.setState({loading: false})
+    );}
   };
   render() {
     const { body, loading } = this.state;
@@ -36,10 +37,12 @@ Replies.propTypes = {
   createChildCommentAction: PropTypes.func.isRequired,
   slug: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  isAuthenticated: PropTypes.string.isRequired
 };
 
-const mapStateToProps = ({comments}) => ({
+const mapStateToProps = ({comments, signin}) => ({
   data: comments.data,
+  isAuthenticated: signin.currentUser
 });
 
 export default connect(mapStateToProps, { createChildCommentAction })(Replies);

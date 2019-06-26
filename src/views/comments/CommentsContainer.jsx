@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import isLoggedIn from '../../services/checkAuthentication';
 import ViewComments from '../../components/comments/CommentsComponent';
 import CreateComment from '../../components/comments/CreateCommentComponent';
+import promptAction from '../../redux/actions/Prompt.action';
 import { createCommentAction, getCommentsAction } from '../../redux/actions/Comments.action';
 
 class Comments extends Component {
@@ -22,14 +23,14 @@ class Comments extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.setState({loading: true});
-    const isAuthenticated = isLoggedIn();
-    const { createCommentAction, slug } = this.props;
-    { isAuthenticated ? (createCommentAction(this.state, slug, () => this.setState({
+    const { createCommentAction, slug, isAuthenticated, promptAction } = this.props;
+    const isAuthenticate = isAuthenticated || isLoggedIn();
+    { isAuthenticate ? (createCommentAction(this.state, slug, () => this.setState({
       body: '',
       loading: false
     }))): (  
       this.setState({loading: false}),    
-      toast.error('Please log in to comment!')
+      promptAction(true, slug)
     );
     }
   };
@@ -72,14 +73,17 @@ class Comments extends Component {
 Comments.propTypes = {
   data: PropTypes.object.isRequired,
   getCommentsAction: PropTypes.func.isRequired,
+  promptAction: PropTypes.func.isRequired,
   createCommentAction: PropTypes.func.isRequired,
   slug: PropTypes.string.isRequired,
   currentUser: PropTypes.string.isRequired,
+  isAuthenticated: PropTypes.string.isRequired
 };
 
 const mapStateToProps = ({comments, signin }) => ({
   data: comments.data,
-  currentUser: signin.currentUser
+  currentUser: signin.currentUser,
+  isAuthenticated: signin.currentUser
 });
 
-export default connect(mapStateToProps, { getCommentsAction, createCommentAction })(Comments);
+export default connect(mapStateToProps, { getCommentsAction, createCommentAction, promptAction })(Comments);

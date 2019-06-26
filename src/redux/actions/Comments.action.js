@@ -43,19 +43,11 @@ const deleteCommentAction = (slug, id) => async (dispatch) => {
 const createCommentAction = (data, slug, callBack) => async (dispatch) => {
   try{
     const response = await createCommentsApi(data, slug);
-    dispatch(getOneCommentAction(slug, response.data.id, callBack));
-    toast.success('Comment created successfully');
-  } catch (error) {
-    dispatch(createCommentFailure(error));
-  }
-};
-
-const getOneCommentAction = (slug, id, callBack) => async (dispatch) => {
-  try{
-    const response = await getOneCommentApi(slug, id);
     dispatch(createCommentSuccess(response.data));
     callBack();
-  } catch (error){
+    dispatch(getCommentsAction(slug));
+    toast.success('Comment created successfully');
+  } catch (error) {
     dispatch(createCommentFailure(error));
   }
 };
@@ -64,9 +56,9 @@ const createChildCommentAction = (data, slug, id, callBack) => async (dispatch) 
   try{
     const response = await createChildCommentApi(data, slug, id);
     dispatch(createReplySuccess(response.data));
-    toast.success('Reply created successfully');
     callBack();
     dispatch(getCommentsAction(slug));
+    toast.success('Reply created successfully');
   } catch (error) {
     dispatch(createCommentFailure(error));
   }
@@ -144,4 +136,4 @@ const getCommentFailure = (error) => ({
   payload: error,
 });
 
-export { createCommentAction, createChildCommentAction, getCommentsAction, getOneCommentAction, editCommentAction, deleteCommentAction };
+export { createCommentAction, createChildCommentAction, getCommentsAction, editCommentAction, deleteCommentAction };

@@ -6,7 +6,14 @@ const EditComment = ({ editWrite, editSubmit, value, isLoading, placeholder }) =
   <Form onSubmit={editSubmit}>
     <Row>
       <Col>
-        <FormControl name="body" className="input-width" placeholder={placeholder} onChange={editWrite} value={value} required />
+        <FormControl 
+          name="body" 
+          className="input-width placecolor" 
+          placeholder={placeholder} 
+          onChange={editWrite} 
+          value={value} 
+          required 
+        />
       </Col>
       <Col xs lg="2">
         { isLoading ? (

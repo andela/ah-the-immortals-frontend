@@ -11,10 +11,12 @@ import Replies from '../RepliesContainer';
 
 describe('Tests RepliesContainer', () => {
   const store = configureStore([thunk])({
-    comments: { data: {comments: []}, error: {}}
+    comments: { data: {comments: []}, error: {}},
+    signin: {currentUser: 'issa'}
   });
   const props = {
     createChildCommentAction: jest.fn(),
+    isAuthenticated: 'issa',
     id: 3,
     slug: 'string'
   };

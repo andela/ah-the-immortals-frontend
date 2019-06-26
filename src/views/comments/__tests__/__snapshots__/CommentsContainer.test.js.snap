@@ -39,6 +39,7 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
       createCommentAction={[MockFunction]}
       data={Object {}}
       getCommentsAction={[MockFunction]}
+      isAuthenticated="issa"
       slug="string"
     >
       <Comments
@@ -91,6 +92,8 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
           }
         }
         getCommentsAction={[Function]}
+        isAuthenticated="issa"
+        promptAction={[Function]}
         slug="string"
       >
         <div>
@@ -286,58 +289,317 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
                         string
                       </p>
                       <hr />
-                      <Button
-                        active={false}
-                        className="card-link btn-comment"
-                        data-target="#createreply-87"
-                        data-toggle="collapse"
-                        disabled={false}
-                        type="button"
-                        variant="outline-success"
-                      >
-                        <button
-                          className="card-link btn-comment btn btn-outline-success"
-                          data-target="#createreply-87"
-                          data-toggle="collapse"
-                          disabled={false}
-                          type="button"
+                      <Bootstrap(Row)>
+                        <Row
+                          bsPrefix="row"
+                          noGutters={false}
                         >
-                          <i
-                            className="fas fa-share"
-                          />
-                           
-                          Reply
-                        </button>
-                      </Button>
-                      <Button
-                        active={false}
-                        className="card-link btn-comment"
-                        data-target="#replies-87"
-                        data-toggle="collapse"
-                        disabled={false}
-                        type="button"
-                        variant="outline-info"
-                      >
-                        <button
-                          className="card-link btn-comment btn btn-outline-info"
-                          data-target="#replies-87"
-                          data-toggle="collapse"
-                          disabled={false}
-                          type="button"
-                        >
-                          <i
-                            className="fas fa-comment-alt"
-                          />
-                           
-                          <span
-                            className="comments-count"
+                          <div
+                            className="row"
                           >
-                            1
-                          </span>
-                           
-                          replies
-                        </button>
-                      </Button>
+                            <Col
+                              xs="auto"
+                            >
+                              <div
+                                className="col-auto"
+                              >
+                                <Button
+                                  active={false}
+                                  className="card-link btn-comment"
+                                  data-target="#createreply-87"
+                                  data-toggle="collapse"
+                                  disabled={false}
+                                  type="button"
+                                  variant="outline-success"
+                                >
+                                  <button
+                                    className="card-link btn-comment btn btn-outline-success"
+                                    data-target="#createreply-87"
+                                    data-toggle="collapse"
+                                    disabled={false}
+                                    type="button"
+                                  >
+                                    <i
+                                      className="fas fa-share"
+                                    />
+                                     
+                                    Reply
+                                  </button>
+                                </Button>
+                                <Button
+                                  active={false}
+                                  className="card-link btn-comment"
+                                  data-target="#replies-87"
+                                  data-toggle="collapse"
+                                  disabled={false}
+                                  type="button"
+                                  variant="outline-info"
+                                >
+                                  <button
+                                    className="card-link btn-comment btn btn-outline-info"
+                                    data-target="#replies-87"
+                                    data-toggle="collapse"
+                                    disabled={false}
+                                    type="button"
+                                  >
+                                    <i
+                                      className="fas fa-comment-alt"
+                                    />
+                                     
+                                    <span
+                                      className="comments-count"
+                                    >
+                                      1
+                                    </span>
+                                     
+                                    replies
+                                  </button>
+                                </Button>
+                              </div>
+                            </Col>
+                            <Col
+                              className="mt-2 text-center"
+                              xs="auto"
+                            >
+                              <div
+                                className="mt-2 text-center col-auto"
+                              >
+                                <Connect(LikeComment)
+                                  comment={
+                                    Object {
+                                      "author": Object {
+                                        "bio": "",
+                                        "following": false,
+                                        "image": "hjn",
+                                        "username": "slim",
+                                      },
+                                      "body": "string",
+                                      "createdAt": "2019-06-20",
+                                      "id": 87,
+                                      "likesInfo": Object {
+                                        "dislike": false,
+                                        "dislikes_count": 0,
+                                        "like": false,
+                                        "like_count": 0,
+                                      },
+                                      "parent": null,
+                                      "replies": Array [
+                                        Object {
+                                          "author": Object {
+                                            "bio": "",
+                                            "following": false,
+                                            "image": "hjn",
+                                            "username": "slim",
+                                          },
+                                          "body": "string",
+                                          "createdAt": "2019-06-20",
+                                          "id": 87,
+                                          "likesInfo": Object {
+                                            "dislike": false,
+                                            "dislikes_count": 0,
+                                            "like": false,
+                                            "like_count": 0,
+                                          },
+                                          "parent": null,
+                                          "updatedAt": "2019-06-20",
+                                        },
+                                      ],
+                                      "updatedAt": "2019-06-20",
+                                    }
+                                  }
+                                  slug="string"
+                                >
+                                  <LikeComment
+                                    comment={
+                                      Object {
+                                        "author": Object {
+                                          "bio": "",
+                                          "following": false,
+                                          "image": "hjn",
+                                          "username": "slim",
+                                        },
+                                        "body": "string",
+                                        "createdAt": "2019-06-20",
+                                        "id": 87,
+                                        "likesInfo": Object {
+                                          "dislike": false,
+                                          "dislikes_count": 0,
+                                          "like": false,
+                                          "like_count": 0,
+                                        },
+                                        "parent": null,
+                                        "replies": Array [
+                                          Object {
+                                            "author": Object {
+                                              "bio": "",
+                                              "following": false,
+                                              "image": "hjn",
+                                              "username": "slim",
+                                            },
+                                            "body": "string",
+                                            "createdAt": "2019-06-20",
+                                            "id": 87,
+                                            "likesInfo": Object {
+                                              "dislike": false,
+                                              "dislikes_count": 0,
+                                              "like": false,
+                                              "like_count": 0,
+                                            },
+                                            "parent": null,
+                                            "updatedAt": "2019-06-20",
+                                          },
+                                        ],
+                                        "updatedAt": "2019-06-20",
+                                      }
+                                    }
+                                    isAuthenticated="issa"
+                                    likeCommentAction={[Function]}
+                                    promptAction={[Function]}
+                                    slug="string"
+                                  >
+                                    <LikeDislikeComment
+                                      comment={
+                                        Object {
+                                          "author": Object {
+                                            "bio": "",
+                                            "following": false,
+                                            "image": "hjn",
+                                            "username": "slim",
+                                          },
+                                          "body": "string",
+                                          "createdAt": "2019-06-20",
+                                          "id": 87,
+                                          "likesInfo": Object {
+                                            "dislike": false,
+                                            "dislikes_count": 0,
+                                            "like": false,
+                                            "like_count": 0,
+                                          },
+                                          "parent": null,
+                                          "replies": Array [
+                                            Object {
+                                              "author": Object {
+                                                "bio": "",
+                                                "following": false,
+                                                "image": "hjn",
+                                                "username": "slim",
+                                              },
+                                              "body": "string",
+                                              "createdAt": "2019-06-20",
+                                              "id": 87,
+                                              "likesInfo": Object {
+                                                "dislike": false,
+                                                "dislikes_count": 0,
+                                                "like": false,
+                                                "like_count": 0,
+                                              },
+                                              "parent": null,
+                                              "updatedAt": "2019-06-20",
+                                            },
+                                          ],
+                                          "updatedAt": "2019-06-20",
+                                        }
+                                      }
+                                      handleClick={[Function]}
+                                      isAuthenticated="issa"
+                                    >
+                                      <div
+                                        className="commentlike "
+                                      >
+                                        <div>
+                                          <i
+                                            aria-hidden="true"
+                                            className="fas fa-thumbs-up fa-1x like-icon left-icon"
+                                            comment={
+                                              Object {
+                                                "author": Object {
+                                                  "bio": "",
+                                                  "following": false,
+                                                  "image": "hjn",
+                                                  "username": "slim",
+                                                },
+                                                "body": "string",
+                                                "createdAt": "2019-06-20",
+                                                "id": 87,
+                                                "likesInfo": Object {
+                                                  "dislike": false,
+                                                  "dislikes_count": 0,
+                                                  "like": false,
+                                                  "like_count": 0,
+                                                },
+                                                "parent": null,
+                                                "replies": Array [
+                                                  Object {
+                                                    "author": Object {
+                                                      "bio": "",
+                                                      "following": false,
+                                                      "image": "hjn",
+                                                      "username": "slim",
+                                                    },
+                                                    "body": "string",
+                                                    "createdAt": "2019-06-20",
+                                                    "id": 87,
+                                                    "likesInfo": Object {
+                                                      "dislike": false,
+                                                      "dislikes_count": 0,
+                                                      "like": false,
+                                                      "like_count": 0,
+                                                    },
+                                                    "parent": null,
+                                                    "updatedAt": "2019-06-20",
+                                                  },
+                                                ],
+                                                "updatedAt": "2019-06-20",
+                                              }
+                                            }
+                                            id="like"
+                                            onClick={[Function]}
+                                            style={
+                                              Object {
+                                                "color": "#909090",
+                                              }
+                                            }
+                                          />
+                                        </div>
+                                        <div
+                                          className="likes-count "
+                                        >
+                                          0
+                                        </div>
+                                        <div>
+                                          <i
+                                            aria-hidden="true"
+                                            className="fas fa-thumbs-up fa-rotate-180 fa-1x like-icon right-icon"
+                                            id="dislike"
+                                            onClick={[Function]}
+                                            style={
+                                              Object {
+                                                "color": "#909090",
+                                              }
+                                            }
+                                          />
+                                        </div>
+                                        <div
+                                          className="likes-count "
+                                        >
+                                          0
+                                        </div>
+                                      </div>
+                                    </LikeDislikeComment>
+                                  </LikeComment>
+                                </Connect(LikeComment)>
+                              </div>
+                            </Col>
+                            <Col
+                              xs="auto"
+                            >
+                              <div
+                                className="col-auto"
+                              />
+                            </Col>
+                          </div>
+                        </Row>
+                      </Bootstrap(Row)>
                       <div
                         className="collapse mt-3"
                         id="editComment-87"
@@ -427,7 +689,7 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
                                             className="col"
                                           >
                                             <FormControl
-                                              className="input-width"
+                                              className="input-width placecolor"
                                               name="body"
                                               onChange={[Function]}
                                               placeholder="string"
@@ -435,7 +697,7 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
                                               value=""
                                             >
                                               <input
-                                                className="input-width form-control"
+                                                className="input-width placecolor form-control"
                                                 name="body"
                                                 onChange={[Function]}
                                                 placeholder="string"
@@ -534,6 +796,7 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
                               }
                             }
                             id={87}
+                            isAuthenticated="issa"
                             slug="string"
                           >
                             <CreateReply
@@ -676,6 +939,173 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
                           </p>
                         </div>
                         <hr />
+                        <Bootstrap(Row)>
+                          <Row
+                            bsPrefix="row"
+                            noGutters={false}
+                          >
+                            <div
+                              className="row"
+                            >
+                              <Col
+                                className="mt-2"
+                                xs="auto"
+                              >
+                                <div
+                                  className="mt-2 col-auto"
+                                >
+                                  <Connect(LikeComment)
+                                    comment={
+                                      Object {
+                                        "author": Object {
+                                          "bio": "",
+                                          "following": false,
+                                          "image": "hjn",
+                                          "username": "slim",
+                                        },
+                                        "body": "string",
+                                        "createdAt": "2019-06-20",
+                                        "id": 87,
+                                        "likesInfo": Object {
+                                          "dislike": false,
+                                          "dislikes_count": 0,
+                                          "like": false,
+                                          "like_count": 0,
+                                        },
+                                        "parent": null,
+                                        "updatedAt": "2019-06-20",
+                                      }
+                                    }
+                                    slug="string"
+                                  >
+                                    <LikeComment
+                                      comment={
+                                        Object {
+                                          "author": Object {
+                                            "bio": "",
+                                            "following": false,
+                                            "image": "hjn",
+                                            "username": "slim",
+                                          },
+                                          "body": "string",
+                                          "createdAt": "2019-06-20",
+                                          "id": 87,
+                                          "likesInfo": Object {
+                                            "dislike": false,
+                                            "dislikes_count": 0,
+                                            "like": false,
+                                            "like_count": 0,
+                                          },
+                                          "parent": null,
+                                          "updatedAt": "2019-06-20",
+                                        }
+                                      }
+                                      isAuthenticated="issa"
+                                      likeCommentAction={[Function]}
+                                      promptAction={[Function]}
+                                      slug="string"
+                                    >
+                                      <LikeDislikeComment
+                                        comment={
+                                          Object {
+                                            "author": Object {
+                                              "bio": "",
+                                              "following": false,
+                                              "image": "hjn",
+                                              "username": "slim",
+                                            },
+                                            "body": "string",
+                                            "createdAt": "2019-06-20",
+                                            "id": 87,
+                                            "likesInfo": Object {
+                                              "dislike": false,
+                                              "dislikes_count": 0,
+                                              "like": false,
+                                              "like_count": 0,
+                                            },
+                                            "parent": null,
+                                            "updatedAt": "2019-06-20",
+                                          }
+                                        }
+                                        handleClick={[Function]}
+                                        isAuthenticated="issa"
+                                      >
+                                        <div
+                                          className="commentlike "
+                                        >
+                                          <div>
+                                            <i
+                                              aria-hidden="true"
+                                              className="fas fa-thumbs-up fa-1x like-icon left-icon"
+                                              comment={
+                                                Object {
+                                                  "author": Object {
+                                                    "bio": "",
+                                                    "following": false,
+                                                    "image": "hjn",
+                                                    "username": "slim",
+                                                  },
+                                                  "body": "string",
+                                                  "createdAt": "2019-06-20",
+                                                  "id": 87,
+                                                  "likesInfo": Object {
+                                                    "dislike": false,
+                                                    "dislikes_count": 0,
+                                                    "like": false,
+                                                    "like_count": 0,
+                                                  },
+                                                  "parent": null,
+                                                  "updatedAt": "2019-06-20",
+                                                }
+                                              }
+                                              id="like"
+                                              onClick={[Function]}
+                                              style={
+                                                Object {
+                                                  "color": "#909090",
+                                                }
+                                              }
+                                            />
+                                          </div>
+                                          <div
+                                            className="likes-count "
+                                          >
+                                            0
+                                          </div>
+                                          <div>
+                                            <i
+                                              aria-hidden="true"
+                                              className="fas fa-thumbs-up fa-rotate-180 fa-1x like-icon right-icon"
+                                              id="dislike"
+                                              onClick={[Function]}
+                                              style={
+                                                Object {
+                                                  "color": "#909090",
+                                                }
+                                              }
+                                            />
+                                          </div>
+                                          <div
+                                            className="likes-count "
+                                          >
+                                            0
+                                          </div>
+                                        </div>
+                                      </LikeDislikeComment>
+                                    </LikeComment>
+                                  </Connect(LikeComment)>
+                                </div>
+                              </Col>
+                              <Col
+                                xs="auto"
+                              >
+                                <div
+                                  className="col-auto"
+                                />
+                              </Col>
+                            </div>
+                          </Row>
+                        </Bootstrap(Row)>
                         <div
                           className="collapse mt-3"
                           id="editReply-87"
@@ -765,7 +1195,7 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
                                               className="col"
                                             >
                                               <FormControl
-                                                className="input-width"
+                                                className="input-width placecolor"
                                                 name="body"
                                                 onChange={[Function]}
                                                 placeholder="string"
@@ -773,7 +1203,7 @@ exports[`Tests CommentsContainer tests mounting of container 1`] = `
                                                 value=""
                                               >
                                                 <input
-                                                  className="input-width form-control"
+                                                  className="input-width placecolor form-control"
                                                   name="body"
                                                   onChange={[Function]}
                                                   placeholder="string"
