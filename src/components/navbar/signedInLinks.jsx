@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import NotificationModal from '../notifications/NotificationComponent';
 import '../../styles/App.css';
 
-const SignedInLinks = ({handleLogout, username, handleClick, notifications, unread, handleClear}) => (
+const SignedInLinks = ({handleLogout, username, handleClick, notifications, unread, handleClear, showModal, show, closeModal, notification, onToggle}) => (
   <div className="nav ml-auto">
     <div
       className="bell"
@@ -62,12 +63,8 @@ const SignedInLinks = ({handleLogout, username, handleClick, notifications, unre
         </NavLink>
       </div>
       <div className="dropdown-item">
-        <NavLink
-          to="/"
-          className="nav-link"
-        >
-          Settings
-        </NavLink>
+        <button type="button" className="btn btn-link settings-link" onClick={showModal}>Settings</button>
+        <NotificationModal showModal={showModal} show={show} closeModal={closeModal} notification={notification} onToggle={onToggle} />
       </div>
       <div className="dropdown-item">
         <NavLink
@@ -88,5 +85,10 @@ SignedInLinks.propTypes = {
   notifications: PropTypes.array.isRequired,
   unread: PropTypes.number.isRequired,
   handleClear: PropTypes.func.isRequired,
+  showModal: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  notification: PropTypes.object.isRequired,
+  onToggle: PropTypes.func.isRequired
 };
 export default SignedInLinks;

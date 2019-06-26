@@ -1,7 +1,7 @@
 import ACTION_CONSTANTS from '../constants/constants';
 
 const { NOTIFICATION_SUCCESS, NOTIFICATION_ERROR, UNREAD_SUCCESS,
-  UNREAD_FAILURE, CLEAR_SUCCESS, CLEAR_FAILURE } = ACTION_CONSTANTS;
+  UNREAD_FAILURE, CLEAR_SUCCESS, CLEAR_FAILURE, OPTINOUT_SUCCESS, OPTINOUT_ERRORS } = ACTION_CONSTANTS;
 
 const initialState = {
   notifications: [],
@@ -10,7 +10,7 @@ const initialState = {
   error: {}
 };
 
-const notifyReducer = (state = initialState, action) => {
+export const notifyReducer = (state = initialState, action) => {
   switch (action.type) {
   case NOTIFICATION_SUCCESS:
     return {...state, notifications: action.response.data.notifications, unreadNotifications: [], error: {}};
@@ -29,4 +29,28 @@ const notifyReducer = (state = initialState, action) => {
   }
 };
 
-export default notifyReducer;
+const initialStateOpt = {
+  notification: {},
+  error: {}
+};
+
+export const NotificatonsReducer = (state = initialStateOpt, action) => {
+  switch (action.type) {
+  case OPTINOUT_SUCCESS:  
+    return {
+      ...state,
+      notification: action.payload,
+      error: {}
+    };
+
+  case OPTINOUT_ERRORS:
+    return {
+      ...state,
+      error: action.error,
+      notification: {}
+    };
+    
+  default:
+    return state;
+  }
+};

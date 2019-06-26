@@ -24,9 +24,15 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
   }
 >
   <SignedInLinks
+    closeModal={[Function]}
     handleClear={[Function]}
     handleClick={[Function]}
     handleLogout={[Function]}
+    notification={
+      Object {
+        "in_app_notifications": "",
+      }
+    }
     notifications={
       Array [
         Object {
@@ -38,6 +44,9 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
         },
       ]
     }
+    onToggle={[Function]}
+    show={false}
+    showModal={[Function]}
     unread={2}
     username=""
   >
@@ -196,27 +205,94 @@ exports[`Tests rendering of links on navigation bar when the user is logged in r
         <div
           className="dropdown-item"
         >
-          <NavLink
-            className="nav-link"
-            to="/"
+          <button
+            className="btn btn-link settings-link"
+            onClick={[Function]}
+            type="button"
           >
-            <Link
-              aria-current="page"
-              className="nav-link active"
-              style={Object {}}
-              to="/"
+            Settings
+          </button>
+          <NotificationModal
+            closeModal={[Function]}
+            notification={
+              Object {
+                "in_app_notifications": "",
+              }
+            }
+            onToggle={[Function]}
+            show={false}
+            showModal={[Function]}
+          >
+            <Bootstrap(Modal)
+              onHide={[Function]}
+              show={false}
             >
-              <a
-                aria-current="page"
-                className="nav-link active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
+              <Modal
+                animation={true}
+                autoFocus={true}
+                backdrop={true}
+                bsPrefix="modal"
+                dialogAs={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "displayName": "ModalDialog",
+                    "render": [Function],
+                  }
+                }
+                enforceFocus={true}
+                keyboard={true}
+                manager={
+                  BootstrapModalManager {
+                    "adjustAndStore": [Function],
+                    "containers": Array [],
+                    "data": Array [],
+                    "handleContainerOverflow": true,
+                    "hideSiblingNodes": true,
+                    "modals": Array [],
+                    "restore": [Function],
+                    "scrollbarSize": 0,
+                  }
+                }
+                onHide={[Function]}
+                restoreFocus={true}
+                show={false}
               >
-                Settings
-              </a>
-            </Link>
-          </NavLink>
+                <Modal
+                  autoFocus={true}
+                  backdrop={true}
+                  backdropTransition={[Function]}
+                  className="modal"
+                  containerClassName="modal-open"
+                  enforceFocus={true}
+                  keyboard={true}
+                  manager={
+                    BootstrapModalManager {
+                      "adjustAndStore": [Function],
+                      "containers": Array [],
+                      "data": Array [],
+                      "handleContainerOverflow": true,
+                      "hideSiblingNodes": true,
+                      "modals": Array [],
+                      "restore": [Function],
+                      "scrollbarSize": 0,
+                    }
+                  }
+                  onClick={[Function]}
+                  onEnter={[Function]}
+                  onEntering={[Function]}
+                  onExited={[Function]}
+                  onHide={[Function]}
+                  onMouseUp={[Function]}
+                  renderBackdrop={[Function]}
+                  restoreFocus={true}
+                  role="dialog"
+                  show={false}
+                  style={Object {}}
+                  transition={[Function]}
+                />
+              </Modal>
+            </Bootstrap(Modal)>
+          </NotificationModal>
         </div>
         <div
           className="dropdown-item"

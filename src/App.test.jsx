@@ -17,6 +17,10 @@ const store = configureStore([thunk])({
   followers: {},
   following: {},
   prompt: {},
+  notification: {
+    in_ap_notifications: '',
+    email_notifications: ''
+  },
   post: {
     posts: [],
     post: {

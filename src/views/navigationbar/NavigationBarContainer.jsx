@@ -7,6 +7,7 @@ import SignedOutLinks from '../../components/navbar/signedOutLinks';
 import SignedInLinks from '../../components/navbar/signedInLinks';
 import signUpAction from '../../redux/actions/SignUp.action';
 import { signInAction as logInAction, logoutAction } from '../../redux/actions/SignIn.action';
+import { NotifStatusAction, optInOutNotifAction } from '../../redux/actions/notifications.action';
 import isLoggedIn from '../../services/checkAuthentication';
 import { facebookAuth, googleAuth, twitterAuth } from '../../redux/actions/SocialAuth.action';
 import RenderedLinks from '../../components/navbar/renderedLinks';
@@ -32,6 +33,9 @@ class NavigationBar extends Component {
     fetchUnread: PropTypes.func.isRequired,
     unreadNotifications: PropTypes.object.isRequired,
     clearNotify: PropTypes.func.isRequired,
+    notification: PropTypes.object.isRequired,
+    NotifStatusAction: PropTypes.func.isRequired,
+    optInOutNotifAction: PropTypes.func.isRequired
   };
   state = {
     show: false,
@@ -45,6 +49,14 @@ class NavigationBar extends Component {
       signInShow:true,
       slug:props.prompt.slug
     } : state
+
+  componentDidMount(){
+    const { NotifStatusAction: Notification } = this.props;
+    Notification();
+    const { fetchUnread: getUnread } = this.props;
+    getUnread();
+  }
+
   closeModal = () => {
     const {promptShow}=this.props;
     promptShow(false);
@@ -187,23 +199,24 @@ class NavigationBar extends Component {
     const { fetchNotification: getNotify } = this.props;
     getNotify();
   };
-  componentDidMount() {
-    const { fetchUnread: getUnread } = this.props;
-    getUnread();
-  }
   handleDel = (e) => {
     e.preventDefault();
     const { clearNotify: clearNotes } = this.props;
     clearNotes();
   };
+  onToggle = (e, isChecked) => {
+    const { optInOutNotifAction: optInOutNotifAction } = this.props;
+    const data = { [e.target.name]: isChecked, };
+    optInOutNotifAction(data);
+  }
   render() {
     const { show, signInShow, errorShow, signInError } = this.state;
-    const { signindata, signupdata, history, result, unreadNotifications: { unreadNotifications }, notifications: { notifications } } = this.props;
+    const { signindata, signupdata, history, result, unreadNotifications: { unreadNotifications }, notifications: { notifications }, notification } = this.props;
     const facebook = this.handleFacebook;
     const google = this.handleGoogle;
     const twitter = this.handleTwitter;
     const isAuthenticated = signindata.isAuthenticated || signupdata.isAuthenticated || isLoggedIn();
-    const links = isAuthenticated ? <SignedInLinks handleClear={this.handleDel} unread={unreadNotifications.length} notifications={notifications} handleClick={this.showNotifications} handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username || tokenDecoded()} /> : (
+    const links = isAuthenticated ? <SignedInLinks handleClear={this.handleDel} unread={unreadNotifications.length} notifications={notifications} handleClick={this.showNotifications} handleLogout={this.handleLogout} username={signindata.user.username || signupdata.user.username || tokenDecoded()} showModal={this.showModal} closeModal={this.closeModal} show={show} notification={notification} onToggle={this.onToggle} /> : (
       <SignedOutLinks
         showModal={this.showModal}
         closeModal={this.closeModal}
@@ -229,12 +242,9 @@ class NavigationBar extends Component {
     );
   }
 }
-const mapStateToProps = ({ signup, signin, search, prompt, notify }) => {
+const mapStateToProps = ({ signup, signin, search, prompt, notify, notification }) => {
   return {
-    signupdata: signup, signindata: signin,
-    result: search, prompt, notifications: notify, unreadNotifications: notify,
+    signupdata: signup, signindata: signin, result: search, prompt, notifications: notify, unreadNotifications: notify, notification: notification,
   };
 };
-export default connect(mapStateToProps, {signup: signUpAction, signInAction:logInAction, facebookAuth, twitterAuth,
-  googleAuth, logoutAction, promptShow: promptAction, fetchNotification, fetchUnread, clearNotify
-})(withRouter(NavigationBar));
+export default connect(mapStateToProps, {signup: signUpAction, signInAction:logInAction, facebookAuth, twitterAuth, googleAuth, logoutAction, promptShow: promptAction, fetchNotification, fetchUnread, clearNotify, NotifStatusAction, optInOutNotifAction })(withRouter(NavigationBar));

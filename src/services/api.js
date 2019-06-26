@@ -107,3 +107,6 @@ export const deleteArticleApi = (slug) => {
 };
 export const editArticle = (slug, postData) => axios.patch(`${articlesUrl}/${slug}/`, postData, axiosHeader);
 export const starClick = (slug, data) => axios.post(`${ROOT_URL}/articles/${slug}/rate/`, data, axiosHeader);
+
+export const optInOutApi = (data, headers) => axios.patch(`${ROOT_URL}/notifications/subscription/`, data, headers);
+export const fetchNotifStatus = (headers) => axios.get(`${ROOT_URL}/notifications/subscription/`, headers);

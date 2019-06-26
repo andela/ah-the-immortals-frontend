@@ -35,6 +35,13 @@ describe('Tests rendering of links on navigation bar when the user is logged in'
       'description': 'barclay.koin posted an article "TESTING FOR GOT" on 19-June-2019 11:45'
     }
   ];
+  const notification= {
+    in_app_notifications: ''
+  };
+  const showModal = jest.fn;
+  const closeModal = jest.fn;
+  const onToggle = jest.fn;
+  const show = false;
   const wrapper = mount(
     <Router history={history}>
       <SignedInLinks 
@@ -44,6 +51,11 @@ describe('Tests rendering of links on navigation bar when the user is logged in'
         notifications={notifications}
         unread={unreadNotifications.length}
         handleClear={mockHandleClear}
+        notification={notification}
+        showModal={showModal}
+        closeModal={closeModal}
+        onToggle={onToggle}
+        show={show}
       />
     </Router>
 

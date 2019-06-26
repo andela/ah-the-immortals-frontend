@@ -1,6 +1,6 @@
-import notifyReducer from '../notifications.reducer';
-import ACTION_CONSTANTS from '../../constants/constants';
 
+import {NotificatonsReducer, notifyReducer} from '../notifications.reducer';
+import ACTION_CONSTANTS from '../../constants/constants';
 
 describe('Test Notifications reducer', () => {
   it('test successful fetch notifications', () => {
@@ -125,5 +125,63 @@ describe('Test Notifications reducer', () => {
       error: {}
     };
     expect(notifyReducer({}, action)).toEqual({});
+  });
+});
+
+describe('Notification reducer', () => {
+  it('notification details are sent successfully', () => {
+    const action = {
+      type: ACTION_CONSTANTS.OPTINOUT_SUCCESS,
+      response: {
+        notification: {
+          in_app_notifications: true,
+          email_notifications: true
+        }
+      }
+    };
+    expect(NotificatonsReducer({}, action)).toEqual({
+      notification: action.payload,
+      error: {}
+    });
+  });
+  it('test successful fetch notification', () => {
+    const payload = {
+      'notification': {
+        'in_app_notifications': true,
+        'email_notifications': true
+      }
+    };
+    expect(NotificatonsReducer({}, { type: ACTION_CONSTANTS.OPTINOUT_SUCCESS }).payload).toEqual();
+  });
+
+  it('test edit profile with errors', () => {
+    const action = {
+      type: ACTION_CONSTANTS.OPTINOUT_ERRORS,
+      error: 'Cannot senf notififications subscription'
+    };
+    expect(NotificatonsReducer({}, action)).toEqual({
+      error: action.error,
+      notification: {}
+    });
+  });
+
+  it('test fetch profile with errors', () => {
+    const action = {
+      type: ACTION_CONSTANTS.OPTINOUT_ERRORS,
+      error: 'Notififications cannot be found'
+    };
+    expect(NotificatonsReducer({}, action)).toEqual({
+      error: action.error,
+      notification: {}
+    });
+  });
+
+  it('test initial state', () => {
+    const action = {
+      type: 'default state',
+      notification: {},
+      error: {}
+    };
+    expect(NotificatonsReducer({}, action)).toEqual({});
   });
 });
