@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import HomePage from './HomeInfo';
 import Posts from '../../views/Articles/Posts';
-import PopularArticles from './PopularArticlesComponent';
+import PopularArticlesContainer from '../../views/Articles/PopularArticlesContainer';
 import Articles from '../../views/Articles/ArticleDataContainer';
 
 class Home extends Component {
@@ -20,7 +20,7 @@ class Home extends Component {
           <div className="col">
             <Posts />
           </div>
-          <div className="col mt-2"><PopularArticles /></div>
+          <div className="col mt-2"><PopularArticlesContainer /></div>
         </div>
       </div>
     );
