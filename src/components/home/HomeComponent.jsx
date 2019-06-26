@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import HomePage from './HomeInfo';
 import Posts from '../../views/Articles/Posts';
-import TopRatedArticles from './TopRatedArticles';
 import PopularArticles from './PopularArticlesComponent';
+import Articles from '../../views/Articles/ArticleDataContainer';
 
 class Home extends Component {
 
@@ -16,7 +16,7 @@ class Home extends Component {
           </Container>
         </div>
         <div className="row">
-          <div className="col"><TopRatedArticles /></div>
+          <div className="col"><Articles /></div>
           <div className="col">
             <Posts />
           </div>

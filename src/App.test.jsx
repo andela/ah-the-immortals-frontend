@@ -57,7 +57,11 @@ const store = configureStore([thunk])({
     editpost: [],
     loading: false
   },
-  notify:{}
+  notify:{},
+  allArticles:{
+    articles: [],
+    error: {}
+  }
 });
 describe('PASSES', () => {
   it('renders without crashing', () => {

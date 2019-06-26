@@ -14,6 +14,7 @@ import PromptReducer from './Prompt.reducer';
 import CommentsReducer from './Comments.reducer';
 import {notifyReducer, NotificatonsReducer} from './notifications.reducer';
 import Bookmarks from './listBookmarks.reducer';
+import allArticlesReducer from './allArticles.reducer';
 
 export default combineReducers({
   resetpasswordlink: resetPasswordLinkReducer,
@@ -32,4 +33,5 @@ export default combineReducers({
   notify: notifyReducer,
   notification: NotificatonsReducer,
   bookmarks: Bookmarks,
+  allArticles: allArticlesReducer,
 });

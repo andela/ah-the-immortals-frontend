@@ -61,6 +61,7 @@ const SearchArticlesApi = (data) => {
 const likeApi = (slug, type, option = undefined) => option == undefined ?
   axios.post(`${articlesUrl}/${slug}/${type}/`, {}, axiosHeader) :
   axios.delete(`${articlesUrl}/${slug}/${type}/`, axiosHeader);
+const getAllApi = () => axios.get(`${articlesUrl}/?page_limit=10000`);
 const APIS = {
   resetPasswordLinkAPI,
   resetconfirmPasswordAPI,
@@ -83,6 +84,7 @@ const APIS = {
   unreadApi,
   deleteApi,
   likeCommentApi,
+  getAllApi,
 };
 
 export default APIS;
