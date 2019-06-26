@@ -28,6 +28,14 @@
  $ npm install
 ```
 
+- Create a .env file in the root folder and set variables
+
+```
+ REACT_APP_BASE_URL=backend base url
+ REACT_APP_FIREBASE_KEY=firebase key
+ REACT_APP_FIREBASE_DOMAIN=firebase domain
+```
+
 - Run Application (Development mode)
 
 ```
@@ -45,6 +53,7 @@
 ```
  $ npm run lint src
 ```
+
 ### `SASS processing on the client`
 Styling with `sass` is supported in this project. To use `sass`, just put your `sass` styling in a `.scss` file.
 `Import` your `.scss` file whenever you need it. It is going to be compiled minified and bundled together with the rest of the project.
