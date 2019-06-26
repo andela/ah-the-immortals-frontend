@@ -128,10 +128,22 @@ label {
     color: #b3b3b3;
 }
 
+.placecolor::-webkit-input-placeholder {
+    color: rgb(117, 115, 115);
+  }
+
 /* WebKit, Blink, Edge */
 .form-control:-moz-placeholder {
     color: #b3b3b3;
 }
+
+.placecolor:-moz-placeholder {
+    color: rgb(117, 115, 115);
+  }
+
+.placecolor::-moz-placeholder {
+    color: rgb(117, 115, 115);
+  }
 
 /* Mozilla Firefox 4 to 18 */
 .form-control::-moz-placeholder {
@@ -142,6 +154,14 @@ label {
 .form-control:-ms-input-placeholder {
     color: #b3b3b3;
 }
+
+.placecolor:-ms-input-placeholder {
+    color: rgb(117, 115, 115);
+  }
+
+.placecolor::-ms-input-placeholder {
+    color: rgb(117, 115, 115);
+  }
 
 /* Internet Explorer 10-11 */
 .form-control::-ms-input-placeholder {

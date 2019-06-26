@@ -1,0 +1,10 @@
+.commentlike {
+  width: 7em;
+  display: flex;
+  flex-direction: row;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #909090;
+  padding-bottom: 2%;
+}

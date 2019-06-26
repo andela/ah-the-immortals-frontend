@@ -80,7 +80,7 @@ exports[`Tests EditCommentContainer tests mounting of container 1`] = `
                         className="col"
                       >
                         <FormControl
-                          className="input-width"
+                          className="input-width placecolor"
                           name="body"
                           onChange={[Function]}
                           placeholder="issa"
@@ -88,7 +88,7 @@ exports[`Tests EditCommentContainer tests mounting of container 1`] = `
                           value=""
                         >
                           <input
-                            className="input-width form-control"
+                            className="input-width placecolor form-control"
                             name="body"
                             onChange={[Function]}
                             placeholder="issa"

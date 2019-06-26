@@ -38,6 +38,7 @@ exports[`Tests RepliesContainer tests mounting of container 1`] = `
     <Connect(Replies)
       createChildCommentAction={[MockFunction]}
       id={3}
+      isAuthenticated="issa"
       slug="string"
     >
       <Replies
@@ -48,6 +49,7 @@ exports[`Tests RepliesContainer tests mounting of container 1`] = `
           }
         }
         id={3}
+        isAuthenticated="issa"
         slug="string"
       >
         <CreateReply

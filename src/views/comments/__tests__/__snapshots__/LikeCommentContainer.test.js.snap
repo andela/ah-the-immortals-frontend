@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests LikeCommentContainer tests mounting of container 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Connect(LikeComment)
+      comment={
+        Object {
+          "author": Object {
+            "bio": "",
+            "following": false,
+            "image": "wqout",
+            "username": "issa",
+          },
+          "body": "string-tests",
+          "createdAt": "2018-06-25",
+          "id": 87,
+          "likesInfo": Object {
+            "dislike": false,
+            "dislikes_count": 0,
+            "like": false,
+            "like_count": 0,
+          },
+          "parent": null,
+          "updatedAt": "2018-06-25",
+        }
+      }
+      isAuthenticated="issa"
+      likeCommentAction={[MockFunction]}
+      slug="string"
+    >
+      <LikeComment
+        comment={
+          Object {
+            "author": Object {
+              "bio": "",
+              "following": false,
+              "image": "wqout",
+              "username": "issa",
+            },
+            "body": "string-tests",
+            "createdAt": "2018-06-25",
+            "id": 87,
+            "likesInfo": Object {
+              "dislike": false,
+              "dislikes_count": 0,
+              "like": false,
+              "like_count": 0,
+            },
+            "parent": null,
+            "updatedAt": "2018-06-25",
+          }
+        }
+        isAuthenticated="issa"
+        likeCommentAction={[Function]}
+        promptAction={[Function]}
+        slug="string"
+      >
+        <LikeDislikeComment
+          comment={
+            Object {
+              "author": Object {
+                "bio": "",
+                "following": false,
+                "image": "wqout",
+                "username": "issa",
+              },
+              "body": "string-tests",
+              "createdAt": "2018-06-25",
+              "id": 87,
+              "likesInfo": Object {
+                "dislike": false,
+                "dislikes_count": 0,
+                "like": false,
+                "like_count": 0,
+              },
+              "parent": null,
+              "updatedAt": "2018-06-25",
+            }
+          }
+          handleClick={[Function]}
+          isAuthenticated="issa"
+        >
+          <div
+            className="commentlike "
+          >
+            <div>
+              <i
+                aria-hidden="true"
+                className="fas fa-thumbs-up fa-1x like-icon left-icon"
+                comment={
+                  Object {
+                    "author": Object {
+                      "bio": "",
+                      "following": false,
+                      "image": "wqout",
+                      "username": "issa",
+                    },
+                    "body": "string-tests",
+                    "createdAt": "2018-06-25",
+                    "id": 87,
+                    "likesInfo": Object {
+                      "dislike": false,
+                      "dislikes_count": 0,
+                      "like": false,
+                      "like_count": 0,
+                    },
+                    "parent": null,
+                    "updatedAt": "2018-06-25",
+                  }
+                }
+                id="like"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "color": "#909090",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="likes-count "
+            >
+              0
+            </div>
+            <div>
+              <i
+                aria-hidden="true"
+                className="fas fa-thumbs-up fa-rotate-180 fa-1x like-icon right-icon"
+                id="dislike"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "color": "#909090",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="likes-count "
+            >
+              0
+            </div>
+          </div>
+        </LikeDislikeComment>
+      </LikeComment>
+    </Connect(LikeComment)>
+  </Provider>
+</Router>
+`;

@@ -19,11 +19,7 @@ describe('Comments reducer', () => {
     };
     expect(CommentsReducer(initialState, action)).toEqual({
       data: {
-        comments: [
-          {
-            replies: []
-          }
-        ]
+        comments: []
       },
       error: {},
       isLoading: false
@@ -53,11 +49,7 @@ describe('Comments reducer', () => {
     };
     expect(CommentsReducer(initialState, action)).toEqual({
       data: {
-        comments: [
-          {
-            replies: []
-          }
-        ]
+        comments: []
       },
       error: {},
       isLoading: false
@@ -111,11 +103,7 @@ describe('Comments reducer', () => {
     };
     expect(CommentsReducer(initialState, action)).toEqual({
       data: {
-        comments: [
-          {
-            replies: []
-          }
-        ]
+        comments: []
       },
       error: {},
       isLoading: false
@@ -130,11 +118,7 @@ describe('Comments reducer', () => {
     expect(CommentsReducer(initialState, action)).toEqual({
       error: action.payload,
       data: {
-        comments: [
-          {
-            replies: []
-          }
-        ]
+        comments: []
       },
       isLoading: false
     });
@@ -147,11 +131,7 @@ describe('Comments reducer', () => {
     };
     expect(CommentsReducer(initialState, action)).toEqual({
       data: {
-        comments: [
-          {
-            replies: []
-          }
-        ]
+        comments: []
       },
       error: {},
       isLoading: false
@@ -165,11 +145,35 @@ describe('Comments reducer', () => {
     };
     expect(CommentsReducer(initialState, action)).toEqual({
       data: {
-        comments: [
-          {
-            replies: []
-          }
-        ]
+        comments: []
+      },
+      error: action.payload,
+      isLoading: false
+    });
+  });
+
+  it('tests successful liking of a comment', () => {
+    const action = {
+      type: ACTION_CONSTANTS.LIKE_COMMENT,
+      response: {}
+    };
+    expect(CommentsReducer(initialState, action)).toEqual({
+      data: {
+        comments: []
+      },
+      error: {},
+      isLoading: false
+    });
+  });
+
+  it('tests unsuccessful liking of a comment', () => {
+    const action = {
+      type: ACTION_CONSTANTS.LIKE_COMMENT_FAILURE, 
+      error: {} 
+    };
+    expect(CommentsReducer(initialState, action)).toEqual({
+      data: {
+        comments: []
       },
       error: action.payload,
       isLoading: false

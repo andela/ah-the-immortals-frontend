@@ -11,7 +11,7 @@ import Comments from '../CommentsContainer';
 describe('Tests CommentsContainer', () => {
   const store = configureStore([thunk])({
     signin: {
-      currentUser: 'issa'
+      currentUser: 'issa', 
     },
     comments: { 
       data: {comments: [{
@@ -57,6 +57,7 @@ describe('Tests CommentsContainer', () => {
   });
   const props = {
     data: {},
+    isAuthenticated: 'issa',
     getCommentsAction: jest.fn(),
     createCommentAction: jest.fn(),
     slug: 'string'

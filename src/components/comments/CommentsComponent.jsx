@@ -5,6 +5,7 @@ import { Button, Row, Col } from 'react-bootstrap';
 import Replies from '../../views/comments/RepliesContainer';
 import DeleteComment from '../../views/comments/DeleteCommentContainer';
 import Edit from '../../views/comments/EditCommentContainer';
+import LikeComment from '../../views/comments/LikeCommentContainer';
 
 const ViewComments = ({ comments, slug, user }) => (
   comments.map((comment, index) => (
@@ -26,26 +27,48 @@ const ViewComments = ({ comments, slug, user }) => (
             </div>
             <p className="card-text">{comment.body}</p>
             <hr />
-            <Button variant="outline-success" className="card-link btn-comment" data-toggle="collapse" data-target={`#createreply-${comment.id}`}>
-              <i className="fas fa-share" />
-              {' '}
-              Reply
-            </Button>
-            <Button variant="outline-info" className="card-link btn-comment" data-toggle="collapse" data-target={`#replies-${comment.id}`}>              
-              <i className="fas fa-comment-alt" />
-              {' '}
-              <span className="comments-count">
-                {comment.replies.length}
-              </span>
-              {' '}
-                replies
-            </Button>
-            {user === comment.author.username ? (
-              <span>
-                <Button className="ml-5 card-link btn-comment" data-toggle="collapse" data-target={`#editComment-${comment.id}`}><i className="fas fa-edit" /></Button>
-                <DeleteComment slug={slug} id={comment.id} />
-              </span>
-            ): null }
+            <Row>
+              <Col xs="auto">
+                <Button 
+                  variant="outline-success" 
+                  className="card-link btn-comment" 
+                  data-toggle="collapse" 
+                  data-target={`#createreply-${comment.id}`}>
+                  <i className="fas fa-share" />
+                  {' '}
+                  Reply
+                </Button>
+                <Button 
+                  variant="outline-info" 
+                  className="card-link btn-comment" 
+                  data-toggle="collapse" 
+                  data-target={`#replies-${comment.id}`}>              
+                  <i className="fas fa-comment-alt" />
+                  {' '}
+                  <span className="comments-count">
+                    {comment.replies.length}
+                  </span>
+                  {' '}
+                  replies
+                </Button>
+              </Col>
+              <Col xs="auto" className="mt-2 text-center">
+                <LikeComment comment={comment} slug={slug} />  
+              </Col>
+              <Col xs="auto">
+                {user === comment.author.username ? (
+                  <span>
+                    <Button 
+                      className="ml-5 card-link btn-comment" 
+                      data-toggle="collapse" 
+                      data-target={`#editComment-${comment.id}`}>
+                      <i className="fas fa-edit" />
+                    </Button>
+                    <DeleteComment slug={slug} id={comment.id} />
+                  </span>
+                ): null }
+              </Col>
+            </Row>
             <div className="collapse mt-3" id={`editComment-${comment.id}`}>
               <Edit id={comment.id} slug={slug} placeholder={comment.body} />
             </div>
@@ -76,12 +99,25 @@ const ViewComments = ({ comments, slug, user }) => (
                     <p className="card-text">{reply.body}</p>
                   </div>
                   <hr />
-                  {user === reply.author.username ? (
-                    <span>
-                      <Button className="card-link btn-comment" data-toggle="collapse" data-target={`#editReply-${reply.id}`}><i className="fas fa-edit" /></Button>
-                      <DeleteComment slug={slug} id={reply.id} />
-                    </span>
-                  ): null }
+                  <Row>
+                    <Col xs="auto" className="mt-2">
+                      <LikeComment comment={reply} slug={slug} /> 
+                    </Col>
+                    <Col xs="auto">
+                      {user === reply.author.username ? (
+                        <span>
+                          <Button 
+                            className="card-link btn-comment" 
+                            data-toggle="collapse" 
+                            data-target={`#editReply-${reply.id}`}>
+                            <i className="fas fa-edit" />
+                          </Button>
+                          <DeleteComment slug={slug} id={reply.id} />
+                        </span>
+                      ): null }
+                    </Col>
+                  </Row>
+                  
                   <div className="collapse mt-3" id={`editReply-${reply.id}`}>
                     <Edit id={reply.id} slug={slug} placeholder={reply.body} />
                   </div>
