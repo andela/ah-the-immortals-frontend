@@ -1,0 +1,24 @@
+@import "./variables";
+
+.account {
+  border: $blue solid;
+  margin: 20%;
+  margin-left: 25%;
+  text-align: center;
+  width: 50%;
+}
+
+.account-load {
+  margin: 25%;
+  margin-left: 25%;
+  text-align: center;
+  width: 50%;
+}
+
+.acc-error {
+  color: $red;
+}
+
+.acc-success {
+  color: $green;
+}

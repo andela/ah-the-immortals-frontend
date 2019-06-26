@@ -18,6 +18,7 @@ import editarticle from './views/EditArticle/EditArticle';
 import Footer from './components/home/HomeFooter';
 import SearchPageContainer from './views/search/SearchPageContainer';
 import ViewUserProfile from './views/profiles/OtheUserContainer';
+import VerifyAccount from './views/Verifyaccount/VerifyAccountContainer';
 import appAction from './redux/actions/app.action';
 import ReportContainer from './views/Report/ReportContainer';
 import ReportsContainer from './views/Report/ReportsContainer';
@@ -61,6 +62,7 @@ class App extends Component {
               <Route exact path="/profile/:profile" component={ViewUserProfile} />
               <Route exact path="/report/:slug" component={ReportContainer} />
               <Route exact path="/reports" component={ReportsContainer}   />
+              <Route exact path="/api/users/activate/:token" component={VerifyAccount} />
               <Route component={PageNotFound} />
             </Switch>
             <Footer />
