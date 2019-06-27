@@ -12,19 +12,29 @@ import {
 } from '../constants/types';
 import ACTION_CONSTANTS from '../constants/constants';
 
-const {LIKE_SUCCESS,LIKE_FAILURE} =ACTION_CONSTANTS;
+const { LIKE_SUCCESS, LIKE_FAILURE, GET_HIGHLIGHTS_SUCCESS, GET_HIGHLIGHTS_FAILURE, CREATE_HIGHLIGHT_SUCCESS,
+  REMOVE_HIGHLIGHT_SUCCESS, UPDATE_HIGHLIGH_SUCCESS } = ACTION_CONSTANTS;
 
 const initialState = {
   posts: [],
   post: {},
-  pages:[],
-  pagination:{},
+  pages: [],
+  pagination: {},
   editpost: [],
   loading: false,
-  likeError:{}
+  likeError: {}
 };
-
+const checkHighlights = (post, highlights, action) => {
+  if (post.article.highlights) {
+    highlights = [...post.article.highlights.data.highlights].filter((highlight) => {
+      return highlight.id != action.payload.id;
+    });
+  }
+  return highlights;
+};
 export default function (state = initialState, action) {
+  let { post } = state;
+  let highlights = [];
   switch (action.type) {
   case POST_LOADING:
     return {
@@ -46,7 +56,7 @@ export default function (state = initialState, action) {
     return {
       ...state,
       posts: [
-        action.payload, 
+        action.payload,
         ...state.posts
       ]
     };
@@ -62,14 +72,14 @@ export default function (state = initialState, action) {
       loading: false
     };
   case LIKE_SUCCESS:
-    return{
+    return {
       ...state,
-      post:action.payload
+      post: action.payload
     };
   case LIKE_FAILURE:
-    return{
+    return {
       ...state,
-      likeError:action.payload 
+      likeError: action.payload
     };
   case GET_PAGES:
     return {
@@ -87,6 +97,86 @@ export default function (state = initialState, action) {
     return{
       ...state,
       post:action.payload
+    };
+  case GET_HIGHLIGHTS_SUCCESS:
+    return {
+      ...state,
+      post: {
+        article: {
+          ...post.article,
+          highlights: {
+            data: action.payload,
+            error: {}
+          }
+        },
+      }
+    };
+  case GET_HIGHLIGHTS_FAILURE:
+    return {
+      ...state,
+      post: {
+        article: {
+          ...post.article,
+          highlights: {
+            data: {},
+            error: action.payload
+          }
+        },
+      }
+    };
+  case CREATE_HIGHLIGHT_SUCCESS:
+    if (post.article.highlights) {
+      highlights = [...post.article.highlights.data.highlights];
+      highlights.push(action.payload.highlight);
+    }
+    return {
+      ...state,
+      post: {
+        article: {
+          ...post.article,
+          highlights: {
+            data: {
+              highlights: highlights
+            },
+            error: {}
+          }
+        },
+      }
+    };
+  case REMOVE_HIGHLIGHT_SUCCESS:
+    highlights=checkHighlights(post,highlights,action);
+    return {
+      ...state,
+      post: {
+        article: {
+          ...post.article,
+          highlights: {
+            data: {
+              highlights:highlights
+            },
+            error: {}
+          }
+        },
+      }
+    };
+  case UPDATE_HIGHLIGH_SUCCESS:
+    if (post.article.highlights) {
+      highlights=checkHighlights(post,highlights,action);
+      highlights.push(action.payload.data.highlight);
+    }
+    return {
+      ...state,
+      post: {
+        article: {
+          ...post.article,
+          highlights: {
+            data: {
+              highlights: highlights
+            },
+            error: {}
+          }
+        },
+      }
     };
   default:
     return state;

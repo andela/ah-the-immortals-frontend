@@ -13,7 +13,7 @@ const resetconfirmUrl = `${ROOT_URL}/users/password/reset/confirm/`;
 const commentUrl = `${ROOT_URL}/articles`;
 const likeCommentUrl = `${ROOT_URL}/articles/comments`;
 const token = window.localStorage.getItem('token');
-const authorization = token? { Authorization: `Bearer ${token}`}: {};
+const authorization = token ? { Authorization: `Bearer ${token}` } : {};
 const axiosHeader = {
   headers: {
     'content-type': 'application/json',
@@ -43,7 +43,7 @@ export const fetchProfileApi = (username) => axios.get(`${ROOT_URL}/profiles/${u
 const followersApi = (username, headers) => axios.get(`${ROOT_URL}/profiles/${username}/followers/`, headers);
 const followingApi = (username, headers) => axios.get(`${ROOT_URL}/profiles/${username}/follow/`, headers);
 export const otherProfileApi = (otherUser, headers) => axios.get(`${userProfileUrl}/${otherUser}`, headers);
-const followApi = (otherUser, headers) => axios.post(`${userProfileUrl}/${otherUser}/follow/`,{}, headers);
+const followApi = (otherUser, headers) => axios.post(`${userProfileUrl}/${otherUser}/follow/`, {}, headers);
 const unfollowApi = (otherUser, headers) => axios.delete(`${userProfileUrl}/${otherUser}/follow/`, headers);
 const notificationsApi = () => axios.get(`${ROOT_URL}/notifications/`, axiosHeader);
 const unreadApi = () => axios.get(`${ROOT_URL}/notifications/unread/`, axiosHeader);
@@ -62,6 +62,10 @@ const likeApi = (slug, type, option = undefined) => option == undefined ?
   axios.post(`${articlesUrl}/${slug}/${type}/`, {}, axiosHeader) :
   axios.delete(`${articlesUrl}/${slug}/${type}/`, axiosHeader);
 const getAllApi = () => axios.get(`${articlesUrl}/?page_limit=10000`);
+const getHighlightsApi = (slug) => axios.get(`${articlesUrl}/${slug}/highlight/`, axiosHeader);
+const createHighlightApi = (slug, data) => axios.post(`${articlesUrl}/${slug}/highlight/`, data, axiosHeader);
+const removeHighlightApi = (slug, id) => axios.delete(`${articlesUrl}/${slug}/highlight/${id}/`, axiosHeader);
+const updateHighlightApi = (data,slug,id)=>axios.patch(`${articlesUrl}/${slug}/highlight/${id}/`,data,axiosHeader);
 const APIS = {
   resetPasswordLinkAPI,
   resetconfirmPasswordAPI,
@@ -85,6 +89,10 @@ const APIS = {
   deleteApi,
   likeCommentApi,
   getAllApi,
+  getHighlightsApi,
+  createHighlightApi,
+  removeHighlightApi,
+  updateHighlightApi 
 };
 
 export default APIS;

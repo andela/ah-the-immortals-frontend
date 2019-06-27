@@ -4,61 +4,97 @@ import {
   GET_POSTS,
   GET_POST,
   POST_LOADING,
-  DELETE_POST, EDIT_POST,GET_PAGES,GET_PAGES_NEXT
+  DELETE_POST, EDIT_POST, GET_PAGES, GET_PAGES_NEXT
 
 } from '../../constants/types';
 import ACTION_CONSTANTS from '../../constants/constants';
 
-const { LIKE_SUCCESS, LIKE_FAILURE } = ACTION_CONSTANTS;
+const { LIKE_SUCCESS, LIKE_FAILURE, GET_HIGHLIGHTS_SUCCESS,
+  GET_HIGHLIGHTS_FAILURE, CREATE_HIGHLIGHT_SUCCESS, REMOVE_HIGHLIGHT_SUCCESS,
+  UPDATE_HIGHLIGH_SUCCESS, } = ACTION_CONSTANTS;
 const initialState = {
   posts: [],
   post: {},
-  pages:[],
-  pagination:{},
+  pages: [],
+  pagination: {},
   editpost: [],
   loading: false,
-  likeError:{}
+  likeError: {}
 };
-
+const updateData = {
+  ...initialState,
+  post: {
+    article: {
+      highlights: {
+        data: {
+          highlights: [{
+            id: 78,
+            highlighted_text: 'highlights'
+          }]
+        }
+      }
+    }
+  }
+};
+const noHighlightsState = {
+  ...initialState,
+  post: {
+    article: {}
+  }
+};
+const nohighlightResponse ={
+  ...noHighlightsState,
+  post: {
+    article: {
+      ...noHighlightsState.post.article,
+      highlights: {
+        data: {
+          highlights: []
+        },
+        error: {}
+      }
+    }
+  }
+};
 describe('article crud post tests', () => {
   it('returns original state', () => {
-    expect(postReducer({}, {type: 'TYPE'})).toEqual({});
+    expect(postReducer({}, { type: 'TYPE' })).toEqual({});
   });
   it('returns post loading', () => {
-    expect(postReducer({}, {type: 'POST_LOADING'})).toEqual({
+    expect(postReducer({}, { type: 'POST_LOADING' })).toEqual({
       loading: true
     });
   });
   it('returns get post loading', () => {
-    expect(postReducer({}, {type: 'GET_POST'}).loading).toEqual(false);
+    expect(postReducer({}, { type: 'GET_POST' }).loading).toEqual(false);
   });
   it('returns get posts loading', () => {
-    expect(postReducer({}, {type: 'GET_POSTS', payload: []})).toEqual({
+    expect(postReducer({}, { type: 'GET_POSTS', payload: [] })).toEqual({
       posts: [], loading: false
     });
   });
   it('returns get pages loading', () => {
-    expect(postReducer({}, {type: 'GET_PAGES', payload: []})).toEqual({
+    expect(postReducer({}, { type: 'GET_PAGES', payload: [] })).toEqual({
       pages: [], loading: false
     });
   });
   it('returns get pages and  pagination loading', () => {
-    expect(postReducer({}, {type: GET_PAGES_NEXT, payload: []})).toEqual({
+    expect(postReducer({}, { type: GET_PAGES_NEXT, payload: [] })).toEqual({
       pages: [], loading: false
     });
   });
   it('returns add post', () => {
     expect(postReducer({
       posts: []
-    }, {type: ADD_POST, payload: ''})).toEqual({posts: ['']});
+    }, { type: ADD_POST, payload: '' })).toEqual({ posts: [''] });
   });
   it('returns delete post', () => {
-    expect(postReducer({ posts: [{slug: 'hi-there'}]}, {type: DELETE_POST, payload: 'hi-there'})).toEqual({
+    expect(postReducer({ posts: [{ slug: 'hi-there' }] }, { type: DELETE_POST, payload: 'hi-there' })).toEqual({
       'posts': []
     });
   });
   it('returns edit post', () => {
-    expect(postReducer({}, {type: EDIT_POST, payload: ''})).toEqual({
+    expect(postReducer({}, { type: EDIT_POST, payload: '' })).toEqual({
       'editpost': ''
     });
   });
@@ -80,9 +116,159 @@ describe('article crud post tests', () => {
       likeError: {}
     });
   });
-  it('Checks for default inital state',()=>{
-    const result = postReducer(undefined,{
-      type:'UNEXISTING_ACTION'
+  it('Rates an article', () => {
+    const result = postReducer(initialState, {
+      type: 'RATE_ARTICLE',
+      payload: 'rate successfully'
+    });
+    expect(result).toEqual({
+      ...initialState,
+      post: 'rate successfully'
+    });
+  });
+  it('Getshighlights', () => {
+    const result = postReducer(initialState, {
+      type: GET_HIGHLIGHTS_SUCCESS,
+      payload: [{
+        id: 1,
+        field: 'body',
+        start_index: 0,
+        end_index: 3
+      }]
+    });
+    expect(result).toEqual({
+      ...initialState,
+      post: {
+        article: {
+          highlights: {
+            data: [{
+              id: 1,
+              field: 'body',
+              start_index: 0,
+              end_index: 3
+            }],
+            error: {}
+          }
+        }
+      }
+    });
+  });
+  it('Triggers get highlights failure', () => {
+    const result = postReducer(initialState, {
+      type: GET_HIGHLIGHTS_FAILURE,
+      payload: ['already highlighted this section']
+    });
+    expect(result).toEqual({
+      ...initialState,
+      post: {
+        article: {
+          highlights: {
+            data: {},
+            error: ['already highlighted this section']
+          }
+        }
+      }
+    });
+  });
+  it('Creates highlight successfully', () => {
+    const result = postReducer(updateData, {
+      type: CREATE_HIGHLIGHT_SUCCESS,
+      payload: {
+        highlight: {
+          highlightex_text: 'sample highlight'
+        }
+      }
+    });
+    const noHighlightResult = postReducer(noHighlightsState, {
+      type: CREATE_HIGHLIGHT_SUCCESS,
+      payload: []
+    });
+    expect(result).toEqual({
+      ...updateData,
+      post: {
+        article: {
+          highlights: {
+            data: {
+              highlights: [
+                ...updateData.post.article.highlights.data.highlights,
+                { highlightex_text: 'sample highlight' },
+              ]
+            },
+            error: {}
+          },
+        }
+      }
+    });
+    expect(noHighlightResult).toEqual(nohighlightResponse);
+  });
+  it('Updates highlight successfully', () => {
+    const result = postReducer(updateData, {
+      type: UPDATE_HIGHLIGH_SUCCESS,
+      payload: {
+        id: 2,
+        data: {
+          highlight: 'Sample higlight'
+        }
+      }
+    });
+    const noHighlightResult = postReducer(noHighlightsState, {
+      type: UPDATE_HIGHLIGH_SUCCESS,
+      payload: []
+    });
+    expect(noHighlightResult).toEqual(nohighlightResponse);
+    expect(result).toEqual({
+      ...updateData,
+      post: {
+        article: {
+          ...updateData.post.article,
+          highlights: {
+            data: {
+              highlights: [
+                ...updateData.post.article.highlights.data.highlights,
+                'Sample higlight'
+              ]
+            },
+            error: {}
+          }
+        }
+      }
+    });
+  });
+  it('Removes highlight successfully', () => {
+    const result = postReducer(updateData, {
+      type: REMOVE_HIGHLIGHT_SUCCESS,
+      payload: {
+        id: 2,
+        data: {
+          highlight: 'Sample higlight'
+        }
+      }
+    });
+    const noHighlightResult = postReducer(noHighlightsState, {
+      type: REMOVE_HIGHLIGHT_SUCCESS,
+      payload: []
+    });
+    expect(noHighlightResult).toEqual(nohighlightResponse);
+    expect(result).toEqual({
+      ...updateData,
+      post: {
+        article: {
+          ...updateData.post.article,
+          highlights: {
+            data: {
+              highlights: [
+                ...updateData.post.article.highlights.data.highlights
+              ]
+            },
+            error: {}
+          }
+        }
+      }
+    });
+  });
+  it('Checks for default inital state', () => {
+    const result = postReducer(undefined, {
+      type: 'UNEXISTING_ACTION'
     });
     expect(result).toEqual(initialState);
   });
