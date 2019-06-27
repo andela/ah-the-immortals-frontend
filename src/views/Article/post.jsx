@@ -90,7 +90,7 @@ class Post extends Component {
                 <div className="col-sm-8 text-left">
                   <div className="row">
                     <div className="col text-left">
-                      <img src={post[item].author.image} className="rounded-circle" alt="Cinque Terre" width="50" height="50" />
+                      <Link to={`/Profile/${post[item].author.username}`}><img src={post[item].author.image} className="rounded-circle" alt="Cinque Terre" width="50" height="50" /></Link>
                       {' '}
                       {post[item].author.username}
                     </div>
@@ -177,7 +177,7 @@ class Post extends Component {
                       highlightClassName="text-highlight"
                       searchWords={currentUser ? this.getHighlights(post[item], 'body') : []}
                       autoEscape
-                      textToHighlight={renderHTML(post[item].body)}
+                      textToHighlight={(post[item].body)}
                     />
                   </div>
                   <br />
@@ -185,7 +185,8 @@ class Post extends Component {
                   <div className="row text-muted">
                     <div className="col">
                       <i className="fas fa-tags fa-1x" aria-hidden="true"> 
-                        {' '}     
+                        {' '}
+                        {' '}
                         {post[item].tagList.map((singletag, j)=> (
                           <button key={`${j + 1}`} type="button" className="btn-sm btn-outline-info tag-btn">
                             {singletag}

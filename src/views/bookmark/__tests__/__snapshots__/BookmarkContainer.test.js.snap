@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test BookmarkContainer test view profile container snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(BookmarkContainer)
+        article={
+          Object {
+            "bookmarked": true,
+          }
+        }
+        handleClick={[MockFunction]}
+      >
+        <BookmarkContainer
+          article={
+            Object {
+              "bookmarked": true,
+            }
+          }
+          bookmarkAction={[Function]}
+          handleClick={[MockFunction]}
+          unbookmarkAction={[Function]}
+        >
+          <div>
+            <BookmarkComponent
+              article={
+                Object {
+                  "bookmarked": true,
+                }
+              }
+              handleClick={[Function]}
+            >
+              <div
+                className="bookmarked-icon"
+              >
+                <i
+                  className="fas fa-bookmark"
+                  onClick={[Function]}
+                />
+              </div>
+            </BookmarkComponent>
+          </div>
+        </BookmarkContainer>
+      </Connect(BookmarkContainer)>
+    </Router>
+  </BrowserRouter>
+</Provider>
+`;

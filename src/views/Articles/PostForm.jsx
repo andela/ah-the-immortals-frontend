@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactQuill, { Quill } from 'react-quill';
+import ReactQuill, { Quill,getText } from 'react-quill';
 import { WithContext as ReactTags } from 'react-tag-input';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -49,7 +49,7 @@ export class PostForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleBodyChange = event => {this.setState({body: event});};
+  handleBodyChange = (content,delta,source,editor) => {this.setState({body: editor.getText(content)});};
   handleDelete(i) {const { tags } = this.state;
     this.setState({tags: tags.filter((tag, index) => index !== i),});
   }
@@ -127,7 +127,6 @@ export class PostForm extends Component {
                             <ReactQuill
                               modules={PostForm.modules}
                               formats={PostForm.formats}
-                              value={body}
                               id="Body-text"
                               placeholder="What do you want to talk about"
                               name="body"
