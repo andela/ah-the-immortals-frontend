@@ -138,63 +138,37 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
           <div
             className="col"
           >
-            <TopRatedArticles>
-              <div
-                className="quotes position-fixed cardwidth cardmargins"
+            <Connect(Articles)>
+              <Articles
+                allArticles={
+                  Object {
+                    "articles": Array [],
+                    "error": Object {},
+                  }
+                }
+                getAllArticles={[Function]}
               >
-                <div
-                  className="box box1"
-                >
-                  <h5>
-                    TOP RATED ARTICLES
-                  </h5>
-                  <hr />
-                  <Link
-                    to="#null"
+                <div>
+                  <TopRatedArticles
+                    topArticles={Array []}
                   >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
+                    <div
+                      className="quotes position-fixed cardwidth cardmargins"
                     >
-                      Cras justo odio
-                    </a>
-                  </Link>
-                  <hr />
-                  <Link
-                    to="#null"
-                  >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
-                    >
-                      Dapibus ac facilisis in
-                    </a>
-                  </Link>
-                  <hr />
-                  <Link
-                    to="#null"
-                  >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
-                    >
-                      Vestibulum at eros
-                    </a>
-                  </Link>
-                  <hr />
-                  <Link
-                    to="#null"
-                  >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
-                    >
-                      Vestibulum at eros
-                    </a>
-                  </Link>
+                      <div
+                        className="box box1"
+                      >
+                        <h6>
+                          <b>
+                            TOP RATED ARTICLES
+                          </b>
+                        </h6>
+                      </div>
+                    </div>
+                  </TopRatedArticles>
                 </div>
-              </div>
-            </TopRatedArticles>
+              </Articles>
+            </Connect(Articles)>
           </div>
           <div
             className="col"
@@ -269,63 +243,37 @@ exports[`Tests PasswordResetConfirmContainer Test mounting of component 1`] = `
           <div
             className="col mt-2"
           >
-            <PopularArticles>
-              <div
-                className="quotes position-fixed cardwidth"
+            <Connect(PopularArticlesContainer)>
+              <PopularArticlesContainer
+                allArticles={
+                  Object {
+                    "articles": Array [],
+                    "error": Object {},
+                  }
+                }
+                getAllArticles={[Function]}
               >
-                <div
-                  className="box box1"
-                >
-                  <h5>
-                    POPULAR ARTICLES
-                  </h5>
-                  <hr />
-                  <Link
-                    to="#null"
+                <div>
+                  <PopularArticles
+                    likesCount={Array []}
                   >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
+                    <div
+                      className="quotes position-fixed cardwidth"
                     >
-                      Cras justo odio
-                    </a>
-                  </Link>
-                  <hr />
-                  <Link
-                    to="#null"
-                  >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
-                    >
-                      Dapibus ac facilisis in
-                    </a>
-                  </Link>
-                  <hr />
-                  <Link
-                    to="#null"
-                  >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
-                    >
-                      Vestibulum at eros
-                    </a>
-                  </Link>
-                  <hr />
-                  <Link
-                    to="#null"
-                  >
-                    <a
-                      href="/#null"
-                      onClick={[Function]}
-                    >
-                      Vestibulum at eros
-                    </a>
-                  </Link>
+                      <div
+                        className="box box1"
+                      >
+                        <h6>
+                          <b>
+                            POPULAR ARTICLES
+                          </b>
+                        </h6>
+                      </div>
+                    </div>
+                  </PopularArticles>
                 </div>
-              </div>
-            </PopularArticles>
+              </PopularArticlesContainer>
+            </Connect(PopularArticlesContainer)>
           </div>
         </div>
       </div>

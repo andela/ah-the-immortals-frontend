@@ -1,20 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const TopRatedArticles = () => (
-  <div className="quotes position-fixed cardwidth cardmargins">
-    <div className="box box1">
-      <h5>TOP RATED ARTICLES</h5>
-      <hr />
-      <Link to="#null">Cras justo odio</Link>
-      <hr />
-      <Link to="#null">Dapibus ac facilisis in</Link>
-      <hr />
-      <Link to="#null">Vestibulum at eros</Link>
-      <hr />
-      <Link to="#null">Vestibulum at eros</Link>
+const TopRatedArticles = ({ topArticles }) => {
+  return (
+    <div className="quotes position-fixed cardwidth cardmargins">
+      <div className="box box1">
+        <h6><b>TOP RATED ARTICLES</b></h6>
+        {topArticles.map((article) => (
+          <div key={article.slug}>
+            <hr className="art-line" />
+            <Link to={`/post/${article.slug}`} className="art-title">
+              {article.title}
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+TopRatedArticles.propTypes = {
+  topArticles: PropTypes.array.isRequired,
+};
 
 export default TopRatedArticles;

@@ -534,7 +534,18 @@ label {
 
 .cardwidth {
     width: 18rem;
+    bottom: 10%;
 }
+
+.art-line {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.art-title {
+    font-size: 100%;
+}
+
 .cardmargins {
     margin-right: auto;
     margin-left: 5%;

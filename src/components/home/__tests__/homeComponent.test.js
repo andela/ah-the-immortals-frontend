@@ -17,7 +17,11 @@ describe('Tests PasswordResetConfirmContainer', () => {
       pages:[],
       pagination:{},
       editpost: [],
-      loading: false}
+      loading: false},
+    allArticles:{
+      articles: [],
+      error: {}
+    }
   });
   const history = createBrowserHistory();
   const wrapper = mount(
