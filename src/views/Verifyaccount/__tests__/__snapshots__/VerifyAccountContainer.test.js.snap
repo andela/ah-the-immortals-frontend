@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests VerifyAccountContainer tests mounting of container 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Provider
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Connect(VerifyAccount)
+      error={
+        Object {
+          "response": Object {
+            "message": "fail",
+          },
+        }
+      }
+      history={
+        Object {
+          "push": [MockFunction],
+        }
+      }
+      isLoading={false}
+      match={
+        Object {
+          "params": Object {
+            "token": "hbchujhb8g7g48y2uby82",
+          },
+        }
+      }
+      verifyAccountAction={[MockFunction]}
+    >
+      <VerifyAccount
+        error={
+          Object {
+            "response": Object {
+              "message": "fail",
+            },
+          }
+        }
+        history={
+          Object {
+            "push": [MockFunction],
+          }
+        }
+        isLoading={false}
+        match={
+          Object {
+            "params": Object {
+              "token": "hbchujhb8g7g48y2uby82",
+            },
+          }
+        }
+        verifyAccountAction={[Function]}
+      >
+        <div>
+          <div
+            className="account"
+          >
+            <h1>
+              Account Activation
+            </h1>
+            <div>
+              <div
+                className="mb-3"
+              >
+                <p
+                  className="acc-error"
+                >
+                  Oops! Something went wrong.
+                </p>
+                <Button
+                  active={false}
+                  disabled={false}
+                  id="try"
+                  onClick={[Function]}
+                  type="button"
+                  variant="danger"
+                >
+                  <button
+                    className="btn btn-danger"
+                    disabled={false}
+                    id="try"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    TRY AGAIN!
+                  </button>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </VerifyAccount>
+    </Connect(VerifyAccount)>
+  </Provider>
+</Router>
+`;

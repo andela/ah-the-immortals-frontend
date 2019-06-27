@@ -33,6 +33,7 @@ const getCommentsApi = (slug) => axios.get(`${commentUrl}/${slug}/comments/`, ax
 const deleteCommentApi = (slug, id ) => axios.delete(`${commentUrl}/${slug}/comments/${id}/`, axiosHeader);
 const editCommentApi = (data, slug, id ) => axios.put(`${commentUrl}/${slug}/comments/${id}/`, data, axiosHeader);
 const likeCommentApi = (id, vote_type) => axios.post(`${likeCommentUrl}/${id}/${vote_type}/`, {}, axiosHeader);
+const verifyAccountApi = (token) => axios.get(`${signupUrl}activate/${token}`);
 
 const articlesUrl = `${ROOT_URL}/articles`;
 export const profileApi = (data, username, headers) => axios.patch(
@@ -93,7 +94,8 @@ const APIS = {
   getHighlightsApi,
   createHighlightApi,
   removeHighlightApi,
-  updateHighlightApi 
+  updateHighlightApi, 
+  verifyAccountApi,
 };
 
 export default APIS;

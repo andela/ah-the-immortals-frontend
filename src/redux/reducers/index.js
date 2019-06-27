@@ -17,6 +17,7 @@ import Bookmarks from './listBookmarks.reducer';
 import allArticlesReducer from './allArticles.reducer';
 import highlightReduer from './Highlight.reducer';
 import highlightModalReduer from './HighlightModal.reducer';
+import VerifyAccountReducer from './verifyAccount.reducer';
 
 export default combineReducers({
   resetpasswordlink: resetPasswordLinkReducer,
@@ -37,5 +38,6 @@ export default combineReducers({
   bookmarks: Bookmarks,
   allArticles: allArticlesReducer,
   highlight:highlightReduer,
-  highlightmodal:highlightModalReduer
+  highlightmodal:highlightModalReduer,
+  verification: VerifyAccountReducer,
 });
