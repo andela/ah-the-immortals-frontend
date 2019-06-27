@@ -4,7 +4,9 @@ import {
   GET_POSTS,
   GET_POST,
   POST_LOADING,
-  DELETE_POST, EDIT_POST, GET_PAGES, GET_PAGES_NEXT
+  DELETE_POST, EDIT_POST,GET_PAGES,GET_PAGES_NEXT,REPORT_POST,
+  GET_REPORTS,
+  DELETE_REPORT
 
 } from '../../constants/types';
 import ACTION_CONSTANTS from '../../constants/constants';
@@ -19,7 +21,11 @@ const initialState = {
   pagination: {},
   editpost: [],
   loading: false,
-  likeError: {}
+  likeError:{},
+  Report:[],
+  AllReports:{
+    'escalated articles':[]
+  },
 };
 const updateData = {
   ...initialState,
@@ -55,6 +61,7 @@ const nohighlightResponse ={
       }
     }
   }
+ 
 };
 describe('article crud post tests', () => {
   it('returns original state', () => {
@@ -87,6 +94,21 @@ describe('article crud post tests', () => {
     expect(postReducer({
       posts: []
     }, { type: ADD_POST, payload: '' })).toEqual({ posts: [''] });
+  });
+  it('returns  report', () => {
+    expect(postReducer({
+      Report:[]
+    }, {type: REPORT_POST, payload: ''})).toEqual({Report:'', loading: false});
+  });
+  it('returns all reports', () => {
+    expect(postReducer({
+      AllReports:{},
+    }, {type: GET_REPORTS, payload: ''})).toEqual({ AllReports:'', loading: false});
+  });
+  it('returns delete report', () => {
+    expect(postReducer({ posts: [{slug: 'say-more'}]}, {type: DELETE_REPORT, payload: 'say-more'})).toEqual({
+      'posts': []
+    });
   });
   it('returns delete post', () => {
     expect(postReducer({ posts: [{ slug: 'hi-there' }] }, { type: DELETE_POST, payload: 'hi-there' })).toEqual({

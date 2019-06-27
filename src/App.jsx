@@ -19,6 +19,8 @@ import Footer from './components/home/HomeFooter';
 import SearchPageContainer from './views/search/SearchPageContainer';
 import ViewUserProfile from './views/profiles/OtheUserContainer';
 import appAction from './redux/actions/app.action';
+import ReportContainer from './views/Report/ReportContainer';
+import ReportsContainer from './views/Report/ReportsContainer';
 
 const history = createBrowserHistory;
 class App extends Component {
@@ -57,6 +59,8 @@ class App extends Component {
               <Route exact path="/edit/:slug" component={editarticle} />
               <Route exact path="/search-page" component={SearchPageContainer} />
               <Route exact path="/profile/:profile" component={ViewUserProfile} />
+              <Route exact path="/report/:slug" component={ReportContainer} />
+              <Route exact path="/reports" component={ReportsContainer}   />
               <Route component={PageNotFound} />
             </Switch>
             <Footer />
