@@ -37,6 +37,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
       }
     >
       <Connect(ViewProfile)
+        bookmarks={Object {}}
         match={
           Object {
             "isExact": true,
@@ -49,6 +50,7 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
         }
       >
         <ViewProfile
+          bookmarks={Object {}}
           data={
             Object {
               "count": 0,
@@ -246,6 +248,17 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                             0 
                           </b>
                           Following
+                        </a>
+                      </li>
+                      <li
+                        className="nav-item"
+                      >
+                        <a
+                          className="nav-link"
+                          data-toggle="tab"
+                          href="#bookmarks"
+                        >
+                          Bookmarks
                         </a>
                       </li>
                     </ul>
@@ -581,6 +594,36 @@ exports[`Test view profile container test view profile container snapshot 1`] = 
                             </div>
                           </FollowersContainer>
                         </Connect(FollowersContainer)>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="bookmarks"
+                      >
+                        <Connect(BookMarkedArticles)>
+                          <BookMarkedArticles
+                            bookmarks={
+                              Object {
+                                "bookmarks": Array [],
+                              }
+                            }
+                            errors={
+                              Object {
+                                "bookmarks": Array [],
+                              }
+                            }
+                            listBookmarks={[Function]}
+                          >
+                            <div
+                              className="container-fluid profile-articles-container"
+                            >
+                              <div
+                                className="list_bookmarks"
+                              >
+                                You have not bookmarked any article
+                              </div>
+                            </div>
+                          </BookMarkedArticles>
+                        </Connect(BookMarkedArticles)>
                       </div>
                     </div>
                   </div>

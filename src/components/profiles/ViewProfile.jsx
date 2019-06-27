@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
 import { Container, Button } from 'react-bootstrap';
 import profileImage from '../../services/images/profile.png';
 import EditProfile from '../../views/profiles/EditProfile';
@@ -11,10 +9,12 @@ import createBrowserHistory from '../../services/history';
 import FollowersContainer from '../../views/profiles/FollowersContainer';
 import FollowingContainer from '../../views/profiles/FollowingContainer';
 import ProfileArticlesContainer from '../../views/profiles/ProfileArticlesContainer';
+import BookMarkedArticles from '../../views/profiles/ListBookmarksContainer';
 
 const history = createBrowserHistory;
 const ProfileView = (props) => {
   const { username, firstName, lastName, bio, image, following, followers, articles, match } = props;
+  
   const loggedIn = isLoggedIn();
   if (!loggedIn) {
     history.push('/');
@@ -88,6 +88,11 @@ const ProfileView = (props) => {
                 Following
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" data-toggle="tab" href="#bookmarks">
+                Bookmarks
+              </a>
+            </li>
           </ul>
           <div id="myTabContent" className="tab-content profile-content-articles">
             <div className="tab-pane fade active show" id="home">             
@@ -101,6 +106,9 @@ const ProfileView = (props) => {
             </div>
             <div className="tab-pane fade" id="followers">
               <FollowersContainer match={match} />
+            </div>
+            <div className="tab-pane fade" id="bookmarks">             
+              <BookMarkedArticles />
             </div>
           </div>
         </div>

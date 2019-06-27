@@ -7,8 +7,6 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ViewProfile from '../../../views/profiles/ViewProfile';
 import { userFollowersAction, userFollowingAction, followAction, unfollowAction } from '../userFollow.action';
-import { fetchProfile, editProfile, getProfile } from '../profile.actions';
-import tokenDecoded from '../../../services/tokenDecoder';
 
 describe('Test userfollow actions', () => {
 
@@ -47,6 +45,9 @@ describe('Test userfollow actions', () => {
         ],
         error: {},
         userCount: 0
+      },
+      bookmarks: {
+        bookmarks: [{slug: 'this-slug'}]
       }
     });
   const ROOT_URL = process.env.REACT_APP_BASE_URL;

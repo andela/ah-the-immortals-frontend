@@ -7,6 +7,7 @@ import Footer from '../home/HomeFooter';
 import ProfileArticlesContainer from '../../views/profiles/ProfileArticlesContainer';
 import FollowersContainer from '../../views/profiles/FollowersContainer';
 import FollowingContainer from '../../views/profiles/FollowingContainer';
+import BookMarkedArticles from '../../views/profiles/ListBookmarksContainer';
 
 const UserProfileView = (props) => {
   const { username, firstName, lastName, bio, image, articles, following, followings, followers, handleFollow, match } = props;
