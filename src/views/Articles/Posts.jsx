@@ -10,6 +10,7 @@ import articlesUrl from '../../services/api';
 import '../../styles/App.css';
 import '../../styles/pagination.scss';
 import PaginationContainer from '../Pagination/PaginationContainer';
+import BookmarkContainer from '../bookmark/BookmarkContainer';
 
 
 
@@ -59,9 +60,7 @@ class Posts extends Component {
                       <div className="title-header">
                         {article.title}
                         <div className="timer">
-                          <div className="bookmark">
-                            <i className="far fa-bookmark" />
-                          </div>
+                          <BookmarkContainer article={article} />
                           <span className="readingTime">
                             {article.readtime}
                           </span>

@@ -521,7 +521,12 @@ label {
     text-align: left;
     position: absolute;
 }
-
+.bookmarked-icon{
+    fill:dodgerblue;
+    text-align: left;
+    position: absolute;
+    color: dodgerblue;
+}
 .readingTime{
     font-weight: 400!important;
     font-style: normal!important;

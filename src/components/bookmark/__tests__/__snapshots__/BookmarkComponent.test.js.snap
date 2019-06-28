@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test BookmarkComponent test view profile container snapshot 1`] = `
+<BookmarkComponent
+  article={
+    Object {
+      "bookmarked": true,
+    }
+  }
+  handleClick={[Function]}
+>
+  <div
+    className="bookmarked-icon"
+  >
+    <i
+      className="fas fa-bookmark"
+      onClick={[Function]}
+    />
+  </div>
+</BookmarkComponent>
+`;

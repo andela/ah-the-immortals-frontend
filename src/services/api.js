@@ -35,7 +35,7 @@ const editCommentApi = (data, slug, id ) => axios.put(`${commentUrl}/${slug}/com
 const likeCommentApi = (id, vote_type) => axios.post(`${likeCommentUrl}/${id}/${vote_type}/`, {}, axiosHeader);
 const verifyAccountApi = (token) => axios.get(`${signupUrl}activate/${token}`);
 
-const articlesUrl = `${ROOT_URL}/articles`;
+export const articlesUrl = `${ROOT_URL}/articles`;
 export const profileApi = (data, username, headers) => axios.patch(
   `${ROOT_URL}/profiles/${username}/`,
   data,
@@ -111,11 +111,11 @@ export const CurrentUser = userData ? userData.user_data.username : null;
 
 
 export const postArticleApi = (postData) => axios.post(`${articlesUrl}/`, postData, axiosHeader);
-export const getPostsApi = () => axios.get(articlesUrl);
+export const getPostsApi = () => axios.get(articlesUrl, axiosHeader);
 export const getSingleArticle = (slug) => axios.get(`${articlesUrl}/${slug}`, axiosHeader);
 
-export const getPagesApi = (url) => axios.get(articlesUrl);
-export const getNextPageApi = (url) => axios.get(url);
+export const getPagesApi = (url) => axios.get(articlesUrl,axiosHeader);
+export const getNextPageApi = (url) => axios.get(url, axiosHeader);
 export const deleteArticleApi = (slug) => {
   return axios.delete(`${articlesUrl}/${slug}`, axiosHeader);
 };
@@ -129,4 +129,8 @@ export const reportArticleApi = (slug, postData) => axios.post(`${reportUrl}/${s
 export const getreportsApi = () => axios.get(`${reportUrl}/escalate/`,axiosHeader);
 export const deleteReportApi = (slug) => {
   return axios.delete(`${reportUrl}/${slug}/escalate/`, axiosHeader);
+};
+export const bookmarkArticleApi = (slug) => axios.post(`${articlesUrl}/${slug}/bookmark/`,{} ,axiosHeader);
+export const unbookmarkArticleApi = (slug) => {
+  return axios.delete(`${articlesUrl}/bookmark/${slug}/`,axiosHeader);
 };
