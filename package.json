@@ -73,7 +73,7 @@
     "img-loader": "^3.0.1",
     "jest": "^24.8.0",
     "jquery": "^3.4.1",
-    "jsdom": "^14.1.0",
+    "jsdom": "^16.5.0",
     "jwt-decode": "^2.2.0",
     "mdbreact": "^4.16.0",
     "moment": "^2.24.0",
